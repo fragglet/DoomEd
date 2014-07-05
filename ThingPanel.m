@@ -504,7 +504,7 @@ id	thingpanel_i;
 	return self;
 }
 
-- (NXColor)getThingColor:(int)type
+- (NSColor *)getThingColor:(int)type
 {
 	int	index;
 	

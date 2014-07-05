@@ -9,7 +9,7 @@ typedef struct
 {
 	char		name[32];
 	char		iconname[9];
-	NXColor	color;
+	NSColor	*color;
 	int		value, option,angle;
 } thinglist_t;
 
@@ -55,7 +55,7 @@ typedef struct
 - updateThingData:sender;
 - sortThings;
 - setAngle:sender;
-- (NXColor)getThingColor:(int)type;
+- (NSColor *)getThingColor:(int)type;
 - fillThingData:(thinglist_t *)thing;
 - fillDataFromThing:(thinglist_t *)thing;
 - fillAllDataFromThing:(thinglist_t *)thing;

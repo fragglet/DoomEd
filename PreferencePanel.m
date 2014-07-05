@@ -76,7 +76,7 @@ int			openupValues[NUMOPENUP];
 	return self;
 }
 
-- getColor: (NXColor *)clr fromString: (char const *)string
+- getColor: (NSColor *)clr fromString: (char const *)string
 {
 	float	r,g,b;
 	
@@ -85,7 +85,7 @@ int			openupValues[NUMOPENUP];
 	return self;
 }
 
-- getString: (char *)string fromColor: (NXColor *)clr
+- getString: (char *)string fromColor: (NSColor *)clr
 {
 	char		temp[40];
 	float	r,g,b;
@@ -271,7 +271,7 @@ int			openupValues[NUMOPENUP];
 	return self;
 }
 
-- (NXColor)colorFor: (int)ucolor
+- (NSColor *)colorFor: (int)ucolor
 {
 	return color[ucolor];
 }
