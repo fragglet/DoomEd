@@ -85,7 +85,7 @@
 	
 	do 
 	{
-		event = [NXApp getNextEvent: NX_MOUSEUPMASK | NX_RMOUSEUPMASK | NX_MOUSEDRAGGEDMASK | NX_RMOUSEDRAGGEDMASK];
+		event = [NSApp getNextEvent: NX_MOUSEUPMASK | NX_RMOUSEUPMASK | NX_MOUSEDRAGGEDMASK | NX_RMOUSEDRAGGEDMASK];
 		if (event->type == NX_MOUSEUP || event->type == NX_RMOUSEUP)
 			break;
 			
@@ -246,7 +246,7 @@
 		PSstroke ();
 		NXPing ();
 		
-		event = [NXApp getNextEvent: NX_LMOUSEUPMASK | NX_LMOUSEDRAGGEDMASK];
+		event = [NSApp getNextEvent: NX_LMOUSEUPMASK | NX_LMOUSEDRAGGEDMASK];
 	} while (event->type != NX_LMOUSEUP);
 	
 //
@@ -296,7 +296,7 @@
 //
 	do
 	{
-		event = [NXApp getNextEvent: NX_LMOUSEUPMASK];
+		event = [NSApp getNextEvent: NX_LMOUSEUPMASK];
 	} while (event->type != NX_LMOUSEUP);
 
 //
@@ -310,7 +310,7 @@
 	
 		do 
 		{
-			event = [NXApp getNextEvent: NX_LMOUSEDOWNMASK | NX_LMOUSEUPMASK | NX_MOUSEMOVEDMASK | NX_LMOUSEDRAGGEDMASK];
+			event = [NSApp getNextEvent: NX_LMOUSEDOWNMASK | NX_LMOUSEUPMASK | NX_MOUSEMOVEDMASK | NX_LMOUSEDRAGGEDMASK];
 			[self getGridPoint: &dragpoint  from: event];  // handle grid and sutch
 			if (event->type == NX_LMOUSEUP)
 				break;
@@ -456,7 +456,7 @@
 	
 	do 
 	{		
-		event = [NXApp getNextEvent: NX_LMOUSEUPMASK | NX_LMOUSEDRAGGEDMASK];
+		event = [NSApp getNextEvent: NX_LMOUSEUPMASK | NX_LMOUSEDRAGGEDMASK];
 		if ( event->type == NX_LMOUSEUP)
 			break;
 		//
@@ -600,7 +600,7 @@
 		NXFrameRectWithWidth(&newframe, FRAMEWIDTH);
 		NXPing ();
 		
-		event = [NXApp getNextEvent: NX_LMOUSEUPMASK | NX_LMOUSEDRAGGEDMASK];
+		event = [NSApp getNextEvent: NX_LMOUSEUPMASK | NX_LMOUSEDRAGGEDMASK];
 		
 	} while (event->type != NX_LMOUSEUP);
 

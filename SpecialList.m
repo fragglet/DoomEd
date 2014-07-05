@@ -68,7 +68,7 @@
 {
 	if (!specialPanel_i)
 	{
-		[NXApp 
+		[NSApp 
 			loadNibSection:	"SpecialList.nib"
 			owner:			self
 			withNames:		NO

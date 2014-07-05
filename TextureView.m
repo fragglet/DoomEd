@@ -188,7 +188,7 @@
 	
 	do
 	{
-		event = [NXApp getNextEvent:	NX_MOUSEUPMASK |									NX_MOUSEDRAGGEDMASK];
+		event = [NSApp getNextEvent:	NX_MOUSEUPMASK |									NX_MOUSEDRAGGEDMASK];
 		newloc = event->location;
 		[self convertPoint:&newloc  fromView:NULL];
 		warn = 0;

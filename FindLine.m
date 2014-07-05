@@ -35,7 +35,7 @@
 \gray0\fc0\cf0 \{\
 	if (!window_i)\
 	\{\
-		[NXApp \
+		[NSApp \
 			loadNibSection:	"FindLine.nib"\
 			owner:			self\
 			withNames:		NO\

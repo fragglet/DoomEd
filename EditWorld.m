@@ -461,7 +461,7 @@ int LineByPoint (NXPoint *ptin, int *side)
 
 - print: sender
 {
-	[[[NXApp mainWindow] mapView] printPSCode: sender];
+	[[[NSApp mainWindow] mapView] printPSCode: sender];
 	
 	return self;
 }
@@ -1018,7 +1018,7 @@ FIXME: make these scan for deleted entries
 	NSRect	r;
 	copyline_t	cl;
 	
-	[[[NXApp mainWindow]	contentView]	getDocVisibleRect:&r];
+	[[[NSApp mainWindow]	contentView]	getDocVisibleRect:&r];
 	copyCoord = r.origin;
 	[copyThings_i		empty];
 	[copyLines_i		empty];
@@ -1158,7 +1158,7 @@ FIXME: make these scan for deleted entries
 	NXPoint	p1,p2;
 
 	[self	copyDeselect];	
-	[[[NXApp	mainWindow]	contentView]	getDocVisibleRect:&r];
+	[[[NSApp	mainWindow]	contentView]	getDocVisibleRect:&r];
 	if (copyLoaded)
 	{
 		copyCoord = [self	findCopyCenter];
@@ -1288,7 +1288,7 @@ Updates dirty rect based on old and new positions
 	{
 		NXRunAlertPanel ("Error","Sent point %i with numpoints %i!"
 			,NULL,NULL,NULL, num, numpoints);
-		[NXApp terminate:self];
+		[NSApp terminate:self];
 	}
 	
 	points[num] = *data;
@@ -1326,7 +1326,7 @@ Updates dirty rect based on old and new positions
 	if (num >= numlines)
 	{
 		NXRunAlertPanel ("Error","Sent line %i with numlines %i!",NULL,NULL,NULL, num, numlines);
-		[NXApp terminate:self];
+		[NSApp terminate:self];
 	}
 	
 // mark the old position of the line as dirty
@@ -1371,7 +1371,7 @@ Updates dirty rect based on old and new positions
 	if (num >= numthings)
 	{
 		NXRunAlertPanel ("Error","Sent thing %i with numthings %i!",NULL,NULL,NULL, num, numthings);
-		[NXApp terminate:self];
+		[NSApp terminate:self];
 	}
 	
 // mark the old position as dirty

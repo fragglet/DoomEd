@@ -13,7 +13,7 @@
 
 - initTitle:(char *)title
 {
-	window_i =	[NXApp 
+	window_i =	[NSApp 
 				loadNibSection:	"TextLog.nib"
 				owner:			self
 				withNames:		NO

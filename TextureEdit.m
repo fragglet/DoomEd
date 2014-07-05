@@ -50,7 +50,7 @@ id	texturePatches;
 		NXPoint	startPoint;
 		int		ns, i;
 		
-		[NXApp 
+		[NSApp 
 			loadNibSection:	"TextureEdit.nib"
 			owner:			self
 			withNames:		NO
@@ -733,7 +733,7 @@ id	texturePatches;
 	// create a default new texture
 	//
 	
-	rcode = [NXApp	runModalFor:createTexture_i];
+	rcode = [NSApp	runModalFor:createTexture_i];
 	[createTexture_i	close];
 	if (rcode == NX_RUNABORTED)
 		return self;
@@ -794,7 +794,7 @@ id	texturePatches;
 	if (	[createWidth_i	intValue] &&
 		[createHeight_i	intValue] &&
 		strlen([createName_i	stringValue]))
-		[NXApp	stopModal];
+		[NSApp	stopModal];
 	else
 		NXBeep();
 
@@ -826,7 +826,7 @@ id	texturePatches;
 
 - createTextureAbort:sender
 {
-	[NXApp	abortModal];
+	[NSApp	abortModal];
 	return self;
 }
 

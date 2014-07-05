@@ -39,7 +39,7 @@ id	thingPalette_i;
 
 	if (!window_i)
 	{
-		[NXApp 
+		[NSApp 
 			loadNibSection:	"ThingPalette.nib"
 			owner:			self
 			withNames:		NO

@@ -17,7 +17,7 @@
 {
 	if (!thingStripPanel_i)
 	{
-		[NXApp 
+		[NSApp 
 			loadNibSection:	"ThingStripper.nib"
 			owner:			self
 			withNames:		NO

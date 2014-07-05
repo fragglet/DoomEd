@@ -90,7 +90,7 @@ id	lineSpecialPanel_i;
 {
 	if (!window_i)
 	{
-		[NXApp 
+		[NSApp 
 			loadNibSection:	"line.nib"
 			owner:			self
 			withNames:		NO

@@ -27,7 +27,7 @@ static	int	cornerx = 128, cornery = 64;
 //
 // set up the window
 //		
-	[NXApp getScreenSize: &screensize];
+	[NSApp getScreenSize: &screensize];
 	if (cornerx + newsize.width > screensize.width - 70)
 		cornerx = 128;
 	if (cornery + newsize.height > screensize.height - 70)

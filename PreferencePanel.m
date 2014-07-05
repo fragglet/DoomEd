@@ -205,7 +205,7 @@ int			openupValues[NUMOPENUP];
 	
 	if (!window_i)
 	{
-		[NXApp 
+		[NSApp 
 			loadNibSection:	"preferences.nib"
 			owner:			self
 			withNames:		NO
@@ -259,7 +259,7 @@ int			openupValues[NUMOPENUP];
 		color[i] = [colorwell[i] color];
 
 // update all windows
-	list = [NXApp windowList];
+	list = [NSApp windowList];
 	i = [list count];
 	while (--i >= 0)
 	{

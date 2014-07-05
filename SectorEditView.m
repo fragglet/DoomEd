@@ -82,7 +82,7 @@
 			yoff = loc.y - r.origin.y;
 			do
 			{
-				event = [NXApp getNextEvent: NX_MOUSEUPMASK |									NX_MOUSEDRAGGEDMASK];
+				event = [NSApp getNextEvent: NX_MOUSEUPMASK |									NX_MOUSEDRAGGEDMASK];
 				loc = event->location;
 				[self convertPoint:&loc	fromView:NULL];
 				ny = (2 * (loc.y - yoff)) - 100;
@@ -110,7 +110,7 @@
 			yoff = (r.origin.y + r.size.height) - loc.y;
 			do
 			{
-				event = [NXApp getNextEvent: NX_MOUSEUPMASK |									NX_MOUSEDRAGGEDMASK];
+				event = [NSApp getNextEvent: NX_MOUSEUPMASK |									NX_MOUSEDRAGGEDMASK];
 				loc = event->location;
 				[self convertPoint:&loc	fromView:NULL];
 				ny = (2 * (loc.y + yoff)) - 100;

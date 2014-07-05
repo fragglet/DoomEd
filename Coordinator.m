@@ -35,7 +35,7 @@ BOOL	debugflag = NO;
 	id	list, win;
 	
 // update all windows
-	list = [NXApp windowList];
+	list = [NSApp windowList];
 	i = [list count];
 	while (--i >= 0)
 	{

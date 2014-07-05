@@ -50,7 +50,7 @@ id	thingpanel_i;
 {
 	if (!window_i)
 	{
-		[NXApp 
+		[NSApp 
 			loadNibSection:	"thing.nib"
 			owner:			self
 			withNames:		NO

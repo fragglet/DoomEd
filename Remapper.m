@@ -26,7 +26,7 @@
 	
 	if (! remapPanel_i )
 	{
-		[NXApp 
+		[NSApp 
 			loadNibSection:	"Remapper.nib"
 			owner:			self
 			withNames:		NO

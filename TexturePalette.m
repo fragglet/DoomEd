@@ -76,7 +76,7 @@ id	texturePalette_i;
 		
 	if (!window_i)
 	{
-		[NXApp 
+		[NSApp 
 			loadNibSection:	"TexturePalette.nib"
 			owner:			self
 			withNames:		NO
@@ -154,7 +154,7 @@ id	texturePalette_i;
 			NXRunAlertPanel("Shit!",
 				"While building texture #%d, I couldn't find "
 				"the '%s' patch!","OK",NULL,NULL,i,p.patchInfo.patchname);
-			[NXApp	terminate:NULL];
+			[NSApp	terminate:NULL];
 		}
 		p.r.origin.x = p.patchInfo.originx;
 		p.r.origin.y = (textures[which].height) - 

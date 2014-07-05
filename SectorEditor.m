@@ -95,7 +95,7 @@ id	sectorEdit_i;
 	
 	if (!window_i)
 	{
-		[NXApp 
+		[NSApp 
 			loadNibSection:	"SectorEditor.nib"
 			owner:			self
 			withNames:		NO

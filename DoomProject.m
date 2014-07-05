@@ -207,7 +207,7 @@ char	bsphost[32];		// bsp host machine
 	
 	if (!window_i)
 	{
-		[NXApp 
+		[NSApp 
 			loadNibSection:	"Project.nib"
 			owner:			self
 			withNames:		NO
@@ -2478,7 +2478,7 @@ void IO_Error (char *error, ...)
 	vsprintf (string,error,argptr);
 	va_end (argptr);
 	NXRunAlertPanel ("Error",string,NULL,NULL,NULL);
-	[NXApp terminate: NULL];
+	[NSApp terminate: NULL];
 }
 
 //=======================================================

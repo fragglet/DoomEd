@@ -7,9 +7,9 @@
 void main(int argc, char *argv[]) {
 
     [Application new];
-    if ([NXApp loadNibSection:"DoomEd.nib" owner:NXApp withNames:NO])
-	    [NXApp run];
+    if ([NSApp loadNibSection:"DoomEd.nib" owner:NXApp withNames:NO])
+	    [NSApp run];
 	    
-    [NXApp free];
+    [NSApp free];
     exit(0);
 }
