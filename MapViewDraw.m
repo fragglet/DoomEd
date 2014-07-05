@@ -30,7 +30,7 @@
 ============
 */
 
-- drawGrid: (const NXRect *)rect
+- drawGrid: (const NSRect *)rect
 {
 	int	x,y, stopx, stopy;
 	float	top,bottom,right,left;
@@ -126,7 +126,7 @@
 ============
 */
 
-- drawLines: (const NXRect *)rect
+- drawLines: (const NSRect *)rect
 {
 	int		i,xc,yc;
 	float		left,bottom,right, top;
@@ -218,9 +218,9 @@ if (points[li->p1].pt.x != points[li->p2].pt.x
 ============
 */
 
-- drawThings: (const NXRect *)rect
+- drawThings: (const NSRect *)rect
 {
-	NXRect	r;
+	NSRect	r;
 	float		offset;
 	float		left, right, top, bottom;
 	worldthing_t	*wp, *stop;
@@ -258,7 +258,7 @@ if (points[li->p1].pt.x != points[li->p2].pt.x
 		r.origin.x = wp->origin.x - offset/2;
 		r.origin.y = wp->origin.y - offset/2;
 		r.size.width = r.size.height = offset;
-		NXRectFill(&r);
+		NSRectFill(&r);
 	}
 
 	return self;
@@ -275,16 +275,16 @@ if (points[li->p1].pt.x != points[li->p2].pt.x
 ============
 */
 
-- drawPoints: (const NXRect *)rect
+- drawPoints: (const NSRect *)rect
 {
-	NXRect	*unselected, *selected, *unsel_p, *sel_p, *use;
+	NSRect	*unselected, *selected, *unsel_p, *sel_p, *use;
 	int		count;
 	float		offset;
 	float		left, right, top, bottom;
 	worldpoint_t	const	*wp, *stop;
 	
-	unselected = unsel_p = alloca (numpoints*sizeof(NXRect));
-	selected = sel_p = alloca (numpoints*sizeof(NXRect));
+	unselected = unsel_p = alloca (numpoints*sizeof(NSRect));
+	selected = sel_p = alloca (numpoints*sizeof(NSRect));
 	
 	offset = CPOINTDRAW/scale;
 	
@@ -319,13 +319,13 @@ if (points[li->p1].pt.x != points[li->p2].pt.x
 	if (count)
 	{
 		NXSetColor ([prefpanel_i colorFor: POINT_C]);
-		NXRectFillList (unselected, count);
+		NSRectFillList (unselected, count);
 	}
 	count = sel_p - selected;
 	if (count)
 	{
 		NXSetColor ([prefpanel_i colorFor: SELECTED_C]);
-		NXRectFillList (selected, count);
+		NSRectFillList (selected, count);
 	}
 	
 	return self;
@@ -345,9 +345,9 @@ if (points[li->p1].pt.x != points[li->p2].pt.x
 */
 #define SHOWDISP	1
 
-- drawSelf:(const NXRect *)rects :(int)rectCount
+- drawSelf:(const NSRect *)rects :(int)rectCount
 {
-	NXRect	newrect;
+	NSRect	newrect;
 //printf ("drawself\n");
 //
 // erase to background color
@@ -364,7 +364,7 @@ if (points[li->p1].pt.x != points[li->p2].pt.x
 	if (!debugflag)
 	{
 		NXSetColor ([prefpanel_i colorFor: BACK_C]);
-		NXRectFill (rects);
+		NSRectFill (rects);
 	}
 	PSsetlinewidth (0.15);
 

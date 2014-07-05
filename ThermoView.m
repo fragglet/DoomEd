@@ -9,7 +9,7 @@
 	return self;
 }
 
-- drawSelf:(const NXRect *)rects :(int)rectCount
+- drawSelf:(const NSRect *)rects :(int)rectCount
 {
 	PSsetlinewidth(bounds.size.height);
 

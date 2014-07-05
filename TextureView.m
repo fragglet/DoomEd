@@ -14,7 +14,7 @@
 	return YES;
 }
 
-- initFrame:(const NXRect *)frameRect
+- initFrame:(const NSRect *)frameRect
 {
 	[super initFrame:frameRect];
 	deltaTable = [[ Storage	alloc ]
@@ -55,7 +55,7 @@
 	return self;
 }
 
-- drawSelf:(const NXRect *)rects :(int)rectCount
+- drawSelf:(const NSRect *)rects :(int)rectCount
 {
 	int		ct,i,outlineflag;
 	int		patchCount;
@@ -66,7 +66,7 @@
 		return self;
 		
 	NXSetColor(NXConvertRGBToColor(1,0,0));
-	NXRectFill(&rects[0]);
+	NSRectFill(&rects[0]);
 	
 	outlineflag = [textureEdit_i	getOutlineFlag];
 	PSsetgray(NX_DKGRAY);

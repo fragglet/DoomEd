@@ -20,6 +20,6 @@
 - gridmenu;
 - gridbutton;
 
-- reDisplay: (NXRect *)dirty;
+- reDisplay: (NSRect *)dirty;
 
 @end

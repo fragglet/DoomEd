@@ -2,6 +2,6 @@
 
 @interface MapView (MapViewDraw)
 
-- drawSelf:(const NXRect *)rects :(int)rectCount;
+- drawSelf:(const NSRect *)rects :(int)rectCount;
 
 @end

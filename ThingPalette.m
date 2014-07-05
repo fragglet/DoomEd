@@ -105,7 +105,7 @@ id	thingPalette_i;
 - setCurrentIcon:(int)which
 {
 	icon_t	*icon;
-	NXRect	r;
+	NSRect	r;
 	
 	if (which < 0)
 		return self;
@@ -161,7 +161,7 @@ id	thingPalette_i;
 //============================================================
 - computeThingDocView
 {
-	NXRect	dvr;
+	NSRect	dvr;
 	int		i;
 	int		x;
 	int		y;

@@ -362,7 +362,7 @@ id	sectorEdit_i;
 {
 	int	flat;
 	flat_t	*f;
-	NXRect	r;
+	NSRect	r;
 	
 	if ([ceiling_i	intValue])
 		flat = ceiling_flat;
@@ -537,7 +537,7 @@ id	sectorEdit_i;
 //============================================================
 - computeFlatDocView
 {
-	NXRect	dvr;
+	NSRect	dvr;
 	int		i,x,y,max;
 	flat_t	*f;
 	int		maxwidth;
@@ -679,7 +679,7 @@ id	sectorEdit_i;
 - setCurrentFlat:(int)which
 {
 	flat_t	*f;
-	NXRect	r;
+	NSRect	r;
 	
 	currentFlat = which;
 	[curFlat_i		setStringValue:[self  flatName:which] ];

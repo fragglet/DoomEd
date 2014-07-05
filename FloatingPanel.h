@@ -2,7 +2,7 @@
 
 @interface FloatingPanel: NSPanel
 
-- initContent:(const NXRect *)contentRect
+- initContent:(const NSRect *)contentRect
 style:(int)aStyle
 backing:(int)bufferingType
 buttonMask:(int)mask

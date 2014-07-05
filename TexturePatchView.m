@@ -11,7 +11,7 @@
 //	Init the storage for the Patch Palette dividers
 //
 //==============================================================
-- initFrame:(const NXRect *)frameRect
+- initFrame:(const NSRect *)frameRect
 {
 	dividers_i = [	[ Storage alloc ]
 				initCount:		0
@@ -55,12 +55,12 @@
 //	Draw the Patch Palette in the Texture Editor
 //
 //==============================================================
-- drawSelf:(const NXRect *)rects :(int)rectCount
+- drawSelf:(const NSRect *)rects :(int)rectCount
 {
 	int 		i, max, patchnum,selectedPatch;
 	apatch_t	*patch;
 	divider_t	*d;
-	NXRect	clipview, r;
+	NSRect	clipview, r;
 
 	selectedPatch = [textureEdit_i	getCurrentPatch];
 	patchnum = 0;

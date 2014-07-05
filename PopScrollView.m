@@ -12,7 +12,7 @@
 ====================
 */
 
-- initFrame:(const NXRect *)frameRect button1:b1 button2:b2
+- initFrame:(const NSRect *)frameRect button1:b1 button2:b2
 {
 	[super  initFrame: frameRect];	
 	[self addSubview: b1];
@@ -40,9 +40,9 @@
 
 - tile
 {
-	NXRect	scrollerframe;
-	NXRect	buttonframe, buttonframe2;
-	NXRect	newframe;
+	NSRect	scrollerframe;
+	NSRect	buttonframe, buttonframe2;
+	NSRect	newframe;
 	
 	[super tile];
 	[button1 getFrame: &buttonframe];

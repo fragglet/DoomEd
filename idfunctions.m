@@ -8,7 +8,7 @@
 ============
 */
 
-void BoxFromRect (box_t *box, NXRect *rect)
+void BoxFromRect (box_t *box, NSRect *rect)
 {
 	box->left = rect->origin.x;
 	box->right = box->left + rect->size.width;
@@ -60,7 +60,7 @@ void BoxFromPoints (box_t *box, NXPoint *p1, NXPoint *p2)
 ================
 */
 
-void IDRectFromPoints(NXRect *rect, NXPoint const *p1, NXPoint const *p2 )
+void IDRectFromPoints(NSRect *rect, NXPoint const *p1, NXPoint const *p2 )
 {
 // return a rectangle that encloses the two points
 	if (p1->x < p2->x)
@@ -97,7 +97,7 @@ void IDRectFromPoints(NXRect *rect, NXPoint const *p1, NXPoint const *p2 )
 ==================
 */
 
-void IDEnclosePoint (NXRect *rect, NXPoint const *point)
+void IDEnclosePoint (NSRect *rect, NXPoint const *point)
 {
 	float	right, top;
 	

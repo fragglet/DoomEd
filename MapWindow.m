@@ -20,9 +20,9 @@ static	int	cornerx = 128, cornery = 64;
 {
 	id		oldobj_i;
 	NXSize	screensize;
-	NXRect	wframe;
+	NSRect	wframe;
 	NXPoint	origin;
-	NXRect	mapbounds;
+	NSRect	mapbounds;
 
 //
 // set up the window
@@ -145,7 +145,7 @@ static	int	cornerx = 128, cornery = 64;
 }
 
 
-- reDisplay: (NXRect *)dirty
+- reDisplay: (NSRect *)dirty
 {
 	[mapview_i displayDirty: dirty];
 	return self;
@@ -193,7 +193,7 @@ static	int	cornerx = 128, cornery = 64;
 
 - windowDidResize:sender
 {
-	NXRect	wincont, scrollcont;
+	NSRect	wincont, scrollcont;
 	float		scale;
 	NXPoint	newscreenorg;
 

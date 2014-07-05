@@ -46,7 +46,7 @@ BOOL	linecross[9][9];
 
 -initFromEditWorld
 {
-	NXRect	aRect;
+	NSRect	aRect;
 
 	 if (![editworld_i loaded])
 	 {
@@ -136,7 +136,7 @@ printf ("Done\n");
 {
 	char	const	*item;
 	float			nscale;
-	NXRect		visrect;
+	NSRect		visrect;
 	
 	item = [[sender selectedCell] title];
 	sscanf (item,"%f",&nscale);
@@ -243,7 +243,7 @@ printf ("Done\n");
 
 - getCurrentOrigin: (NXPoint *)worldorigin
 {
-	NXRect	global;
+	NSRect	global;
 	
 	[superview getBounds: &global];
 	[self convertPointFromSuperview: &global.origin];
@@ -273,9 +273,9 @@ printf ("Done\n");
 ====================
 */
 
-- displayDirty: (NXRect const *)dirty
+- displayDirty: (NSRect const *)dirty
 {
-	NXRect	rect;
+	NSRect	rect;
 	float		adjust;
 	
 	adjust = CPOINTDRAW*scale;
@@ -356,8 +356,8 @@ printf ("Done\n");
 
 - adjustFrameForOrigin: (NXPoint const *)org scale: (float)scl
 {
-	NXRect	map;
-	NXRect	newbounds;
+	NSRect	map;
+	NSRect	newbounds;
 	
 // the frame rect of the MapView is the union of the map rect and the visible rect
 // if this is different from the current frame, resize it

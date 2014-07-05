@@ -4,18 +4,18 @@
 
 @implementation SectorEditView
 
-- drawSelf:(const NXRect *)rects :(int)rectCount
+- drawSelf:(const NSRect *)rects :(int)rectCount
 {
 	sectordef_t	*s;
 	flat_t	*f;
 	NXPoint	p;
-	NXRect	r;
+	NSRect	r;
 	
 	s = [sectorEdit_i		getSector];
 		
 	PSsetgray(NX_LTGRAY);
 	NXSetRect(&r,0,0,128,200);
-	NXRectFill(&r);
+	NSRectFill(&r);
 	
 	//
 	// Draw ceiling
@@ -23,7 +23,7 @@
 	if (!s->ceilingflat[0])
 	{
 		NXSetRect(&r,32,105,64,64);
-		NXRectFill(&r);
+		NSRectFill(&r);
 	}
 	else
 	{
@@ -39,7 +39,7 @@
 	if (!s->floorflat[0])
 	{
 		NXSetRect(&r,32,31,64,64);
-		NXRectFill(&r);
+		NSRectFill(&r);
 	}
 	else
 	{
@@ -59,7 +59,7 @@
 //	int ny, yoff;
 //	sectordef_t	*s;
 //	NXEvent	*event;
-//	NXRect	r;
+//	NSRect	r;
 
 	oldwindowmask = [window addToEventMask:NX_LMOUSEDRAGGEDMASK];
 	loc = theEvent->location;

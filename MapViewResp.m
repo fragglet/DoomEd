@@ -372,10 +372,10 @@
 	worldline_t	*line_p;
 	BOOL		side1, side2;
 	NXPoint		cursor, moved,totalmoved;
-	NXRect		fixedrect;
-	NXRect		dragrect;
-	NXRect		currentdragrect, olddragrect;
-	NXRect		updaterect;
+	NSRect		fixedrect;
+	NSRect		dragrect;
+	NSRect		currentdragrect, olddragrect;
+	NSRect		updaterect;
 	int			p, lastp;
 	worldpoint_t	*point_p, newpoint;
 	int			pointcount;
@@ -562,7 +562,7 @@
 - dragSelectionBox: (NXEvent *)event
 {
 	int 		oldMask;
-	NXRect	newframe;
+	NSRect	newframe;
 	NXPoint	dragcorner, fixedcorner, *p1, *p2;
 	int		i,p;
 	worldpoint_t	*point_p;

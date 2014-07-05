@@ -6,7 +6,7 @@ typedef struct
 {
 	id		image;
 	char	name[9];
-	NXRect	r;
+	NSRect	r;
 	int		WADindex;
 } flat_t;
 

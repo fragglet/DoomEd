@@ -83,7 +83,7 @@ typedef post_t	collumn_t;
 //
 typedef struct
 {
-	NXRect	r;
+	NSRect	r;
 	NXSize	size;
 	char		name[9];
 	id		image;
@@ -94,7 +94,7 @@ typedef struct
 typedef	struct
 {
 	int	patchLocked;
-	NXRect	r;
+	NSRect	r;
 	worldpatch_t	patchInfo;
 	apatch_t		*patch;
 } texpatch_t;
@@ -151,7 +151,7 @@ extern	id	textureEdit_i;
 - initPatches;
 - createPatchX2:(apatch_t *)p;
 - menuTarget:sender;
-- computePatchDocView: (NXRect *)theframe;
+- computePatchDocView: (NSRect *)theframe;
 - setWarning:(BOOL)state;
 - saveFrame;
 

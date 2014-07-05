@@ -81,10 +81,10 @@ extern	worldthing_t	*things;
 	
 	int		pointssize, linessize, thingssize, texturessize;	// array size >= numvalid
 	BOOL	dirty, dirtypoints;		// set whenever the map is changed FIXME
-	NXRect	bounds;
+	NSRect	bounds;
 	BOOL	boundsdirty;
 	char		pathname[1024];
-	NXRect	dirtyrect;	
+	NSRect	dirtyrect;	
 	id		windowlist_i;			// all windows that display this world
 	
 	id		copyThings_i;			// cut/copy/paste info
@@ -136,7 +136,7 @@ extern	worldthing_t	*things;
 //
 // get info
 //
-- getBounds: (NXRect *)theRect;
+- getBounds: (NSRect *)theRect;
 
 //
 // change info

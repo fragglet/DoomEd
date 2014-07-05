@@ -71,7 +71,7 @@ id		pan;
 #define	WLSIZE		7
 #define	SIDEBIT		0x8000
 
-NXRect	wbounds;
+NSRect	wbounds;
 unsigned short	*bmap=NULL;
 int		brow, bwidth, bheight;
 id		blockview;
@@ -120,7 +120,7 @@ if (startx<0 || startx>=bwidth || y < 0 || y>=bheight)
 		*(dest+WL_MARK) = 1;
 #if SHOWFILL
 {
-NXRect	r;
+NSRect	r;
 r.origin.x = x+0.15;
 r.origin.y = (bheight-1-y)+0.15;
 r.size.width = r.size.height = 0.5;
@@ -159,7 +159,7 @@ NXEraseRect (&r);
 		*(dest+WL_MARK) = 1;
 #if SHOWFILL
 {
-NXRect	r;
+NSRect	r;
 r.origin.x = x+0.15;
 r.origin.y = (bheight-1-y)+0.15;
 r.size.width = r.size.height = 0.5;
@@ -369,7 +369,7 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 
 - displayBlockMap
 {
-	NXRect	aRect;
+	NSRect	aRect;
 	id		window;
 	unsigned char		*planes[5];
 	int		i,size;

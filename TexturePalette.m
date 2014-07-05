@@ -41,7 +41,7 @@ id	texturePalette_i;
 - finishInit
 {
 		NXPoint	p;
-		NXRect	dvr;
+		NSRect	dvr;
 	
 		[self	computePalViewSize];
 		//
@@ -141,7 +141,7 @@ id	texturePalette_i;
 	[t.image	lockFocusOn:[t.image lastRepresentation]];
 	
 	NXSetColor(NXConvertRGBAToColor(1,0,0,1));
-	NXRectFill(&t.r);
+	NSRectFill(&t.r);
 
 	for (i = 0; i < textures[which].patchcount; i++)
 	{
@@ -304,7 +304,7 @@ id	texturePalette_i;
 	texpal_t *t;
 	int		i;
 	int		max;
-	NXRect	r;
+	NSRect	r;
 	
 	max = [allTextures	count ];
 	for (i = 0; i < max; i++)
@@ -333,7 +333,7 @@ id	texturePalette_i;
 - selectTexture:(int)val
 {
 	texpal_t	*t;
-	NXRect		r;
+	NSRect		r;
 	
 	selectedTexture = val;
 	if (val >= 0)
@@ -362,7 +362,7 @@ id	texturePalette_i;
 - setSelTexture:(char *)name
 {
 	int	i, max;
-	NXRect	r;
+	NSRect	r;
 	texpal_t	*t;
 	
 	max = [allTextures	count];

@@ -545,7 +545,7 @@ int LineByPoint (NXPoint *ptin, int *side)
 	[self addPointToDirtyRect: &points[p2].pt];
 	return self;
 #if 0
-	NXRect	new;
+	NSRect	new;
 	NXPoint	*pt1, *pt2;
 	
 	pt1 = &points[p1].pt;
@@ -650,7 +650,7 @@ FIXME: Map window is its own delegate now, this needs to be done with a message
 
 #define BOUNDSBORDER	128
 
-- getBounds: (NXRect *)theRect
+- getBounds: (NSRect *)theRect
 {
 	int		p;
 	float		x,y,right, left, top, bottom;
@@ -1015,7 +1015,7 @@ FIXME: make these scan for deleted entries
 - storeCopies
 {
 	int	i;
-	NXRect	r;
+	NSRect	r;
 	copyline_t	cl;
 	
 	[[[NXApp mainWindow]	contentView]	getDocVisibleRect:&r];
@@ -1152,7 +1152,7 @@ FIXME: make these scan for deleted entries
 - paste: sender
 {
 	int		xadd,yadd,i,max, index;
-	NXRect	r;
+	NSRect	r;
 	worldthing_t	*t, t1;
 	copyline_t	*L;
 	NXPoint	p1,p2;
@@ -1364,7 +1364,7 @@ Updates dirty rect based on old and new positions
 
 - changeThing: (int)num to: (worldthing_t *)data
 {
-	NXRect	drect;
+	NSRect	drect;
 	
 	boundsdirty = YES;
 //printf ("changeThing: %i\n",num);

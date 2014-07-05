@@ -11,11 +11,11 @@ typedef struct
 	float	left, bottom, right, top;
 } box_t;
 
-void BoxFromRect (box_t *box, NXRect *rect);
+void BoxFromRect (box_t *box, NSRect *rect);
 void BoxFromPoints (box_t *box, NXPoint *p1, NXPoint *p2);
 
-void IDRectFromPoints( NXRect *rect, NXPoint const *p1, NXPoint const *p2 );
-void IDEnclosePoint (NXRect *rect, NXPoint const *point);
+void IDRectFromPoints( NSRect *rect, NXPoint const *p1, NXPoint const *p2 );
+void IDEnclosePoint (NSRect *rect, NXPoint const *point);
 
 unsigned short ShortSwap (unsigned short dat);
 unsigned LongSwap (unsigned dat);

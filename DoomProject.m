@@ -2486,7 +2486,7 @@ void IO_Error (char *error, ...)
 //	Draw a red outline (must already be lockFocus'ed on something)
 //
 //=======================================================
-void DE_DrawOutline(NXRect *r)
+void DE_DrawOutline(NSRect *r)
 {
 	PSsetrgbcolor ( 148,0,0 );
 	PSmoveto ( r->origin.x, r->origin. y );

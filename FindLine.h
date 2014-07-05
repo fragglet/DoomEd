@@ -17,6 +17,6 @@
 - findLine:sender;
 - deleteLine:sender;
 - menuTarget:sender;
-- (void)rectFromPoints:(NXRect *)r p1:(NXPoint)p1 p2:(NXPoint)p2;
+- (void)rectFromPoints:(NSRect *)r p1:(NXPoint)p1 p2:(NXPoint)p2;
 
 @end

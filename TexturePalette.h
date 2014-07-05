@@ -8,7 +8,7 @@ typedef struct
 	id	image;
 	int	patchamount;
 	char	 name[9];
-	NXRect	r;
+	NSRect	r;
 	int	WADindex;
 	int	oldIndex;
 } texpal_t;

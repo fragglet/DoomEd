@@ -126,7 +126,7 @@ void		FinishPath (int path)
 #define	RECTOPS	6
 #define	LINEOPS		3
 
-BOOL	LineInRect (NXPoint *p1, NXPoint *p2, NXRect *r)
+BOOL	LineInRect (NXPoint *p1, NXPoint *p2, NSRect *r)
 {
 	float		rectpts[RECTPTS];
 	float		linepts[LINEPTS];

@@ -10,7 +10,7 @@
 //	Init the storage for the Texture Palette dividers
 //
 //==============================================================
-- initFrame:(const NXRect *)frameRect
+- initFrame:(const NSRect *)frameRect
 {
 	dividers_i = [	[ Storage alloc ]
 				initCount:		0
@@ -44,11 +44,11 @@
 	return self;
 }
 
-- drawSelf:(const NXRect *)rects :(int)rectCount
+- drawSelf:(const NSRect *)rects :(int)rectCount
 {
 	int		count;
 	texpal_t	*t;
-	NXRect	r;
+	NSRect	r;
 	int		max, i;
 	divider_t	*d;
 	

@@ -3,7 +3,7 @@
 
 typedef struct
 {
-	NXRect	r;
+	NSRect	r;
 	NXSize	imagesize;
 	char	name[10];
 	id		image;

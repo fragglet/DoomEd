@@ -3,7 +3,7 @@
 #import "FlatsView.h"
 
 @implementation FlatsView
-- initFrame:(const NXRect *)frameRect
+- initFrame:(const NSRect *)frameRect
 {
 	dividers_i = [	[ Storage alloc ]
 				initCount:		0
@@ -32,11 +32,11 @@
 	return self;
 }
 
-- drawSelf:(const NXRect *)rects :(int)rectCount
+- drawSelf:(const NSRect *)rects :(int)rectCount
 {
 	flat_t	*f;
 	int	max, i, cf;
-	NXRect	r;
+	NSRect	r;
 	divider_t	*d;
 	
 	cf = [sectorEdit_i	getCurrentFlat];

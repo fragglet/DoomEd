@@ -46,7 +46,7 @@ id	texturePatches;
 	if (!window_i)
 	{
 		NXSize	s;
-		NXRect	dvf;
+		NSRect	dvf;
 		NXPoint	startPoint;
 		int		ns, i;
 		
@@ -205,7 +205,7 @@ id	texturePatches;
 {
 	texpatch_t	p;
 	int	i,max = [copyList	count], val, xoff, yoff;
-	NXRect	dvr;
+	NSRect	dvr;
 	
 	if (!max)
 	{
@@ -382,7 +382,7 @@ id	texturePatches;
 //===============================================================
 - selectPatchAndScroll:(int)patch
 {
-	NXRect		r;
+	NSRect		r;
 	apatch_t	*p;
 	
 	p = [patchImages	elementAt:patch ];
@@ -673,7 +673,7 @@ id	texturePatches;
 	worldtexture_t		tex;
 	texpatch_t		*p;
 	int		count, deltay;
-	NXRect	tr, nr;
+	NSRect	tr, nr;
 	
 	//
 	// save texture first!
@@ -984,7 +984,7 @@ id	texturePatches;
 - addPatch:(int)which
 {
 	int	ct, ox, oy;
-	NXRect	dvr;
+	NSRect	dvr;
 	texpatch_t	p;
 	apatch_t		*pi;
 	
@@ -1109,7 +1109,7 @@ id	texturePatches;
 - setSelectedPatch:(int)which
 {
 	apatch_t	*t;
-	NXRect		r;
+	NSRect		r;
 	
 	selectedPatch = which;
 	t = [patchImages	elementAt:which];
@@ -1342,7 +1342,7 @@ id	texturePatches;
 //
 - windowDidResize:sender
 {
-	NXRect	r;
+	NSRect	r;
 	
 	[self		computePatchDocView:&r];
 	[texturePatchView_i	sizeTo:r.size.width :r.size.height];
@@ -1354,9 +1354,9 @@ id	texturePatches;
 // compute the size of the docView and set the origin of all the patches
 // within the docView.
 //
-- computePatchDocView: (NXRect *)theframe
+- computePatchDocView: (NSRect *)theframe
 {
-	NXRect	curWindowRect;
+	NSRect	curWindowRect;
 	int		x, y, patchnum, maxheight;
 	apatch_t	*patch;
 	int		maxwindex;

@@ -148,4 +148,4 @@ extern	char	bsphost[32];		// bsp host machine
 @end
 
 void IO_Error (char *error, ...);
-void DE_DrawOutline(NXRect *r);
+void DE_DrawOutline(NSRect *r);

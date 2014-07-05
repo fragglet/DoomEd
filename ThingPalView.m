@@ -6,13 +6,13 @@
 
 @implementation ThingPalView
 
-- drawSelf:(const NXRect *)rects :(int)rectCount
+- drawSelf:(const NSRect *)rects :(int)rectCount
 {
 	icon_t	*icon;
 	int		max;
 	int		i;
 	int		ci;
-	NXRect	r;
+	NSRect	r;
 	NXPoint	p;
 	
 	ci = [thingPalette_i	getCurrentIcon];

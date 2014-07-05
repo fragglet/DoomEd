@@ -60,7 +60,7 @@
 
 \gray0\fc0\cf0 \{\
 	int				linenum;\
-	NXRect			r;\
+	NSRect			r;\
 	worldline_t		*l;\
 	id				window;\
 	\
@@ -162,7 +162,7 @@
 //\
 //=============================================================\
 
-\gray115\fc2\cf2 - (void)rectFromPoints:(NXRect *)r p1:(NXPoint)p1 p2:(NXPoint)p2\
+\gray115\fc2\cf2 - (void)rectFromPoints:(NSRect *)r p1:(NXPoint)p1 p2:(NXPoint)p2\
 
 \gray0\fc0\cf0 \{\
 	if (p1.x < p2.x)\

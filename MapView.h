@@ -26,7 +26,7 @@ extern	BOOL	linecross[9][9];
 
 - zoomFrom:(NXPoint *)origin toScale:(float)newscale;
 
-- displayDirty: (NXRect const *)dirty;
+- displayDirty: (NSRect const *)dirty;
 
 - getPoint:	(NXPoint *)point  from: 	(NXEvent const *)event;
 - getGridPoint:	(NXPoint *)point  from: 	(NXEvent const *)event;
