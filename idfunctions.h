@@ -3,7 +3,6 @@
 #ifndef __BYTEBOOL__
 #define __BYTEBOOL__
 typedef unsigned char byte;
-typedef enum {false, true} boolean;
 #endif
 
 typedef struct

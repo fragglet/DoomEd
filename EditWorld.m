@@ -155,8 +155,8 @@ int LineByPoint (NXPoint *ptin, int *side)
 {
 	if (dirtypoints)
 	{
-		dirtypoints = false;
-		return true;
+		dirtypoints = NO;
+		return YES;
 	}
 	
 	return dirtypoints;
@@ -720,7 +720,7 @@ FIXME: make these scan for deleted entries
 	points[numpoints].selected = 0;
 	
 	numpoints++;
-	dirtypoints = true;		// connection matrix will need to be recalculated
+	dirtypoints = YES;		// connection matrix will need to be recalculated
 	
 	return numpoints-1;	
 }
@@ -785,7 +785,7 @@ FIXME: make these scan for deleted entries
 	data->p1 = [self newPoint: p1];
 	data->p2 = [self newPoint: p2];
 	
-	dirtypoints = true;		// connection matrix will need to be recalculated
+	dirtypoints = YES;		// connection matrix will need to be recalculated
 
 	[self changeLine: numlines-1 to: data];
 
@@ -1295,7 +1295,7 @@ Updates dirty rect based on old and new positions
 
 	if (moved) 
 	{
-		dirtypoints = true;		// connection matrix will need to be rebuilt
+		dirtypoints = YES;		// connection matrix will need to be rebuilt
 		for (i=0 ; i<numlines ; i++)
 			if (lines[i].selected != -1 && ( lines[i].p1 == num || lines[i].p2 == num) )
 			{

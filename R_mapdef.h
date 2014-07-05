@@ -14,7 +14,6 @@ typedef int	fixed_t;
 #ifndef __BYTEBOOL__
 #define __BYTEBOOL__
 typedef unsigned char byte;
-typedef enum {false, true} boolean;
 #endif
 
 // A mapvertex_t is a global map point
@@ -49,7 +48,7 @@ typedef struct
 typedef struct
 {
 	char		name[8];				// JR 4/5/93
-	boolean	masked;				// if not masked, the patch's post_ts need to be combined
+	BOOL	masked;				// if not masked, the patch's post_ts need to be combined
 	short	width;
 	short	height;
 	void		**collumndirectory;		// [width] pointers to collumn_ts to draw the texture

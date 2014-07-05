@@ -2369,7 +2369,7 @@ static	byte		*buffer, *buf_p;
 			buf_p += sizeof(*tex) - sizeof(tex->patches);
 			
 			strncpy(tex->name,wtex->name,8);   // JR 4/5/93
-			tex->masked = false;
+			tex->masked = NO;
 			tex->width = ShortSwap (wtex->width);
 			tex->height = ShortSwap (wtex->height);
 			tex->collumndirectory = NULL;
