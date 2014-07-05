@@ -10,7 +10,7 @@ typedef struct
 } divider_t;
 #endif
 
-@interface FlatsView:View
+@interface FlatsView:NSView
 {
 	id	dividers_i;
 }

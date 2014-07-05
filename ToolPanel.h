@@ -15,7 +15,7 @@ typedef enum
 
 extern	id	toolpanel_i;
 
-@interface ToolPanel:Object
+@interface ToolPanel:NSObject
 {
     id	toolmatrix_i;
 }

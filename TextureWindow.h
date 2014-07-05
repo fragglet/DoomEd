@@ -1,7 +1,7 @@
 
 #import <appkit/appkit.h>
 
-@interface TextureWindow:Window
+@interface TextureWindow:NSWindow
 {
 }
 

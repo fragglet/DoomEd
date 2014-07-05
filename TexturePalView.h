@@ -9,7 +9,7 @@ typedef struct
 } divider_t;
 #endif
 
-@interface TexturePalView:View
+@interface TexturePalView:NSView
 {
 	id	dividers_i;
 }

@@ -15,7 +15,7 @@ typedef struct
 
 extern id	sectorEdit_i;
 
-@interface SectorEditor:Object
+@interface SectorEditor:NSObject
 {
 	id	window_i;
 	id	sectorEditView_i;

@@ -3,7 +3,7 @@
 
 extern	id	textureRemapper_i;
 
-@interface TextureRemapper:Object <Remapper>
+@interface TextureRemapper:NSObject <Remapper>
 {
 	id	remapper_i;
 }

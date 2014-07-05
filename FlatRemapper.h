@@ -3,7 +3,7 @@
 
 extern	id	flatRemapper_i;
 
-@interface FlatRemapper:Object <Remapper>
+@interface FlatRemapper:NSObject <Remapper>
 {
 	id	remapper_i;
 }

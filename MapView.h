@@ -9,7 +9,7 @@
 
 extern	BOOL	linecross[9][9];
 
-@interface MapView: View
+@interface MapView: NSView
 {
 	float		scale;
 	

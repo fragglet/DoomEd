@@ -3,7 +3,7 @@
 
 extern	id	settingspanel_i;
 
-@interface SettingsPanel:Object
+@interface SettingsPanel:NSObject
 {
 	int	segmenttype;
 }

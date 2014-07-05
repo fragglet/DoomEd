@@ -7,7 +7,7 @@ typedef struct
 	texpatch_t *p;
 } delta_t;
 
-@interface TextureView:View
+@interface TextureView:NSView
 {
 	id	deltaTable;
 }

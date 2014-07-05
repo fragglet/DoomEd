@@ -35,7 +35,7 @@ typedef enum
 	NUMOPENUP
 } openup_e;
 
-@interface PreferencePanel:Object
+@interface PreferencePanel:NSObject
 {
     id	backcolor_i;
     id	gridcolor_i;

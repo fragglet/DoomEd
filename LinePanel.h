@@ -5,7 +5,7 @@
 extern	id	linepanel_i;
 extern	id	lineSpecialPanel_i;
 
-@interface LinePanel:Object
+@interface LinePanel:NSObject
 {
 	id	p1_i;
 	id	p2_i;

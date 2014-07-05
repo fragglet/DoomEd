@@ -7,7 +7,7 @@ typedef struct
 	char		desc[32];
 } speciallist_t;
 
-@interface SpecialList:Object
+@interface SpecialList:NSObject
 {
 	id	specialDesc_i;
 	id	specialBrowser_i;

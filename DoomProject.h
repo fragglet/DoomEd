@@ -49,7 +49,7 @@ extern	char	bsphost[32];		// bsp host machine
 
 //============================================================================
 
-@interface DoomProject : Object
+@interface DoomProject : NSObject
 {
 	BOOL	loaded;
 	char	projectdirectory[1024];

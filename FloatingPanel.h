@@ -1,6 +1,6 @@
 #import <appkit/appkit.h>
 
-@interface FloatingPanel: Panel
+@interface FloatingPanel: NSPanel
 
 - initContent:(const NXRect *)contentRect
 style:(int)aStyle

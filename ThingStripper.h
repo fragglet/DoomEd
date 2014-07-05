@@ -9,7 +9,7 @@ typedef struct
 
 #define	THINGSTRIPNAME	"ThingStripper"
 
-@interface ThingStripper:Object
+@interface ThingStripper:NSObject
 {
 	id	thingBrowser_i;		// nib outlets
 	id	thingStripPanel_i;

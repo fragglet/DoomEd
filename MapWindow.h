@@ -1,6 +1,6 @@
 #import <appkit/appkit.h>
 
-@interface MapWindow: Window
+@interface MapWindow: NSWindow
 {
 	id		scrollview_i;
 	id		mapview_i;

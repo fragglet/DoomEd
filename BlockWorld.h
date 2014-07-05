@@ -5,7 +5,7 @@ extern	id	sectors;
 extern	id	blockworld_i;
 extern	BOOL	fillerror;
 
-@interface BlockWorld : Object
+@interface BlockWorld : NSObject
 
 - displayBlockMap;
 - createBlockMap;

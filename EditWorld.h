@@ -75,7 +75,7 @@ extern	worldthing_t	*things;
 
 //===========================================================================
 
-@interface EditWorld : Object
+@interface EditWorld : NSObject
 {
 	BOOL	loaded;
 	

@@ -3,7 +3,7 @@
 
 extern	id	thingRemapper_i;
 
-@interface ThingRemapper:Object <Remapper>
+@interface ThingRemapper:NSObject <Remapper>
 {
 	id	remapper_i;
 }

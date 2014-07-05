@@ -1,7 +1,7 @@
 
 #import <appkit/appkit.h>
 
-@interface ThermoView:View
+@interface ThermoView:NSView
 {
 	float		thermoWidth;
 }

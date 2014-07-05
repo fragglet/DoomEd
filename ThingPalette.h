@@ -14,7 +14,7 @@ typedef struct
 
 extern id	thingPalette_i;
 
-@interface ThingPalette:Object
+@interface ThingPalette:NSObject
 {
 	id		window_i;			// outlet
 	id		thingPalView_i;		// outlet

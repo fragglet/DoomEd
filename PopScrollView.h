@@ -1,6 +1,6 @@
 #import <appkit/appkit.h>
 
-@interface PopScrollView : ScrollView
+@interface PopScrollView : NSScrollView
 {
 	id	button1, button2;
 }

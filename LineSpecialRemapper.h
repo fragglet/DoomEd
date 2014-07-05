@@ -3,7 +3,7 @@
 
 extern	id	lineSpecialRemapper_i;
 
-@interface LineSpecialRemapper:Object <Remapper>
+@interface LineSpecialRemapper:NSObject <Remapper>
 {
 	id	remapper_i;
 }

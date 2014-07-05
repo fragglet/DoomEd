@@ -39,7 +39,7 @@ Here's an example of its use.
 #define PSTIME 0
 #define WALLTIME 1
 
-@interface Timing : Object
+@interface Timing : NSObject
 {
     struct timezone tzone;
     struct timeval realtime;

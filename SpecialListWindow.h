@@ -1,7 +1,7 @@
 
 #import <appkit/appkit.h>
 
-@interface SpecialListWindow:Window
+@interface SpecialListWindow:NSWindow
 {
 	id	parent_i;
 	char	string[32];

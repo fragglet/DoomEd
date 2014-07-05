@@ -1,7 +1,7 @@
 
 #import <appkit/appkit.h>
 
-@interface TextLog:Object
+@interface TextLog:NSObject
 {
 	id	text_i;
 	id	window_i;

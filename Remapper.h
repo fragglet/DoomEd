@@ -17,7 +17,7 @@ typedef struct
 @end
 
 
-@interface Remapper:Object
+@interface Remapper:NSObject
 {
 	id		original_i;
 	id		new_i;

@@ -20,7 +20,7 @@ typedef struct
 #define DIFF_HARD	2
 #define DIFF_ALL	3
 
-@interface ThingPanel:Object
+@interface ThingPanel:NSObject
 {
 	id	fields_i;
  	id	window_i;

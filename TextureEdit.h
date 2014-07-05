@@ -6,7 +6,7 @@
 
 #define	SPACING				10
 
-@interface TextureEdit:Object
+@interface TextureEdit:NSObject
 {
 	id	window_i;				// Texture Editor window
 	id	textureView_i;				// texture editing area

@@ -1,7 +1,7 @@
 
 #import <appkit/appkit.h>
 
-@interface FindLine:Object
+@interface FindLine:NSObject
 {
 	id	window_i;
 	id	status_i;

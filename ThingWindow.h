@@ -1,7 +1,7 @@
 
 #import <appkit/appkit.h>
 
-@interface ThingWindow:Window
+@interface ThingWindow:NSWindow
 {
 	id	parent_i;
 	char	string[32];

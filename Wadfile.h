@@ -1,7 +1,7 @@
 #import <appkit/appkit.h>
 
 
-@interface Wadfile : Object
+@interface Wadfile : NSObject
 {
 	int		handle;
 	char		*pathname;
