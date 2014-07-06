@@ -63,7 +63,7 @@
 
 	oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
 	loc = [theEvent locationInWindow];
-	[self convertPoint:&loc	fromView:NULL];
+	[self convertPoint:loc	fromView:NULL];
 	
 #if 0	
 	s = [sectorEdit_i		getSector];
@@ -76,7 +76,7 @@
 	if (s->ceilingheight <= 200)
 	{
 		r.origin.y = s->ceilingheight/2 + 50;
-		if (NSPointInRect(&loc,&r) == YES)
+		if (NSPointInRect(loc, r) == YES)
 		{
 			[sectorEdit_i	selectCeiling];
 			yoff = loc.y - r.origin.y;
@@ -84,7 +84,7 @@
 			{
 				event = [NSApp getNextEvent: NX_MOUSEUPMASK |									NX_MOUSEDRAGGEDMASK];
 				loc = [event locationInWindow];
-				[self convertPoint:&loc	fromView:NULL];
+				[self convertPoint:loc	fromView:NULL];
 				ny = (2 * (loc.y - yoff)) - 100;
 				if (ny > 200)
 					ny = 200;
@@ -104,7 +104,7 @@
 	if (s->floorheight >= 0)
 	{
 		r.origin.y = s->floorheight/2 - 14;
-		if (NSPointInRect(&loc,&r) == YES)
+		if (NSPointInRect(loc, r) == YES)
 		{
 			[sectorEdit_i	selectFloor];
 			yoff = (r.origin.y + r.size.height) - loc.y;
@@ -112,7 +112,7 @@
 			{
 				event = [NSApp getNextEvent: NX_MOUSEUPMASK |									NX_MOUSEDRAGGEDMASK];
 				loc = [event locationInWindow];
-				[self convertPoint:&loc	fromView:NULL];
+				[self convertPoint:loc	fromView:NULL];
 				ny = (2 * (loc.y + yoff)) - 100;
 				if (ny > 200)
 					ny = 200;

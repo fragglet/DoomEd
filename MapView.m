@@ -246,7 +246,7 @@ printf ("Done\n");
 	NSRect	global;
 	
 	[superview getBounds: &global];
-	[self convertPointFromSuperview: &global.origin];
+	[self convertPointFromSuperview: global.origin];
 	*worldorigin = global.origin;
 	
 	return self;
@@ -316,7 +316,7 @@ printf ("Done\n");
 {
 // convert to view coordinates
 	*point = [event locationInWindow];
-	[self convertPoint:point  fromView:NULL];
+	[self convertPoint:*point  fromView:NULL];
 
 // adjust for grid
 	point->x = (int)(((point->x)/gridsize)+0.5*(point->x<0?-1:1));
@@ -332,7 +332,7 @@ printf ("Done\n");
 {
 // convert to view coordinates
 	*point = [event locationInWindow];
-	[self convertPoint:point  fromView:NULL];
+	[self convertPoint:*point  fromView:NULL];
 	return self;
 }
 
@@ -445,7 +445,7 @@ printf ("Done\n");
 // find where the point is now
 //
 	neworg = *origin;
-	[self convertPoint: &neworg toView: NULL];
+	[self convertPoint: neworg toView: NULL];
 	
 //
 // change scale
@@ -456,7 +456,7 @@ printf ("Done\n");
 //
 // convert the point back
 //
-	[self convertPoint: &neworg fromView: NULL];
+	[self convertPoint: neworg fromView: NULL];
 	[self getCurrentOrigin: &orgnow];
 	orgnow.x += origin->x - neworg.x;
 	orgnow.y += origin->y - neworg.y;

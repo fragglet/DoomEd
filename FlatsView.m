@@ -94,13 +94,13 @@
 
 	oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
 	loc = [theEvent locationInWindow];
-	[self convertPoint:&loc	fromView:NULL];
+	[self convertPoint:loc	fromView:NULL];
 	
 	max = [sectorEdit_i	getNumFlats];
 	for (i = 0;i < max; i++)
 	{
 		f = [sectorEdit_i		getFlat:i];
-		if (NSPointInRect(&loc,&f->r) == YES)
+		if (NSPointInRect(loc, f->r) == YES)
 		{
 			if ([theEvent clickCount] == 2)
 				[sectorEdit_i	selectFlat:i];

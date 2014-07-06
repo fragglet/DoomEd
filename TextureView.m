@@ -128,7 +128,7 @@
 
 	oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
 	loc = [theEvent locationInWindow];
-	[self convertPoint:&loc	fromView:NULL];
+	[self convertPoint:loc	fromView:NULL];
 	ct = [textureEdit_i	getCurrentTexture];
 
 	//
@@ -139,7 +139,7 @@
 	for (i = patchcount - 1;i >= 0;i--)
 	{
 		patch = [texturePatches	elementAt:i];
-		if (NSPointInRect(&loc,&patch->r) == YES)
+		if (NSPointInRect(loc, patch->r) == YES)
 		{
 			//
 			// shift-click adds the patch to the select list
@@ -190,7 +190,7 @@
 	{
 		event = [NSApp getNextEvent:	NX_MOUSEUPMASK |									NX_MOUSEDRAGGEDMASK];
 		newloc = [event locationInWindow];
-		[self convertPoint:&newloc  fromView:NULL];
+		[self convertPoint:newloc  fromView:NULL];
 		warn = 0;
 		for (j = 0;j < max;j++)
 		{

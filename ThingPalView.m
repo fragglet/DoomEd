@@ -81,13 +81,13 @@
 
 	oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
 	loc = [theEvent locationInWindow];
-	[self convertPoint:&loc	fromView:NULL];
+	[self convertPoint:loc	fromView:NULL];
 	
 	max = [thingPalette_i	getNumIcons];
 	for (i = 0;i < max; i++)
 	{
 		icon = [thingPalette_i		getIcon:i];
-		if (NSPointInRect(&loc,&icon->r) == YES)
+		if (NSPointInRect(loc, icon->r) == YES)
 		{
 			[thingPalette_i	setCurrentIcon:i];
 			[thingpanel_i	selectThingWithIcon:icon->name];

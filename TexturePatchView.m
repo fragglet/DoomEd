@@ -114,7 +114,7 @@
 	apatch_t *patch;
 	
 	loc = [theEvent locationInWindow];
-	[self convertPoint:&loc	fromView:NULL];
+	[self convertPoint:loc	fromView:NULL];
 	
 	selectedPatch = [textureEdit_i	getCurrentPatch];
 	patchnum = 0;

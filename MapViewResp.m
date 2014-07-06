@@ -79,7 +79,7 @@
 	float		dx, dy;
 			
 	oldpt = [event locationInWindow];
-	[self convertPoint: &oldpt fromView: NULL];
+	[self convertPoint: oldpt fromView: NULL];
 	
 	oldMask = [window addToEventMask:NX_MOUSEDRAGGEDMASK | NX_RMOUSEDRAGGEDMASK];
 	
@@ -90,7 +90,7 @@
 			break;
 			
 		pt = [event locationInWindow];
-		[self convertPoint: &pt fromView: NULL];
+		[self convertPoint: pt fromView: NULL];
 		dx = oldpt.x - pt.x;
 		dy= oldpt.y - pt.y;
 		
@@ -104,7 +104,7 @@
 			[window reenableDisplay];
 			[[superview superview] display];	// redraw everything just once
 			oldpt = [event locationInWindow];
-			[self convertPoint: &oldpt fromView: NULL];
+			[self convertPoint: oldpt fromView: NULL];
 			[doomproject_i	setDirtyMap:TRUE];
 		}
 	} while (1);
@@ -149,7 +149,7 @@
 // keep the cursor point of the view constant
 
 	origin = [event locationInWindow];
-	[self convertPoint:&origin  fromView:NULL];
+	[self convertPoint:origin  fromView:NULL];
 //printf ("origin: %f,%f\n",origin.x,origin.y);
 	[self zoomFrom: &origin toScale: nscale];
 	
@@ -194,7 +194,7 @@
 // keep the cursor point of the view constant
 
 	origin = [event locationInWindow];
-	[self convertPoint:&origin  fromView:NULL];
+	[self convertPoint:origin  fromView:NULL];
 //printf ("origin: %f,%f\n",origin.x,origin.y);
 	
 	[self zoomFrom: &origin toScale: nscale];
@@ -573,7 +573,7 @@
 // peg down the first corner
 //
 	fixedcorner = [event locationInWindow];
-	[self convertPoint:&fixedcorner  fromView:NULL];
+	[self convertPoint:fixedcorner  fromView:NULL];
 		
 //
 // move drag
@@ -590,7 +590,7 @@
 		// calculate new rectangle
 		//
 		dragcorner = [event locationInWindow];
-		[self convertPoint:&dragcorner  fromView:NULL];
+		[self convertPoint:dragcorner  fromView:NULL];
 		IDRectFromPoints (&newframe, &fixedcorner, &dragcorner);
 				
 		//
@@ -616,7 +616,7 @@
 	{
 		if (point_p->selected == -1)
 			continue;
-		if ( NSPointInRect (&point_p->pt, &newframe) )
+		if ( NSPointInRect(point_p->pt, newframe) )
 			[editworld_i selectPoint: p];
 	}
 
@@ -659,7 +659,7 @@
 	{
 		if (thing_p->selected == -1)
 			continue;
-		if ( NSPointInRect (&thing_p->origin, &newframe) )
+		if ( NSPointInRect(thing_p->origin, newframe) )
 			[editworld_i selectThing: p];
 	}
 

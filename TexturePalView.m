@@ -108,13 +108,13 @@
 
 	oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
 	loc = [theEvent locationInWindow];
-	[self convertPoint:&loc	fromView:NULL];
+	[self convertPoint:loc	fromView:NULL];
 	
 	texcount = [texturePalette_i	getNumTextures];
 	for (i = texcount - 1;i >= 0;i--)
 	{
 		t = [texturePalette_i		getNewTexture:i];
-		if (NSPointInRect(&loc,&t->r) == YES)
+		if (NSPointInRect(loc, t->r) == YES)
 		{
 			which = [texturePalette_i	selectTextureNamed:t->name ];
 			if ([theEvent clickCount] == 2)
