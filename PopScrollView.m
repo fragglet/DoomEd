@@ -47,20 +47,20 @@
 	[super tile];
 	[button1 getFrame: &buttonframe];
 	[button2 getFrame: &buttonframe2];
-	[hScroller getFrame: &scrollerframe];
+	[[self horizScroller] getFrame: &scrollerframe];
 
 	newframe.origin.y = scrollerframe.origin.y;
-	newframe.origin.x = frame.size.width - buttonframe.size.width;
+	newframe.origin.x = [self frame].size.width - buttonframe.size.width;
 	newframe.size.width = buttonframe.size.width;
 	newframe.size.height = scrollerframe.size.height;
 	scrollerframe.size.width -= newframe.size.width;
-	[button1 setFrame: &newframe];
+	[button1 setFrame: newframe];
 	newframe.size.width = buttonframe2.size.width;
 	newframe.origin.x -= newframe.size.width;
-	[button2 setFrame: &newframe];
+	[button2 setFrame: newframe];
 	scrollerframe.size.width -= newframe.size.width;
 
-	[hScroller setFrame: &scrollerframe];
+	[[self horizScroller] setFrame: scrollerframe];
 
 	return self;
 }

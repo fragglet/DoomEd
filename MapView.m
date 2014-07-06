@@ -364,7 +364,7 @@ printf ("Done\n");
 	if (scl != scale)
 	{
 //printf ("changed scale\n");
-		[self setDrawSize: frame.size.width/scl : frame.size.height/scl];
+		[self setDrawSize: [self frame].size.width/scl : [self frame].size.height/scl];
 		scale = scl;
 	}
 	
@@ -450,7 +450,7 @@ printf ("Done\n");
 //
 // change scale
 //		
-	[self setDrawSize: frame.size.width/newscale : frame.size.height/newscale];
+	[self setDrawSize: [self frame].size.width/newscale : [self frame].size.height/newscale];
 	scale = newscale;
 
 //

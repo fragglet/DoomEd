@@ -97,10 +97,10 @@
 
 		PSsetrgbcolor ( 148,0,0 );
 		PSmoveto ( d->x, d->y + 12 );
-		PSlineto ( bounds.size.width - SPACING*2, d->y + 12 );
+		PSlineto ( [self bounds].size.width - SPACING*2, d->y + 12 );
 
 		PSmoveto ( d->x, d->y - 2 );
-		PSlineto ( bounds.size.width - SPACING*2, d->y - 2 );
+		PSlineto ( [self bounds].size.width - SPACING*2, d->y - 2 );
 		PSstroke ();
 	}
 	

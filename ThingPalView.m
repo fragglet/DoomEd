@@ -59,11 +59,11 @@
 		PSsetrgbcolor ( 148,0,0 );
 		PSsetlinewidth( 1.0 );
 		PSmoveto ( icon->r.origin.x, icon->r.origin.y + ICONSIZE/2 + 12 );
-		PSlineto ( bounds.size.width - SPACING,
+		PSlineto ( [self bounds].size.width - SPACING,
 				icon->r.origin.y + ICONSIZE/2 + 12 );
 
 		PSmoveto ( icon->r.origin.x, icon->r.origin.y + ICONSIZE/2 - 2 );
-		PSlineto ( bounds.size.width - SPACING,
+		PSlineto ( [self bounds].size.width - SPACING,
 				icon->r.origin.y + ICONSIZE/2 - 2 );
 		PSstroke ();
 	}
