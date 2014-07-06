@@ -52,17 +52,17 @@
 	return self;
 }
 
-- mouseDown:(NXEvent *)theEvent
+- mouseDown:(NSEvent *)theEvent
 {
 	NSPoint	loc;
 	int	oldwindowmask;
 //	int ny, yoff;
 //	sectordef_t	*s;
-//	NXEvent	*event;
+//	NSEvent	*event;
 //	NSRect	r;
 
 	oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
-	loc = theEvent->location;
+	loc = [theEvent locationInWindow];
 	[self convertPoint:&loc	fromView:NULL];
 	
 #if 0	
@@ -83,7 +83,7 @@
 			do
 			{
 				event = [NSApp getNextEvent: NX_MOUSEUPMASK |									NX_MOUSEDRAGGEDMASK];
-				loc = event->location;
+				loc = [event locationInWindow];
 				[self convertPoint:&loc	fromView:NULL];
 				ny = (2 * (loc.y - yoff)) - 100;
 				if (ny > 200)
@@ -97,7 +97,7 @@
 				[self	display];
 				[sectorEdit_i	setCeiling:ny];
 				
-			} while (event->type != NX_MOUSEUP);
+			} while ([event type] != NSLeftMouseUp);
 		}
 	}
 	
@@ -111,7 +111,7 @@
 			do
 			{
 				event = [NSApp getNextEvent: NX_MOUSEUPMASK |									NX_MOUSEDRAGGEDMASK];
-				loc = event->location;
+				loc = [event locationInWindow];
 				[self convertPoint:&loc	fromView:NULL];
 				ny = (2 * (loc.y + yoff)) - 100;
 				if (ny > 200)
@@ -125,7 +125,7 @@
 				[self	display];
 				[sectorEdit_i	setFloor:ny];
 				
-			} while (event->type != NX_MOUSEUP);
+			} while ([event type] != NSLeftMouseUp);
 		}
 	}
 #endif

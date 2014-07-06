@@ -86,14 +86,14 @@
 	return self;
 }
 
-- mouseDown:(NXEvent *)theEvent
+- mouseDown:(NSEvent *)theEvent
 {
 	NSPoint	loc;
 	int	i,max,oldwindowmask;
 	flat_t	*f;
 
 	oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
-	loc = theEvent->location;
+	loc = [theEvent locationInWindow];
 	[self convertPoint:&loc	fromView:NULL];
 	
 	max = [sectorEdit_i	getNumFlats];
@@ -102,7 +102,7 @@
 		f = [sectorEdit_i		getFlat:i];
 		if (NSPointInRect(&loc,&f->r) == YES)
 		{
-			if (theEvent->data.mouse.click == 2)
+			if ([theEvent clickCount] == 2)
 				[sectorEdit_i	selectFlat:i];
 			else
 				[sectorEdit_i	setCurrentFlat:i];

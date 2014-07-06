@@ -15,7 +15,7 @@
 //	Match keypress to first letter
 //
 //===================================================================
-- keyDown:(NXEvent *)event
+- keyDown:(NSEvent *)event
 {
 	char	key[2];
 	char	string2[32];
@@ -27,7 +27,7 @@
 	int		size;
 	int		tries;
 	
-	key[0] = event->data.key.charCode;
+	key[0] = [event keyCode];
 	strupr(key);
 	strcat(string,key);
 	size = strlen(string);

@@ -312,10 +312,10 @@ printf ("Done\n");
 */
 
 - 	getGridPoint:	(NSPoint *)point 
-	from: 	(NXEvent const *)event
+	from: 	(NSEvent const *)event
 {
 // convert to view coordinates
-	*point = event->location;
+	*point = [event locationInWindow];
 	[self convertPoint:point  fromView:NULL];
 
 // adjust for grid
@@ -328,10 +328,10 @@ printf ("Done\n");
 }
 
 - 	getPoint:	(NSPoint *)point 
-	from: 	(NXEvent const *)event
+	from: 	(NSEvent const *)event
 {
 // convert to view coordinates
-	*point = event->location;
+	*point = [event locationInWindow];
 	[self convertPoint:point  fromView:NULL];
 	return self;
 }

@@ -25,11 +25,11 @@
 	return self;
 }
 
-- keyDown:(NXEvent *)theEvent
+- keyDown:(NSEvent *)theEvent
 {
-	switch(theEvent->data.key.charCode)
+	switch ([theEvent keyCode])
 	{
-		case 0x7f:	// delete patch
+		case NSDeleteCharacter:    // delete patch
 			[textureEdit_i	deleteCurrentPatch:NULL];
 			break;
 		case 0x6c:	// toggle lock
@@ -48,7 +48,7 @@
 			break;
 		#if 0
 		default:
-			printf("charCode:%x\n",theEvent->data.key.charCode);
+			printf("charCode:%x\n", [theEvent keyCode]);
 			break;
 		#endif
 	}
@@ -112,22 +112,22 @@
 	return self;
 }
 
-- rightMouseDown:(NXEvent *)theEvent
+- rightMouseDown:(NSEvent *)theEvent
 {
 	[[textureEdit_i	getSTP]	empty];
 	[self	display];
 	return self;
 }
 
-- mouseDown:(NXEvent *)theEvent
+- mouseDown:(NSEvent *)theEvent
 {
 	NSPoint	loc,newloc;
 	int	i,patchcount,oldwindowmask,ct,max,j,warn,clicked;
 	texpatch_t	*patch;
-	NXEvent	*event;
+	NSEvent	*event;
 
 	oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
-	loc = theEvent->location;
+	loc = [theEvent locationInWindow];
 	[self convertPoint:&loc	fromView:NULL];
 	ct = [textureEdit_i	getCurrentTexture];
 
@@ -189,7 +189,7 @@
 	do
 	{
 		event = [NSApp getNextEvent:	NX_MOUSEUPMASK |									NX_MOUSEDRAGGEDMASK];
-		newloc = event->location;
+		newloc = [event locationInWindow];
 		[self convertPoint:&newloc  fromView:NULL];
 		warn = 0;
 		for (j = 0;j < max;j++)
@@ -215,7 +215,7 @@
 		[ self		display ];
 		[textureEdit_i	updateTexPatchInfo];
 		[textureEdit_i	setWarning:warn];
-	} while (event->type != NX_MOUSEUP);
+	} while ([event type] != NSLeftMouseUp);
 
 	if ([[textureEdit_i	getSTP] count] == 1)
 	{

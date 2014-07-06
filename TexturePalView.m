@@ -100,14 +100,14 @@
 	return self;
 }
 
-- mouseDown:(NXEvent *)theEvent
+- mouseDown:(NSEvent *)theEvent
 {
 	NSPoint	loc;
 	int		i,texcount,oldwindowmask, which;
 	texpal_t	*t;
 
 	oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
-	loc = theEvent->location;
+	loc = [theEvent locationInWindow];
 	[self convertPoint:&loc	fromView:NULL];
 	
 	texcount = [texturePalette_i	getNumTextures];
@@ -117,7 +117,7 @@
 		if (NSPointInRect(&loc,&t->r) == YES)
 		{
 			which = [texturePalette_i	selectTextureNamed:t->name ];
-			if (theEvent->data.mouse.click == 2)
+			if ([theEvent clickCount] == 2)
 			{
 				[textureEdit_i	menuTarget:NULL];
 				[textureEdit_i	newSelection:which];

@@ -107,13 +107,13 @@
 	return self;
 }
 
-- mouseDown:(NXEvent *)theEvent
+- mouseDown:(NSEvent *)theEvent
 {
 	NSPoint	loc;
 	int		patchnum,selectedPatch;
 	apatch_t *patch;
 	
-	loc = theEvent->location;
+	loc = [theEvent locationInWindow];
 	[self convertPoint:&loc	fromView:NULL];
 	
 	selectedPatch = [textureEdit_i	getCurrentPatch];
@@ -124,7 +124,7 @@
 			if (selectedPatch != patchnum -1)
 				selectedPatch = patchnum - 1;
 			
-			if (theEvent->data.mouse.click == 2)
+			if ([theEvent clickCount] == 2)
 				[textureEdit_i	addPatch:selectedPatch];
 				
 			[textureEdit_i	setSelectedPatch:patchnum - 1];

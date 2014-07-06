@@ -72,13 +72,13 @@
 ===============
 */
 
-- slideView:(NXEvent *)event
+- slideView:(NSEvent *)event
 {
 	int 		oldMask;
 	NSPoint	oldpt, pt, origin;
 	float		dx, dy;
 			
-	oldpt = event->location;
+	oldpt = [event locationInWindow];
 	[self convertPoint: &oldpt fromView: NULL];
 	
 	oldMask = [window addToEventMask:NX_MOUSEDRAGGEDMASK | NX_RMOUSEDRAGGEDMASK];
@@ -86,10 +86,10 @@
 	do 
 	{
 		event = [NSApp getNextEvent: NX_MOUSEUPMASK | NX_RMOUSEUPMASK | NX_MOUSEDRAGGEDMASK | NX_RMOUSEDRAGGEDMASK];
-		if (event->type == NX_MOUSEUP || event->type == NX_RMOUSEUP)
+		if ([event type] == NSLeftMouseUp || [event type] == NSRightMouseUp])
 			break;
 			
-		pt = event->location;
+		pt = [event locationInWindow];
 		[self convertPoint: &pt fromView: NULL];
 		dx = oldpt.x - pt.x;
 		dy= oldpt.y - pt.y;
@@ -103,7 +103,7 @@
 			[self setOrigin: &origin];
 			[window reenableDisplay];
 			[[superview superview] display];	// redraw everything just once
-			oldpt = event->location;
+			oldpt = [event locationInWindow];
 			[self convertPoint: &oldpt fromView: NULL];
 			[doomproject_i	setDirtyMap:TRUE];
 		}
@@ -123,7 +123,7 @@
 ================
 */
 
-- zoomIn:(NXEvent *)event
+- zoomIn:(NSEvent *)event
 {
 	char	const	*item;
 	float			nscale;
@@ -148,7 +148,7 @@
 	
 // keep the cursor point of the view constant
 
-	origin = event->location;
+	origin = [event locationInWindow];
 	[self convertPoint:&origin  fromView:NULL];
 //printf ("origin: %f,%f\n",origin.x,origin.y);
 	[self zoomFrom: &origin toScale: nscale];
@@ -169,7 +169,7 @@
 ================
 */
 
-- zoomOut:(NXEvent *)event
+- zoomOut:(NSEvent *)event
 {
 	char	const	*item;
 	float			nscale;
@@ -193,7 +193,7 @@
 	
 // keep the cursor point of the view constant
 
-	origin = event->location;
+	origin = [event locationInWindow];
 	[self convertPoint:&origin  fromView:NULL];
 //printf ("origin: %f,%f\n",origin.x,origin.y);
 	
@@ -221,7 +221,7 @@
 ================
 */
 
-- lineDrag:(NXEvent *)event
+- lineDrag:(NSEvent *)event
 {
 	int 		oldMask;
 	NSPoint	fixedpoint, dragpoint;	// endpoints of the line
@@ -247,7 +247,7 @@
 		NXPing ();
 		
 		event = [NSApp getNextEvent: NX_LMOUSEUPMASK | NX_LMOUSEDRAGGEDMASK];
-	} while (event->type != NX_LMOUSEUP);
+	} while ([event type] != NSLeftMouseUp);
 	
 //
 // add to the world
@@ -279,7 +279,7 @@
 ================
 */
 
-- polyDrag:(NXEvent *)event
+- polyDrag:(NSEvent *)event
 {
 	int 		oldMask;
 	NSPoint	fixedpoint, dragpoint;	// endpoints of the line
@@ -297,7 +297,7 @@
 	do
 	{
 		event = [NSApp getNextEvent: NX_LMOUSEUPMASK];
-	} while (event->type != NX_LMOUSEUP);
+	} while ([event type] != NSLeftMouseUp);
 
 //
 // drag lines until a click on same point
@@ -312,7 +312,7 @@
 		{
 			event = [NSApp getNextEvent: NX_LMOUSEDOWNMASK | NX_LMOUSEUPMASK | NX_MOUSEMOVEDMASK | NX_LMOUSEDRAGGEDMASK];
 			[self getGridPoint: &dragpoint  from: event];  // handle grid and sutch
-			if (event->type == NX_LMOUSEUP)
+			if ([event type] == NSLeftMouseUp)
 				break;
 				
 			PSnewinstance ();
@@ -364,7 +364,7 @@
 ================
 */
 
-- dragSelectedPoints: (NXEvent *)event
+- dragSelectedPoints: (NSEvent *)event
 {
 	int 		oldMask;
 	int		l;
@@ -457,7 +457,7 @@
 	do 
 	{		
 		event = [NSApp getNextEvent: NX_LMOUSEUPMASK | NX_LMOUSEDRAGGEDMASK];
-		if ( event->type == NX_LMOUSEUP)
+		if ( [event type] == NSLeftMouseUp)
 			break;
 		//
 		// calculate new rectangle
@@ -559,7 +559,7 @@
 ================
 */
 
-- dragSelectionBox: (NXEvent *)event
+- dragSelectionBox: (NSEvent *)event
 {
 	int 		oldMask;
 	NSRect	newframe;
@@ -572,7 +572,7 @@
 //
 // peg down the first corner
 //
-	fixedcorner = event->location;
+	fixedcorner = [event locationInWindow];
 	[self convertPoint:&fixedcorner  fromView:NULL];
 		
 //
@@ -589,7 +589,7 @@
 		//
 		// calculate new rectangle
 		//
-		dragcorner = event->location;
+		dragcorner = [event locationInWindow];
 		[self convertPoint:&dragcorner  fromView:NULL];
 		IDRectFromPoints (&newframe, &fixedcorner, &dragcorner);
 				
@@ -602,7 +602,7 @@
 		
 		event = [NSApp getNextEvent: NX_LMOUSEUPMASK | NX_LMOUSEDRAGGEDMASK];
 		
-	} while (event->type != NX_LMOUSEUP);
+	} while ([event type] != NSLeftMouseUp);
 
 	[window setEventMask:oldMask];
 	PSnewinstance ();
@@ -677,7 +677,7 @@
 ================
 */
 
-- pointSelect:(NXEvent *)event
+- pointSelect:(NSEvent *)event
 {
 	int			i;
 	worldthing_t	*thing_p;
@@ -838,7 +838,7 @@
 ================
 */
 
-- placeThing: (NXEvent *)event
+- placeThing: (NSEvent *)event
 {
 	worldthing_t	thing;
 	
@@ -865,7 +865,7 @@
 ================
 */
 
-- fillSector: (NXEvent *)event
+- fillSector: (NSEvent *)event
 {
 	NSPoint	pt;
 	int		i, side;
@@ -900,7 +900,7 @@
 ================
 */
 
-- getSector: (NXEvent *)event
+- getSector: (NSEvent *)event
 {
 	NSPoint	pt;
 	int		line, side;
@@ -931,7 +931,7 @@
 	return 0;	
 }
 
-- launchAndSave:(NXEvent *)event
+- launchAndSave:(NSEvent *)event
 {
 	NSPoint	pt;
 	int	i,player1Type;
@@ -979,7 +979,7 @@
 ================
 */
 
-- mouseDown:(NXEvent *)thisEvent
+- mouseDown:(NSEvent *)thisEvent
 {
 	int	tool;
 		
@@ -1019,7 +1019,7 @@
 	return(self);
 }
 
-- rightMouseDown:(NXEvent *)thisEvent
+- rightMouseDown:(NSEvent *)thisEvent
 {
 	switch ( [toolpanel_i currentTool] )
 	{
@@ -1047,9 +1047,9 @@
 ===============
 */
 
-- keyDown:(NXEvent *)theEvent
+- keyDown:(NSEvent *)theEvent
 {
-	if (theEvent->data.key.charCode == 127)
+	if ([theEvent keyCode] == NSDeleteCharacter)
 	{
 		[editworld_i delete: self];
 		return self;

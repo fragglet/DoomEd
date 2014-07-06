@@ -71,7 +71,7 @@
 	return self;
 }
 
-- mouseDown:(NXEvent *)theEvent
+- mouseDown:(NSEvent *)theEvent
 {
 	NSPoint	loc;
 	int		i;
@@ -80,7 +80,7 @@
 	icon_t	*icon;
 
 	oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
-	loc = theEvent->location;
+	loc = [theEvent locationInWindow];
 	[self convertPoint:&loc	fromView:NULL];
 	
 	max = [thingPalette_i	getNumIcons];

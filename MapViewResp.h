@@ -2,7 +2,7 @@
 
 @interface MapView (MapViewResp)
 
-- mouseDown:(NXEvent *)thisEvent;
-- rightMouseDown:(NXEvent *)thisEvent;
+- mouseDown:(NSEvent *)thisEvent;
+- rightMouseDown:(NSEvent *)thisEvent;
 
 @end

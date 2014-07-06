@@ -28,8 +28,8 @@ extern	BOOL	linecross[9][9];
 
 - displayDirty: (NSRect const *)dirty;
 
-- getPoint:	(NSPoint *)point  from: 	(NXEvent const *)event;
-- getGridPoint:	(NSPoint *)point  from: 	(NXEvent const *)event;
+- getPoint:	(NSPoint *)point  from: 	(NSEvent const *)event;
+- getGridPoint:	(NSPoint *)point  from: 	(NSEvent const *)event;
 
 - adjustFrameForOrigin: (NSPoint const *)org scale:(float)scl;
 - adjustFrameForOrigin: (NSPoint const *)org;
