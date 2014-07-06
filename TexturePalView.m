@@ -106,7 +106,7 @@
 	int		i,texcount,oldwindowmask, which;
 	texpal_t	*t;
 
-	oldwindowmask = [window addToEventMask:NX_LMOUSEDRAGGEDMASK];
+	oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
 	loc = theEvent->location;
 	[self convertPoint:&loc	fromView:NULL];
 	

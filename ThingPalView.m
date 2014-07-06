@@ -79,7 +79,7 @@
 	int		oldwindowmask;
 	icon_t	*icon;
 
-	oldwindowmask = [window addToEventMask:NX_LMOUSEDRAGGEDMASK];
+	oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
 	loc = theEvent->location;
 	[self convertPoint:&loc	fromView:NULL];
 	
@@ -95,7 +95,7 @@
 		}
 	}
 	
-	[window	setEventMask:oldwindowmask];
+	[[self window] setEventMask:oldwindowmask];
 	return self;
 }
 

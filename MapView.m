@@ -88,14 +88,14 @@ printf ("Display\n");
 	[t4 summary: stream];
 printf ("No flush\n");	
 	[t4 reset];
-	[window disableFlushWindow];
+	[[self window] disableFlushWindow];
 	for (i=0 ; i<10 ; i++)
 	{
 		[t4 enter: WALLTIME];
 		[self display];
 		[t4 leave];
 	}
-	[window reenableFlushWindow];
+	[[self window] reenableFlushWindow];
 	[t4 summary: stream];
 	
 	NXSaveToFile (stream, "/aardwolf/Users/johnc/timing.txt");
@@ -440,7 +440,7 @@ printf ("Done\n");
 {
 	NSPoint		neworg, orgnow;
 	
-	[window disableDisplay];		// don't redraw twice (scaling and translating)
+	[[self window] disableDisplay];		// don't redraw twice (scaling and translating)
 //
 // find where the point is now
 //
@@ -465,7 +465,7 @@ printf ("Done\n");
 //
 // redraw
 // 
-	[window reenableDisplay];
+	[[self window] reenableDisplay];
 	[[superview superview] display];	// redraw everything just once
 	
 	return self;
