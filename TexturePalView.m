@@ -72,7 +72,7 @@
 	count = 0;
 	while ((t = [texturePalette_i	getNewTexture:count++]) != NULL)
 		if (NXIntersectsRect(&rects[0],&t->r) == YES)
-			[t->image	composite:NX_COPY	toPoint:&t->r.origin];
+			[t->image	composite:NSCompositeCopy	toPoint:&t->r.origin];
 	
 	//
 	//	Draw texture set divider text

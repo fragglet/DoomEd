@@ -79,7 +79,7 @@
 	{
 		tpatch = [texturePatches	elementAt:i];
 //		if (NXIntersectsRect(&tpatch->r,&rects[0]) == YES)
-			[tpatch->patch->image_x2	composite:NX_SOVER toPoint:&tpatch->r.origin];
+			[tpatch->patch->image_x2	composite:NSCompositeSourceOver toPoint:&tpatch->r.origin];
 	}
 
 	//

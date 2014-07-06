@@ -66,7 +66,7 @@
 	patchnum = 0;
 	while ((patch = [textureEdit_i	getPatch:patchnum++]) != NULL)
 		if (NXIntersectsRect(&patch->r,&rects[0]))
-			[patch->image		composite:NX_SOVER toPoint:&patch->r.origin];
+			[patch->image		composite:NSCompositeSourceOver toPoint:&patch->r.origin];
 	
 	[self	getFrame:&clipview];
 	if (selectedPatch >= 0)
@@ -78,7 +78,7 @@
 		r.size.width += 10;
 		r.size.height += 10;
 		DE_DrawOutline(&r);
-		[patch->image		composite:NX_SOVER toPoint:&patch->r.origin];
+		[patch->image		composite:NSCompositeSourceOver toPoint:&patch->r.origin];
 	}
 
 	//

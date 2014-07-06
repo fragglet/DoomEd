@@ -162,7 +162,7 @@ id	texturePalette_i;
 					(p.patchInfo.originy);
 		p.r.size.width = p.patch->r.size.width;
 		p.r.size.height = p.patch->r.size.height;
-		[p.patch->image	composite:NX_SOVER toPoint:&p.r.origin];
+		[p.patch->image	composite:NSCompositeSourceOver toPoint:&p.r.origin];
 	}
 	[t.image	unlockFocus];
 	return t;

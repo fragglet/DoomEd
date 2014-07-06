@@ -384,7 +384,7 @@ if (points[li->p1].pt.x != points[li->p2].pt.x
 	if (debugflag)
 	{
 		NXSetColor (NXConvertRGBAToColor (0,0,1.0,0.1));
-		PScompositerect (rects->origin.x, rects->origin.y, rects->size.width, rects->size.height, NX_SOVER);
+		PScompositerect (rects->origin.x, rects->origin.y, rects->size.width, rects->size.height, NSCompositeSourceOver);
 	printf ("Rects: %f, %f, %f, %f\n", rects->origin.x, rects->origin.y, rects->size.width, rects->size.height);
 	}
 

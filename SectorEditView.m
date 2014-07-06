@@ -30,7 +30,7 @@
 		f = [sectorEdit_i	getCeilingFlat];
 		p.x = 32;
 		p.y = 105;
-		[f->image	composite:NX_COPY	toPoint:&p];
+		[f->image	composite:NSCompositeCopy	toPoint:&p];
 	}
 	
 	//
@@ -46,7 +46,7 @@
 		f = [sectorEdit_i	getFloorFlat];
 		p.x = 32;
 		p.y = 31;
-		[f->image	composite:NX_COPY	toPoint:&p];
+		[f->image	composite:NSCompositeCopy	toPoint:&p];
 	}
 
 	return self;
