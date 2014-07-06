@@ -19,22 +19,22 @@ extern	BOOL	linecross[9][9];
 - initFromEditWorld;
 
 - (float)currentScale;
-- getCurrentOrigin: (NXPoint *)worldorigin;
+- getCurrentOrigin: (NSPoint *)worldorigin;
 
 - scaleMenuTarget: sender;
 - gridMenuTarget: sender;
 
-- zoomFrom:(NXPoint *)origin toScale:(float)newscale;
+- zoomFrom:(NSPoint *)origin toScale:(float)newscale;
 
 - displayDirty: (NSRect const *)dirty;
 
-- getPoint:	(NXPoint *)point  from: 	(NXEvent const *)event;
-- getGridPoint:	(NXPoint *)point  from: 	(NXEvent const *)event;
+- getPoint:	(NSPoint *)point  from: 	(NXEvent const *)event;
+- getGridPoint:	(NSPoint *)point  from: 	(NXEvent const *)event;
 
-- adjustFrameForOrigin: (NXPoint const *)org scale:(float)scl;
-- adjustFrameForOrigin: (NXPoint const *)org;
-- setOrigin: (NXPoint const *)org scale: (float)scl;
-- setOrigin: (NXPoint const *)org;
+- adjustFrameForOrigin: (NSPoint const *)org scale:(float)scl;
+- adjustFrameForOrigin: (NSPoint const *)org;
+- setOrigin: (NSPoint const *)org scale: (float)scl;
+- setOrigin: (NSPoint const *)org;
 
 @end
 

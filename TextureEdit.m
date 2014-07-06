@@ -47,7 +47,7 @@ id	texturePatches;
 	{
 		NXSize	s;
 		NSRect	dvf;
-		NXPoint	startPoint;
+		NSPoint	startPoint;
 		int		ns, i;
 		
 		[NSApp 

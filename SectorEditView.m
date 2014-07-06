@@ -8,7 +8,7 @@
 {
 	sectordef_t	*s;
 	flat_t	*f;
-	NXPoint	p;
+	NSPoint	p;
 	NSRect	r;
 	
 	s = [sectorEdit_i		getSector];
@@ -54,7 +54,7 @@
 
 - mouseDown:(NXEvent *)theEvent
 {
-	NXPoint	loc;
+	NSPoint	loc;
 	int	oldwindowmask;
 //	int ny, yoff;
 //	sectordef_t	*s;
@@ -76,7 +76,7 @@
 	if (s->ceilingheight <= 200)
 	{
 		r.origin.y = s->ceilingheight/2 + 50;
-		if (NXPointInRect(&loc,&r) == YES)
+		if (NSPointInRect(&loc,&r) == YES)
 		{
 			[sectorEdit_i	selectCeiling];
 			yoff = loc.y - r.origin.y;
@@ -104,7 +104,7 @@
 	if (s->floorheight >= 0)
 	{
 		r.origin.y = s->floorheight/2 - 14;
-		if (NXPointInRect(&loc,&r) == YES)
+		if (NSPointInRect(&loc,&r) == YES)
 		{
 			[sectorEdit_i	selectFloor];
 			yoff = (r.origin.y + r.size.height) - loc.y;

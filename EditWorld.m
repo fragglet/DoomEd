@@ -31,9 +31,9 @@ worldthing_t	*things;
 ===================
 */
 
-int	LineSideToPoint (worldline_t *line, NXPoint *pt)
+int	LineSideToPoint (worldline_t *line, NSPoint *pt)
 {
-	NXPoint	*p1, *p2;
+	NSPoint	*p1, *p2;
 	float		slope, yintercept;
 	BOOL	direction, test;
 
@@ -72,11 +72,11 @@ int	LineSideToPoint (worldline_t *line, NXPoint *pt)
 ================
 */
 
-int LineByPoint (NXPoint *ptin, int *side)
+int LineByPoint (NSPoint *ptin, int *side)
 {
-	NXPoint	ptp,*pt;
+	NSPoint	ptp,*pt;
 	int		l;
-	NXPoint	*p1, *p2;
+	NSPoint	*p1, *p2;
 	float		frac, distance, bestdistance, xintercept;
 	int		bestline;
 	
@@ -488,7 +488,7 @@ int LineByPoint (NXPoint *ptin, int *side)
 - updateLineNormal:(int) num
 {
 	worldline_t	*line;
-	NXPoint	*p1, *p2;
+	NSPoint	*p1, *p2;
 	float		dx, dy, length;
 
 	line = &lines[num];
@@ -519,7 +519,7 @@ int LineByPoint (NXPoint *ptin, int *side)
 ================
 */
 
-- addPointToDirtyRect: (NXPoint *)pt
+- addPointToDirtyRect: (NSPoint *)pt
 {
 	IDEnclosePoint (&dirtyrect, pt);
 	return self;
@@ -546,7 +546,7 @@ int LineByPoint (NXPoint *ptin, int *side)
 	return self;
 #if 0
 	NSRect	new;
-	NXPoint	*pt1, *pt2;
+	NSPoint	*pt1, *pt2;
 	
 	pt1 = &points[p1].pt;
 	pt2 = &points[p2].pt;
@@ -704,7 +704,7 @@ FIXME: make these scan for deleted entries
 */
 
 // allocate a point even if it is a duplicate
-- (int)allocatePoint: (NXPoint *)pt
+- (int)allocatePoint: (NSPoint *)pt
 {
 // add a new point
 	
@@ -736,7 +736,7 @@ FIXME: make these scan for deleted entries
 =================
 */
 
-- (int)newPoint: (NXPoint *)pt
+- (int)newPoint: (NSPoint *)pt
 {
 	int	i;
 	worldpoint_t	*check;
@@ -770,7 +770,7 @@ FIXME: make these scan for deleted entries
 ================
 */
 
-- (int)newLine:(worldline_t *)data from: (NXPoint *)p1 to:(NXPoint *)p2
+- (int)newLine:(worldline_t *)data from: (NSPoint *)p1 to:(NSPoint *)p2
 {	
 	if (numlines == linessize)
 	{
@@ -870,7 +870,7 @@ FIXME: make these scan for deleted entries
 {
 	worldline_t	line;
 	int			i;
-	NXPoint		p1,p2;
+	NSPoint		p1,p2;
 	
 	if (!loaded)
 		return self;
@@ -907,7 +907,7 @@ FIXME: make these scan for deleted entries
 - fusePoints: sender
 {
 	int	i, j, k;
-	NXPoint	*p1, *p2;
+	NSPoint	*p1, *p2;
 	worldline_t	*line;
 	
 	for (i=0 ; i<numpoints ; i++)
@@ -1076,11 +1076,11 @@ FIXME: make these scan for deleted entries
 //
 // find center point of copied stuff
 //
-- (NXPoint)findCopyCenter
+- (NSPoint)findCopyCenter
 {
 	worldthing_t	*t;
 	copyline_t	*L;
-	NXPoint	p;
+	NSPoint	p;
 	int	i,max,xmin,ymin,xmax,ymax;
 	
 	xmin  = ymin  = xmax = ymax = 0;
@@ -1155,7 +1155,7 @@ FIXME: make these scan for deleted entries
 	NSRect	r;
 	worldthing_t	*t, t1;
 	copyline_t	*L;
-	NXPoint	p1,p2;
+	NSPoint	p1,p2;
 
 	[self	copyDeselect];	
 	[[[NSApp	mainWindow]	contentView]	getDocVisibleRect:&r];

@@ -121,7 +121,7 @@
 
 - mouseDown:(NXEvent *)theEvent
 {
-	NXPoint	loc,newloc;
+	NSPoint	loc,newloc;
 	int	i,patchcount,oldwindowmask,ct,max,j,warn,clicked;
 	texpatch_t	*patch;
 	NXEvent	*event;
@@ -139,7 +139,7 @@
 	for (i = patchcount - 1;i >= 0;i--)
 	{
 		patch = [texturePatches	elementAt:i];
-		if (NXPointInRect(&loc,&patch->r) == YES)
+		if (NSPointInRect(&loc,&patch->r) == YES)
 		{
 			//
 			// shift-click adds the patch to the select list
@@ -195,7 +195,7 @@
 		for (j = 0;j < max;j++)
 		{
 			delta_t	*d;
-			NXPoint	l;
+			NSPoint	l;
 			
 			d = [deltaTable	elementAt:j];
 			l = newloc;

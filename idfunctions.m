@@ -25,7 +25,7 @@ void BoxFromRect (box_t *box, NSRect *rect)
 ============
 */
 
-void BoxFromPoints (box_t *box, NXPoint *p1, NXPoint *p2)
+void BoxFromPoints (box_t *box, NSPoint *p1, NSPoint *p2)
 {
 	if (p1->x < p2->x)
 	{
@@ -60,7 +60,7 @@ void BoxFromPoints (box_t *box, NXPoint *p1, NXPoint *p2)
 ================
 */
 
-void IDRectFromPoints(NSRect *rect, NXPoint const *p1, NXPoint const *p2 )
+void IDRectFromPoints(NSRect *rect, NSPoint const *p1, NSPoint const *p2 )
 {
 // return a rectangle that encloses the two points
 	if (p1->x < p2->x)
@@ -97,7 +97,7 @@ void IDRectFromPoints(NSRect *rect, NXPoint const *p1, NXPoint const *p2 )
 ==================
 */
 
-void IDEnclosePoint (NSRect *rect, NXPoint const *point)
+void IDEnclosePoint (NSRect *rect, NSPoint const *point)
 {
 	float	right, top;
 	

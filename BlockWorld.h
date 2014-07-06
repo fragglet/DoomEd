@@ -10,7 +10,7 @@ extern	BOOL	fillerror;
 - displayBlockMap;
 - createBlockMap;
 - drawBlockLine: (int) linenum;
-- floodFillSector: (NXPoint *)pt;
+- floodFillSector: (NSPoint *)pt;
 - (BOOL)connectSectors;
 
 @end

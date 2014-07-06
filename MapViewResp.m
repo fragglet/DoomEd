@@ -38,7 +38,7 @@
 ====================
 */
 
-- addLineFrom: (NXPoint *)fixedpoint  to: (NXPoint *)dragpoint
+- addLineFrom: (NSPoint *)fixedpoint  to: (NSPoint *)dragpoint
 {
 	worldline_t	newline;
 	int			line;
@@ -75,7 +75,7 @@
 - slideView:(NXEvent *)event
 {
 	int 		oldMask;
-	NXPoint	oldpt, pt, origin;
+	NSPoint	oldpt, pt, origin;
 	float		dx, dy;
 			
 	oldpt = event->location;
@@ -129,7 +129,7 @@
 	float			nscale;
 	id			itemlist;
 	int			selected, numrows, numcollumns;
-	NXPoint		origin;
+	NSPoint		origin;
 	
 	itemlist = [[window scalemenu] itemList];
 	[itemlist getNumRows: &numrows numCols:&numcollumns];
@@ -175,7 +175,7 @@
 	float			nscale;
 	id			itemlist;
 	int			selected;
-	NXPoint		origin;
+	NSPoint		origin;
 
 	itemlist = [[window scalemenu] itemList];
 	selected = [itemlist selectedRow] - 1;
@@ -224,7 +224,7 @@
 - lineDrag:(NXEvent *)event
 {
 	int 		oldMask;
-	NXPoint	fixedpoint, dragpoint;	// endpoints of the line
+	NSPoint	fixedpoint, dragpoint;	// endpoints of the line
 		
 	oldMask = [window addToEventMask:NX_LMOUSEDRAGGEDMASK];
 	
@@ -282,7 +282,7 @@
 - polyDrag:(NXEvent *)event
 {
 	int 		oldMask;
-	NXPoint	fixedpoint, dragpoint;	// endpoints of the line
+	NSPoint	fixedpoint, dragpoint;	// endpoints of the line
 
 //
 // set up
@@ -371,7 +371,7 @@
 	int			linecount, *linelist, *linelist_p;
 	worldline_t	*line_p;
 	BOOL		side1, side2;
-	NXPoint		cursor, moved,totalmoved;
+	NSPoint		cursor, moved,totalmoved;
 	NSRect		fixedrect;
 	NSRect		dragrect;
 	NSRect		currentdragrect, olddragrect;
@@ -432,7 +432,7 @@
 	for (p=0; p<numthings;p++)
 		if (things[p].selected == 1)
 		{
-			NXPoint	pt;
+			NSPoint	pt;
 			
 			pt = things[p].origin;
 			pt.x -= offset;
@@ -563,7 +563,7 @@
 {
 	int 		oldMask;
 	NSRect	newframe;
-	NXPoint	dragcorner, fixedcorner, *p1, *p2;
+	NSPoint	dragcorner, fixedcorner, *p1, *p2;
 	int		i,p;
 	worldpoint_t	*point_p;
 	worldthing_t	*thing_p;
@@ -616,7 +616,7 @@
 	{
 		if (point_p->selected == -1)
 			continue;
-		if ( NXPointInRect (&point_p->pt, &newframe) )
+		if ( NSPointInRect (&point_p->pt, &newframe) )
 			[editworld_i selectPoint: p];
 	}
 
@@ -659,7 +659,7 @@
 	{
 		if (thing_p->selected == -1)
 			continue;
-		if ( NXPointInRect (&thing_p->origin, &newframe) )
+		if ( NSPointInRect (&thing_p->origin, &newframe) )
 			[editworld_i selectThing: p];
 	}
 
@@ -683,8 +683,8 @@
 	worldthing_t	*thing_p;
 	worldpoint_t	const *point_p;
 	float			left, right, top, bottom;
-	NXPoint		*p1, *p2;
-	NXPoint		clickpoint;
+	NSPoint		*p1, *p2;
+	NSPoint		clickpoint;
 	int			instroke;
 	
 	[self getPoint: &clickpoint from: event];
@@ -867,7 +867,7 @@
 
 - fillSector: (NXEvent *)event
 {
-	NXPoint	pt;
+	NSPoint	pt;
 	int		i, side;
 	worldline_t	*line;
 	sectordef_t	*fillends;
@@ -902,7 +902,7 @@
 
 - getSector: (NXEvent *)event
 {
-	NXPoint	pt;
+	NSPoint	pt;
 	int		line, side;
 	sectordef_t	*def;
 
@@ -933,7 +933,7 @@
 
 - launchAndSave:(NXEvent *)event
 {
-	NXPoint	pt;
+	NSPoint	pt;
 	int	i,player1Type;
 	worldthing_t	oldthing,newthing;
 	

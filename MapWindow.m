@@ -21,7 +21,7 @@ static	int	cornerx = 128, cornery = 64;
 	id		oldobj_i;
 	NXSize	screensize;
 	NSRect	wframe;
-	NXPoint	origin;
+	NSPoint	origin;
 	NSRect	mapbounds;
 
 //
@@ -195,7 +195,7 @@ static	int	cornerx = 128, cornery = 64;
 {
 	NSRect	wincont, scrollcont;
 	float		scale;
-	NXPoint	newscreenorg;
+	NSPoint	newscreenorg;
 
 //
 // change frame if needed

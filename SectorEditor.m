@@ -541,7 +541,7 @@ id	sectorEdit_i;
 	int		i,x,y,max;
 	flat_t	*f;
 	int		maxwidth;
-	NXPoint	p;
+	NSPoint	p;
 	int		maxwindex;
 	char	string[32];
 	

@@ -165,7 +165,7 @@ int		linecrunch[8192];
 	int		count;
 	int		length;
 	float		dx, dy;
-	NXPoint	*p1, *p2;
+	NSPoint	*p1, *p2;
 	char		string[80];
 	
 	count = 0;

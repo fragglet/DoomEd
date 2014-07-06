@@ -109,7 +109,7 @@
 
 - mouseDown:(NXEvent *)theEvent
 {
-	NXPoint	loc;
+	NSPoint	loc;
 	int		patchnum,selectedPatch;
 	apatch_t *patch;
 	

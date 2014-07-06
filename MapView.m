@@ -241,7 +241,7 @@ printf ("Done\n");
 ================
 */
 
-- getCurrentOrigin: (NXPoint *)worldorigin
+- getCurrentOrigin: (NSPoint *)worldorigin
 {
 	NSRect	global;
 	
@@ -254,7 +254,7 @@ printf ("Done\n");
 
 - printInfo: sender
 {
-	NXPoint	wrld;
+	NSPoint	wrld;
 	
 	[self getCurrentOrigin: &wrld];
 	printf ("getCurrentOrigin: %f, %f\n",wrld.x,wrld.y);
@@ -311,7 +311,7 @@ printf ("Done\n");
 =======================
 */
 
-- 	getGridPoint:	(NXPoint *)point 
+- 	getGridPoint:	(NSPoint *)point 
 	from: 	(NXEvent const *)event
 {
 // convert to view coordinates
@@ -327,7 +327,7 @@ printf ("Done\n");
 	return self;
 }
 
-- 	getPoint:	(NXPoint *)point 
+- 	getPoint:	(NSPoint *)point 
 	from: 	(NXEvent const *)event
 {
 // convert to view coordinates
@@ -349,12 +349,12 @@ printf ("Done\n");
 ==================
 */
 
-- adjustFrameForOrigin: (NXPoint const *)org
+- adjustFrameForOrigin: (NSPoint const *)org
 {
 	return [self adjustFrameForOrigin: org scale:scale];
 }
 
-- adjustFrameForOrigin: (NXPoint const *)org scale: (float)scl
+- adjustFrameForOrigin: (NSPoint const *)org scale: (float)scl
 {
 	NSRect	map;
 	NSRect	newbounds;
@@ -414,12 +414,12 @@ printf ("Done\n");
 =======================
 */
 
-- setOrigin: (NXPoint const *)org
+- setOrigin: (NSPoint const *)org
 {
 	return [self setOrigin: org scale: scale];
 }
 
-- setOrigin: (NXPoint const *)org scale: (float)scl
+- setOrigin: (NSPoint const *)org scale: (float)scl
 {
 	[self adjustFrameForOrigin: org scale:scl];
 	[self scrollPoint: org];
@@ -429,16 +429,16 @@ printf ("Done\n");
 /*
 ====================
 =
-= zoomFrom:(NXPoint *)origin scale:(float)newscale
+= zoomFrom:(NSPoint *)origin scale:(float)newscale
 =
 = The origin is in screen pixels from the lower left corner of the clip view
 =
 ====================
 */
 
-- zoomFrom:(NXPoint *)origin toScale:(float)newscale
+- zoomFrom:(NSPoint *)origin toScale:(float)newscale
 {
-	NXPoint		neworg, orgnow;
+	NSPoint		neworg, orgnow;
 	
 	[window disableDisplay];		// don't redraw twice (scaling and translating)
 //

@@ -88,7 +88,7 @@
 
 - mouseDown:(NXEvent *)theEvent
 {
-	NXPoint	loc;
+	NSPoint	loc;
 	int	i,max,oldwindowmask;
 	flat_t	*f;
 
@@ -100,7 +100,7 @@
 	for (i = 0;i < max; i++)
 	{
 		f = [sectorEdit_i		getFlat:i];
-		if (NXPointInRect(&loc,&f->r) == YES)
+		if (NSPointInRect(&loc,&f->r) == YES)
 		{
 			if (theEvent->data.mouse.click == 2)
 				[sectorEdit_i	selectFlat:i];

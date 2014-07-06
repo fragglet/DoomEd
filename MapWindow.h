@@ -8,8 +8,8 @@
 	id		scalemenu_i, scalebutton_i;
 	id		gridmenu_i, gridbutton_i;	
 	
-	NXPoint	oldscreenorg;			// taken when resizing to keep view constant
-	NXPoint	presizeorigin;			// map view origin before resize
+	NSPoint	oldscreenorg;			// taken when resizing to keep view constant
+	NSPoint	presizeorigin;			// map view origin before resize
 }
 
 - initFromEditWorld;

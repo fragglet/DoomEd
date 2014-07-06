@@ -40,7 +40,7 @@ id	texturePalette_i;
 
 - finishInit
 {
-		NXPoint	p;
+		NSPoint	p;
 		NSRect	dvr;
 	
 		[self	computePalViewSize];

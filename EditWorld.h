@@ -8,7 +8,7 @@ typedef struct
 	int	selected;		// context that owns the point, 0 if unselected, or -1 if deleted
 	int	refcount;		// when 0, remove it 
 
-	NXPoint	pt;
+	NSPoint	pt;
 } worldpoint_t;
 
 typedef struct
@@ -32,8 +32,8 @@ typedef struct
 	
 	worldside_t	side[2];
 
-	NXPoint	mid;
-	NXPoint	norm;
+	NSPoint	mid;
+	NSPoint	norm;
 } worldline_t;
 
 #define	ML_BLOCKMOVE			1
@@ -43,7 +43,7 @@ typedef struct
 {
 	int	selected;		// 0 if unselected, -1 if deleted, 1 if selected
 
-	NXPoint	origin;
+	NSPoint	origin;
 	int	angle;
 	int	type;
 	int	options;
@@ -59,7 +59,7 @@ typedef struct
 typedef struct
 {
 	worldline_t	l;
-	NXPoint		p1,p2;
+	NSPoint		p1,p2;
 } copyline_t;
 
 //===========================================================================
@@ -89,7 +89,7 @@ extern	worldthing_t	*things;
 	
 	id		copyThings_i;			// cut/copy/paste info
 	id		copyLines_i;
-	NXPoint	copyCoord;
+	NSPoint	copyCoord;
 	int		copyLoaded;
 	id		saveSound;				// Sound instance
 }
@@ -153,9 +153,9 @@ extern	worldthing_t	*things;
 - deselectAll;
 
 
-- (int)allocatePoint: (NXPoint *)pt;
-- (int)newPoint: (NXPoint *)pt;
-- (int)newLine: (worldline_t *)line from: (NXPoint *)p1 to:(NXPoint *)p2;
+- (int)allocatePoint: (NSPoint *)pt;
+- (int)newPoint: (NSPoint *)pt;
+- (int)newLine: (worldline_t *)line from: (NSPoint *)p1 to:(NSPoint *)p2;
 - (int)newThing: (worldthing_t *)thing;
 
 - changePoint: (int)p to: (worldpoint_t *)data;
@@ -168,7 +168,7 @@ extern	worldthing_t	*things;
 //
 - storeCopies;
 - copyDeselect;
-- (NXPoint)findCopyCenter;
+- (NSPoint)findCopyCenter;
 - (int)findMin:(int)num0	:(int)num1;
 - (int)findMax:(int)num0	:(int)num1;
 @end
@@ -179,7 +179,7 @@ extern	worldthing_t	*things;
 //
 @interface EditWorld (EWLoadSave)
 
-- (BOOL)readLine: (NXPoint *)p1 : (NXPoint *)p2 : (worldline_t *)line from: (FILE *)file;
+- (BOOL)readLine: (NSPoint *)p1 : (NSPoint *)p2 : (worldline_t *)line from: (FILE *)file;
 - writeLine: (worldline_t *)line to: (FILE *)file;
 - (BOOL)readThing: (worldthing_t *)thing from: (FILE *)file;
 - writeThing: (worldthing_t *)thing to: (FILE *)file;
@@ -198,4 +198,4 @@ extern	worldthing_t	*things;
 
 @end
 
-int LineByPoint (NXPoint *pt, int *side);
+int LineByPoint (NSPoint *pt, int *side);

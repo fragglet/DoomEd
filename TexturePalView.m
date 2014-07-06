@@ -102,7 +102,7 @@
 
 - mouseDown:(NXEvent *)theEvent
 {
-	NXPoint	loc;
+	NSPoint	loc;
 	int		i,texcount,oldwindowmask, which;
 	texpal_t	*t;
 
@@ -114,7 +114,7 @@
 	for (i = texcount - 1;i >= 0;i--)
 	{
 		t = [texturePalette_i		getNewTexture:i];
-		if (NXPointInRect(&loc,&t->r) == YES)
+		if (NSPointInRect(&loc,&t->r) == YES)
 		{
 			which = [texturePalette_i	selectTextureNamed:t->name ];
 			if (theEvent->data.mouse.click == 2)

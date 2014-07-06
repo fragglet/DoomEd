@@ -239,7 +239,7 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 {
 	worldline_t	*line;
 	int			x1, y1, x2, y2;
-	NXPoint		*pt;
+	NSPoint		*pt;
 	int			left, right, top, bottom;
 	short		*dest;
 	int			temp, offset;
@@ -474,7 +474,7 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 ================
 */
 
-- floodFillSector: (NXPoint *)pt
+- floodFillSector: (NSPoint *)pt
 {
 	int	x1, y1;
 	

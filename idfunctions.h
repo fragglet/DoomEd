@@ -11,10 +11,10 @@ typedef struct
 } box_t;
 
 void BoxFromRect (box_t *box, NSRect *rect);
-void BoxFromPoints (box_t *box, NXPoint *p1, NXPoint *p2);
+void BoxFromPoints (box_t *box, NSPoint *p1, NSPoint *p2);
 
-void IDRectFromPoints( NSRect *rect, NXPoint const *p1, NXPoint const *p2 );
-void IDEnclosePoint (NSRect *rect, NXPoint const *point);
+void IDRectFromPoints( NSRect *rect, NSPoint const *p1, NSPoint const *p2 );
+void IDEnclosePoint (NSRect *rect, NSPoint const *point);
 
 unsigned short ShortSwap (unsigned short dat);
 unsigned LongSwap (unsigned dat);

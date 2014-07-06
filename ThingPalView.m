@@ -13,7 +13,7 @@
 	int		i;
 	int		ci;
 	NSRect	r;
-	NXPoint	p;
+	NSPoint	p;
 	
 	ci = [thingPalette_i	getCurrentIcon];
 	if (ci >= 0)
@@ -73,7 +73,7 @@
 
 - mouseDown:(NXEvent *)theEvent
 {
-	NXPoint	loc;
+	NSPoint	loc;
 	int		i;
 	int		max;
 	int		oldwindowmask;
@@ -87,7 +87,7 @@
 	for (i = 0;i < max; i++)
 	{
 		icon = [thingPalette_i		getIcon:i];
-		if (NXPointInRect(&loc,&icon->r) == YES)
+		if (NSPointInRect(&loc,&icon->r) == YES)
 		{
 			[thingPalette_i	setCurrentIcon:i];
 			[thingpanel_i	selectThingWithIcon:icon->name];

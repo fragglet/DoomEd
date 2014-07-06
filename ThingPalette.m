@@ -168,7 +168,7 @@ id	thingPalette_i;
 	int		max;
 	icon_t	*icon;
 	int		maxwidth;
-	NXPoint	p;
+	NSPoint	p;
 	
 	[thingPalScrView_i	getDocVisibleRect:&dvr];
 	max = [thingImages	count];

@@ -12,7 +12,7 @@
 =================
 */
 
-- (BOOL)readLine: (NXPoint *)p1 : (NXPoint *)p2 : (worldline_t *)line from: (FILE *)file
+- (BOOL)readLine: (NSPoint *)p1 : (NSPoint *)p2 : (worldline_t *)line from: (FILE *)file
 {
 	worldside_t	*s;
 	sectordef_t	*e;
@@ -182,7 +182,7 @@
 {
 	int			i;
 	int			linecount, thingcount;
-	NXPoint		p1, p2;
+	NSPoint		p1, p2;
 	worldline_t	line;
 	worldthing_t	thing;	
 	
