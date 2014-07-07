@@ -45,7 +45,7 @@ id	texturePatches;
 	
 	if (!window_i)
 	{
-		NXSize	s;
+		NSSize	s;
 		NSRect	dvf;
 		NSPoint	startPoint;
 		int		ns, i;
@@ -1176,7 +1176,7 @@ id	texturePatches;
 	byte 	*palLBM;
 	unsigned short	shortpal[256];
 	apatch_t	p;
-	NXSize	s;
+	NSSize	s;
 	char	string[80];
 	
 	int		windex;
@@ -1248,7 +1248,7 @@ id	texturePatches;
 //
 - createPatchX2:(apatch_t *)p
 {
-	NXSize	theSize;
+	NSSize	theSize;
 	
 	p->image_x2 = [p->image	copyFromZone:NXDefaultMallocZone()];
 	theSize = p->size;
@@ -1462,7 +1462,7 @@ id	texturePatches;
 //
 // convert a compressed patch to an NXImage with an alpha channel
 //
-id	patchToImage(patch_t *patchData, unsigned short *shortpal,NXSize *size,char *name)
+id	patchToImage(patch_t *patchData, unsigned short *shortpal,NSSize *size,char *name)
 {
 	byte			*dest_p;
 	NXImageRep *image_i;

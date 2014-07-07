@@ -84,7 +84,7 @@ typedef post_t	collumn_t;
 typedef struct
 {
 	NSRect	r;
-	NXSize	size;
+	NSSize	size;
 	char		name[9];
 	id		image;
 	id		image_x2;
@@ -164,6 +164,6 @@ extern	id	textureEdit_i;
 @end
 
 id	patchToImage(patch_t *patchData, unsigned short *shortpal,
-	NXSize *size,char *name);
+	NSSize *size,char *name);
 char *strupr(char *string);
 char *strlwr(char *string);

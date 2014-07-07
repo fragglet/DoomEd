@@ -126,7 +126,7 @@ id	texturePalette_i;
 {
 	int	i;
 	texpal_t	t;
-	NXSize	s;
+	NSSize	s;
 
 	s.width = textures[which].width;
 	s.height = textures[which].height;
@@ -208,7 +208,7 @@ id	texturePalette_i;
 {
 	texpal_t	*t, *t2;
 	int		count,maxwidth,x,y;
-	NXSize	s,imagesize;
+	NSSize	s,imagesize;
 	int		maxwindex, i, j;
 	char		string[32];
 	

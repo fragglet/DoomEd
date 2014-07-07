@@ -4,7 +4,7 @@
 typedef struct
 {
 	NSRect	r;
-	NXSize	imagesize;
+	NSSize	imagesize;
 	char	name[10];
 	id		image;
 } icon_t;

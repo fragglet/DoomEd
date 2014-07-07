@@ -3,8 +3,8 @@
 #import "PopScrollView.h"
 #import "EditWorld.h"
 
-NXSize	minsize = {256, 256};
-NXSize	newsize = {400, 400};
+NSSize	minsize = {256, 256};
+NSSize	newsize = {400, 400};
 
 static	int	cornerx = 128, cornery = 64;
 
@@ -19,7 +19,7 @@ static	int	cornerx = 128, cornery = 64;
 - initFromEditWorld
 {
 	id		oldobj_i;
-	NXSize	screensize;
+	NSSize	screensize;
 	NSRect	wframe;
 	NSPoint	origin;
 	NSRect	mapbounds;
@@ -172,7 +172,7 @@ static	int	cornerx = 128, cornery = 64;
 ==================
 */
 
-- windowWillResize:sender toSize:(NXSize *)frameSize
+- windowWillResize:sender toSize:(NSSize *)frameSize
 {
 	oldscreenorg.x = oldscreenorg.y = 0;
 	[self convertBaseToScreen: &oldscreenorg];
