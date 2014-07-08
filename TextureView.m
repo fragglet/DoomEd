@@ -65,7 +65,7 @@
 		return self;
 		
 	NXSetColor(NXConvertRGBToColor(1,0,0));
-	NSRectFill(&rects[0]);
+	NSRectFill(rects[0]);
 	
 	outlineflag = [textureEdit_i	getOutlineFlag];
 	PSsetgray(NX_DKGRAY);

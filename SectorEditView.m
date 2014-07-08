@@ -15,7 +15,7 @@
 		
 	PSsetgray(NX_LTGRAY);
 	NXSetRect(&r,0,0,128,200);
-	NSRectFill(&r);
+	NSRectFill(r);
 	
 	//
 	// Draw ceiling
@@ -23,7 +23,7 @@
 	if (!s->ceilingflat[0])
 	{
 		NXSetRect(&r,32,105,64,64);
-		NSRectFill(&r);
+		NSRectFill(r);
 	}
 	else
 	{
@@ -39,7 +39,7 @@
 	if (!s->floorflat[0])
 	{
 		NXSetRect(&r,32,31,64,64);
-		NSRectFill(&r);
+		NSRectFill(r);
 	}
 	else
 	{

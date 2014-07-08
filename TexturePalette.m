@@ -141,7 +141,7 @@ id	texturePalette_i;
 	[t.image	lockFocusOn:[t.image lastRepresentation]];
 	
 	NXSetColor(NXConvertRGBAToColor(1,0,0,1));
-	NSRectFill(&t.r);
+	NSRectFill(t.r);
 
 	for (i = 0; i < textures[which].patchcount; i++)
 	{

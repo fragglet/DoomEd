@@ -258,7 +258,7 @@ if (points[li->p1].pt.x != points[li->p2].pt.x
 		r.origin.x = wp->origin.x - offset/2;
 		r.origin.y = wp->origin.y - offset/2;
 		r.size.width = r.size.height = offset;
-		NSRectFill(&r);
+		NSRectFill(r);
 	}
 
 	return self;
@@ -364,7 +364,7 @@ if (points[li->p1].pt.x != points[li->p2].pt.x
 	if (!debugflag)
 	{
 		NXSetColor ([prefpanel_i colorFor: BACK_C]);
-		NSRectFill (rects);
+		NSRectFill(*rects);
 	}
 	PSsetlinewidth (0.15);
 
