@@ -98,7 +98,7 @@ id	thingpanel_i;
 	
 	if (!fields_i)
 	{
-		NXBeep();
+		NSBeep();
 		return NULL;
 	}
 		
@@ -238,7 +238,7 @@ id	thingpanel_i;
 	iconnum = [thingPalette_i	getCurrentIcon];
 	if (iconnum < 0)
 	{
-		NXBeep();
+		NSBeep();
 		return self;
 	}
 	icon = [thingPalette_i	getIcon:iconnum];
@@ -263,7 +263,7 @@ id	thingpanel_i;
 	which = [thingPalette_i	findIcon:name];
 	if (which < 0)
 	{
-		NXBeep();
+		NSBeep();
 		[iconField_i	setStringValue:"NOICON"];
 		return self;
 	}
@@ -387,7 +387,7 @@ id	thingpanel_i;
 	cell = [thingBrowser_i		selectedCell];
 	if (!cell)
 	{
-		NXBeep();
+		NSBeep();
 		return self;
 	}
 	which = [self	findThing:(char *)[cell	stringValue]];
@@ -583,9 +583,10 @@ id	thingpanel_i;
 	//
 	if ([self	findThing:t.name] >= 0)
 	{
-		NXBeep();
-		NXRunAlertPanel("Oops!",
-			"You already have a THING by that name!","OK",NULL,NULL,NULL);
+		NSBeep();
+		NSRunAlertPanel(@"Oops!",
+			@"You already have a THING by that name!",
+			@"OK", nil, nil, nil);
 		return self;
 	}
 	
@@ -658,7 +659,7 @@ id	thingpanel_i;
 	which = [self	findThing:(char *)[cell	stringValue]];
 	if (which < 0)
 	{
-		NXBeep();
+		NSBeep();
 		printf("Whoa! Can't find that thing!\n");
 		return self;
 	}

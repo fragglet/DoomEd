@@ -67,10 +67,10 @@ id	texturePalette_i;
 {
 	if (![doomproject_i loaded])
 	{
-		NXRunAlertPanel("Oops!",
-						"There must be a project loaded before you even\n"
-						"THINK about choosing textures!",
-						"OK",NULL,NULL,NULL);
+		NSRunAlertPanel(@"Oops!",
+			@"There must be a project loaded before you even\n"
+			"THINK about choosing textures!",
+			@"OK", nil, nil, nil);
 		return self;
 	}
 		
@@ -151,9 +151,11 @@ id	texturePalette_i;
 		p.patch = [textureEdit_i	getPatchImage:p.patchInfo.patchname];
 		if (!p.patch)
 		{
-			NXRunAlertPanel("Shit!",
-				"While building texture #%d, I couldn't find "
-				"the '%s' patch!","OK",NULL,NULL,i,p.patchInfo.patchname);
+			NSRunAlertPanel(@"Shit!",
+				@"While building texture #%d, I couldn't find "
+				"the '%s' patch!",
+				@"OK", nil, nil,
+				i, p.patchInfo.patchname);
 			[NSApp	terminate:NULL];
 		}
 		p.r.origin.x = p.patchInfo.originx;
@@ -419,7 +421,7 @@ id	texturePalette_i;
 			}
 	}
 	
-	NXBeep();
+	NSBeep();
 	return self;
 }
 
@@ -483,7 +485,7 @@ id	texturePalette_i;
 		}
 	}
 	
-	NXBeep();
+	NSBeep();
 	return self;
 }
 
@@ -519,7 +521,7 @@ id	texturePalette_i;
 		}
 	}
 	
-	NXBeep();
+	NSBeep();
 	return self;
 }
 
@@ -559,7 +561,7 @@ id	texturePalette_i;
 
 	[editworld_i	redrawWindows];
 	if (found)
-		NXBeep();
+		NSBeep();
 	return self;
 }
 
@@ -581,7 +583,7 @@ id	texturePalette_i;
 	cs = [self	currentSelection];
 	if (cs < 0)
 	{
-		NXBeep();
+		NSBeep();
 		return self;
 	}
 
@@ -638,7 +640,7 @@ id	texturePalette_i;
 	strcpy(lsEnteredName,[lsTextField_i	stringValue]);
 	if ((!lsEnteredName[0]) || strlen(lsEnteredName)>12)
 	{
-		NXBeep();
+		NSBeep();
 		return self;
 	}
 	

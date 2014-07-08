@@ -352,11 +352,15 @@ NX_HANDLER
 		
 	if (NXLocalHandler.code != LBMERR)
 	{
-		NXRunAlertPanel ("LBM Error", "Unknown exception", NULL, NULL, NULL);
+		NSRunAlertPanel(@"LBM Error",
+			@"Unknown exception",
+			nil, nil, nil);
 		NX_RERAISE();
 	}
 	else
-		NXRunAlertPanel ("LBM Error", NXLocalHandler.data1, NULL, NULL, NULL);		
+		NSRunAlertPanel(@"LBM Error",
+			NXLocalHandler.data1,
+			nil, nil, nil);
 //===========
 NX_ENDHANDLER
 //===========

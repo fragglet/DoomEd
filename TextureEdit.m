@@ -36,10 +36,10 @@ id	texturePatches;
 {
 	if (![doomproject_i loaded])
 	{
-		NXRunAlertPanel("Oops!",
-						"There must be a project loaded before you even\n"
-						"THINK about editing textures!",
-						"OK",NULL,NULL,NULL);
+		NSRunAlertPanel(@"Oops!",
+			@"There must be a project loaded before you even\n"
+			"THINK about editing textures!",
+			@"OK", nil, nil, nil);
 		return self;
 	}
 	
@@ -209,7 +209,7 @@ id	texturePatches;
 	
 	if (!max)
 	{
-		NXBeep();
+		NSBeep();
 		return self;
 	}
 	
@@ -242,14 +242,14 @@ id	texturePatches;
 	if (	([self		getCurrentEditPatch] < 0) ||
 		([texturePatches	count] - 1 == [self	getCurrentEditPatch]))
 	{
-		NXBeep();
+		NSBeep();
 		return self;
 	}
 	
 	t = [texturePatches	elementAt:[self	getCurrentEditPatch]];
 	if (t->patchLocked)
 	{
-		NXBeep();
+		NSBeep();
 		return self;
 	}
 	
@@ -260,7 +260,7 @@ id	texturePatches;
 		t = [texturePatches	elementAt:newpatch];
 		if (!t)
 		{
-			NXBeep();
+			NSBeep();
 			return self;
 		}
 	} while (t->patchLocked);
@@ -288,14 +288,14 @@ id	texturePatches;
 
 	if ([self	getCurrentEditPatch] < 1)
 	{
-		NXBeep();
+		NSBeep();
 		return self;
 	}
 	
 	t = [texturePatches	elementAt:[self	getCurrentEditPatch]];
 	if (t->patchLocked)
 	{
-		NXBeep();
+		NSBeep();
 		return self;
 	}
 	
@@ -306,7 +306,7 @@ id	texturePatches;
 		t = [texturePatches	elementAt:newpatch];
 		if (!t)
 		{
-			NXBeep();
+			NSBeep();
 			return self;
 		}
 	} while (t->patchLocked);
@@ -455,7 +455,7 @@ id	texturePatches;
 	c =[selectedTexturePatches	count];
 	if (!c || c > 1)
 	{
-		NXBeep();
+		NSBeep();
 		return self;
 	}
 	
@@ -502,7 +502,7 @@ id	texturePatches;
 	count = [selectedTexturePatches	count];
 	if (!count)
 	{
-		NXBeep();
+		NSBeep();
 		return self;
 	}
 	
@@ -616,7 +616,7 @@ id	texturePatches;
 	
 	if ([self	getCurrentEditPatch] < 0)
 	{
-		NXBeep();
+		NSBeep();
 		return self;
 	}
 	val = [lockedPatch_i	intValue];
@@ -695,11 +695,11 @@ id	texturePatches;
 			NXSetRect(&nr,p->r.origin.x,p->r.origin.y - deltay,p->r.size.width,p->r.size.height);
 			if (NXIntersectsRect(&nr,&tr) == NO)
 			{
-				NXBeep();
-				NXRunAlertPanel("Oops!",
-								"Changing the dimensions like that would leave one or more "
-								"patches out in limbo!  Sorry, non-workness!",
-								"OK",NULL,NULL);
+				NSBeep();
+				NSRunAlertPanel(@"Oops!",
+					@"Changing the dimensions like that would leave one or more "
+					"patches out in limbo!  Sorry, non-workness!",
+					@"OK", nil, nil);
 				[textureWidthField_i	setIntValue:textures[currentTexture].width];
 				[textureHeightField_i	setIntValue:textures[currentTexture].height];
 				return self;
@@ -784,10 +784,10 @@ id	texturePatches;
 
 	if (	[doomproject_i	textureNamed:name] >= -1)
 	{
-		NXBeep();
-		NXRunAlertPanel("Oops!",
-						"You already have a texture with the same name!",
-						"OK",NULL, NULL, NULL);
+		NSBeep();
+		NSRunAlertPanel(@"Oops!",
+			@"You already have a texture with the same name!",
+			@"OK", nil, nil, nil);
 		return self;
 	}
 	
@@ -796,7 +796,7 @@ id	texturePatches;
 		strlen([createName_i	stringValue]))
 		[NSApp	stopModal];
 	else
-		NXBeep();
+		NSBeep();
 
 	return self;
 }
@@ -816,10 +816,10 @@ id	texturePatches;
 
 	if (	[doomproject_i	textureNamed:name] >= -1)
 	{
-		NXBeep();
-		NXRunAlertPanel("Oops!",
-						"You already have a texture with the same name!",
-						"OK",NULL, NULL, NULL);
+		NSBeep();
+		NSRunAlertPanel(@"Oops!",
+			@"You already have a texture with the same name!",
+			@"OK", nil, nil, nil);
 	}
 	return self;
 }
@@ -845,7 +845,7 @@ id	texturePatches;
 	if (nr == 5)
 	{
 		[newSetButton_i	setEnabled:NO ];
-		NXBeep ();
+		NSBeep ();
 		return self;
 	}
 	
@@ -995,15 +995,15 @@ id	texturePatches;
 	
 	if (ct < 0)
 	{
-		NXBeep();
+		NSBeep();
 		return self;
 	}
 	
 	if ([texturePatches	count] == MAXPATCHES)
 	{
-		NXRunAlertPanel(	"Um!",
-						"A maximum of 100 patches is in force!",
-						"OK",NULL,NULL);
+		NSRunAlertPanel(@"Um!",
+			@"A maximum of 100 patches is in force!",
+			@"OK", nil, nil);
 		return self;
 	}
 	
@@ -1028,7 +1028,7 @@ id	texturePatches;
 		//
 		if (ox >= textures[ct].width)
 		{
-			NXBeep();
+			NSBeep();
 			[centerPatch_i	setIntValue:1];
 			p.patchInfo.originx = dvr.origin.x/2 + dvr.size.width/4;
 			p.patchInfo.originy = dvr.origin.y/2 + dvr.size.height/4;
@@ -1207,9 +1207,9 @@ id	texturePatches;
 		if (patchStart == -1 || patchEnd == -1)
 		{
 			if (!windex)
-				NXRunAlertPanel(	"OOPS!",
-					"There are NO PATCHES in the current .WAD file!",
-					"Abort Patch Palette",NULL,NULL,NULL);
+				NSRunAlertPanel(@"OOPS!",
+					@"There are NO PATCHES in the current .WAD file!",
+					@"Abort Patch Palette", nil, nil, nil);
 			
 			windex = -1;
 			continue;
@@ -1332,7 +1332,7 @@ id	texturePatches;
 				return self;
 			}
 			
-	NXBeep ();
+	NSBeep ();
 	return self;
 }
 

@@ -50,7 +50,9 @@ BOOL	linecross[9][9];
 
 	 if (![editworld_i loaded])
 	 {
-		NXRunAlertPanel ("Error","MapView inited with NULL world",NULL,NULL,NULL);
+		NSRunAlertPanel(@"Error",
+			@"MapView inited with NULL world",
+			nil, nil, nil);
 		return NULL;
 	}
 	

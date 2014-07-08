@@ -29,7 +29,7 @@ id		pan;
 	return self;
 }
 
-- sectorError: (char const *)msg : (int)line1 : (int)line2
+- sectorError: (NSString *)msg : (int)line1 : (int)line2
 {
 	[pan	orderOut:NULL];
 	NXFreeAlertPanel	(pan);
@@ -47,7 +47,7 @@ id		pan;
 		[editworld_i selectPoint: lines[line2].p2];
 	}
 	[editworld_i redrawWindows];
-	NXRunAlertPanel ("Sector error",msg,NULL,NULL,NULL);
+	NSRunAlertPanel(@"Sector error", msg, nil, nil, nil);
 	return self;
 }
 
@@ -106,7 +106,7 @@ void floodline (int startx, int y)
 	
 if (startx<0 || startx>=bwidth || y < 0 || y>=bheight)
 {
-	NXRunAlertPanel ("error","bad fill point",NULL,NULL,NULL);
+	NSRunAlertPanel(@"error", @"bad fill point", nil, nil, nil);
 	return;
 }
 //
@@ -193,7 +193,7 @@ NXEraseRect (&r);
 //
 if (firstx<0 || lastx>=bwidth || firstx>lastx)
 {
-	NXRunAlertPanel ("ERROR","bad fill span",NULL,NULL,NULL);
+	NSRunAlertPanel(@"ERROR", @"bad fill span", nil, nil, nil);
 	return;
 }
 
@@ -539,7 +539,7 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 			if (bcmp (&new.s, &side->ends, sizeof(sectordef_t)))
 			{
 				[new.lines free];
-				[self sectorError: "Line sectordefs differ" : i : frontline];
+				[self sectorError: @"Line sectordefs differ" : i : frontline];
 				return NO;
 			}
 		[new.lines addElement: &i];
@@ -547,7 +547,7 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 		if (side->sector != -1)
 		{
 			[new.lines free];
-			[self sectorError:"Line side grouped into multiple sectors" : i : -1];
+			[self sectorError:@"Line side grouped into multiple sectors" : i : -1];
 			return NO;
 		}
 		else
@@ -557,7 +557,7 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 	if (backline >-1 && frontline > -1)
 	{
 		[new.lines free];
-		[self sectorError:"Inside and outside lines grouped together" : backline : frontline];
+		[self sectorError:@"Inside and outside lines grouped together" : backline : frontline];
 		return NO;
 	}
 	if (frontline > -1)
@@ -648,7 +648,7 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 		if (line->side[0].sector == -1 || 
 		((line->flags&ML_TWOSIDED) && line->side[1].sector == -1) )
 		{
-			[self sectorError:"Line side not grouped" : i : -1];
+			[self sectorError:@"Line side not grouped" : i : -1];
 			return NO;
 		}
 	}

@@ -183,13 +183,13 @@
 	//
 	if ([self	findSpecial:t.value] >= 0)
 	{
-		NXBeep();
-		NXRunAlertPanel("Oops!",
-					"You already have a LINE SPECIAL by that "
-					"name!","OK",NULL,NULL,NULL);
+		NSBeep();
+		NSRunAlertPanel(@"Oops!",
+			@"You already have a LINE SPECIAL by that name!",
+			@"OK", nil, nil, nil);
 		return self;
 	}
-	
+
 	[specialList_i	addElement:&t];
 	[specialBrowser_i	reloadColumn:0];
 	which = [self	findSpecial:t.value];
@@ -251,7 +251,7 @@
 	which = [self	findSpecialString:(char *)[cell  stringValue]];
 	if (which < 0)
 	{
-		NXBeep();
+		NSBeep();
 		printf("Whoa! Can't find that special!\n");
 		return self;
 	}

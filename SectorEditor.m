@@ -42,13 +42,13 @@ id	sectorEdit_i;
 {
 	if (![doomproject_i loaded])
 	{
-		NXRunAlertPanel("Oops!",
-						"There must be a project loaded before you even\n"
-						"THINK about editing sectors!",
-						"OK",NULL,NULL,NULL);
+		NSRunAlertPanel(@"Oops!",
+			@"There must be a project loaded before you even\n"
+			"THINK about editing sectors!",
+			@"OK", nil, nil, nil);
 		return self;
 	}
-	
+
 	if (!window_i)
 	{
 		[self	menuTarget:NULL];
@@ -86,13 +86,13 @@ id	sectorEdit_i;
 {
 	if (![doomproject_i loaded])
 	{
-		NXRunAlertPanel("Oops!",
-						"There must be a project loaded before you even\n"
-						"THINK about editing sectors!",
-						"OK",NULL,NULL,NULL);
+		NSRunAlertPanel(@"Oops!",
+			@"There must be a project loaded before you even\n"
+			"THINK about editing sectors!",
+			@"OK", nil, nil, nil);
 		return self;
 	}
-	
+
 	if (!window_i)
 	{
 		[NSApp 
@@ -371,7 +371,7 @@ id	sectorEdit_i;
 		
 	if (flat < 0)
 	{
-		NXBeep();
+		NSBeep();
 		return self;
 	}
 	
@@ -731,7 +731,7 @@ id	sectorEdit_i;
 		}
 
 	if (!found)
-		NXBeep ();
+		NSBeep ();
 	else
 		[editworld_i	updateWindows];
 		
@@ -759,7 +759,7 @@ id	sectorEdit_i;
 		}
 
 	if (!found)
-		NXBeep ();
+		NSBeep ();
 	else
 		[editworld_i	updateWindows];
 		
@@ -769,7 +769,8 @@ id	sectorEdit_i;
 
 - error:(const char *)string
 {
-	NXRunAlertPanel("Oops!",string,"OK",NULL,NULL,NULL);
+	NSString *objcString = [NSString initWithUTF8String: string];
+	NSRunAlertPanel(@"Oops!", objcString, @"OK", nil, nil, nil);
 	return self;
 }
 

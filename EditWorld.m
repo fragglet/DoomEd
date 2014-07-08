@@ -239,8 +239,10 @@ int LineByPoint (NSPoint *ptin, int *side)
 	stream = fopen (pathname,"r");
 	if (!stream)
 	{
-		NXRunAlertPanel ("Error","Couldn't open %s",NULL,NULL,NULL,pathname);
-		return nil;	
+		NSRunAlertPanel(@"Error",
+			@"Couldn't open %s",
+			nil, nil, nil, pathname);
+		return nil;
 	}
 	version = -1;
 	fscanf (stream, "WorldServer version %d\n", &version);
@@ -254,15 +256,19 @@ int LineByPoint (NSPoint *ptin, int *side)
 	else
 	{
 		fclose (stream);
-		NXRunAlertPanel ("Error","Unknown file version for %s",NULL,NULL,NULL,pathname);
-		return nil;	
+		NSRunAlertPanel(@"Error",
+			@"Unknown file version for %s",
+			nil, nil, nil, pathname);
+		return nil;
 	}
 
 	if (!ret)
 	{
 		fclose (stream);
-		NXRunAlertPanel ("Error","Couldn't parse file %s",NULL,NULL,NULL,pathname);
-		return nil;	
+		NSRunAlertPanel(@"Error",
+			@"Couldn't parse file %s",
+			nil, nil, nil, pathname);
+		return nil;
 	}
 	
 	fclose (stream);
@@ -294,13 +300,14 @@ int LineByPoint (NSPoint *ptin, int *side)
 	if ([doomproject_i	mapDirty])
 	{
 		int	val;
-		
-		val = NXRunAlertPanel("Hey!","Your map has been modified! Save it?",
-			"Yes","No",NULL);
-		if (val == NX_ALERTDEFAULT)
+
+		val = NSRunAlertPanel(@"Hey!",
+			@"Your map has been modified! Save it?",
+			@"Yes", @"No", nil);
+		if (val == NSAlertDefaultReturn)
 			[self	saveWorld:NULL];
 		[doomproject_i	setDirtyMap:FALSE];
-	}	
+	}
 
 	[[windowlist_i	objectAt:0] saveFrameUsingName:WORLDNAME];
 	[windowlist_i makeObjectsPerform: @selector(free)];
@@ -332,14 +339,13 @@ int LineByPoint (NSPoint *ptin, int *side)
 - newWindow:sender
 {
 	id	win;
-	
+
 	if (!loaded)
 	{
-		NXRunAlertPanel ("Error","No world open",NULL,NULL,NULL);
+		NSRunAlertPanel(@"Error", @"No world open", nil, nil, nil);
 		return nil;
 	}
-	
-			
+
 	win = [[MapWindow alloc] initFromEditWorld];
 	if (!win)
 		return NULL;
@@ -367,10 +373,10 @@ int LineByPoint (NSPoint *ptin, int *side)
 	int			err;
 	FILE		*stream;
 	id			panel;
-	
+
 	if (!loaded)
 	{
-		NXRunAlertPanel ("Error","No world open",NULL,NULL,NULL);
+		NSRunAlertPanel(@"Error", @"No world open", nil, nil, nil);
 		return nil;
 	}
 
@@ -424,13 +430,13 @@ int LineByPoint (NSPoint *ptin, int *side)
 {
 	FILE			*stream;
 	id			pan;
-	
+
 	if (!loaded)
 	{
-		NXRunAlertPanel ("Error","No world open",NULL,NULL,NULL);
+		NSRunAlertPanel(@"Error", @"No world open", nil, nil, nil);
 		return nil;
 	}
-	
+
 	pan = NXGetAlertPanel ("One moment","Saving",NULL,NULL,NULL);
 	[pan display];
 	[pan orderFront: NULL];
@@ -593,10 +599,11 @@ FIXME: Map window is its own delegate now, this needs to be done with a message
 	if ([doomproject_i	mapDirty])
 	{
 		int	val;
-		
-		val = NXRunAlertPanel("Hey!","Your map has been modified! Save it?",
-			"Yes","No",NULL);
-		if (val == NX_ALERTDEFAULT)
+	
+		val = NSRunAlertPanel(@"Hey!",
+			@"Your map has been modified! Save it?",
+			@"Yes", @"No", nil);
+		if (val == NSAlertDefaultReturn)
 			[self	saveWorld:NULL];
 	}
 	
@@ -1286,8 +1293,9 @@ Updates dirty rect based on old and new positions
 
 	if (num >= numpoints)
 	{
-		NXRunAlertPanel ("Error","Sent point %i with numpoints %i!"
-			,NULL,NULL,NULL, num, numpoints);
+		NSRunAlertPanel(@"Error",
+			@"Sent point %i with numpoints %i!",
+			nil, nil, nil, num, numpoints);
 		[NSApp terminate:self];
 	}
 	
@@ -1325,10 +1333,12 @@ Updates dirty rect based on old and new positions
 //printf ("changeLine: %i\n",num);
 	if (num >= numlines)
 	{
-		NXRunAlertPanel ("Error","Sent line %i with numlines %i!",NULL,NULL,NULL, num, numlines);
+		NSRunAlertPanel(@"Error",
+			@"Sent line %i with numlines %i!",
+			nil, nil, nil, num, numlines);
 		[NSApp terminate:self];
 	}
-	
+
 // mark the old position of the line as dirty
 	if (lines[num].selected != -1)
 		[self addToDirtyRect: lines[num].p1 : lines[num].p2];
@@ -1370,10 +1380,12 @@ Updates dirty rect based on old and new positions
 //printf ("changeThing: %i\n",num);
 	if (num >= numthings)
 	{
-		NXRunAlertPanel ("Error","Sent thing %i with numthings %i!",NULL,NULL,NULL, num, numthings);
+		NSRunAlertPanel(@"Error",
+			@"Sent thing %i with numthings %i!",
+			nil, nil, nil, num, numthings);
 		[NSApp terminate:self];
 	}
-	
+
 // mark the old position as dirty
 	if (things[num].selected != -1)
 	{

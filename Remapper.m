@@ -120,7 +120,7 @@
 		if (	(!strcmp(r2->orgname,r.orgname)) &&
 			(!strcmp(r2->newname,r.newname))  )
 			{
-				NXBeep ();
+				NSBeep ();
 				return self;
 			}
 	}
@@ -160,12 +160,12 @@
 //===================================================================
 - clearList:sender
 {
-	if (NXRunAlertPanel("Warning!",
-		"Are you sure you want\n"
+	if (NSRunAlertPanel(@"Warning!",
+		@"Are you sure you want\n"
 		"to clear the remapping list?",
-		"OK","Cancel",NULL) == NX_ALERTALTERNATE)
+		@"OK", @"Cancel", nil) == NSAlertAlternateReturn)
 		return self;
-		
+
 	[remapPanel_i	saveFrameUsingName:frameName];
 	[storage_i		empty];
 	[original_i		setStringValue:" "];
@@ -190,7 +190,7 @@
 	max = [storage_i	count];
 	if (!max)
 	{
-		NXBeep ();
+		NSBeep ();
 		return self;
 	}
 
@@ -229,7 +229,7 @@
 	max = [storage_i	count];
 	if (!max)
 	{
-		NXBeep ();
+		NSBeep ();
 		return self;
 	}
 	total = 0;
