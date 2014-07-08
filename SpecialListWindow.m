@@ -16,7 +16,7 @@
 //	Match keypress to first letter
 //
 //===================================================================
-- keyDown:(NSEvent *)event
+- (void) keyDown:(NSEvent *)event
 {
 	char	key[2];
 	char	string2[32];
@@ -64,7 +64,6 @@
 			tries--;
 		}
 	}
-	return self;
 }
 
 @end

@@ -86,7 +86,7 @@
 	return self;
 }
 
-- mouseDown:(NSEvent *)theEvent
+- (void) mouseDown:(NSEvent *)theEvent
 {
 	NSPoint	loc;
 	int	i,max,oldwindowmask;
@@ -112,7 +112,6 @@
 	}
 	
 	[[self window] setEventMask:oldwindowmask];
-	return self;
 }
 
 @end

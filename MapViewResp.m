@@ -979,7 +979,7 @@
 ================
 */
 
-- mouseDown:(NSEvent *)thisEvent
+- (void) mouseDown:(NSEvent *)thisEvent
 {
 	int	tool;
 		
@@ -1016,7 +1016,6 @@
 	}
 			
 	[editworld_i updateWindows];
-	return(self);
 }
 
 - rightMouseDown:(NSEvent *)thisEvent
@@ -1047,16 +1046,15 @@
 ===============
 */
 
-- keyDown:(NSEvent *)theEvent
+- (void) keyDown:(NSEvent *)theEvent
 {
 	if ([theEvent keyCode] == NSDeleteCharacter)
 	{
 		[editworld_i delete: self];
-		return self;
+		return;
 	}
 		
 	[editworld_i updateWindows];
-	return self;
 }
 
 - (BOOL)acceptsFirstResponder

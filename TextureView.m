@@ -25,7 +25,7 @@
 	return self;
 }
 
-- keyDown:(NSEvent *)theEvent
+- (void) keyDown:(NSEvent *)theEvent
 {
 	switch ([theEvent keyCode])
 	{
@@ -52,7 +52,6 @@
 			break;
 		#endif
 	}
-	return self;
 }
 
 - drawSelf:(const NSRect *)rects :(int)rectCount
@@ -119,7 +118,7 @@
 	return self;
 }
 
-- mouseDown:(NSEvent *)theEvent
+- (void) mouseDown:(NSEvent *)theEvent
 {
 	NSPoint	loc,newloc;
 	int	i,patchcount,oldwindowmask,ct,max,j,warn,clicked;
@@ -226,7 +225,6 @@
 		[textureEdit_i	setOldVars:d->p->patchInfo.originx + d->p->r.size.width/2
 					:d->p->patchInfo.originy];
 	}
-	return self;
 }
 
 @end
