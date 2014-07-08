@@ -21,8 +21,8 @@
 	button1 = b1;
 	button2 = b2;
 
-	[self setHorizScrollerRequired: YES];
-	[self setVertScrollerRequired: YES];
+	[self setHasHorizontalScroller: YES];
+	[self setHasVerticalScroller: YES];
 		
 	return self;
 }
@@ -47,7 +47,7 @@
 	[super tile];
 	[button1 getFrame: &buttonframe];
 	[button2 getFrame: &buttonframe2];
-	[[self horizScroller] getFrame: &scrollerframe];
+	[[self horizontalScroller] getFrame: &scrollerframe];
 
 	newframe.origin.y = scrollerframe.origin.y;
 	newframe.origin.x = [self frame].size.width - buttonframe.size.width;
@@ -60,7 +60,7 @@
 	[button2 setFrame: newframe];
 	scrollerframe.size.width -= newframe.size.width;
 
-	[[self horizScroller] setFrame: scrollerframe];
+	[[self horizontalScroller] setFrame: scrollerframe];
 
 	return self;
 }
