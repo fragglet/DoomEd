@@ -5,7 +5,7 @@ extern	id	prefpanel_i;
 
 #define	APPDEFAULTS	"ID_doomed"
 //	#define NUMCOLORS	9
-#define	PREFNAME		"PrefPanel"
+#define	PREFNAME		@"PrefPanel"
 
 typedef enum
 {

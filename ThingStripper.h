@@ -7,7 +7,7 @@ typedef struct
 	char		desc[32];
 } thingstrip_t;
 
-#define	THINGSTRIPNAME	"ThingStripper"
+#define	THINGSTRIPNAME	@"ThingStripper"
 
 @interface ThingStripper:NSObject
 {

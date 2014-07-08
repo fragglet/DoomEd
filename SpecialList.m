@@ -286,8 +286,8 @@
 			return self;
 		}
 	}
-	[specialDesc_i	setStringValue:NULL];
-	[specialValue_i	setStringValue:NULL];
+	[specialDesc_i	setStringValue:nil];
+	[specialValue_i	setStringValue:nil];
 	return self;
 }
 

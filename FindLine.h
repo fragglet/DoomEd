@@ -11,7 +11,7 @@
 }
 
 #define MARGIN		64			// margin from window edge
-#define	PREFNAME	"FindLinePanel"
+#define	PREFNAME	@"FindLinePanel"
 
 - (int)getRealLineNum:(int)num;
 - findLine:sender;

@@ -59,7 +59,7 @@ id	thingpanel_i;
 		[window_i	setDelegate:self];
 		[thingBrowser_i	reloadColumn:0];
 		[diffDisplay_i	selectCellAt:diffDisplay :0];
-		[count_i	setStringValue:" "];
+		[count_i	setStringValue:@" "];
 		[window_i	setParent:self];
 	}
 
@@ -157,7 +157,7 @@ id	thingpanel_i;
 	//
 	if (diffDisplay == DIFF_ALL)
 	{
-		[count_i	setStringValue:"-"];
+		[count_i	setStringValue:@"-"];
 		return self;
 	}
 		
@@ -220,7 +220,7 @@ id	thingpanel_i;
 //===================================================================
 - unlinkIcon:sender
 {
-	[iconField_i	setStringValue:"NOICON"];
+	[iconField_i	setStringValue:@"NOICON"];
 	[updateButton_i	performClick:self];
 	return self;
 }
@@ -264,7 +264,7 @@ id	thingpanel_i;
 	if (which < 0)
 	{
 		NSBeep();
-		[iconField_i	setStringValue:"NOICON"];
+		[iconField_i	setStringValue:@"NOICON"];
 		return self;
 	}
 	[iconField_i	setStringValue:name];

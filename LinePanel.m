@@ -53,9 +53,9 @@ id	lineSpecialPanel_i;
 {
 	[lineSpecialPanel_i	saveFrame];
 	if (firstColCalc_i)
-		[firstColCalc_i		saveFrameUsingName:"FirstColCalc"];
+		[firstColCalc_i		saveFrameUsingName:@"FirstColCalc"];
 	if (window_i)
-		[window_i	saveFrameUsingName:"LineInspector"];
+		[window_i	saveFrameUsingName:@"LineInspector"];
 	return self;
 }
 
@@ -95,8 +95,8 @@ id	lineSpecialPanel_i;
 			owner:			self
 			withNames:		NO
 		];
-		[window_i	setFrameUsingName:"LineInspector"];
-		[firstColCalc_i		setFrameUsingName:"FirstColCalc"];
+		[window_i	setFrameUsingName:@"LineInspector"];
+		[firstColCalc_i		setFrameUsingName:@"FirstColCalc"];
 	}
 
 	[window_i orderFront:self];
@@ -376,7 +376,7 @@ id	lineSpecialPanel_i;
 	
 	tag = [[sender selectedCell] tag];
 	[[sideform_i	cellAt:2+tag :0]
-		setStringValue:[texturePalette_i  getSelTextureName]];
+		setStringValue:[texturePalette_i getSelTextureName]];
 	[self	sideChanged:NULL];
 	return self;
 }
@@ -395,7 +395,7 @@ id	lineSpecialPanel_i;
 	int	tag;
 	
 	tag = [[sender selectedCell] tag];
-	[[sideform_i	cellAt:2+tag :0] setStringValue:"-"];
+	[[sideform_i	cellAt:2+tag :0] setStringValue:@"-"];
 	[self	sideChanged:NULL];
 	return self;
 }

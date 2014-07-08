@@ -2441,7 +2441,7 @@ static	byte		*buffer, *buf_p;
 //	Initialize and display the thermometer
 //
 //====================================================
-- initThermo:(char *)title message:(char *)msg
+- initThermo:(NSString *)title message:(NSString *)msg
 {
 	[thermoTitle_i	setStringValue:title];
 	[thermoMsg_i	setStringValue:msg];

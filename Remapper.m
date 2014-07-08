@@ -36,12 +36,12 @@
 					initCount:		0
 					elementSize:	sizeof(type_t)
 					description:	NULL];
-		
-		[remapPanel_i	setFrameUsingName:fname];
-		[status_i		setStringValue:" "];
+
+		[remapPanel_i setFrameUsingName:fname];
+		[status_i setStringValue:@" "];
 	}
 	
-	[remapString_i	setStringValue:rstring];
+	[remapString_i setStringValue:rstring];
 	[browser_i		setTitle:btitle ofColumn:0];
 	[remapPanel_i	setTitle:ptitle];
 	delegate_i = delegate;
@@ -168,8 +168,8 @@
 
 	[remapPanel_i	saveFrameUsingName:frameName];
 	[storage_i		empty];
-	[original_i		setStringValue:" "];
-	[new_i			setStringValue:" "];
+	[original_i		setStringValue:@" "];
+	[new_i			setStringValue:@" "];
 	[browser_i	reloadColumn:0];
 	
 	return self;

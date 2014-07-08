@@ -29,7 +29,7 @@
 			withNames:		NO
 		];
 		
-		[status_i	setStringValue:" "];
+		[status_i	setStringValue:@" "];
 		[window_i	setFrameUsingName:PREFNAME];
 	}
 	[window_i	makeKeyAndOrderFront:self];
@@ -54,7 +54,7 @@
 		linenum = [self	getRealLineNum:linenum];
 	if (linenum < 0)
 	{
-		[status_i	setStringValue:"No such line!"];
+		[status_i	setStringValue:@"No such line!"];
 		return self;
 	}
 	
@@ -71,7 +71,7 @@
 	r.size.height += MARGIN*2;
 	[[[window	contentView] docView] scrollRectToVisible:&r];
 	[editworld_i	redrawWindows];
-	[status_i	setStringValue:"Found it!"];
+	[status_i	setStringValue:@"Found it!"];
 	
 	return self;
 }
@@ -91,7 +91,7 @@
 
 	if (linenum < 0)
 	{
-		[status_i	setStringValue:"No such line!"];
+		[status_i	setStringValue:@"No such line!"];
 		return self;
 	}
 	
@@ -100,7 +100,7 @@
 	[editworld_i	selectPoint:lines[linenum].p2];
 	
 	lines[linenum].selected = -1;
-	[status_i	setStringValue:"Toasted it!"];
+	[status_i	setStringValue:@"Toasted it!"];
 	[delSound play];
 	
 	return self;

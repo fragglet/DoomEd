@@ -27,7 +27,7 @@ id	texturePalette_i;
 - saveFrame
 {
 	if (window_i)
-		[window_i	saveFrameUsingName:"TexturePalette"];
+		[window_i	saveFrameUsingName:@"TexturePalette"];
 	return self;
 }
 
@@ -59,7 +59,7 @@ id	texturePalette_i;
 		[self	finishInit];
 		if ([allTextures	count])
 			[self	selectTexture:0];
-		[window_i	setFrameUsingName:"TexturePalette"];
+		[window_i	setFrameUsingName:@"TexturePalette"];
 		return self;
 }
 
@@ -669,7 +669,7 @@ id	texturePalette_i;
 	{
 		sprintf(lbmname,"%s/%s.LBM",waddir,textures[j].name);
 		sprintf(status,"Making %s.LBM...",textures[j].name);
-		
+
 		[lsStatus_i	setStringValue:status];
 		NXPing();
 		strlwr(lbmname);

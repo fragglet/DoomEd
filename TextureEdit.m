@@ -22,9 +22,9 @@ id	texturePatches;
 - saveFrame
 {
 	if (window_i)
-		[window_i	saveFrameUsingName:"TextureEditor"];
+		[window_i	saveFrameUsingName:@"TextureEditor"];
 	if (createTexture_i)
-		[createTexture_i	saveFrameUsingName:"CTexturePanel"];
+		[createTexture_i	saveFrameUsingName:@"CTexturePanel"];
 	return self;
 }
 
@@ -84,8 +84,8 @@ id	texturePatches;
 							elementSize:	sizeof(int)
 							description:	NULL];
 		
-		[window_i	setFrameUsingName:"TextureEditor"];
-		[createTexture_i	setFrameUsingName:"CTexturePanel"];
+		[window_i	setFrameUsingName:@"TextureEditor"];
+		[createTexture_i	setFrameUsingName:@"CTexturePanel"];
 		
 		[splitView_i	addSubview:topView_i];
 		[splitView_i	addSubview:botView_i];
@@ -547,9 +547,9 @@ id	texturePatches;
 		[texturePatchXField_i	setIntValue:0];
 		[texturePatchYField_i	setIntValue:0];
 		[lockedPatch_i	setEnabled:NO];
-		[texturePatchWidthField_i	setStringValue:NULL];
-		[texturePatchHeightField_i	setStringValue:NULL];
-		[texturePatchNameField_i	setStringValue:NULL];
+		[texturePatchWidthField_i	setStringValue:nil];
+		[texturePatchHeightField_i	setStringValue:nil];
+		[texturePatchNameField_i	setStringValue:nil];
 	}
 	else
 	{
@@ -944,12 +944,12 @@ id	texturePatches;
 	[textureView_i		sizeTo:textures[currentTexture].width * 2
 					:textures[currentTexture].height * 2];
 	[textureView_i		display];
-	
+
 	[textureWidthField_i	setIntValue:textures[currentTexture].width];
 	[textureHeightField_i	setIntValue:textures[currentTexture].height];
 	[textureNameField_i	setStringValue:textures[currentTexture].name];
-	[textureSetField_i		setIntValue:textures[currentTexture].WADindex + 1 ];
-	
+	[textureSetField_i	setIntValue:textures[currentTexture].WADindex + 1 ];
+
 	return self;
 }
 
@@ -971,9 +971,9 @@ id	texturePatches;
 - setWarning:(BOOL)state
 {
 	if (state == YES)
-		[dragWarning_i	setStringValue:"Selections dragged outside texture!"];
+		[dragWarning_i	setStringValue:@"Selections dragged outside texture!"];
 	else
-		[dragWarning_i	setStringValue:" "];
+		[dragWarning_i	setStringValue:@" "];
 	return self;
 }
 
@@ -1110,13 +1110,13 @@ id	texturePatches;
 {
 	apatch_t	*t;
 	NSRect		r;
-	
+
 	selectedPatch = which;
 	t = [patchImages	elementAt:which];
-	[patchWidthField_i		setIntValue:t->r.size.width];
+	[patchWidthField_i	setIntValue:t->r.size.width];
 	[patchHeightField_i	setIntValue:t->r.size.height];
-	[patchNameField_i		setStringValue: t->name ];
-	
+	[patchNameField_i	setStringValue: t->name ];
+
 	r = t->r;
 	r.origin.x -= SPACING;
 	r.origin.y -= SPACING;
@@ -1196,7 +1196,7 @@ id	texturePatches;
 	do
 	{
 		sprintf(string,"Loading patch set #%d for Texture Editor.",windex+1);
-		[doomproject_i	initThermo:"One moment..." message:string];
+		[doomproject_i	initThermo:@"One moment..." message:string];
 		//
 		// get inclusive lump #'s for patches
 		//

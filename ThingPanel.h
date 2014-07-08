@@ -13,7 +13,7 @@ typedef struct
 	int		value, option,angle;
 } thinglist_t;
 
-#define	THINGNAME	"ThingInspector"
+#define	THINGNAME	@"ThingInspector"
 
 #define	DIFF_EASY	0
 #define DIFF_NORMAL	1

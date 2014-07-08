@@ -1,7 +1,7 @@
 #import <appkit/appkit.h>
 #import "DoomProject.h"
 
-#define	WORLDNAME	"EditWorld"
+#define	WORLDNAME	@"EditWorld"
 
 typedef struct
 {

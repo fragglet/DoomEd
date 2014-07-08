@@ -48,7 +48,7 @@ id	thingPalette_i;
 		
 		[window_i	setDelegate:self];
 		[self		computeThingDocView];
-		[nameField_i	setStringValue:""];
+		[nameField_i	setStringValue:@""];
 	}
 
 	[window_i	makeKeyAndOrderFront:self];
@@ -278,8 +278,8 @@ id	thingPalette_i;
 	//
 	start = [wadfile_i	lumpNamed:"icon_sta"] + 1;
 	end = [wadfile_i	lumpNamed:"icon_end"];
-	[doomproject_i	initThermo:"One moment..."
-		message:"Loading icons for Thing Palette."];
+	[doomproject_i	initThermo:@"One moment..."
+		message:@"Loading icons for Thing Palette."];
 
 	if  (start == -1 || end == -1 )
 	{

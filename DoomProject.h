@@ -1,7 +1,7 @@
 #import <appkit/appkit.h>
 
 //============================================================================
-#define	DOOMNAME		"DoomEd"
+#define	DOOMNAME		@"DoomEd"
 #define MAXPATCHES	100
 // mappatch_t orients a patch inside a maptexturedef_t
 typedef struct
@@ -136,7 +136,7 @@ extern	char	bsphost[32];		// bsp host machine
 - toggleWeapons:sender;
 
 // Thermometer functions
-- initThermo:(char *)title message:(char *)msg;
+- initThermo:(NSString *)title message:(NSString *)msg;
 - updateThermo:(int)current max:(int)maximum;
 - closeThermo;
 

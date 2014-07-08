@@ -28,7 +28,7 @@ id	sectorEdit_i;
 {
 	[specialPanel_i	saveFrame];
 	if (window_i)
-		[window_i	saveFrameUsingName:"SectorEditor"];
+		[window_i	saveFrameUsingName:@"SectorEditor"];
 	return self;
 }
 
@@ -77,7 +77,7 @@ id	sectorEdit_i;
 	sector.special = 0;
 	sector.tag = 0;
 	
-	[window_i	setFrameUsingName:"SectorEditor"];
+	[window_i	setFrameUsingName:@"SectorEditor"];
 	[self	setCurrentFlat:0];
 	return self;
 }
@@ -483,8 +483,8 @@ id	sectorEdit_i;
 	do
 	{
 		sprintf(string,"Loading flat set #%d for Sector Editor.",windex+1);
-		[doomproject_i	initThermo:"One moment..."  message:string];
-		
+		[doomproject_i initThermo:@"One moment..." message:string];
+
 		//
 		// get inclusive lump #'s for patches
 		//
