@@ -947,16 +947,18 @@ id	openMatrix;
 		monsters,
 		projectdirectory,
 		[cell stringValue]);
-		
-	panel = NXGetAlertPanel("Wait...","Printing %s.",
-		NULL,NULL,NULL,[cell stringValue]);
-		
+
+	panel = NSGetAlertPanel(@"Wait...",
+		@"Printing %s.",
+		nil, nil, nil,
+		[cell stringValue]);
+
 	[panel	orderFront:NULL];
 	NXPing();
 	system(string);
 	[panel	orderOut:NULL];
-	NXFreeAlertPanel(panel);
-	
+	NSReleaseAlertPanel(panel);
+
 	return self;
 }
 
@@ -1973,13 +1975,14 @@ typedef struct
 	newtexture = windex = 0;
 	do
 	{
-		panel = NXGetAlertPanel("Wait...",
-			"Reading textures from texture%d.dsp.",NULL,NULL,NULL,windex+1);
+		panel = NSGetAlertPanel(@"Wait...",
+			@"Reading textures from texture%d.dsp.",
+			nil, nil, nil, windex+1);
 		[panel	orderFront:NULL];
 		NXPing();
-		
+
 		sprintf (filename, "%s/texture%d.dsp",projectdirectory,windex+1 );
-		
+
 		chmod (filename,0666);
 		handle = open (filename,O_RDWR, 0666);
 		if (handle == -1)
@@ -1987,7 +1990,7 @@ typedef struct
 			if (!windex)
 			{
 				[panel	orderOut:NULL];
-				NXFreeAlertPanel(panel);
+				NSReleaseAlertPanel(panel);
 				NXPing();
 				NSRunAlertPanel(@"Error", @"Couldn't open %s",
 					nil, nil, nil, filename);
@@ -1996,7 +1999,7 @@ typedef struct
 			else
 			{
 				[panel	orderOut:NULL];
-				NXFreeAlertPanel(panel);
+				NSReleaseAlertPanel(panel);
 				NXPing();
 				close(handle);
 				windex = -1;
@@ -2006,19 +2009,19 @@ typedef struct
 	
 		printf ("Updating textures in memory from Texture%d file\n",windex+1);
 		flock (handle, LOCK_EX);
-		
+
 		stream = fdopen (handle,"r+");
 		if (!stream)
 		{
 			close (handle);
 			[panel	orderOut:NULL];
-			NXFreeAlertPanel(panel);
+			NSReleaseAlertPanel(panel);
 			NXPing();
 			NSRunAlertPanel(@"Error", @"Could not stream to %s",
 				nil, nil, nil, filename);
 			return self;
 		}
-		
+
 		//
 		// read textures out of the file
 		//
@@ -2030,7 +2033,7 @@ typedef struct
 				{
 					fclose (stream);
 					[panel	orderOut:NULL];
-					NXFreeAlertPanel(panel);
+					NSReleaseAlertPanel(panel);
 					NXPing();
 					NSRunAlertPanel(@"Error",
 						@"Could not parse %s",
@@ -2068,13 +2071,13 @@ typedef struct
 		
 		flock (handle, LOCK_UN);
 		fclose (stream);
-		
+
 		[panel	orderOut:NULL];
-		NXFreeAlertPanel(panel);
+		NSReleaseAlertPanel(panel);
 		NXPing();
 
 	} while (windex >= 0);
-	
+
 	//
 	//	Count how many sets of textures are in memory now
 	//
@@ -2093,13 +2096,14 @@ typedef struct
 	//
 	for (windex = 0; windex <= winmax; windex++)
 	{
-		panel = NXGetAlertPanel("Wait...",
-			"Writing textures to texture%d.dsp.",NULL,NULL,NULL,windex+1);
+		panel = NSGetAlertPanel(@"Wait...",
+			@"Writing textures to texture%d.dsp.",
+			nil, nil, nil, windex+1);
 		[panel	orderFront:NULL];
 		NXPing();
-		
+
 		sprintf (filename, "%s/texture%d.dsp",projectdirectory,windex+1 );
-		
+
 		BackupFile(filename);
 		unlink(filename);
 		handle = open (filename,O_CREAT | O_RDWR, 0666);
@@ -2108,7 +2112,7 @@ typedef struct
 			if (!windex)
 			{
 				[panel	orderOut:NULL];
-				NXFreeAlertPanel(panel);
+				NSReleaseAlertPanel(panel);
 				NXPing();
 				NSRunAlertPanel(@"Error",
 					@"Couldn't create %s",
@@ -2118,7 +2122,7 @@ typedef struct
 			else
 			{
 				[panel	orderOut:NULL];
-				NXFreeAlertPanel(panel);
+				NSReleaseAlertPanel(panel);
 				NXPing();
 				close(handle);
 				break;
@@ -2133,7 +2137,7 @@ typedef struct
 		{
 			fclose (stream);
 			[panel	orderOut:NULL];
-			NXFreeAlertPanel(panel);
+			NSReleaseAlertPanel(panel);
 			NXPing();
 			NSRunAlertPanel(@"Error",
 				@"Could not stream to %s",
@@ -2167,7 +2171,7 @@ typedef struct
 		fclose (stream);
 
 		[panel	orderOut:NULL];
-		NXFreeAlertPanel(panel);
+		NSReleaseAlertPanel(panel);
 		NXPing();
 	}		
 	

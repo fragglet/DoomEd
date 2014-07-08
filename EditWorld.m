@@ -390,10 +390,12 @@ int LineByPoint (NSPoint *ptin, int *side)
 	strcpy( fromPath, pathname);
 	strcpy( toPath, mapwads);
 
-	sprintf(string,"Please wait while I BSP process this map.\n\n"
+	panel = NSGetAlertPanel(@"Wait...",
+		@"Please wait while I BSP process this map.\n\n"
 		"Map: %s\nMapWADdir: %s\nBSPprogram:%s\nHost: %s",
-		fromPath,toPath,bspprogram,bsphost);
-	panel = NXGetAlertPanel("Wait...",string,NULL,NULL,NULL);
+		nil, nil, nil,
+		fromPath, toPath, bspprogram, bsphost);
+
 	[panel	orderFront:NULL];
 	NXPing();
 
@@ -402,15 +404,17 @@ int LineByPoint (NSPoint *ptin, int *side)
 	if (err)
 	{
 		[panel	orderOut:NULL];
-		NXFreeAlertPanel(panel);
-		sprintf(string,"rsh attempt returned:%d\n",err);
-		panel = NXGetAlertPanel("rsh error!",string,NULL,NULL,NULL);
+		NSReleaseAlertPanel(panel);
+		panel = NSGetAlertPanel(@"rsh error!",
+			@"rsh attempt returned:%d\n",
+			nil, nil, nil,
+			err);
 		[panel  orderFront:NULL];
 		NXPing();
 	}
 
 	[panel	orderOut:NULL];
-	NXFreeAlertPanel(panel);
+	NSReleaseAlertPanel(panel);
 	[doomproject_i	setDirtyMap:FALSE];
 	[saveSound	play];
 
@@ -437,7 +441,7 @@ int LineByPoint (NSPoint *ptin, int *side)
 		return nil;
 	}
 
-	pan = NXGetAlertPanel ("One moment","Saving",NULL,NULL,NULL);
+	pan = NSGetAlertPanel(@"One moment", @"Saving", nil, nil, nil);
 	[pan display];
 	[pan orderFront: NULL];
 	NXPing ();
@@ -449,9 +453,9 @@ int LineByPoint (NSPoint *ptin, int *side)
 	fclose (stream);
 //	dirty = NO;
 	[doomproject_i	setDirtyMap:FALSE];
-	
+
 	[pan	orderOut:NULL];
-	NXFreeAlertPanel	(pan);
+	NSReleaseAlertPanel(pan);
 
 	return self;
 }

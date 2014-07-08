@@ -32,7 +32,7 @@ id		pan;
 - sectorError: (NSString *)msg : (int)line1 : (int)line2
 {
 	[pan	orderOut:NULL];
-	NXFreeAlertPanel	(pan);
+	NSReleaseAlertPanel(pan);
 	[editworld_i deselectAll];
 	if (line1 != -1)
 	{
@@ -613,7 +613,9 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 [self displayBlockMap];
 #endif
 
-	pan = NXGetAlertPanel ("One moment","Filling block map",NULL,NULL,NULL);
+	pan = NSGetAlertPanel(@"One moment",
+		@"Filling block map",
+		nil, nil, nil);
 	[pan display];
 	[pan orderFront: NULL];
 	NXPing ();
@@ -656,7 +658,7 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 	[editworld_i deselectAll];
 	
 	[pan	orderOut:NULL];
-	NXFreeAlertPanel	(pan);
+	NSReleaseAlertPanel(pan);
 	NXPing ();
 	return YES;
 }

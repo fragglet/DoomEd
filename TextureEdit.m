@@ -1138,8 +1138,9 @@ id	texturePatches;
 	apatch_t		*p;
 	id			panel;
 	
-	panel = NXGetAlertPanel("Wait...","Dumping texture patches.",
-		NULL,NULL,NULL);
+	panel = NSGetAlertPanel(@"Wait...",
+		@"Dumping texture patches.",
+		nil, nil, nil);
 	[panel	orderFront:NULL];
 	NXPing();
 	
@@ -1160,7 +1161,7 @@ id	texturePatches;
 	}
 	
 	[panel	orderOut:NULL];
-	NXFreeAlertPanel(panel);
+	NSReleaseAlertPanel(panel);
 	return self;
 }
 

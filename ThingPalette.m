@@ -250,10 +250,11 @@ id	thingPalette_i;
 	patch_t	*iconvga;
 	icon_t	icon;
 //	id		panel;
-	
+
 #if 0
-	panel = NXGetAlertPanel("One moment...",
-			"Loading icons for Thing Palette.",NULL,NULL,NULL);
+	panel = NSGetAlertPanel(@"One moment...",
+			@"Loading icons for Thing Palette.",
+			nil, nil, nil);
 	[panel	orderFront:NULL];
 	[panel	flushWindow];
 	NXPing();

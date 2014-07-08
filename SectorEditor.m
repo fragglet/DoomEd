@@ -417,12 +417,13 @@ id	sectorEdit_i;
 	int			i, max;
 	flat_t		*p;
 	id			panel;
-	
-	panel = NXGetAlertPanel("Wait...","Dumping texture patches.",
-		NULL,NULL,NULL);
+
+	panel = NSGetAlertPanel(@"Wait...",
+		@"Dumping texture patches.",
+		nil, nil, nil);
 	[panel	orderFront:NULL];
 	NXPing();
-	
+
 	max = [ flatImages	count ];
 	for (i = 0; i < max; i++)
 	{
@@ -432,7 +433,7 @@ id	sectorEdit_i;
 	
 	[ flatImages	empty ];
 	[panel	orderOut:NULL];
-	NXFreeAlertPanel(panel);
+	NSReleaseAlertPanel(panel);
 	
 	return self;
 }
