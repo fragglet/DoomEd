@@ -376,17 +376,15 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 	short	*src, *dest;
 	
 	NXSetRect (&aRect, 100, 100, brow/WLSIZE, bheight);
-	window = [[Window alloc]
-		initContent:	&aRect
-		style:		NX_TITLEDSTYLE
-		backing:		NX_RETAINED
-		buttonMask:	NX_MINIATURIZEBUTTONMASK|NX_CLOSEBUTTONMASK
-		defer:		NO
-	];
-	
+	window = [[NSWindow alloc] initWithContentRect: aRect
+	                           styleMask: NSTitledWindowMask
+				   backing: NSBackingStoreRetained
+	//buttonMask:	NX_MINIATURIZEBUTTONMASK|NX_CLOSEBUTTONMASK
+				   defer: NO];
+
 	[window display];
 	[window orderFront:nil];
-	
+
 	blockview = [window contentView];
 	size = brow/WLSIZE*bheight;
 	dest = (short *)planes[0] = malloc (size*2);
