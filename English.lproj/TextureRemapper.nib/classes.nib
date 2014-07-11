@@ -1,0 +1,27 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                addToList = id; 
+                deleteFromList = id; 
+                doRemapping = id; 
+                menuTarget = id; 
+                remapGetFromTP = id; 
+            }; 
+            CLASS = TextureRemapper; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                browser_i = id; 
+                matrix_i = id; 
+                newTexture_i = id; 
+                originalTexture_i = id; 
+                remapPanel_i = id; 
+                status_i = id; 
+                storage_i = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }
+    ); 
+    IBVersion = 1; 
+}

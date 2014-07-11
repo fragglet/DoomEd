@@ -1,0 +1,13 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {addInfo = id; chooseFile = id; deleteInfo = id; done = id; }; 
+            CLASS = ProjectInfo; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {WADfield_i = id; browser_i = id; panel_i = id; textureName_i = id; }; 
+            SUPERCLASS = Object; 
+        }
+    ); 
+    IBVersion = 1; 
+}

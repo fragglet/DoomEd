@@ -10,6 +10,19 @@
 		27044F6E197042D7003F6DB6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27044F6D197042D7003F6DB6 /* Cocoa.framework */; };
 		27044F8D197042D7003F6DB6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27044F8C197042D7003F6DB6 /* XCTest.framework */; };
 		27044F8E197042D7003F6DB6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27044F6D197042D7003F6DB6 /* Cocoa.framework */; };
+		276AB5E31970AE9D001718D1 /* DoomEd.nib in Resources */ = {isa = PBXBuildFile; fileRef = 276AB5DD1970AE9D001718D1 /* DoomEd.nib */; };
+		276AB5E41970AE9D001718D1 /* FindLine.nib in Resources */ = {isa = PBXBuildFile; fileRef = 276AB5DF1970AE9D001718D1 /* FindLine.nib */; };
+		276AB5E51970AE9D001718D1 /* FlatRemapper.nib in Resources */ = {isa = PBXBuildFile; fileRef = 276AB5E11970AE9D001718D1 /* FlatRemapper.nib */; };
+		276AB5F01970AECA001718D1 /* Project.nib in Resources */ = {isa = PBXBuildFile; fileRef = 276AB5E61970AECA001718D1 /* Project.nib */; };
+		276AB5F11970AECA001718D1 /* ProjectInfo.nib in Resources */ = {isa = PBXBuildFile; fileRef = 276AB5E81970AECA001718D1 /* ProjectInfo.nib */; };
+		276AB5F21970AECA001718D1 /* Remapper.nib in Resources */ = {isa = PBXBuildFile; fileRef = 276AB5EA1970AECA001718D1 /* Remapper.nib */; };
+		276AB5F31970AECA001718D1 /* SectorEditor.nib in Resources */ = {isa = PBXBuildFile; fileRef = 276AB5EC1970AECA001718D1 /* SectorEditor.nib */; };
+		276AB5F41970AECA001718D1 /* SpecialList.nib in Resources */ = {isa = PBXBuildFile; fileRef = 276AB5EE1970AECA001718D1 /* SpecialList.nib */; };
+		276AB5FB1970AEE0001718D1 /* TextureEdit.nib in Resources */ = {isa = PBXBuildFile; fileRef = 276AB5F51970AEE0001718D1 /* TextureEdit.nib */; };
+		276AB5FC1970AEE0001718D1 /* TexturePalette.nib in Resources */ = {isa = PBXBuildFile; fileRef = 276AB5F71970AEE0001718D1 /* TexturePalette.nib */; };
+		276AB5FD1970AEE0001718D1 /* TextureRemapper.nib in Resources */ = {isa = PBXBuildFile; fileRef = 276AB5F91970AEE0001718D1 /* TextureRemapper.nib */; };
+		276AB6001970AEEE001718D1 /* ThingPalette.nib in Resources */ = {isa = PBXBuildFile; fileRef = 276AB5FE1970AEEE001718D1 /* ThingPalette.nib */; };
+		276AB6031970AEF7001718D1 /* ThingStripper.nib in Resources */ = {isa = PBXBuildFile; fileRef = 276AB6011970AEF7001718D1 /* ThingStripper.nib */; };
 		27DA448E19706396005CB000 /* BlockWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446019706396005CB000 /* BlockWorld.m */; };
 		27DA448F19706396005CB000 /* Coordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446119706396005CB000 /* Coordinator.m */; };
 		27DA449019706396005CB000 /* DoomEd_main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446219706396005CB000 /* DoomEd_main.m */; };
@@ -78,6 +91,19 @@
 		27044F8B197042D7003F6DB6 /* DoomEdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoomEdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27044F8C197042D7003F6DB6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		270484A01970652100AD2F6E /* DoomEd-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DoomEd-Prefix.pch"; sourceTree = "<group>"; };
+		276AB5DE1970AE9D001718D1 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/DoomEd.nib; sourceTree = "<group>"; };
+		276AB5E01970AE9D001718D1 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/FindLine.nib; sourceTree = "<group>"; };
+		276AB5E21970AE9D001718D1 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/FlatRemapper.nib; sourceTree = "<group>"; };
+		276AB5E71970AECA001718D1 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/Project.nib; sourceTree = "<group>"; };
+		276AB5E91970AECA001718D1 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/ProjectInfo.nib; sourceTree = "<group>"; };
+		276AB5EB1970AECA001718D1 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/Remapper.nib; sourceTree = "<group>"; };
+		276AB5ED1970AECA001718D1 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/SectorEditor.nib; sourceTree = "<group>"; };
+		276AB5EF1970AECA001718D1 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/SpecialList.nib; sourceTree = "<group>"; };
+		276AB5F61970AEE0001718D1 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/TextureEdit.nib; sourceTree = "<group>"; };
+		276AB5F81970AEE0001718D1 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/TexturePalette.nib; sourceTree = "<group>"; };
+		276AB5FA1970AEE0001718D1 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/TextureRemapper.nib; sourceTree = "<group>"; };
+		276AB5FF1970AEEE001718D1 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/ThingPalette.nib; sourceTree = "<group>"; };
+		276AB6021970AEF7001718D1 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/ThingStripper.nib; sourceTree = "<group>"; };
 		27DA443419706385005CB000 /* BlockWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockWorld.h; sourceTree = "<group>"; };
 		27DA443519706385005CB000 /* Coordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinator.h; sourceTree = "<group>"; };
 		27DA443619706385005CB000 /* DoomProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoomProject.h; sourceTree = "<group>"; };
@@ -197,98 +223,111 @@
 			children = (
 				27044F6C197042D7003F6DB6 /* Frameworks */,
 				27044F6B197042D7003F6DB6 /* Products */,
-				27DA443419706385005CB000 /* BlockWorld.h */,
 				27DA446019706396005CB000 /* BlockWorld.m */,
-				27DA443519706385005CB000 /* Coordinator.h */,
+				27DA443419706385005CB000 /* BlockWorld.h */,
 				27DA446119706396005CB000 /* Coordinator.m */,
+				27DA443519706385005CB000 /* Coordinator.h */,
+				276AB5DD1970AE9D001718D1 /* DoomEd.nib */,
 				27DA44BC19706492005CB000 /* DoomEd-Info.plist */,
 				270484A01970652100AD2F6E /* DoomEd-Prefix.pch */,
 				27DA446219706396005CB000 /* DoomEd_main.m */,
-				27DA443619706385005CB000 /* DoomProject.h */,
 				27DA446319706396005CB000 /* DoomProject.m */,
+				276AB5E61970AECA001718D1 /* Project.nib */,
+				27DA443619706385005CB000 /* DoomProject.h */,
+				276AB5E81970AECA001718D1 /* ProjectInfo.nib */,
 				27DA443719706385005CB000 /* EditWorld.h */,
 				27DA446419706396005CB000 /* EditWorld.m */,
 				27DA446519706396005CB000 /* EWDoomSave.m */,
 				27DA446619706396005CB000 /* EWLoadSave.m */,
 				27DA443819706385005CB000 /* FindLine.h */,
 				27DA446719706396005CB000 /* FindLine.m */,
-				27DA443919706385005CB000 /* FlatRemapper.h */,
+				276AB5DF1970AE9D001718D1 /* FindLine.nib */,
 				27DA446819706396005CB000 /* FlatRemapper.m */,
-				27DA443A19706385005CB000 /* FlatsView.h */,
+				276AB5E11970AE9D001718D1 /* FlatRemapper.nib */,
+				27DA443919706385005CB000 /* FlatRemapper.h */,
 				27DA446919706396005CB000 /* FlatsView.m */,
-				27DA443B19706385005CB000 /* FloatingPanel.h */,
+				27DA443A19706385005CB000 /* FlatsView.h */,
 				27DA446A19706396005CB000 /* FloatingPanel.m */,
-				27DA443C19706385005CB000 /* idfunctions.h */,
+				27DA443B19706385005CB000 /* FloatingPanel.h */,
 				27DA446B19706396005CB000 /* idfunctions.m */,
-				27DA443D19706385005CB000 /* lbmfunctions.h */,
+				27DA443C19706385005CB000 /* idfunctions.h */,
 				27DA446C19706396005CB000 /* lbmfunctions.m */,
-				27DA443E19706385005CB000 /* LinePanel.h */,
+				27DA443D19706385005CB000 /* lbmfunctions.h */,
 				27DA446D19706396005CB000 /* LinePanel.m */,
-				27DA443F19706385005CB000 /* LineSpecialRemapper.h */,
+				27DA443E19706385005CB000 /* LinePanel.h */,
 				27DA446E19706396005CB000 /* LineSpecialRemapper.m */,
-				27DA444019706385005CB000 /* MapView.h */,
+				27DA443F19706385005CB000 /* LineSpecialRemapper.h */,
 				27DA446F19706396005CB000 /* MapView.m */,
-				27DA444119706385005CB000 /* MapViewDraw.h */,
+				27DA444019706385005CB000 /* MapView.h */,
 				27DA447019706396005CB000 /* MapViewDraw.m */,
-				27DA444219706385005CB000 /* MapViewResp.h */,
+				27DA444119706385005CB000 /* MapViewDraw.h */,
 				27DA447119706396005CB000 /* MapViewResp.m */,
-				27DA444319706385005CB000 /* MapWindow.h */,
+				27DA444219706385005CB000 /* MapViewResp.h */,
 				27DA447219706396005CB000 /* MapWindow.m */,
-				27DA444419706385005CB000 /* pathops.h */,
+				27DA444319706385005CB000 /* MapWindow.h */,
 				27DA447319706396005CB000 /* pathops.m */,
-				27DA444519706385005CB000 /* PopScrollView.h */,
+				27DA444419706385005CB000 /* pathops.h */,
 				27DA447419706396005CB000 /* PopScrollView.m */,
-				27DA444619706385005CB000 /* PreferencePanel.h */,
+				27DA444519706385005CB000 /* PopScrollView.h */,
 				27DA447519706396005CB000 /* PreferencePanel.m */,
+				27DA444619706385005CB000 /* PreferencePanel.h */,
 				27DA444719706385005CB000 /* R_mapdef.h */,
-				27DA444819706385005CB000 /* Remapper.h */,
 				27DA447619706396005CB000 /* Remapper.m */,
-				27DA444919706385005CB000 /* SectorEditor.h */,
+				276AB5EA1970AECA001718D1 /* Remapper.nib */,
+				27DA444819706385005CB000 /* Remapper.h */,
 				27DA447719706396005CB000 /* SectorEditor.m */,
-				27DA444A19706385005CB000 /* SectorEditView.h */,
+				276AB5EC1970AECA001718D1 /* SectorEditor.nib */,
+				27DA444919706385005CB000 /* SectorEditor.h */,
 				27DA447819706396005CB000 /* SectorEditView.m */,
-				27DA444B19706385005CB000 /* SettingsPanel.h */,
+				27DA444A19706385005CB000 /* SectorEditView.h */,
 				27DA447919706396005CB000 /* SettingsPanel.m */,
-				27DA444C19706385005CB000 /* SpecialList.h */,
+				27DA444B19706385005CB000 /* SettingsPanel.h */,
 				27DA447A19706396005CB000 /* SpecialList.m */,
+				276AB5EE1970AECA001718D1 /* SpecialList.nib */,
+				27DA444C19706385005CB000 /* SpecialList.h */,
 				27DA444D19706385005CB000 /* SpecialListWindow.h */,
 				27DA447B19706396005CB000 /* SpecialListWindow.m */,
 				27DA444E19706385005CB000 /* TextLog.h */,
 				27DA447C19706396005CB000 /* TextLog.m */,
-				27DA444F19706385005CB000 /* TextureEdit.h */,
 				27DA447D19706396005CB000 /* TextureEdit.m */,
-				27DA445019706385005CB000 /* TexturePalette.h */,
+				276AB5F51970AEE0001718D1 /* TextureEdit.nib */,
+				27DA444F19706385005CB000 /* TextureEdit.h */,
 				27DA447E19706396005CB000 /* TexturePalette.m */,
-				27DA445119706385005CB000 /* TexturePalView.h */,
+				276AB5F71970AEE0001718D1 /* TexturePalette.nib */,
+				27DA445019706385005CB000 /* TexturePalette.h */,
 				27DA447F19706396005CB000 /* TexturePalView.m */,
-				27DA445219706385005CB000 /* TexturePatchView.h */,
+				27DA445119706385005CB000 /* TexturePalView.h */,
 				27DA448019706396005CB000 /* TexturePatchView.m */,
-				27DA445319706385005CB000 /* TextureRemapper.h */,
+				27DA445219706385005CB000 /* TexturePatchView.h */,
 				27DA448119706396005CB000 /* TextureRemapper.m */,
-				27DA445419706385005CB000 /* TextureView.h */,
+				276AB5F91970AEE0001718D1 /* TextureRemapper.nib */,
+				27DA445319706385005CB000 /* TextureRemapper.h */,
 				27DA448219706396005CB000 /* TextureView.m */,
-				27DA445519706385005CB000 /* TextureWindow.h */,
+				27DA445419706385005CB000 /* TextureView.h */,
 				27DA448319706396005CB000 /* TextureWindow.m */,
-				27DA445619706385005CB000 /* ThermoView.h */,
+				27DA445519706385005CB000 /* TextureWindow.h */,
 				27DA448419706396005CB000 /* ThermoView.m */,
-				27DA445719706385005CB000 /* ThingPalette.h */,
+				27DA445619706385005CB000 /* ThermoView.h */,
 				27DA448519706396005CB000 /* ThingPalette.m */,
-				27DA445819706385005CB000 /* ThingPalView.h */,
+				276AB5FE1970AEEE001718D1 /* ThingPalette.nib */,
+				27DA445719706385005CB000 /* ThingPalette.h */,
 				27DA448619706396005CB000 /* ThingPalView.m */,
-				27DA445919706385005CB000 /* ThingPanel.h */,
+				27DA445819706385005CB000 /* ThingPalView.h */,
 				27DA448719706396005CB000 /* ThingPanel.m */,
-				27DA445A19706385005CB000 /* ThingRemapper.h */,
+				27DA445919706385005CB000 /* ThingPanel.h */,
 				27DA448819706396005CB000 /* ThingRemapper.m */,
-				27DA445B19706385005CB000 /* ThingStripper.h */,
+				27DA445A19706385005CB000 /* ThingRemapper.h */,
 				27DA448919706396005CB000 /* ThingStripper.m */,
-				27DA445C19706385005CB000 /* ThingWindow.h */,
+				276AB6011970AEF7001718D1 /* ThingStripper.nib */,
+				27DA445B19706385005CB000 /* ThingStripper.h */,
 				27DA448A19706396005CB000 /* ThingWindow.m */,
-				27DA445D19706385005CB000 /* Timing.h */,
+				27DA445C19706385005CB000 /* ThingWindow.h */,
 				27DA448B19706396005CB000 /* Timing.m */,
-				27DA445E19706385005CB000 /* ToolPanel.h */,
+				27DA445D19706385005CB000 /* Timing.h */,
 				27DA448C19706396005CB000 /* ToolPanel.m */,
-				27DA445F19706385005CB000 /* Wadfile.h */,
+				27DA445E19706385005CB000 /* ToolPanel.h */,
 				27DA448D19706396005CB000 /* Wadfile.m */,
+				27DA445F19706385005CB000 /* Wadfile.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -379,6 +418,7 @@
 			knownRegions = (
 				en,
 				Base,
+				English,
 			);
 			mainGroup = 27044F61197042D7003F6DB6;
 			productRefGroup = 27044F6B197042D7003F6DB6 /* Products */;
@@ -396,7 +436,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				276AB5F01970AECA001718D1 /* Project.nib in Resources */,
 				27DA44BD19706492005CB000 /* DoomEd-Info.plist in Resources */,
+				276AB5E31970AE9D001718D1 /* DoomEd.nib in Resources */,
+				276AB5F41970AECA001718D1 /* SpecialList.nib in Resources */,
+				276AB6001970AEEE001718D1 /* ThingPalette.nib in Resources */,
+				276AB5F21970AECA001718D1 /* Remapper.nib in Resources */,
+				276AB5F11970AECA001718D1 /* ProjectInfo.nib in Resources */,
+				276AB6031970AEF7001718D1 /* ThingStripper.nib in Resources */,
+				276AB5E51970AE9D001718D1 /* FlatRemapper.nib in Resources */,
+				276AB5FB1970AEE0001718D1 /* TextureEdit.nib in Resources */,
+				276AB5FC1970AEE0001718D1 /* TexturePalette.nib in Resources */,
+				276AB5F31970AECA001718D1 /* SectorEditor.nib in Resources */,
+				276AB5E41970AE9D001718D1 /* FindLine.nib in Resources */,
+				276AB5FD1970AEE0001718D1 /* TextureRemapper.nib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +532,113 @@
 			targetProxy = 27044F8F197042D7003F6DB6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		276AB5DD1970AE9D001718D1 /* DoomEd.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				276AB5DE1970AE9D001718D1 /* English */,
+			);
+			name = DoomEd.nib;
+			sourceTree = "<group>";
+		};
+		276AB5DF1970AE9D001718D1 /* FindLine.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				276AB5E01970AE9D001718D1 /* English */,
+			);
+			name = FindLine.nib;
+			sourceTree = "<group>";
+		};
+		276AB5E11970AE9D001718D1 /* FlatRemapper.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				276AB5E21970AE9D001718D1 /* English */,
+			);
+			name = FlatRemapper.nib;
+			sourceTree = "<group>";
+		};
+		276AB5E61970AECA001718D1 /* Project.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				276AB5E71970AECA001718D1 /* English */,
+			);
+			name = Project.nib;
+			sourceTree = "<group>";
+		};
+		276AB5E81970AECA001718D1 /* ProjectInfo.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				276AB5E91970AECA001718D1 /* English */,
+			);
+			name = ProjectInfo.nib;
+			sourceTree = "<group>";
+		};
+		276AB5EA1970AECA001718D1 /* Remapper.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				276AB5EB1970AECA001718D1 /* English */,
+			);
+			name = Remapper.nib;
+			sourceTree = "<group>";
+		};
+		276AB5EC1970AECA001718D1 /* SectorEditor.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				276AB5ED1970AECA001718D1 /* English */,
+			);
+			name = SectorEditor.nib;
+			sourceTree = "<group>";
+		};
+		276AB5EE1970AECA001718D1 /* SpecialList.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				276AB5EF1970AECA001718D1 /* English */,
+			);
+			name = SpecialList.nib;
+			sourceTree = "<group>";
+		};
+		276AB5F51970AEE0001718D1 /* TextureEdit.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				276AB5F61970AEE0001718D1 /* English */,
+			);
+			name = TextureEdit.nib;
+			sourceTree = "<group>";
+		};
+		276AB5F71970AEE0001718D1 /* TexturePalette.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				276AB5F81970AEE0001718D1 /* English */,
+			);
+			name = TexturePalette.nib;
+			sourceTree = "<group>";
+		};
+		276AB5F91970AEE0001718D1 /* TextureRemapper.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				276AB5FA1970AEE0001718D1 /* English */,
+			);
+			name = TextureRemapper.nib;
+			sourceTree = "<group>";
+		};
+		276AB5FE1970AEEE001718D1 /* ThingPalette.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				276AB5FF1970AEEE001718D1 /* English */,
+			);
+			name = ThingPalette.nib;
+			sourceTree = "<group>";
+		};
+		276AB6011970AEF7001718D1 /* ThingStripper.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				276AB6021970AEF7001718D1 /* English */,
+			);
+			name = ThingStripper.nib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		27044F99197042D7003F6DB6 /* Debug */ = {

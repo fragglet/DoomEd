@@ -1,0 +1,19 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                addThing = id; 
+                deleteThing = id; 
+                displayPanel = id; 
+                doStrippingAllMaps = id; 
+                doStrippingOneMap = id; 
+            }; 
+            CLASS = ThingStripper; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {thingBrowser_i = id; thingList_i = id; thingStripPanel_i = id; }; 
+            SUPERCLASS = Object; 
+        }
+    ); 
+    IBVersion = 1; 
+}

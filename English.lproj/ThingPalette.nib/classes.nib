@@ -1,0 +1,20 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = ThingPalView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {
+            ACTIONS = {menuTarget = id; }; 
+            CLASS = ThingPalette; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                nameField_i = id; 
+                thingImages = id; 
+                thingPalScrView_i = id; 
+                thingPalView_i = id; 
+                window_i = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }
+    ); 
+    IBVersion = 1; 
+}

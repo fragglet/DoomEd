@@ -1,0 +1,432 @@
+{
+    IBClasses = (
+        {CLASS = BlockWorld; LANGUAGE = ObjC; SUPERCLASS = Object; }, 
+        {
+            ACTIONS = {redraw = id; toggleDebug = id; }; 
+            CLASS = Coordinator; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {infoPanel_i = id; toolPanel_i = id; }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {
+                displayLog = id; 
+                loadAndSaveAllMaps = id; 
+                menuTarget = id; 
+                newMap = id; 
+                newProject = id; 
+                openMap = id; 
+                openProject = id; 
+                printAllMaps = id; 
+                printMap = id; 
+                printPrefs = id; 
+                printSingleMapStatistics = id; 
+                printStatistics = id; 
+                reloadProject = id; 
+                removeMap = id; 
+                saveProject = id; 
+                toggleItems = id; 
+                toggleMonsters = id; 
+                togglePanel = id; 
+                toggleWeapons = id; 
+            }; 
+            CLASS = DoomProject; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                findPanel_i = id; 
+                mapNameField_i = id; 
+                maps_i = id; 
+                printPrefWindow_i = id; 
+                projectpath_i = id; 
+                thermoMsg_i = id; 
+                thermoTitle_i = id; 
+                thermoView_i = id; 
+                thermoWindow_i = id; 
+                thingPanel_i = id; 
+                wadpath_i = id; 
+                window_i = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {
+                appWillTerminate = id; 
+                copy = id; 
+                cut = id; 
+                delete = id; 
+                flipSelectedLines = id; 
+                fusePoints = id; 
+                newWindow = id; 
+                paste = id; 
+                print = id; 
+                saveDoomEdMapBSP = id; 
+                saveWorld = id; 
+                seperatePoints = id; 
+                windowWillClose = id; 
+            }; 
+            CLASS = EditWorld; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {copyLines_i = id; copyThings_i = id; windowlist_i = id; }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {findLine = id; menuTarget = id; }; 
+            CLASS = FindLine; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {status_i = id; window_i = id; }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {printInfo = id; redraw = id; testSpeed = id; }; 
+            CLASS = FirstResponder; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {
+                addToList = id; 
+                deleteFromList = id; 
+                doRemapping = id; 
+                menuTarget = id; 
+                remapGetFromSE = id; 
+            }; 
+            CLASS = FlatRemapper; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                browser_i = id; 
+                matrix_i = id; 
+                newFlat_i = id; 
+                originalFlat_i = id; 
+                remapPanel_i = id; 
+                status_i = id; 
+                storage_i = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {CLASS = FloatingPanel; LANGUAGE = ObjC; SUPERCLASS = NSPanel; }, 
+        {
+            ACTIONS = {
+                activateSpecialList = id; 
+                blockChanged = id; 
+                bottompegChanged = id; 
+                decFirstCol = id; 
+                getFromTP = id; 
+                incFirstCol = id; 
+                menuTarget = id; 
+                popUpCalc = id; 
+                secretChanged = id; 
+                setFCVal = id; 
+                setTP = id; 
+                sideChanged = id; 
+                sideRadioTarget = id; 
+                specialChanged = id; 
+                suggestTagValue = id; 
+                tagChanged = id; 
+                toppegChanged = id; 
+                twosideChanged = id; 
+                zeroEntry = id; 
+            }; 
+            CLASS = LinePanel; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                bottompeg_i = id; 
+                fc_currentVal_i = id; 
+                fc_incDec_i = id; 
+                firstColCalc_i = id; 
+                p1_i = id; 
+                p2_i = id; 
+                pblock_i = id; 
+                secret_i = id; 
+                sideform_i = id; 
+                sideradio_i = id; 
+                specialPanel_i = id; 
+                special_i = id; 
+                tagField_i = id; 
+                toppeg_i = id; 
+                twosided_i = id; 
+                window_i = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {menuTarget = id; }; 
+            CLASS = LineSpecialRemapper; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {remapper_i = id; }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {menuTarget = id; }; 
+            CLASS = PatchPalette; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {window_i = id; }; 
+            SUPERCLASS = Object; 
+        }, 
+        {CLASS = PatchPaletteView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {CLASS = PatchWindow; LANGUAGE = ObjC; SUPERCLASS = NSWindow; }, 
+        {CLASS = PlanePalView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {
+            ACTIONS = {menuTarget = id; }; 
+            CLASS = PlanePalette; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {planeImages = id; window_i = id; }; 
+            SUPERCLASS = Object; 
+        }, 
+        {CLASS = PlaneWindow; LANGUAGE = ObjC; SUPERCLASS = NSWindow; }, 
+        {
+            ACTIONS = {colorChanged = id; menuTarget = id; selectWorld = id; }; 
+            CLASS = PreferencePanel; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                areacolor_i = id; 
+                ceilingcolor_i = id; 
+                defworksheet_i = id; 
+                floorcolor_i = id; 
+                gridcolor_i = id; 
+                lightcolor_i = id; 
+                unusualcolor_i = id; 
+                wallcolor_i = id; 
+                window_i = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {addInfo = id; chooseFile = id; deleteInfo = id; done = id; menuTarget = id; }; 
+            CLASS = ProjectInfo; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                WADfield_i = id; 
+                browser_i = id; 
+                openPanel_i = id; 
+                panel_i = id; 
+                storage_i = id; 
+                textureName_i = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {
+                CorFheightChanged = id; 
+                activateSpecialList = id; 
+                ceilingAdjust = id; 
+                floorAdjust = id; 
+                getTagValue = id; 
+                lightChanged = id; 
+                lightLevelDown = id; 
+                lightLevelUp = id; 
+                lightSliderChanged = id; 
+                locateFlat = id; 
+                menuTarget = id; 
+                searchForTaggedLine = id; 
+                searchForTaggedSector = id; 
+                totalHeightAdjust = id; 
+            }; 
+            CLASS = SectorEditor; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                ceiling_i = id; 
+                cflatname_i = id; 
+                cheightfield_i = id; 
+                curFlat_i = id; 
+                fflatname_i = id; 
+                fheightfield_i = id; 
+                flatImages = id; 
+                flatPalView_i = id; 
+                flatScrPalView_i = id; 
+                floorAndCeiling_i = id; 
+                floor_i = id; 
+                lightLevel_i = id; 
+                lightSlider_i = id; 
+                sectorEditView_i = id; 
+                specialPanel_i = id; 
+                special_i = id; 
+                tag_i = id; 
+                totalHeight_i = id; 
+                window_i = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {menuTarget = id; }; 
+            CLASS = SectorPalette; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {menuTarget = id; }; 
+            CLASS = SettingsPanel; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {
+                addSpecial = id; 
+                chooseSpecial = id; 
+                suggestValue = id; 
+                validateSpecialString = id; 
+            }; 
+            CLASS = SpecialList; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                delegate = id; 
+                specialBrowser_i = id; 
+                specialDesc_i = id; 
+                specialList_i = id; 
+                specialPanel_i = id; 
+                specialValue_i = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {display = id; resetText = id; }; 
+            CLASS = TextLog; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {text_i = id; window_i = id; }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {
+                changedWidthOrHeight = id; 
+                createTextureAbort = id; 
+                createTextureDone = id; 
+                createTextureName = id; 
+                deleteCurrentPatch = id; 
+                fillWithPatch = id; 
+                findPatch = id; 
+                finishTexture = id; 
+                makeNewTexture = id; 
+                menuTarget = id; 
+                outlineWasSet = id; 
+                sizeChanged = id; 
+                sortDown = id; 
+                sortUp = id; 
+                togglePatchLock = id; 
+            }; 
+            CLASS = TextureEdit; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                centerPatch_i = id; 
+                createDone_i = id; 
+                createHeight_i = id; 
+                createName_i = id; 
+                createTexture_i = id; 
+                createWidth_i = id; 
+                loadPanel_i = id; 
+                lockedPatch_i = id; 
+                outlinePatches_i = id; 
+                patchHeightField_i = id; 
+                patchImages = id; 
+                patchNameField_i = id; 
+                patchWidthField_i = id; 
+                scrollView_i = id; 
+                selectedTexturePatches = id; 
+                textureHeightField_i = id; 
+                textureNameField_i = id; 
+                texturePatchHeightField_i = id; 
+                texturePatchNameField_i = id; 
+                texturePatchScrollView_i = id; 
+                texturePatchView_i = id; 
+                texturePatchWidthField_i = id; 
+                texturePatchXField_i = id; 
+                texturePatchYField_i = id; 
+                textureView_i = id; 
+                textureWidthField_i = id; 
+                window_i = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {CLASS = TextureEditor; LANGUAGE = ObjC; SUPERCLASS = NSWindow; }, 
+        {
+            ACTIONS = {
+                doSaveAllTexturesAsLBM = id; 
+                menuTarget = id; 
+                saveAllTexturesAsLBM = id; 
+                saveTextureLBM = id; 
+                searchForTexture = id; 
+                searchHeight = id; 
+                searchWidth = id; 
+                showTextureInMap = id; 
+            }; 
+            CLASS = TexturePalette; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                allTextures = id; 
+                heightField_i = id; 
+                heightSearch_i = id; 
+                lsTextField_i = id; 
+                newTextures = id; 
+                patchField_i = id; 
+                searchField_i = id; 
+                texturePalScrView_i = id; 
+                texturePalView_i = id; 
+                texturePatches = id; 
+                titleField_i = id; 
+                widthField_i = id; 
+                widthSearch_i = id; 
+                window_i = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {doRemapping = id; menuTarget = id; remapGetFromTP = id; }; 
+            CLASS = TextureRemapper; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {newTexture_i = id; originalTexture_i = id; remapPanel_i = id; }; 
+            SUPERCLASS = Object; 
+        }, 
+        {CLASS = TextureWindow; LANGUAGE = ObjC; SUPERCLASS = NSWindow; }, 
+        {CLASS = ThermoView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {
+            ACTIONS = {menuTarget = id; }; 
+            CLASS = ThingPalette; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {thingPalScrView_i = id; thingPalView_i = id; warningField_i = id; }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {
+                addThing = id; 
+                chooseThing = id; 
+                delThing = id; 
+                formTarget = id; 
+                menuTarget = id; 
+                updateThingData = id; 
+            }; 
+            CLASS = ThingPanel; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                addButton_i = id; 
+                delButton_i = id; 
+                fields_i = id; 
+                masterList_i = id; 
+                nameField_i = id; 
+                thingBrowser_i = id; 
+                thingColor_i = id; 
+                window_i = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {menuTarget = id; }; 
+            CLASS = ThingRemapper; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {remapper_i = id; }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {addThing = id; deleteThing = id; displayPanel = id; doStripping = id; }; 
+            CLASS = ThingStripper; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {thingBrowser_i = id; thingList_i = id; thingPanel_i = id; }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {showButton = id; toolChanged = id; }; 
+            CLASS = ToolPanel; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {toolmatrix_i = id; xcoord_i = id; ycoord_i = id; }; 
+            SUPERCLASS = Object; 
+        }
+    ); 
+    IBVersion = 1; 
+}

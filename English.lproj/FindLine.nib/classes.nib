@@ -1,0 +1,19 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {deleteLine = id; findLine = id; menuTarget = id; }; 
+            CLASS = FindLine; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                delSound = id; 
+                fromBSP_i = id; 
+                numfield_i = id; 
+                status_i = id; 
+                window_i = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}

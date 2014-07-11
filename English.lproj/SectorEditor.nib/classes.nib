@@ -1,0 +1,56 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = FlatsView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {
+            CLASS = SectorEditView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {c_height_i = id; f_height_i = id; }; 
+            SUPERCLASS = NSView; 
+        }, 
+        {
+            ACTIONS = {
+                CorFheightChanged = id; 
+                activateSpecialList = id; 
+                ceilingAdjust = id; 
+                floorAdjust = id; 
+                getTagValue = id; 
+                lightChanged = id; 
+                lightLevelDown = id; 
+                lightLevelUp = id; 
+                lightSliderChanged = id; 
+                locateFlat = id; 
+                menuTarget = id; 
+                searchForTaggedLine = id; 
+                searchForTaggedSector = id; 
+                totalHeightAdjust = id; 
+            }; 
+            CLASS = SectorEditor; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                ceiling_i = id; 
+                cflatname_i = id; 
+                cheightfield_i = id; 
+                curFlat_i = id; 
+                fflatname_i = id; 
+                fheightfield_i = id; 
+                flatImages = id; 
+                flatPalView_i = id; 
+                flatScrPalView_i = id; 
+                floorAndCeiling_i = id; 
+                floor_i = id; 
+                lightLevel_i = id; 
+                lightSlider_i = id; 
+                sectorEditView_i = id; 
+                specialPanel_i = id; 
+                special_i = id; 
+                tag_i = id; 
+                totalHeight_i = id; 
+                window_i = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {CLASS = SectorPaletteView; LANGUAGE = ObjC; SUPERCLASS = NSView; }
+    ); 
+    IBVersion = 1; 
+}

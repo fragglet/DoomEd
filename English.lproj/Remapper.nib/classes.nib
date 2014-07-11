@@ -1,0 +1,30 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                addToList = id; 
+                clearList = id; 
+                deleteFromList = id; 
+                doRemappingAllMaps = id; 
+                doRemappingOneMap = id; 
+                remapGetButtons = id; 
+            }; 
+            CLASS = Remapper; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                browser_i = id; 
+                delegate_i = id; 
+                matrix_i = id; 
+                new_i = id; 
+                original_i = id; 
+                remapPanel_i = id; 
+                remapString_i = id; 
+                status_i = id; 
+                storage_i = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }
+    ); 
+    IBVersion = 1; 
+}

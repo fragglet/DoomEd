@@ -1,0 +1,73 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = FloatingPanel; LANGUAGE = ObjC; SUPERCLASS = NSPanel; }, 
+        {
+            ACTIONS = {
+                changePatchX = id; 
+                changePatchY = id; 
+                changedWidthOrHeight = id; 
+                createNewSet = id; 
+                createTextureAbort = id; 
+                createTextureDone = id; 
+                createTextureName = id; 
+                deleteCurrentPatch = id; 
+                fillWithPatch = id; 
+                findPatch = id; 
+                finishTexture = id; 
+                locatePatchInTextures = id; 
+                makeNewTexture = id; 
+                menuTarget = id; 
+                outlineWasSet = id; 
+                searchForPatch = id; 
+                sizeChanged = id; 
+                sortDown = id; 
+                sortUp = id; 
+                togglePatchLock = id; 
+            }; 
+            CLASS = TextureEdit; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                botView_i = id; 
+                centerPatch_i = id; 
+                copyList = id; 
+                createDone_i = id; 
+                createHeight_i = id; 
+                createName_i = id; 
+                createTexture_i = id; 
+                createWidth_i = id; 
+                dragWarning_i = id; 
+                lockedPatch_i = id; 
+                newSetButton_i = id; 
+                outlinePatches_i = id; 
+                patchHeightField_i = id; 
+                patchImages = id; 
+                patchNameField_i = id; 
+                patchSearchField_i = id; 
+                patchWidthField_i = id; 
+                scrollView_i = id; 
+                selectedTexturePatches = id; 
+                setMatrix_i = id; 
+                splitView_i = id; 
+                textureHeightField_i = id; 
+                textureNameField_i = id; 
+                texturePatchHeightField_i = id; 
+                texturePatchNameField_i = id; 
+                texturePatchScrollView_i = id; 
+                texturePatchView_i = id; 
+                texturePatchWidthField_i = id; 
+                texturePatchXField_i = id; 
+                texturePatchYField_i = id; 
+                textureSetField_i = id; 
+                textureView_i = id; 
+                textureWidthField_i = id; 
+                topView_i = id; 
+                window_i = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {CLASS = TexturePatchView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {CLASS = TextureView; LANGUAGE = ObjC; SUPERCLASS = NSView; }
+    ); 
+    IBVersion = 1; 
+}

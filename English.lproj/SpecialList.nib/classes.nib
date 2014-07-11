@@ -1,0 +1,26 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                addSpecial = id; 
+                chooseSpecial = id; 
+                suggestValue = id; 
+                validateSpecialString = id; 
+            }; 
+            CLASS = SpecialList; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                delegate = id; 
+                specialBrowser_i = id; 
+                specialDesc_i = id; 
+                specialList_i = id; 
+                specialPanel_i = id; 
+                specialValue_i = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {CLASS = SpecialListWindow; LANGUAGE = ObjC; SUPERCLASS = NSWindow; }
+    ); 
+    IBVersion = 1; 
+}

@@ -1,0 +1,49 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {
+                displayLog = id; 
+                loadAndSaveAllMaps = id; 
+                menuTarget = id; 
+                newMap = id; 
+                newProject = id; 
+                openMap = id; 
+                openProject = id; 
+                printAllMaps = id; 
+                printMap = id; 
+                printPrefs = id; 
+                printSingleMapStatistics = id; 
+                printStatistics = id; 
+                reloadProject = id; 
+                removeMap = id; 
+                saveProject = id; 
+                toggleItems = id; 
+                toggleMonsters = id; 
+                togglePanel = id; 
+                toggleWeapons = id; 
+            }; 
+            CLASS = DoomProject; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                BSPhost_i = id; 
+                BSPprogram_i = id; 
+                findPanel_i = id; 
+                mapNameField_i = id; 
+                maps_i = id; 
+                mapwaddir_i = id; 
+                printPrefWindow_i = id; 
+                projectpath_i = id; 
+                thermoMsg_i = id; 
+                thermoTitle_i = id; 
+                thermoView_i = id; 
+                thermoWindow_i = id; 
+                thingPanel_i = id; 
+                wadpath_i = id; 
+                window_i = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}
