@@ -1,0 +1,651 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		27044F6E197042D7003F6DB6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27044F6D197042D7003F6DB6 /* Cocoa.framework */; };
+		27044F8D197042D7003F6DB6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27044F8C197042D7003F6DB6 /* XCTest.framework */; };
+		27044F8E197042D7003F6DB6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27044F6D197042D7003F6DB6 /* Cocoa.framework */; };
+		27DA448E19706396005CB000 /* BlockWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446019706396005CB000 /* BlockWorld.m */; };
+		27DA448F19706396005CB000 /* Coordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446119706396005CB000 /* Coordinator.m */; };
+		27DA449019706396005CB000 /* DoomEd_main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446219706396005CB000 /* DoomEd_main.m */; };
+		27DA449119706396005CB000 /* DoomProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446319706396005CB000 /* DoomProject.m */; };
+		27DA449219706396005CB000 /* EditWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446419706396005CB000 /* EditWorld.m */; };
+		27DA449319706396005CB000 /* EWDoomSave.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446519706396005CB000 /* EWDoomSave.m */; };
+		27DA449419706396005CB000 /* EWLoadSave.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446619706396005CB000 /* EWLoadSave.m */; };
+		27DA449519706396005CB000 /* FindLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446719706396005CB000 /* FindLine.m */; };
+		27DA449619706396005CB000 /* FlatRemapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446819706396005CB000 /* FlatRemapper.m */; };
+		27DA449719706396005CB000 /* FlatsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446919706396005CB000 /* FlatsView.m */; };
+		27DA449819706396005CB000 /* FloatingPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446A19706396005CB000 /* FloatingPanel.m */; };
+		27DA449919706396005CB000 /* idfunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446B19706396005CB000 /* idfunctions.m */; };
+		27DA449A19706396005CB000 /* lbmfunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446C19706396005CB000 /* lbmfunctions.m */; };
+		27DA449B19706396005CB000 /* LinePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446D19706396005CB000 /* LinePanel.m */; };
+		27DA449C19706396005CB000 /* LineSpecialRemapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446E19706396005CB000 /* LineSpecialRemapper.m */; };
+		27DA449D19706396005CB000 /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446F19706396005CB000 /* MapView.m */; };
+		27DA449E19706396005CB000 /* MapViewDraw.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA447019706396005CB000 /* MapViewDraw.m */; };
+		27DA449F19706396005CB000 /* MapViewResp.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA447119706396005CB000 /* MapViewResp.m */; };
+		27DA44A019706396005CB000 /* MapWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA447219706396005CB000 /* MapWindow.m */; };
+		27DA44A119706396005CB000 /* pathops.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA447319706396005CB000 /* pathops.m */; };
+		27DA44A219706396005CB000 /* PopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA447419706396005CB000 /* PopScrollView.m */; };
+		27DA44A319706396005CB000 /* PreferencePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA447519706396005CB000 /* PreferencePanel.m */; };
+		27DA44A419706396005CB000 /* Remapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA447619706396005CB000 /* Remapper.m */; };
+		27DA44A519706396005CB000 /* SectorEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA447719706396005CB000 /* SectorEditor.m */; };
+		27DA44A619706396005CB000 /* SectorEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA447819706396005CB000 /* SectorEditView.m */; };
+		27DA44A719706396005CB000 /* SettingsPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA447919706396005CB000 /* SettingsPanel.m */; };
+		27DA44A819706396005CB000 /* SpecialList.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA447A19706396005CB000 /* SpecialList.m */; };
+		27DA44A919706396005CB000 /* SpecialListWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA447B19706396005CB000 /* SpecialListWindow.m */; };
+		27DA44AA19706396005CB000 /* TextLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA447C19706396005CB000 /* TextLog.m */; };
+		27DA44AB19706396005CB000 /* TextureEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA447D19706396005CB000 /* TextureEdit.m */; };
+		27DA44AC19706396005CB000 /* TexturePalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA447E19706396005CB000 /* TexturePalette.m */; };
+		27DA44AD19706396005CB000 /* TexturePalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA447F19706396005CB000 /* TexturePalView.m */; };
+		27DA44AE19706396005CB000 /* TexturePatchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA448019706396005CB000 /* TexturePatchView.m */; };
+		27DA44AF19706396005CB000 /* TextureRemapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA448119706396005CB000 /* TextureRemapper.m */; };
+		27DA44B019706396005CB000 /* TextureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA448219706396005CB000 /* TextureView.m */; };
+		27DA44B119706396005CB000 /* TextureWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA448319706396005CB000 /* TextureWindow.m */; };
+		27DA44B219706396005CB000 /* ThermoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA448419706396005CB000 /* ThermoView.m */; };
+		27DA44B319706396005CB000 /* ThingPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA448519706396005CB000 /* ThingPalette.m */; };
+		27DA44B419706396005CB000 /* ThingPalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA448619706396005CB000 /* ThingPalView.m */; };
+		27DA44B519706396005CB000 /* ThingPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA448719706396005CB000 /* ThingPanel.m */; };
+		27DA44B619706396005CB000 /* ThingRemapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA448819706396005CB000 /* ThingRemapper.m */; };
+		27DA44B719706396005CB000 /* ThingStripper.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA448919706396005CB000 /* ThingStripper.m */; };
+		27DA44B819706396005CB000 /* ThingWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA448A19706396005CB000 /* ThingWindow.m */; };
+		27DA44B919706396005CB000 /* Timing.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA448B19706396005CB000 /* Timing.m */; };
+		27DA44BA19706396005CB000 /* ToolPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA448C19706396005CB000 /* ToolPanel.m */; };
+		27DA44BB19706396005CB000 /* Wadfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA448D19706396005CB000 /* Wadfile.m */; };
+		27DA44BD19706492005CB000 /* DoomEd-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27DA44BC19706492005CB000 /* DoomEd-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		27044F8F197042D7003F6DB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27044F62197042D7003F6DB6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27044F69197042D7003F6DB6;
+			remoteInfo = DoomEd;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		27044F6A197042D7003F6DB6 /* DoomEd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoomEd.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		27044F6D197042D7003F6DB6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		27044F70197042D7003F6DB6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		27044F71197042D7003F6DB6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		27044F72197042D7003F6DB6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		27044F8B197042D7003F6DB6 /* DoomEdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoomEdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		27044F8C197042D7003F6DB6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		270484A01970652100AD2F6E /* DoomEd-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DoomEd-Prefix.pch"; sourceTree = "<group>"; };
+		27DA443419706385005CB000 /* BlockWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockWorld.h; sourceTree = "<group>"; };
+		27DA443519706385005CB000 /* Coordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinator.h; sourceTree = "<group>"; };
+		27DA443619706385005CB000 /* DoomProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoomProject.h; sourceTree = "<group>"; };
+		27DA443719706385005CB000 /* EditWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditWorld.h; sourceTree = "<group>"; };
+		27DA443819706385005CB000 /* FindLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindLine.h; sourceTree = "<group>"; };
+		27DA443919706385005CB000 /* FlatRemapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatRemapper.h; sourceTree = "<group>"; };
+		27DA443A19706385005CB000 /* FlatsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatsView.h; sourceTree = "<group>"; };
+		27DA443B19706385005CB000 /* FloatingPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatingPanel.h; sourceTree = "<group>"; };
+		27DA443C19706385005CB000 /* idfunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = idfunctions.h; sourceTree = "<group>"; };
+		27DA443D19706385005CB000 /* lbmfunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lbmfunctions.h; sourceTree = "<group>"; };
+		27DA443E19706385005CB000 /* LinePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinePanel.h; sourceTree = "<group>"; };
+		27DA443F19706385005CB000 /* LineSpecialRemapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineSpecialRemapper.h; sourceTree = "<group>"; };
+		27DA444019706385005CB000 /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
+		27DA444119706385005CB000 /* MapViewDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewDraw.h; sourceTree = "<group>"; };
+		27DA444219706385005CB000 /* MapViewResp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewResp.h; sourceTree = "<group>"; };
+		27DA444319706385005CB000 /* MapWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapWindow.h; sourceTree = "<group>"; };
+		27DA444419706385005CB000 /* pathops.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pathops.h; sourceTree = "<group>"; };
+		27DA444519706385005CB000 /* PopScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopScrollView.h; sourceTree = "<group>"; };
+		27DA444619706385005CB000 /* PreferencePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencePanel.h; sourceTree = "<group>"; };
+		27DA444719706385005CB000 /* R_mapdef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = R_mapdef.h; sourceTree = "<group>"; };
+		27DA444819706385005CB000 /* Remapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Remapper.h; sourceTree = "<group>"; };
+		27DA444919706385005CB000 /* SectorEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectorEditor.h; sourceTree = "<group>"; };
+		27DA444A19706385005CB000 /* SectorEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectorEditView.h; sourceTree = "<group>"; };
+		27DA444B19706385005CB000 /* SettingsPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsPanel.h; sourceTree = "<group>"; };
+		27DA444C19706385005CB000 /* SpecialList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialList.h; sourceTree = "<group>"; };
+		27DA444D19706385005CB000 /* SpecialListWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialListWindow.h; sourceTree = "<group>"; };
+		27DA444E19706385005CB000 /* TextLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextLog.h; sourceTree = "<group>"; };
+		27DA444F19706385005CB000 /* TextureEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureEdit.h; sourceTree = "<group>"; };
+		27DA445019706385005CB000 /* TexturePalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TexturePalette.h; sourceTree = "<group>"; };
+		27DA445119706385005CB000 /* TexturePalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TexturePalView.h; sourceTree = "<group>"; };
+		27DA445219706385005CB000 /* TexturePatchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TexturePatchView.h; sourceTree = "<group>"; };
+		27DA445319706385005CB000 /* TextureRemapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureRemapper.h; sourceTree = "<group>"; };
+		27DA445419706385005CB000 /* TextureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureView.h; sourceTree = "<group>"; };
+		27DA445519706385005CB000 /* TextureWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureWindow.h; sourceTree = "<group>"; };
+		27DA445619706385005CB000 /* ThermoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThermoView.h; sourceTree = "<group>"; };
+		27DA445719706385005CB000 /* ThingPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThingPalette.h; sourceTree = "<group>"; };
+		27DA445819706385005CB000 /* ThingPalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThingPalView.h; sourceTree = "<group>"; };
+		27DA445919706385005CB000 /* ThingPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThingPanel.h; sourceTree = "<group>"; };
+		27DA445A19706385005CB000 /* ThingRemapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThingRemapper.h; sourceTree = "<group>"; };
+		27DA445B19706385005CB000 /* ThingStripper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThingStripper.h; sourceTree = "<group>"; };
+		27DA445C19706385005CB000 /* ThingWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThingWindow.h; sourceTree = "<group>"; };
+		27DA445D19706385005CB000 /* Timing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timing.h; sourceTree = "<group>"; };
+		27DA445E19706385005CB000 /* ToolPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolPanel.h; sourceTree = "<group>"; };
+		27DA445F19706385005CB000 /* Wadfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wadfile.h; sourceTree = "<group>"; };
+		27DA446019706396005CB000 /* BlockWorld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockWorld.m; sourceTree = "<group>"; };
+		27DA446119706396005CB000 /* Coordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinator.m; sourceTree = "<group>"; };
+		27DA446219706396005CB000 /* DoomEd_main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoomEd_main.m; sourceTree = "<group>"; };
+		27DA446319706396005CB000 /* DoomProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoomProject.m; sourceTree = "<group>"; };
+		27DA446419706396005CB000 /* EditWorld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditWorld.m; sourceTree = "<group>"; };
+		27DA446519706396005CB000 /* EWDoomSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWDoomSave.m; sourceTree = "<group>"; };
+		27DA446619706396005CB000 /* EWLoadSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWLoadSave.m; sourceTree = "<group>"; };
+		27DA446719706396005CB000 /* FindLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindLine.m; sourceTree = "<group>"; };
+		27DA446819706396005CB000 /* FlatRemapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatRemapper.m; sourceTree = "<group>"; };
+		27DA446919706396005CB000 /* FlatsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatsView.m; sourceTree = "<group>"; };
+		27DA446A19706396005CB000 /* FloatingPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloatingPanel.m; sourceTree = "<group>"; };
+		27DA446B19706396005CB000 /* idfunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = idfunctions.m; sourceTree = "<group>"; };
+		27DA446C19706396005CB000 /* lbmfunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lbmfunctions.m; sourceTree = "<group>"; };
+		27DA446D19706396005CB000 /* LinePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinePanel.m; sourceTree = "<group>"; };
+		27DA446E19706396005CB000 /* LineSpecialRemapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineSpecialRemapper.m; sourceTree = "<group>"; };
+		27DA446F19706396005CB000 /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
+		27DA447019706396005CB000 /* MapViewDraw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewDraw.m; sourceTree = "<group>"; };
+		27DA447119706396005CB000 /* MapViewResp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewResp.m; sourceTree = "<group>"; };
+		27DA447219706396005CB000 /* MapWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapWindow.m; sourceTree = "<group>"; };
+		27DA447319706396005CB000 /* pathops.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pathops.m; sourceTree = "<group>"; };
+		27DA447419706396005CB000 /* PopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopScrollView.m; sourceTree = "<group>"; };
+		27DA447519706396005CB000 /* PreferencePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencePanel.m; sourceTree = "<group>"; };
+		27DA447619706396005CB000 /* Remapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Remapper.m; sourceTree = "<group>"; };
+		27DA447719706396005CB000 /* SectorEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectorEditor.m; sourceTree = "<group>"; };
+		27DA447819706396005CB000 /* SectorEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectorEditView.m; sourceTree = "<group>"; };
+		27DA447919706396005CB000 /* SettingsPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsPanel.m; sourceTree = "<group>"; };
+		27DA447A19706396005CB000 /* SpecialList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialList.m; sourceTree = "<group>"; };
+		27DA447B19706396005CB000 /* SpecialListWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialListWindow.m; sourceTree = "<group>"; };
+		27DA447C19706396005CB000 /* TextLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextLog.m; sourceTree = "<group>"; };
+		27DA447D19706396005CB000 /* TextureEdit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureEdit.m; sourceTree = "<group>"; };
+		27DA447E19706396005CB000 /* TexturePalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TexturePalette.m; sourceTree = "<group>"; };
+		27DA447F19706396005CB000 /* TexturePalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TexturePalView.m; sourceTree = "<group>"; };
+		27DA448019706396005CB000 /* TexturePatchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TexturePatchView.m; sourceTree = "<group>"; };
+		27DA448119706396005CB000 /* TextureRemapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureRemapper.m; sourceTree = "<group>"; };
+		27DA448219706396005CB000 /* TextureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureView.m; sourceTree = "<group>"; };
+		27DA448319706396005CB000 /* TextureWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureWindow.m; sourceTree = "<group>"; };
+		27DA448419706396005CB000 /* ThermoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThermoView.m; sourceTree = "<group>"; };
+		27DA448519706396005CB000 /* ThingPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThingPalette.m; sourceTree = "<group>"; };
+		27DA448619706396005CB000 /* ThingPalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThingPalView.m; sourceTree = "<group>"; };
+		27DA448719706396005CB000 /* ThingPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThingPanel.m; sourceTree = "<group>"; };
+		27DA448819706396005CB000 /* ThingRemapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThingRemapper.m; sourceTree = "<group>"; };
+		27DA448919706396005CB000 /* ThingStripper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThingStripper.m; sourceTree = "<group>"; };
+		27DA448A19706396005CB000 /* ThingWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThingWindow.m; sourceTree = "<group>"; };
+		27DA448B19706396005CB000 /* Timing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timing.m; sourceTree = "<group>"; };
+		27DA448C19706396005CB000 /* ToolPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolPanel.m; sourceTree = "<group>"; };
+		27DA448D19706396005CB000 /* Wadfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wadfile.m; sourceTree = "<group>"; };
+		27DA44BC19706492005CB000 /* DoomEd-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DoomEd-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27044F67197042D7003F6DB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27044F6E197042D7003F6DB6 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27044F88197042D7003F6DB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27044F8E197042D7003F6DB6 /* Cocoa.framework in Frameworks */,
+				27044F8D197042D7003F6DB6 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		27044F61197042D7003F6DB6 = {
+			isa = PBXGroup;
+			children = (
+				27044F6C197042D7003F6DB6 /* Frameworks */,
+				27044F6B197042D7003F6DB6 /* Products */,
+				27DA443419706385005CB000 /* BlockWorld.h */,
+				27DA446019706396005CB000 /* BlockWorld.m */,
+				27DA443519706385005CB000 /* Coordinator.h */,
+				27DA446119706396005CB000 /* Coordinator.m */,
+				27DA44BC19706492005CB000 /* DoomEd-Info.plist */,
+				270484A01970652100AD2F6E /* DoomEd-Prefix.pch */,
+				27DA446219706396005CB000 /* DoomEd_main.m */,
+				27DA443619706385005CB000 /* DoomProject.h */,
+				27DA446319706396005CB000 /* DoomProject.m */,
+				27DA443719706385005CB000 /* EditWorld.h */,
+				27DA446419706396005CB000 /* EditWorld.m */,
+				27DA446519706396005CB000 /* EWDoomSave.m */,
+				27DA446619706396005CB000 /* EWLoadSave.m */,
+				27DA443819706385005CB000 /* FindLine.h */,
+				27DA446719706396005CB000 /* FindLine.m */,
+				27DA443919706385005CB000 /* FlatRemapper.h */,
+				27DA446819706396005CB000 /* FlatRemapper.m */,
+				27DA443A19706385005CB000 /* FlatsView.h */,
+				27DA446919706396005CB000 /* FlatsView.m */,
+				27DA443B19706385005CB000 /* FloatingPanel.h */,
+				27DA446A19706396005CB000 /* FloatingPanel.m */,
+				27DA443C19706385005CB000 /* idfunctions.h */,
+				27DA446B19706396005CB000 /* idfunctions.m */,
+				27DA443D19706385005CB000 /* lbmfunctions.h */,
+				27DA446C19706396005CB000 /* lbmfunctions.m */,
+				27DA443E19706385005CB000 /* LinePanel.h */,
+				27DA446D19706396005CB000 /* LinePanel.m */,
+				27DA443F19706385005CB000 /* LineSpecialRemapper.h */,
+				27DA446E19706396005CB000 /* LineSpecialRemapper.m */,
+				27DA444019706385005CB000 /* MapView.h */,
+				27DA446F19706396005CB000 /* MapView.m */,
+				27DA444119706385005CB000 /* MapViewDraw.h */,
+				27DA447019706396005CB000 /* MapViewDraw.m */,
+				27DA444219706385005CB000 /* MapViewResp.h */,
+				27DA447119706396005CB000 /* MapViewResp.m */,
+				27DA444319706385005CB000 /* MapWindow.h */,
+				27DA447219706396005CB000 /* MapWindow.m */,
+				27DA444419706385005CB000 /* pathops.h */,
+				27DA447319706396005CB000 /* pathops.m */,
+				27DA444519706385005CB000 /* PopScrollView.h */,
+				27DA447419706396005CB000 /* PopScrollView.m */,
+				27DA444619706385005CB000 /* PreferencePanel.h */,
+				27DA447519706396005CB000 /* PreferencePanel.m */,
+				27DA444719706385005CB000 /* R_mapdef.h */,
+				27DA444819706385005CB000 /* Remapper.h */,
+				27DA447619706396005CB000 /* Remapper.m */,
+				27DA444919706385005CB000 /* SectorEditor.h */,
+				27DA447719706396005CB000 /* SectorEditor.m */,
+				27DA444A19706385005CB000 /* SectorEditView.h */,
+				27DA447819706396005CB000 /* SectorEditView.m */,
+				27DA444B19706385005CB000 /* SettingsPanel.h */,
+				27DA447919706396005CB000 /* SettingsPanel.m */,
+				27DA444C19706385005CB000 /* SpecialList.h */,
+				27DA447A19706396005CB000 /* SpecialList.m */,
+				27DA444D19706385005CB000 /* SpecialListWindow.h */,
+				27DA447B19706396005CB000 /* SpecialListWindow.m */,
+				27DA444E19706385005CB000 /* TextLog.h */,
+				27DA447C19706396005CB000 /* TextLog.m */,
+				27DA444F19706385005CB000 /* TextureEdit.h */,
+				27DA447D19706396005CB000 /* TextureEdit.m */,
+				27DA445019706385005CB000 /* TexturePalette.h */,
+				27DA447E19706396005CB000 /* TexturePalette.m */,
+				27DA445119706385005CB000 /* TexturePalView.h */,
+				27DA447F19706396005CB000 /* TexturePalView.m */,
+				27DA445219706385005CB000 /* TexturePatchView.h */,
+				27DA448019706396005CB000 /* TexturePatchView.m */,
+				27DA445319706385005CB000 /* TextureRemapper.h */,
+				27DA448119706396005CB000 /* TextureRemapper.m */,
+				27DA445419706385005CB000 /* TextureView.h */,
+				27DA448219706396005CB000 /* TextureView.m */,
+				27DA445519706385005CB000 /* TextureWindow.h */,
+				27DA448319706396005CB000 /* TextureWindow.m */,
+				27DA445619706385005CB000 /* ThermoView.h */,
+				27DA448419706396005CB000 /* ThermoView.m */,
+				27DA445719706385005CB000 /* ThingPalette.h */,
+				27DA448519706396005CB000 /* ThingPalette.m */,
+				27DA445819706385005CB000 /* ThingPalView.h */,
+				27DA448619706396005CB000 /* ThingPalView.m */,
+				27DA445919706385005CB000 /* ThingPanel.h */,
+				27DA448719706396005CB000 /* ThingPanel.m */,
+				27DA445A19706385005CB000 /* ThingRemapper.h */,
+				27DA448819706396005CB000 /* ThingRemapper.m */,
+				27DA445B19706385005CB000 /* ThingStripper.h */,
+				27DA448919706396005CB000 /* ThingStripper.m */,
+				27DA445C19706385005CB000 /* ThingWindow.h */,
+				27DA448A19706396005CB000 /* ThingWindow.m */,
+				27DA445D19706385005CB000 /* Timing.h */,
+				27DA448B19706396005CB000 /* Timing.m */,
+				27DA445E19706385005CB000 /* ToolPanel.h */,
+				27DA448C19706396005CB000 /* ToolPanel.m */,
+				27DA445F19706385005CB000 /* Wadfile.h */,
+				27DA448D19706396005CB000 /* Wadfile.m */,
+			);
+			sourceTree = "<group>";
+		};
+		27044F6B197042D7003F6DB6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27044F6A197042D7003F6DB6 /* DoomEd.app */,
+				27044F8B197042D7003F6DB6 /* DoomEdTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		27044F6C197042D7003F6DB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27044F6D197042D7003F6DB6 /* Cocoa.framework */,
+				27044F8C197042D7003F6DB6 /* XCTest.framework */,
+				27044F6F197042D7003F6DB6 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		27044F6F197042D7003F6DB6 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27044F70197042D7003F6DB6 /* AppKit.framework */,
+				27044F71197042D7003F6DB6 /* CoreData.framework */,
+				27044F72197042D7003F6DB6 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		27044F69197042D7003F6DB6 /* DoomEd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27044F9B197042D7003F6DB6 /* Build configuration list for PBXNativeTarget "DoomEd" */;
+			buildPhases = (
+				27044F66197042D7003F6DB6 /* Sources */,
+				27044F67197042D7003F6DB6 /* Frameworks */,
+				27044F68197042D7003F6DB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DoomEd;
+			productName = DoomEd;
+			productReference = 27044F6A197042D7003F6DB6 /* DoomEd.app */;
+			productType = "com.apple.product-type.application";
+		};
+		27044F8A197042D7003F6DB6 /* DoomEdTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27044F9E197042D7003F6DB6 /* Build configuration list for PBXNativeTarget "DoomEdTests" */;
+			buildPhases = (
+				27044F87197042D7003F6DB6 /* Sources */,
+				27044F88197042D7003F6DB6 /* Frameworks */,
+				27044F89197042D7003F6DB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				27044F90197042D7003F6DB6 /* PBXTargetDependency */,
+			);
+			name = DoomEdTests;
+			productName = DoomEdTests;
+			productReference = 27044F8B197042D7003F6DB6 /* DoomEdTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		27044F62197042D7003F6DB6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					27044F8A197042D7003F6DB6 = {
+						TestTargetID = 27044F69197042D7003F6DB6;
+					};
+				};
+			};
+			buildConfigurationList = 27044F65197042D7003F6DB6 /* Build configuration list for PBXProject "DoomEd" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 27044F61197042D7003F6DB6;
+			productRefGroup = 27044F6B197042D7003F6DB6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				27044F69197042D7003F6DB6 /* DoomEd */,
+				27044F8A197042D7003F6DB6 /* DoomEdTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		27044F68197042D7003F6DB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27DA44BD19706492005CB000 /* DoomEd-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27044F89197042D7003F6DB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27044F66197042D7003F6DB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27DA44B219706396005CB000 /* ThermoView.m in Sources */,
+				27DA44A419706396005CB000 /* Remapper.m in Sources */,
+				27DA448F19706396005CB000 /* Coordinator.m in Sources */,
+				27DA449F19706396005CB000 /* MapViewResp.m in Sources */,
+				27DA44BA19706396005CB000 /* ToolPanel.m in Sources */,
+				27DA44A919706396005CB000 /* SpecialListWindow.m in Sources */,
+				27DA44A819706396005CB000 /* SpecialList.m in Sources */,
+				27DA449419706396005CB000 /* EWLoadSave.m in Sources */,
+				27DA449919706396005CB000 /* idfunctions.m in Sources */,
+				27DA44A019706396005CB000 /* MapWindow.m in Sources */,
+				27DA44BB19706396005CB000 /* Wadfile.m in Sources */,
+				27DA44A619706396005CB000 /* SectorEditView.m in Sources */,
+				27DA449619706396005CB000 /* FlatRemapper.m in Sources */,
+				27DA44B719706396005CB000 /* ThingStripper.m in Sources */,
+				27DA44B019706396005CB000 /* TextureView.m in Sources */,
+				27DA448E19706396005CB000 /* BlockWorld.m in Sources */,
+				27DA44A519706396005CB000 /* SectorEditor.m in Sources */,
+				27DA44AE19706396005CB000 /* TexturePatchView.m in Sources */,
+				27DA44B619706396005CB000 /* ThingRemapper.m in Sources */,
+				27DA44AF19706396005CB000 /* TextureRemapper.m in Sources */,
+				27DA449119706396005CB000 /* DoomProject.m in Sources */,
+				27DA44B919706396005CB000 /* Timing.m in Sources */,
+				27DA449319706396005CB000 /* EWDoomSave.m in Sources */,
+				27DA449819706396005CB000 /* FloatingPanel.m in Sources */,
+				27DA449B19706396005CB000 /* LinePanel.m in Sources */,
+				27DA44B319706396005CB000 /* ThingPalette.m in Sources */,
+				27DA44AA19706396005CB000 /* TextLog.m in Sources */,
+				27DA44A119706396005CB000 /* pathops.m in Sources */,
+				27DA449C19706396005CB000 /* LineSpecialRemapper.m in Sources */,
+				27DA44A319706396005CB000 /* PreferencePanel.m in Sources */,
+				27DA44B519706396005CB000 /* ThingPanel.m in Sources */,
+				27DA44AD19706396005CB000 /* TexturePalView.m in Sources */,
+				27DA449219706396005CB000 /* EditWorld.m in Sources */,
+				27DA449719706396005CB000 /* FlatsView.m in Sources */,
+				27DA449E19706396005CB000 /* MapViewDraw.m in Sources */,
+				27DA449519706396005CB000 /* FindLine.m in Sources */,
+				27DA44A719706396005CB000 /* SettingsPanel.m in Sources */,
+				27DA44AC19706396005CB000 /* TexturePalette.m in Sources */,
+				27DA44AB19706396005CB000 /* TextureEdit.m in Sources */,
+				27DA44B419706396005CB000 /* ThingPalView.m in Sources */,
+				27DA449D19706396005CB000 /* MapView.m in Sources */,
+				27DA44B819706396005CB000 /* ThingWindow.m in Sources */,
+				27DA44A219706396005CB000 /* PopScrollView.m in Sources */,
+				27DA449A19706396005CB000 /* lbmfunctions.m in Sources */,
+				27DA449019706396005CB000 /* DoomEd_main.m in Sources */,
+				27DA44B119706396005CB000 /* TextureWindow.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27044F87197042D7003F6DB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		27044F90197042D7003F6DB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27044F69197042D7003F6DB6 /* DoomEd */;
+			targetProxy = 27044F8F197042D7003F6DB6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		27044F99197042D7003F6DB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		27044F9A197042D7003F6DB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		27044F9C197042D7003F6DB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DoomEd-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/DoomEd-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		27044F9D197042D7003F6DB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DoomEd-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/DoomEd-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		27044F9F197042D7003F6DB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DoomEd.app/Contents/MacOS/DoomEd";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DoomEd/DoomEd-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DoomEdTests/DoomEdTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		27044FA0197042D7003F6DB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DoomEd.app/Contents/MacOS/DoomEd";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DoomEd/DoomEd-Prefix.pch";
+				INFOPLIST_FILE = "DoomEdTests/DoomEdTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		27044F65197042D7003F6DB6 /* Build configuration list for PBXProject "DoomEd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27044F99197042D7003F6DB6 /* Debug */,
+				27044F9A197042D7003F6DB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27044F9B197042D7003F6DB6 /* Build configuration list for PBXNativeTarget "DoomEd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27044F9C197042D7003F6DB6 /* Debug */,
+				27044F9D197042D7003F6DB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27044F9E197042D7003F6DB6 /* Build configuration list for PBXNativeTarget "DoomEdTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27044F9F197042D7003F6DB6 /* Debug */,
+				27044FA0197042D7003F6DB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 27044F62197042D7003F6DB6 /* Project object */;
+}
