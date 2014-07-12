@@ -69,7 +69,7 @@
 	r.origin.y -= MARGIN;
 	r.size.width += MARGIN*2;
 	r.size.height += MARGIN*2;
-	[[[window	contentView] docView] scrollRectToVisible:&r];
+	[[[window	contentView] docView] scrollRectToVisible:r];
 	[editworld_i	redrawWindows];
 	[status_i	setStringValue:@"Found it!"];
 	
