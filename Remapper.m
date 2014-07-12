@@ -26,12 +26,10 @@
 	
 	if (! remapPanel_i )
 	{
-		[NSApp 
-			loadNibSection:	"Remapper.nib"
-			owner:			self
-			withNames:		NO
-		];
-		
+		[[NSBundle mainBundle] loadNibNamed: @"Remapper.nib"
+			owner: self
+			options: nil];
+
 		storage_i = [[	Storage		alloc]
 					initCount:		0
 					elementSize:	sizeof(type_t)

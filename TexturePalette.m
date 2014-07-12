@@ -76,11 +76,9 @@ id	texturePalette_i;
 		
 	if (!window_i)
 	{
-		[NSApp 
-			loadNibSection:	"TexturePalette.nib"
-			owner:			self
-			withNames:		NO
-		];
+		[[NSBundle mainBundle] loadNibNamed: @"TexturePalette.nib"
+			owner: self
+			options: nil];
 
 		[self setupPalette];
 		[window_i	setDelegate:self];

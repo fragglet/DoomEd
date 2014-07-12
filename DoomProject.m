@@ -204,16 +204,13 @@ char	bsphost[32];		// bsp host machine
 		NSRunAlertPanel(@"Error", @"No project loaded", nil, nil, nil);
 		return nil;
 	}
-	
+
 	if (!window_i)
 	{
-		[NSApp 
-			loadNibSection:	"Project.nib"
-			owner:			self
-			withNames:		NO
-		];
+		[[NSBundle mainBundle] loadNibNamed: @"Project.nib"
+			owner: self
+			options: nil];
 		[window_i	setFrameUsingName:DOOMNAME];
-		
 	}
 
 	[self updatePanel];

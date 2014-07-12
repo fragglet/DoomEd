@@ -49,13 +49,10 @@ id	texturePatches;
 		NSRect	dvf;
 		NSPoint	startPoint;
 		int		ns, i;
-		
-		[NSApp 
-			loadNibSection:	"TextureEdit.nib"
-			owner:			self
-			withNames:		NO
-		];
-		
+
+		[[NSBundle mainBundle] loadNibNamed: @"TextureEdit.nib"
+			owner: self
+			options: nil];
 		[window_i	setDelegate:self];
 		[self		computePatchDocView:&dvf];
 		[texturePatchView_i	sizeTo:dvf.size.width :dvf.size.height];

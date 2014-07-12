@@ -17,11 +17,9 @@
 {
 	if (!thingStripPanel_i)
 	{
-		[NSApp 
-			loadNibSection:	"ThingStripper.nib"
-			owner:			self
-			withNames:		NO
-		];
+		[[NSBundle mainBundle] loadNibNamed: @"ThingStripper.nib"
+			owner: self
+			options: nil];
 		[thingStripPanel_i	setFrameUsingName:THINGSTRIPNAME];
 		[thingStripPanel_i	setDelegate:self];
 

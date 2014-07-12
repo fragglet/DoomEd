@@ -205,14 +205,12 @@ int			openupValues[NUMOPENUP];
 	
 	if (!window_i)
 	{
-		[NSApp 
-			loadNibSection:	"preferences.nib"
-			owner:			self
-			withNames:		NO
-		];
-			
+		[[NSBundle mainBundle] loadNibNamed: @"preferences.nib"
+			owner: self
+			options: nil];
+
 		[window_i	setFrameUsingName:PREFNAME];
-		
+
 		colorwell[0] = backcolor_i;
 		colorwell[1] = gridcolor_i;
 		colorwell[2] = tilecolor_i;

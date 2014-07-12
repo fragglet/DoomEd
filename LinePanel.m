@@ -90,11 +90,9 @@ id	lineSpecialPanel_i;
 {
 	if (!window_i)
 	{
-		[NSApp 
-			loadNibSection:	"line.nib"
-			owner:			self
-			withNames:		NO
-		];
+		[[NSBundle mainBundle] loadNibNamed: @"line.nib"
+			owner: self
+			options: nil];
 		[window_i	setFrameUsingName:@"LineInspector"];
 		[firstColCalc_i		setFrameUsingName:@"FirstColCalc"];
 	}

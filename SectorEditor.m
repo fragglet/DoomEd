@@ -95,15 +95,13 @@ id	sectorEdit_i;
 
 	if (!window_i)
 	{
-		[NSApp 
-			loadNibSection:	"SectorEditor.nib"
-			owner:			self
-			withNames:		NO
-		];
+		[[NSBundle mainBundle] loadNibNamed: @"SectorEditor.nib"
+			owner: self
+			options: nil];
 		[self	setupEditor];
 		[window_i	setAvoidsActivation:YES];
 	}
-	
+
 	//
 	// make sure flats are loaded before window inits
 	//	

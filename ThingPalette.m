@@ -40,12 +40,10 @@ id	thingPalette_i;
 
 	if (!window_i)
 	{
-		[NSApp 
-			loadNibSection:	"ThingPalette.nib"
-			owner:			self
-			withNames:		NO
-		];
-		
+		[[NSBundle mainBundle] loadNibNamed: @"ThingPalette.nib"
+			owner: self
+			options: nil];
+
 		[window_i	setDelegate:self];
 		[self		computeThingDocView];
 		[nameField_i	setStringValue:@""];

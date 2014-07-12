@@ -23,17 +23,15 @@
 {
 	if (!window_i)
 	{
-		[NSApp 
-			loadNibSection:	"FindLine.nib"
-			owner:			self
-			withNames:		NO
-		];
-		
+		[[NSBundle mainBundle] loadNibNamed: @"FindLine.nib"
+			owner: self
+			options: nil];
+
 		[status_i	setStringValue:@" "];
 		[window_i	setFrameUsingName:PREFNAME];
 	}
 	[window_i	makeKeyAndOrderFront:self];
-	
+
 	return self;
 }
 

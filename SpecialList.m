@@ -68,11 +68,9 @@
 {
 	if (!specialPanel_i)
 	{
-		[NSApp 
-			loadNibSection:	"SpecialList.nib"
-			owner:			self
-			withNames:		NO
-		];
+		[[NSBundle mainBundle] loadNibNamed: @"SpecialList.nib"
+			owner: self
+			options: nil];
 		[specialPanel_i	setTitle:title];
 		if (frameString[0])
 			[specialPanel_i	setFrameUsingName:frameString];

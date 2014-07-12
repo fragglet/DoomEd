@@ -50,11 +50,9 @@ id	thingpanel_i;
 {
 	if (!window_i)
 	{
-		[NSApp 
-			loadNibSection:	"thing.nib"
-			owner:			self
-			withNames:		NO
-		];
+		[[NSBundle mainBundle] loadNibNamed: @"thing.nib"
+			owner: self
+			options: nil];
 		[window_i	setFrameUsingName:THINGNAME];
 		[window_i	setDelegate:self];
 		[thingBrowser_i	reloadColumn:0];
