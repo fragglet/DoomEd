@@ -545,7 +545,7 @@ id	sectorEdit_i;
 	char	string[32];
 	
 	[flatPalView_i	dumpDividers];
-	[flatScrPalView_i	getDocVisibleRect:&dvr];
+	dvr = [flatScrPalView_i	documentVisibleRect];
 	max = [flatImages	count];
 	maxwidth = FLATSIZE*3 + SPACING*3;
 

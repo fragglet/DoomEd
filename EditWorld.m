@@ -1029,7 +1029,7 @@ FIXME: make these scan for deleted entries
 	NSRect	r;
 	copyline_t	cl;
 	
-	[[[NSApp mainWindow]	contentView]	getDocVisibleRect:&r];
+	r = [[[NSApp mainWindow] contentView] documentVisibleRect];
 	copyCoord = r.origin;
 	[copyThings_i		empty];
 	[copyLines_i		empty];
@@ -1168,8 +1168,8 @@ FIXME: make these scan for deleted entries
 	copyline_t	*L;
 	NSPoint	p1,p2;
 
-	[self	copyDeselect];	
-	[[[NSApp	mainWindow]	contentView]	getDocVisibleRect:&r];
+	[self	copyDeselect];
+	r = [[[NSApp mainWindow] contentView] documentVisibleRect];
 	if (copyLoaded)
 	{
 		copyCoord = [self	findCopyCenter];

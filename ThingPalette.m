@@ -115,7 +115,7 @@ id	thingPalette_i;
 	r = icon->r;
 	r.origin.y -= SPACING;
 	r.size.height += SPACING*2;
-	[thingPalView_i		scrollRectToVisible:&r];
+	[thingPalView_i		scrollRectToVisible:r];
 	[thingPalScrView_i	display];
 	return self;
 }
@@ -169,7 +169,7 @@ id	thingPalette_i;
 	int		maxwidth;
 	NSPoint	p;
 	
-	[thingPalScrView_i	getDocVisibleRect:&dvr];
+	dvr = [thingPalScrView_i documentVisibleRect];
 	max = [thingImages	count];
 	maxwidth = ICONSIZE*5 + SPACING*5;
 
@@ -228,7 +228,7 @@ id	thingPalette_i;
 		x += ICONSIZE + SPACING;
 	}
 	
-	[thingPalView_i	scrollPoint:&p ];
+	[thingPalView_i	scrollPoint:p ];
 
 	return self;
 }

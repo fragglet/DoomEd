@@ -210,7 +210,7 @@ id	texturePatches;
 		return self;
 	}
 	
-	[scrollView_i	getDocVisibleRect:&dvr];
+	dvr = [scrollView_i documentVisibleRect];
 	xoff = dvr.origin.x - ((texpatch_t *)[copyList	elementAt:0])->r.origin.x;
 	yoff = dvr.origin.y - ((texpatch_t *)[copyList	elementAt:0])->r.origin.y;
 	
@@ -984,12 +984,12 @@ id	texturePatches;
 	NSRect	dvr;
 	texpatch_t	p;
 	apatch_t		*pi;
-	
-	[scrollView_i	getDocVisibleRect:&dvr];
+
+	dvr = [scrollView_i documentVisibleRect];
 	ct = currentTexture;
 	ox = oldx;
 	oy = oldy;
-	
+
 	if (ct < 0)
 	{
 		NSBeep();
@@ -1360,7 +1360,7 @@ id	texturePatches;
 	int		maxwindex;
 	char		string[32];
 	
-	[texturePatchScrollView_i		getDocVisibleRect:&curWindowRect];
+	curWindowRect = [texturePatchScrollView_i documentVisibleRect];
 	x = y =  SPACING;
 	maxheight = patchnum = maxwindex = 0;
 	while ((patch = [patchImages	elementAt:patchnum++]) != NULL)
