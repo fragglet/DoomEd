@@ -13,21 +13,23 @@ static	int	cornerx = 128, cornery = 64;
 - initFromEditWorld
 {
 	id		oldobj_i;
-	NSSize	screensize;
+	NSRect	screensize;
 	NSRect	wframe;
 	NSPoint	origin;
 	NSRect	mapbounds;
+	NSScreen *scrn;
 
 //
 // set up the window
-//		
-	[NSApp getScreenSize: &screensize];
-	if (cornerx + newsize.width > screensize.width - 70)
+//
+	scrn = [NSScreen mainScreen];
+	screensize = [scrn visibleFrame];
+	if (cornerx + newsize.width > screensize.size.width - 70)
 		cornerx = 128;
-	if (cornery + newsize.height > screensize.height - 70)
+	if (cornery + newsize.height > screensize.size.height - 70)
 		cornery = 64;
 	wframe.origin.x = cornerx;
-	wframe.origin.y = screensize.height - newsize.height - cornery;
+	wframe.origin.y = screensize.size.height - newsize.height - cornery;
 	wframe.size = newsize;
 
 #if 0
@@ -38,7 +40,7 @@ static	int	cornerx = 128, cornery = 64;
 	      styleMask: NSResizableWindowMask
 	      backing: NSBackingStoreBuffered
 	      defer: NO
-	      screen: nil
+	      screen: scrn
 	// buttonMask:		NX_CLOSEBUTTONMASK | NX_MINIATURIZEBUTTONMASK
 	];
 
