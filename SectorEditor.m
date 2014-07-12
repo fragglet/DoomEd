@@ -380,7 +380,7 @@ id	sectorEdit_i;
 	r.origin.y -= SPACING;
 	r.size.width += SPACING*2;
 	r.size.height += SPACING*2;
-	[flatPalView_i		scrollRectToVisible:&r];
+	[flatPalView_i		scrollRectToVisible:r];
 	[flatPalView_i		display];
 	[self	setKey:NULL];
 	
@@ -668,7 +668,7 @@ id	sectorEdit_i;
 		[curFlat_i		setStringValue:sector.ceilingflat];
 	}
 	
-	[flatPalView_i	scrollRectToVisible:&f->r];
+	[flatPalView_i	scrollRectToVisible:f->r];
 	[flatScrPalView_i	display];
 	[sectorEditView_i	display];
 	[self	setKey:NULL];
@@ -688,7 +688,7 @@ id	sectorEdit_i;
 	r.origin.y -= SPACING;
 	r.size.width += SPACING*2;
 	r.size.height += SPACING*2;
-	[flatPalView_i		scrollRectToVisible:&r];
+	[flatPalView_i		scrollRectToVisible:r];
 	[flatScrPalView_i	display];
 	
 	return self;

@@ -16,7 +16,7 @@ BOOL	linecross[9][9];
 
 @implementation MapView
 
-+ initialize
++ (void) initialize
 {
 	int	x1,y1,x2,y2;
 	
@@ -148,12 +148,12 @@ printf ("Done\n");
 		return NULL;
 		
 // try to keep the center of the view constant
-	[superview getVisibleRect: &visrect];
-	[self convertRectFromSuperview: &visrect];
+	visrect = [[self superview] visibleRect];
+	visrect = [self convertRect: visrect fromView: [self superview]];
 	visrect.origin.x += visrect.size.width/2;
 	visrect.origin.y += visrect.size.height/2;
 	
-	[self zoomFrom: &visrect.origin toScale: nscale];
+	[self zoomFrom: visrect.origin toScale: nscale];
 
 	return self;
 }
@@ -196,22 +196,22 @@ printf ("Done\n");
 
 - cut: sender
 {
-	return [editworld_i cut:sender];
+	[editworld_i cut:sender];
 }
 
 - copy: sender
 {
-	return [editworld_i copy:sender];
+	[editworld_i copy:sender];
 }
 
 - paste: sender
 {
-	return [editworld_i paste:sender];
+	[editworld_i paste:sender];
 }
 
 - delete: sender
 {
-	return [editworld_i delete:sender];
+	[editworld_i delete:sender];
 }
 
 /*
@@ -243,24 +243,23 @@ printf ("Done\n");
 ================
 */
 
-- getCurrentOrigin: (NSPoint *)worldorigin
+- (NSPoint) getCurrentOrigin
 {
 	NSRect	global;
-	
-	[superview getBounds: &global];
-	[self convertPointFromSuperview: global.origin];
-	*worldorigin = global.origin;
-	
-	return self;
+	NSRect pt;
+
+	global = [[self superview] bounds];
+
+	return [self convertPoint: global.origin fromView: [self superview]];
 }
 
 - printInfo: sender
 {
 	NSPoint	wrld;
-	
-	[self getCurrentOrigin: &wrld];
+
+	wrld = [self getCurrentOrigin];
 	printf ("getCurrentOrigin: %f, %f\n",wrld.x,wrld.y);
-	
+
 	return self;
 }
 
@@ -306,36 +305,37 @@ printf ("Done\n");
 /*
 =======================
 =
-= getPoint: from:
+= getPointFrom:
 =
 = Returns the global (unscaled) world coordinates of an event location
 =
 =======================
 */
 
-- 	getGridPoint:	(NSPoint *)point 
-	from: 	(NSEvent const *)event
+- (NSPoint) getGridPointFrom: (NSEvent const *)event
 {
 // convert to view coordinates
-	*point = [event locationInWindow];
-	[self convertPoint:*point  fromView:NULL];
+	NSPoint point;
+
+	point = [event locationInWindow];
+	point = [self convertPoint: point fromView: nil];
 
 // adjust for grid
-	point->x = (int)(((point->x)/gridsize)+0.5*(point->x<0?-1:1));
-	point->y = (int)(((point->y)/gridsize)+0.5*(point->y<0?-1:1));
-	point->x *= gridsize;
-	point->y *= gridsize;
+	point.x = (int)(((point.x)/gridsize)+0.5*(point.x<0?-1:1));
+	point.y = (int)(((point.y)/gridsize)+0.5*(point.y<0?-1:1));
+	point.x *= gridsize;
+	point.y *= gridsize;
 //	printf("X:%f\tY:%f\tgridsize:%d\n",point->x,point->y,gridsize);
-	return self;
+	return point;
 }
 
-- 	getPoint:	(NSPoint *)point 
-	from: 	(NSEvent const *)event
+- (NSPoint) getPointFrom: (NSEvent const *)event
 {
 // convert to view coordinates
-	*point = [event locationInWindow];
-	[self convertPoint:*point  fromView:NULL];
-	return self;
+	NSPoint point;
+
+	point = [event locationInWindow];
+	return [self convertPoint:point fromView: nil];
 }
 
 /*
@@ -351,15 +351,16 @@ printf ("Done\n");
 ==================
 */
 
-- adjustFrameForOrigin: (NSPoint const *)org
+- adjustFrameForOrigin: (NSPoint)org
 {
 	return [self adjustFrameForOrigin: org scale:scale];
 }
 
-- adjustFrameForOrigin: (NSPoint const *)org scale: (float)scl
+- adjustFrameForOrigin: (NSPoint)org scale: (float)scl
 {
-	NSRect	map;
-	NSRect	newbounds;
+	NSRect map;
+	NSRect newbounds;
+	NSRect viewbounds;
 	
 // the frame rect of the MapView is the union of the map rect and the visible rect
 // if this is different from the current frame, resize it
@@ -374,32 +375,30 @@ printf ("Done\n");
 //
 // get the rects that is displayed in the superview
 //
-	[superview getVisibleRect: &newbounds];
-	[self convertRectFromSuperview: &newbounds];
-	newbounds.origin = *org;
-	
-	[editworld_i getBounds: &map];
-	
+	newbounds = [[self superview] visibleRect];
+	newbounds = [self convertRect: newbounds fromView: [self superview]];
+	newbounds.origin = org;
+
+	map = [editworld_i getBounds];
+
 	NXUnionRect (&map, &newbounds);
-	
-	if (
-	newbounds.size.width != bounds.size.width ||
-	newbounds.size.height != bounds.size.height 
-	)
+
+	viewbounds = [self bounds];
+
+	if (newbounds.size.width != viewbounds.size.width ||
+	    newbounds.size.height != viewbounds.size.height)
 	{
 //printf ("changed size\n");
 		[self sizeTo: newbounds.size.width*scale : newbounds.size.height*scale];
 	}
 
-	if (
-	newbounds.origin.x != bounds.origin.x ||
-	newbounds.origin.y != bounds.origin.y
-	)
+	if (newbounds.origin.x != viewbounds.origin.x ||
+	    newbounds.origin.y != viewbounds.origin.y)
 	{
 //printf ("changed origin\n");
 		[self setDrawOrigin: newbounds.origin.x : newbounds.origin.y];
 	}
-		
+
 	return self;
 }
 
@@ -416,12 +415,12 @@ printf ("Done\n");
 =======================
 */
 
-- setOrigin: (NSPoint const *)org
+- setOrigin: (NSPoint) org
 {
 	return [self setOrigin: org scale: scale];
 }
 
-- setOrigin: (NSPoint const *)org scale: (float)scl
+- setOrigin: (NSPoint) org scale: (float)scl
 {
 	[self adjustFrameForOrigin: org scale:scl];
 	[self scrollPoint: org];
@@ -431,14 +430,14 @@ printf ("Done\n");
 /*
 ====================
 =
-= zoomFrom:(NSPoint *)origin scale:(float)newscale
+= zoomFrom:(NSPoint)origin scale:(float)newscale
 =
 = The origin is in screen pixels from the lower left corner of the clip view
 =
 ====================
 */
 
-- zoomFrom:(NSPoint *)origin toScale:(float)newscale
+- zoomFrom:(NSPoint)origin toScale:(float)newscale
 {
 	NSPoint		neworg, orgnow;
 	
@@ -446,12 +445,11 @@ printf ("Done\n");
 //
 // find where the point is now
 //
-	neworg = *origin;
-	[self convertPoint: neworg toView: NULL];
-	
+	neworg = [self convertPoint: origin toView: nil];
+
 //
 // change scale
-//		
+//
 	[self setDrawSize: [self frame].size.width/newscale : [self frame].size.height/newscale];
 	scale = newscale;
 
@@ -459,16 +457,16 @@ printf ("Done\n");
 // convert the point back
 //
 	[self convertPoint: neworg fromView: NULL];
-	[self getCurrentOrigin: &orgnow];
-	orgnow.x += origin->x - neworg.x;
-	orgnow.y += origin->y - neworg.y;
-	[self setOrigin: &orgnow];
-	
+	orgnow = [self getCurrentOrigin];
+	orgnow.x += origin.x - neworg.x;
+	orgnow.y += origin.y - neworg.y;
+	[self setOrigin: orgnow];
+
 //
 // redraw
 // 
 	[[self window] reenableDisplay];
-	[[superview superview] display];	// redraw everything just once
+	[[[self superview] superview] display];  // redraw everything just once
 	
 	return self;
 }

@@ -325,7 +325,7 @@ id	texturePalette_i;
 	r.origin.y -= SPACING;
 	r.size.width += SPACING*2;
 	r.size.height += SPACING*2;
-	[texturePalView_i	scrollRectToVisible:&r];
+	[texturePalView_i	scrollRectToVisible:r];
 	[texturePalScrView_i	display];
 	return i;
 }
@@ -348,7 +348,7 @@ id	texturePalette_i;
 		r.origin.y -= SPACING;
 		r.size.width += SPACING*2;
 		r.size.height += SPACING*2;
-		[texturePalView_i		scrollRectToVisible:&r];
+		[texturePalView_i		scrollRectToVisible:r];
 		[texturePalScrView_i	display];
 	}
 	return self;
@@ -379,7 +379,7 @@ id	texturePalette_i;
 			r.origin.y -= SPACING;
 			r.size.width += SPACING*2;
 			r.size.height += SPACING*2;
-			[texturePalView_i	scrollRectToVisible:&r];
+			[texturePalView_i	scrollRectToVisible:r];
 			[texturePalScrView_i	display];
 			break;
 		}

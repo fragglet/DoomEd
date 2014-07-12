@@ -441,7 +441,7 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 //
 // find the dimensions of the world and allocate an empty map
 //
-	[editworld_i getBounds: &wbounds];
+	wbounds = [editworld_i getBounds];
 	if (bmap)
 		free(bmap);
 	bwidth = wbounds.size.width/8;

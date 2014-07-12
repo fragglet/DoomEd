@@ -389,7 +389,7 @@ id	texturePatches;
 	r.origin.y -= SPACING;
 	r.size.width += SPACING*2;
 	r.size.height += SPACING*2;
-	[texturePatchView_i	scrollRectToVisible:&r];
+	[texturePatchView_i	scrollRectToVisible:r];
 	[texturePatchScrollView_i	display];
 	return self;
 }
@@ -1064,7 +1064,7 @@ id	texturePatches;
 	// scroll a little more to the right...
 	//
 	p.r.origin.x += p.r.size.width * 1.5;
-	[textureView_i		scrollRectToVisible:&p.r];
+	[textureView_i		scrollRectToVisible:p.r];
 	[textureView_i		display];
 	return self;
 }
@@ -1119,7 +1119,7 @@ id	texturePatches;
 	r.origin.y -= SPACING;
 	r.size.width += SPACING*2;
 	r.size.height += SPACING*2;
-	[texturePatchView_i			scrollRectToVisible:&r];
+	[texturePatchView_i			scrollRectToVisible:r];
 	[texturePatchScrollView_i	display];
 	return self;
 }

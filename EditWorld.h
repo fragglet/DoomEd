@@ -136,7 +136,7 @@ extern	worldthing_t	*things;
 //
 // get info
 //
-- getBounds: (NSRect *)theRect;
+- (NSRect) getBounds;
 
 //
 // change info

@@ -103,10 +103,10 @@ static	int	cornerx = 128, cornery = 64;
 	[self  setContentView: scrollview_i];
 
 // scroll to the middle
-	[editworld_i getBounds: &mapbounds];
+	mapbounds = [editworld_i getBounds];
 	origin.x = mapbounds.origin.x + mapbounds.size.width / 2 - newsize.width /2;
 	origin.y = mapbounds.origin.y + mapbounds.size.height / 2 - newsize.width /2;
-	[mapview_i setOrigin: &origin scale:1];
+	[mapview_i setOrigin: origin scale:1];
 
 	return self;
 }
@@ -169,7 +169,7 @@ static	int	cornerx = 128, cornery = 64;
 {
 	oldscreenorg.x = oldscreenorg.y = 0;
 	[self convertBaseToScreen: oldscreenorg];
-	[mapview_i getCurrentOrigin: &presizeorigin];
+	presizeorigin = [mapview_i getCurrentOrigin];
 	return self;
 }
 
@@ -199,7 +199,7 @@ static	int	cornerx = 128, cornery = 64;
 	scale = [mapview_i currentScale];
 	presizeorigin.x += (newscreenorg.x - oldscreenorg.x)/scale;
 	presizeorigin.y += (newscreenorg.y - oldscreenorg.y)/scale;
-	[mapview_i setOrigin: &presizeorigin];
+	[mapview_i setOrigin: presizeorigin];
 
 //
 // resize drag image

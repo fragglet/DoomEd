@@ -96,11 +96,11 @@
 		
 		if (dx != 0 || dy != 0)
 		{
-			[self getCurrentOrigin: &origin];
+			origin = [self getCurrentOrigin];
 			origin.x += dx;
 			origin.y += dy;
 			[window disableDisplay];
-			[self setOrigin: &origin];
+			[self setOrigin: origin];
 			[window reenableDisplay];
 			[[superview superview] display];	// redraw everything just once
 			oldpt = [event locationInWindow];
@@ -151,7 +151,7 @@
 	origin = [event locationInWindow];
 	[self convertPoint:origin  fromView:NULL];
 //printf ("origin: %f,%f\n",origin.x,origin.y);
-	[self zoomFrom: &origin toScale: nscale];
+	[self zoomFrom: origin toScale: nscale];
 	
 //
 // allow a drag while the mouse is still down
@@ -197,7 +197,7 @@
 	[self convertPoint:origin  fromView:NULL];
 //printf ("origin: %f,%f\n",origin.x,origin.y);
 	
-	[self zoomFrom: &origin toScale: nscale];
+	[self zoomFrom: origin toScale: nscale];
 	
 //
 // allow a drag while the mouse is still down
@@ -233,11 +233,11 @@
 	PSsetlinewidth (0.15);
 	NXSetColor ([prefpanel_i colorFor: [settingspanel_i segmentType]]);
 
-	[self getGridPoint: &fixedpoint from: event];		// handle grid and sutch
+	fixedpoint = [self getGridPointFrom: event];		// handle grid and such
 	
 	do 
 	{
-		[self getGridPoint: &dragpoint  from: event];  // handle grid and sutch
+		dragpoint = [self getGridPointFrom: event];  // handle grid and such
 		
 		PSnewinstance ();
 		
@@ -304,14 +304,14 @@
 //
 	do
 	{
-		[self getGridPoint: &fixedpoint from: event];	// handle grid and sutch
+		fixedpoint = [self getGridPointFrom: event];	// handle grid and such
 		oldMask = [window addToEventMask:NX_MOUSEMOVEDMASK];
 		PSsetinstance (YES);
 	
 		do 
 		{
 			event = [NSApp getNextEvent: NX_LMOUSEDOWNMASK | NX_LMOUSEUPMASK | NX_MOUSEMOVEDMASK | NX_LMOUSEDRAGGEDMASK];
-			[self getGridPoint: &dragpoint  from: event];  // handle grid and sutch
+			dragpoint = [self getGridPointFrom: event];  // handle grid and such
 			if ([event type] == NSLeftMouseUp)
 				break;
 				
@@ -381,7 +381,7 @@
 	int			pointcount;
 	float		offset;
 		
-	[self getGridPoint: &cursor  from: event];  // handle grid and sutch
+	cursor = [self getGridPointFrom: event];  // handle grid and such
 	
 // set up negative rects
 	fixedrect.origin.x = MAXFLOAT/4;
@@ -462,7 +462,7 @@
 		//
 		// calculate new rectangle
 		//
-		[self getGridPoint: &cursor  from: event];  // handle grid and such
+		cursor = [self getGridPointFrom: event];  // handle grid and such
 
 		//
 		// move all selected points
@@ -687,7 +687,7 @@
 	NSPoint		clickpoint;
 	int			instroke;
 	
-	[self getPoint: &clickpoint from: event];
+	clickpoint = [self getPointFrom: event];
 	
 
 //
@@ -844,7 +844,7 @@
 	
 	[editworld_i deselectAll];
 	
-	[self getGridPoint: &thing.origin from: event];
+	thing.origin = [self getGridPointFrom: event];
 	
 	[thingpanel_i	getThing:&thing];
 	thing.selected = 0;
@@ -873,10 +873,10 @@
 	sectordef_t	*fillends;
 
 	fillends = [sectorEdit_i getSector];
-	
-	[self getPoint: &pt from: event];
+
+	pt = [self getPointFrom: event];
 	[blockworld_i floodFillSector: &pt];
-	
+
 	for (i=0 ; i<numlines ; i++)
 	{
 		line = &lines[i];
@@ -906,7 +906,7 @@
 	int		line, side;
 	sectordef_t	*def;
 
-	[self getPoint: &pt from: event];	
+	pt = [self getPointFrom: event];
 	line = LineByPoint (&pt, &side);
 	
 	def = &lines[line].side[side].ends;
@@ -938,7 +938,7 @@
 	worldthing_t	oldthing,newthing;
 	
 	player1Type = [prefpanel_i	getLaunchThingType];
-	[self getPoint: &pt from: event];
+	pt = [self getPointFrom: event];
 	for (i=0;i < numthings; i++)
 		if (things[i].type == player1Type)
 		{

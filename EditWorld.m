@@ -661,16 +661,16 @@ FIXME: Map window is its own delegate now, this needs to be done with a message
 
 #define BOUNDSBORDER	128
 
-- getBounds: (NSRect *)theRect
+- (NSRect) getBounds
 {
 	int		p;
 	float		x,y,right, left, top, bottom;
-	
+
 	if (boundsdirty)
 	{
 		right = top = -MAXFLOAT;
 		left = bottom = MAXFLOAT;
-		
+
 		for (p=0 ; p<numpoints ; p++)
 		{
 			x = points[p].pt.x;
@@ -689,18 +689,17 @@ FIXME: Map window is its own delegate now, this needs to be done with a message
 		bounds.origin.y = bottom - BOUNDSBORDER;
 		bounds.size.width = right -left + BOUNDSBORDER*2 ;
 		bounds.size.height = top -bottom + BOUNDSBORDER*2 ;
-		
+
 		boundsdirty = NO;
 	}
-	
+
 	if (bounds.size.width < 0)
 	{
 		bounds.origin.x = bounds.origin.y = 0;
 		bounds.size.width = bounds.size.height = 0;
 	}
-	
-	*theRect = bounds;
-	return self;
+
+	return bounds;
 }
 
 
