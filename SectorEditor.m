@@ -276,13 +276,13 @@ id	sectorEdit_i;
 
 - selectFloor
 {
-	[floorAndCeiling_i	selectCellAt:0 :1];
+	[floorAndCeiling_i	selectCellAtRow:0 column:1];
 	return self;
 }
 
 - selectCeiling
 {
-	[floorAndCeiling_i	selectCellAt:0 :0];
+	[floorAndCeiling_i	selectCellAtRow:0 column:0];
 	return self;
 }
 

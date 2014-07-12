@@ -138,7 +138,7 @@
 	if (selected >= numrows)
 		return NULL;
 		
-	[itemlist selectCellAt: selected : 0];
+	[itemlist selectCellAtRow: selected column: 0];
 	[[window scalebutton] setTitle: [[itemlist selectedCell] title]];
 
 // parse the scale from the title
@@ -183,7 +183,7 @@
 	if (selected < 0)
 		return NULL;
 		
-	[itemlist selectCellAt: selected : 0];
+	[itemlist selectCellAtRow: selected column: 0];
 	[[window scalebutton] setTitle: [[itemlist selectedCell] title]];
 	
 // parse the scale from the title

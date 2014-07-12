@@ -30,7 +30,7 @@ id	toolpanel_i;
 
 - changeTool:(int)which
 {
-	[toolmatrix_i	selectCellAt:which :0];
+	[toolmatrix_i selectCellAtRow:which column:0];
 	return self;
 }
 

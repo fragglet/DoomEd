@@ -822,7 +822,7 @@ id	openMatrix;
 {
 	if (curMap < nummaps)
 	{
-		[openMatrix	selectCellAt:curMap :0];
+		[openMatrix	selectCellAtRow:curMap column:0];
 		[self	openMap:openMatrix];
 		curMap++;
 		return YES;
@@ -831,7 +831,7 @@ id	openMatrix;
 	{
 		if (oldSelRow >= 0)
 		{
-			[openMatrix	selectCellAt:oldSelRow :0];
+			[openMatrix	selectCellAtRow:oldSelRow column:0];
 			[self	openMap:openMatrix];
 		}
 		return NO;
@@ -856,14 +856,14 @@ id	openMatrix;
 	
 	for (i = 0;i < nummaps; i++)
 	{
-		[openMatrix	selectCellAt:i :0];
+		[openMatrix	selectCellAtRow:i column:0];
 		[self	openMap:openMatrix];
 		[self	printMap:NULL];
 	}
 	
 	if (selRow >=0)
 	{
-		[openMatrix	selectCellAt:selRow :0];
+		[openMatrix	selectCellAtRow:selRow column:0];
 		[self	openMap:openMatrix];
 	}
 	
@@ -987,14 +987,14 @@ id	openMatrix;
 	
 	for (i = 0;i < nummaps; i++)
 	{
-		[openMatrix	selectCellAt:i :0];
+		[openMatrix	selectCellAtRow:i column:0];
 		[self	openMap:openMatrix];
 		[editworld_i	saveDoomEdMapBSP:NULL];
 	}
 	
 	if (selRow >=0)
 	{
-		[openMatrix	selectCellAt:selRow :0];
+		[openMatrix	selectCellAtRow:selRow column:0];
 		[self	openMap:openMatrix];
 	}
 	
@@ -1361,7 +1361,7 @@ typedef struct
 		sprintf(string,"Loading map %s.\n",
 			[[openMatrix selectedCell] stringValue] );
 		[log_i	msg:string ];
-		[openMatrix	selectCellAt:i :0];
+		[openMatrix	selectCellAtRow:i column:0];
 		[self	openMap:openMatrix];
 		
 		//
@@ -1649,7 +1649,7 @@ typedef struct
 	
 	if (selRow >=0)
 	{
-		[openMatrix	selectCellAt:selRow :0];
+		[openMatrix	selectCellAtRow:selRow column:0];
 		[self	openMap:openMatrix];
 	}
 	

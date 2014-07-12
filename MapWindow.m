@@ -63,7 +63,7 @@ static	int	cornerx = 128, cornery = 64;
 	[scalemenu_i addItem: "100%"];
 	[scalemenu_i addItem: "200%"];
 	[scalemenu_i addItem: "400%"];
-	[[scalemenu_i itemList] selectCellAt: 5 : 0];
+	[[scalemenu_i itemList] selectCellAtRow: 5 column: 0];
 	
 	scalebutton_i = NXCreatePopUpListButton(scalemenu_i);
 
@@ -80,7 +80,7 @@ static	int	cornerx = 128, cornery = 64;
 	[gridmenu_i addItem: "grid 32"];
 	[gridmenu_i addItem: "grid 64"];
 	
-	[[gridmenu_i itemList] selectCellAt: 3 : 0];
+	[[gridmenu_i itemList] selectCellAtRow: 3 column: 0];
 	
 	gridbutton_i = NXCreatePopUpListButton(gridmenu_i);
 

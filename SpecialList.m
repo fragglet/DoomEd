@@ -94,8 +94,8 @@
 	
 	[specialBrowser_i	reloadColumn:0];
 	matrix = [specialBrowser_i	matrixInColumn:0];
-	[matrix	selectCellAt:i :0];
-	[matrix	scrollCellToVisible:i :0];
+	[matrix	selectCellAtRow:i column:0];
+	[matrix	scrollCellToVisibleAtRow:i column:0];
 	return self;
 }
 			
@@ -194,8 +194,8 @@
 	[specialBrowser_i	reloadColumn:0];
 	which = [self	findSpecial:t.value];
 	matrix = [specialBrowser_i	matrixInColumn:0];
-	[matrix	selectCellAt:which :0];
-	[matrix	scrollCellToVisible:which :0];
+	[matrix	selectCellAtRow:which column:0];
+	[matrix	scrollCellToVisibleAtRow:which column:0];
 	[doomproject_i	setDirtyProject:TRUE];
 	
 	return self;
@@ -280,8 +280,8 @@
 		s = [specialList_i	elementAt:i];
 		if (s->value == which)
 		{
-			[matrix	selectCellAt:i :0];
-			[matrix	scrollCellToVisible:i :0];
+			[matrix	selectCellAtRow:i column:0];
+			[matrix	scrollCellToVisibleAtRow:i column:0];
 			[self	fillDataFromSpecial:s];
 			return self;
 		}
@@ -334,10 +334,10 @@
 	if (which >= 0)
 	{
 		matrix = [specialBrowser_i	matrixInColumn:0];
-		[matrix	selectCellAt:which  :0];
-		[matrix	scrollCellToVisible:which :0];
-	}			
-	
+		[matrix	selectCellAtRow:which column:0];
+		[matrix	scrollCellToVisibleAtRow:which column:0];
+	}
+
 	return self;
 }
 

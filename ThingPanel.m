@@ -58,7 +58,7 @@ id	thingpanel_i;
 		[window_i	setFrameUsingName:THINGNAME];
 		[window_i	setDelegate:self];
 		[thingBrowser_i	reloadColumn:0];
-		[diffDisplay_i	selectCellAt:diffDisplay :0];
+		[diffDisplay_i	selectCellAtRow:diffDisplay column:0];
 		[count_i	setStringValue:@" "];
 		[window_i	setParent:self];
 	}
@@ -204,8 +204,8 @@ id	thingpanel_i;
 		{
 			[self	fillDataFromThing:t];
 			matrix = [thingBrowser_i	matrixInColumn:0];
-			[matrix	selectCellAt:i :0];
-			[matrix	scrollCellToVisible:i :0];
+			[matrix	selectCellAtRow:i column:0];
+			[matrix	scrollCellToVisibleAtRow:i column:0];
 			return self;
 		}
 	}
@@ -368,10 +368,10 @@ id	thingpanel_i;
 	if (which >= 0)
 	{
 		matrix = [thingBrowser_i	matrixInColumn:0];
-		[matrix	selectCellAt:which  :0];
-		[matrix	scrollCellToVisible:which :0];
-	}			
-	
+		[matrix	selectCellAtRow:which column:0];
+		[matrix	scrollCellToVisibleAtRow:which column:0];
+	}
+
 	return self;
 }
 
@@ -395,7 +395,7 @@ id	thingpanel_i;
 	[self	fillThingData:t];
 	[thingBrowser_i	reloadColumn:0];
 	[[thingBrowser_i	matrixInColumn:0]
-					selectCellAt:which  :0];
+		selectCellAtRow:which column:0];
 	[doomproject_i	setDirtyProject:TRUE];
 	
 	return self;
@@ -492,8 +492,8 @@ id	thingpanel_i;
 	id	matrix;
 	
 	matrix = [thingBrowser_i	matrixInColumn:0];
-	[matrix	selectCellAt:which :0];
-	[matrix	scrollCellToVisible:which :0];
+	[matrix	selectCellAtRow:which column:0];
+	[matrix	scrollCellToVisibleAtRow:which column:0];
 	return self;
 }
 
@@ -594,8 +594,8 @@ id	thingpanel_i;
 	[thingBrowser_i	reloadColumn:0];
 	which = [self	findThing:t.name];
 	matrix = [thingBrowser_i	matrixInColumn:0];
-	[matrix	selectCellAt:which :0];
-	[matrix	scrollCellToVisible:which :0];
+	[matrix	selectCellAtRow:which column:0];
+	[matrix	scrollCellToVisibleAtRow:which column:0];
 	[doomproject_i	setDirtyProject:TRUE];
 	
 	return self;

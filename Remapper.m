@@ -146,7 +146,7 @@
 		return self;
 	[matrix_i		removeRowAt:selRow andFree:YES ];
 	[matrix_i		sizeToCells];
-	[matrix_i		selectCellAt:-1 :-1];
+	[matrix_i		selectCellAtRow:-1 column:-1];
 	[storage_i	removeElementAt:selRow];
 	[browser_i	reloadColumn:0];
 	

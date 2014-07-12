@@ -138,7 +138,7 @@
 		[thingList_i	removeElementAt:selRow];
 	}
 	[matrix	sizeToCells];
-	[matrix	selectCellAt:-1 :-1];
+	[matrix	selectCellAtRow:-1 column:-1];
 	[thingBrowser_i	reloadColumn:0];
 
 	return self;
