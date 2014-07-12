@@ -1018,7 +1018,7 @@
 	[editworld_i updateWindows];
 }
 
-- rightMouseDown:(NSEvent *)thisEvent
+- (void) rightMouseDown:(NSEvent *)thisEvent
 {
 	switch ( [toolpanel_i currentTool] )
 	{
@@ -1033,7 +1033,6 @@
 	}
 
 	[editworld_i updateWindows];
-	return self;
 }
 
 //=============================================================================

@@ -111,11 +111,10 @@
 	return self;
 }
 
-- rightMouseDown:(NSEvent *)theEvent
+- (void) rightMouseDown:(NSEvent *)theEvent
 {
 	[[textureEdit_i	getSTP]	empty];
-	[self	display];
-	return self;
+	[self display];
 }
 
 - (void) mouseDown:(NSEvent *)theEvent
