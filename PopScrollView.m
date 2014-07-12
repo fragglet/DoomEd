@@ -5,16 +5,16 @@
 /*
 ====================
 =
-= initFrame: button:
+= initWithFrame: button:
 =
 = Initizes a scroll view with a button at it's lower right corner
 =
 ====================
 */
 
-- initFrame:(const NSRect *)frameRect button1:b1 button2:b2
+- initWithFrame:(NSRect)frameRect button1:b1 button2:b2
 {
-	[super  initFrame: frameRect];	
+	[super initWithFrame: frameRect];
 	[self addSubview: b1];
 	[self addSubview: b2];
 

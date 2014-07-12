@@ -14,9 +14,9 @@
 	return YES;
 }
 
-- initFrame:(const NSRect *)frameRect
+- initWithFrame:(NSRect)frameRect
 {
-	[super initFrame:frameRect];
+	[super initWithFrame:frameRect];
 	deltaTable = [[ Storage	alloc ]
 					initCount:0
 					elementSize:sizeof(delta_t)

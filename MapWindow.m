@@ -87,7 +87,7 @@ static	int	cornerx = 128, cornery = 64;
 // initialize the scroll view
 	wframe.origin.x = wframe.origin.y = 0;
 	scrollview_i = [[PopScrollView alloc] 
-		initFrame: 	&wframe 
+		initWithFrame: 	wframe 
 		button1: 		scalebutton_i
 		button2:		gridbutton_i
 	];

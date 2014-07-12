@@ -60,7 +60,7 @@ BOOL	linecross[9][9];
 	scale = 1;
 	
 	NXSetRect (&aRect, 0,0, 100,100);	// call -setOrigin after installing in clip view
-	[super initFrame: &aRect];			// to set the proper rectangle
+	[super initWithFrame: aRect];			// to set the proper rectangle
 	[self setOpaque: YES];
 		
 	return self;

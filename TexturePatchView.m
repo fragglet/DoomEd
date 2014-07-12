@@ -11,14 +11,14 @@
 //	Init the storage for the Patch Palette dividers
 //
 //==============================================================
-- initFrame:(const NSRect *)frameRect
+- initWithFrame:(NSRect)frameRect
 {
 	dividers_i = [	[ Storage alloc ]
 				initCount:		0
 				elementSize:	sizeof (divider_t )
 				description:	NULL ];
-				
-	[super	initFrame:frameRect];
+
+	[super initWithFrame:frameRect];
 	return self;
 }
 
@@ -68,7 +68,7 @@
 		if (NXIntersectsRect(&patch->r,&rects[0]))
 			[patch->image		composite:NSCompositeSourceOver toPoint:&patch->r.origin];
 	
-	[self	getFrame:&clipview];
+	clipview = [self frame];
 	if (selectedPatch >= 0)
 	{
 		patch = [textureEdit_i	getPatch:selectedPatch];
@@ -120,7 +120,7 @@
 	patchnum = 0;
 	while ((patch = [textureEdit_i	getPatch:patchnum++]) != NULL)
 	{
-		if ([self	mouse:&loc	inRect:&patch->r] == YES)
+		if ([self	mouse:loc	inRect:patch->r] == YES)
 		{
 			if (selectedPatch != patchnum -1)
 				selectedPatch = patchnum - 1;
@@ -129,7 +129,7 @@
 				[textureEdit_i	addPatch:selectedPatch];
 
 			[textureEdit_i	setSelectedPatch:patchnum - 1];
-			[superview	display];
+			[[self superview] display];
 			break;
 		}
 	}
