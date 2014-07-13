@@ -83,12 +83,12 @@
 	oldpt = [event locationInWindow];
 	[self convertPoint: oldpt fromView: NULL];
 	
-	oldMask = [window addToEventMask:NX_MOUSEDRAGGEDMASK | NX_RMOUSEDRAGGEDMASK];
+	oldMask = [[self window] addToEventMask:NX_MOUSEDRAGGEDMASK | NX_RMOUSEDRAGGEDMASK];
 	
 	do 
 	{
 		event = [NSApp getNextEvent: NX_MOUSEUPMASK | NX_RMOUSEUPMASK | NX_MOUSEDRAGGEDMASK | NX_RMOUSEDRAGGEDMASK];
-		if ([event type] == NSLeftMouseUp || [event type] == NSRightMouseUp])
+		if ([event type] == NSLeftMouseUp || [event type] == NSRightMouseUp)
 			break;
 			
 		pt = [event locationInWindow];
@@ -101,17 +101,17 @@
 			origin = [self getCurrentOrigin];
 			origin.x += dx;
 			origin.y += dy;
-			[window disableDisplay];
+			[[self window] disableDisplay];
 			[self setOrigin: origin];
-			[window reenableDisplay];
-			[[superview superview] display];	// redraw everything just once
+			[[self window] reenableDisplay];
+			[[[self superview] superview] display];	// redraw everything just once
 			oldpt = [event locationInWindow];
 			[self convertPoint: oldpt fromView: NULL];
 			[doomproject_i	setDirtyMap:TRUE];
 		}
 	} while (1);
 	
-	[window setEventMask:oldMask];
+	[[self window] setEventMask:oldMask];
 	
 	return self;
 }
@@ -127,13 +127,13 @@
 
 - zoomIn:(NSEvent *)event
 {
-	char	const	*item;
+	NSString *item;
 	float			nscale;
 	id			itemlist;
 	int			selected, numrows, numcollumns;
 	NSPoint		origin;
 	
-	itemlist = [[window scalemenu] itemList];
+	itemlist = [[[self window] scalemenu] itemList];
 	[itemlist getNumRows: &numrows numCols:&numcollumns];
 	
 	selected = [itemlist selectedRow] + 1;
@@ -141,11 +141,11 @@
 		return NULL;
 		
 	[itemlist selectCellAtRow: selected column: 0];
-	[[window scalebutton] setTitle: [[itemlist selectedCell] title]];
+	[[[self window] scalebutton] setTitle: [[itemlist selectedCell] title]];
 
 // parse the scale from the title
 	item = [[itemlist selectedCell] title];
-	sscanf (item,"%f",&nscale);
+	sscanf([item UTF8String],"%f",&nscale);
 	nscale /= 100;
 	
 // keep the cursor point of the view constant
@@ -173,24 +173,24 @@
 
 - zoomOut:(NSEvent *)event
 {
-	char	const	*item;
+	NSString *item;
 	float			nscale;
 	id			itemlist;
 	int			selected;
 	NSPoint		origin;
 
-	itemlist = [[window scalemenu] itemList];
+	itemlist = [[[self window] scalemenu] itemList];
 	selected = [itemlist selectedRow] - 1;
 	
 	if (selected < 0)
 		return NULL;
 		
 	[itemlist selectCellAtRow: selected column: 0];
-	[[window scalebutton] setTitle: [[itemlist selectedCell] title]];
+	[[[self window] scalebutton] setTitle: [[itemlist selectedCell] title]];
 	
 // parse the scale from the title
 	item = [[itemlist selectedCell] title];
-	sscanf (item,"%f",&nscale);
+	sscanf([item UTF8String],"%f",&nscale);
 	nscale /= 100;
 	
 // keep the cursor point of the view constant
@@ -228,7 +228,7 @@
 	int 		oldMask;
 	NSPoint	fixedpoint, dragpoint;	// endpoints of the line
 		
-	oldMask = [window addToEventMask:NX_LMOUSEDRAGGEDMASK];
+	oldMask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
 	
 	[self lockFocus];
 	PSsetinstance (YES);
@@ -254,7 +254,7 @@
 //
 // add to the world
 //
-	[window setEventMask:oldMask];
+	[[self window] setEventMask:oldMask];
 
 	PSnewinstance ();
 	PSsetinstance (NO);
@@ -307,7 +307,7 @@
 	do
 	{
 		fixedpoint = [self getGridPointFrom: event];	// handle grid and such
-		oldMask = [window addToEventMask:NX_MOUSEMOVEDMASK];
+		oldMask = [[self window] addToEventMask:NX_MOUSEMOVEDMASK];
 		PSsetinstance (YES);
 	
 		do 
@@ -327,7 +327,7 @@
 //
 // add to the world
 //
-		[window setEventMask:oldMask];
+		[[self window] setEventMask:oldMask];
 	
 		PSnewinstance ();
 		PSsetinstance (NO);
@@ -453,7 +453,7 @@
 //
 // modal dragging loop
 //
-	oldMask = [window addToEventMask:NX_LMOUSEDRAGGEDMASK];
+	oldMask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
 	moved = totalmoved = cursor;
 	
 	do 
@@ -525,7 +525,7 @@
 		
 	} while (1);
 
-	[window setEventMask:oldMask];
+	[[self window] setEventMask:oldMask];
 
 	//
 	// tell the world about the changes
@@ -580,7 +580,7 @@
 //
 // move drag
 //	
-	oldMask = [window addToEventMask:NX_LMOUSEDRAGGEDMASK];
+	oldMask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
 	
 	[self lockFocus];
 	PSsetinstance (YES);
@@ -606,7 +606,7 @@
 		
 	} while ([event type] != NSLeftMouseUp);
 
-	[window setEventMask:oldMask];
+	[[self window] setEventMask:oldMask];
 	PSnewinstance ();
 	PSsetinstance (NO);
 	[self unlockFocus];
