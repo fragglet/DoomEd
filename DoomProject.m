@@ -1791,7 +1791,7 @@ typedef struct
 	int		x;
 	int		y;
 	int		found;
-	id		store;
+	CompatibleStorage *store;
 	worldtexture_t	*t;
 	worldtexture_t	*t2;
 	worldtexture_t	m;
@@ -1806,11 +1806,12 @@ typedef struct
 	
 	for (windex = 0; windex <= sets; windex++)
 	{
-		store = [[Storage alloc]
-				initCount:		0
-				elementSize:	sizeof(worldtexture_t)
-				description:	NULL];
-		
+		store = [[CompatibleStorage alloc]
+			initCount: 0
+			elementSize: sizeof(worldtexture_t)
+			description: NULL
+		];
+
 		for (x = 0;x < numtextures;x++)
 			if (textures[x].WADindex == windex)
 				[store	addElement:&textures[x]];

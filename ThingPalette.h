@@ -1,3 +1,4 @@
+#import "Storage.h"
 
 #import <appkit/appkit.h>
 
@@ -20,8 +21,8 @@ extern id	thingPalette_i;
 	id		thingPalView_i;		// outlet
 	id		thingPalScrView_i;	// outlet
 	id		nameField_i;		// outlet
-	
-	id		thingImages;		// Storage for icons
+
+	CompatibleStorage *thingImages;		// Storage for icons
 	int		currentIcon;		// currently selected icon
 }
 

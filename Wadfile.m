@@ -62,9 +62,13 @@ typedef struct
 // read in the lumpinfo
 //
 	lseek (handle, wad.infotableofs, L_SET);
-	info = [[Storage alloc] initCount: wad.numlumps elementSize: sizeof(lumpinfo_t) description: ""];
+	info = [[CompatibleStorage alloc]
+		initCount: wad.numlumps
+		elementSize: sizeof(lumpinfo_t)
+		description: ""
+	];
 	lumps = [info elementAt: 0];
-	
+
 	read (handle, lumps, wad.numlumps*sizeof(lumpinfo_t));
 	for (i=0 ; i<wad.numlumps ; i++, lumps++)
 	{
@@ -90,7 +94,11 @@ typedef struct
 
 	pathname = malloc(strlen(path)+1);
 	strcpy (pathname, path);
-	info = [[Storage alloc] initCount: 0 elementSize: sizeof(lumpinfo_t) description: ""];
+	info = [[CompatibleStorage alloc]
+		initCount: 0
+		elementSize: sizeof(lumpinfo_t)
+		description: ""
+	];
 	dirty = YES;
 	handle = open (pathname, O_CREAT | O_TRUNC | O_RDWR, 0666);
 	if (handle== -1)

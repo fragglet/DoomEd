@@ -1,3 +1,5 @@
+#import "Storage.h"
+
 #import <appkit/appkit.h>
 
 
@@ -5,7 +7,7 @@
 {
 	int		handle;
 	char		*pathname;
-	id		info;
+	CompatibleStorage *info;
 	BOOL	dirty;
 }
 

@@ -2,7 +2,7 @@
 #import	"DoomProject.h"
 
 id		blockworld_i;
-id		sectors=NULL;	// storage object of sectors
+CompatibleStorage *sectors=nil;	// storage object of sectors
 int		numsectors;
 id		pan;
 
@@ -21,7 +21,7 @@ id		pan;
 - init
 {
 	blockworld_i = self;
-	sectors = [[Storage alloc] 
+	sectors = [[CompatibleStorage alloc] 
 				initCount: 	0 
 				elementSize: 	sizeof(worldsector_t)
 				description: 	NULL
@@ -511,13 +511,13 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 	worldline_t	*line;
 	int		i, backline, frontline;
 	worldsector_t	new;
-	
-	new.lines = [ [Storage alloc]
-					initCount: 	0 
-					elementSize: 	sizeof(int)
-					description: 	NULL
-				];
-	
+
+	new.lines = [ [CompatibleStorage alloc]
+		initCount: 	0
+		elementSize: 	sizeof(int)
+		description: 	NULL
+	];
+
 	backline = -1;
 	frontline = -1;
 	line = lines;

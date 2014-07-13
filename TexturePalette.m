@@ -16,11 +16,12 @@ id	texturePalette_i;
 	texturePalette_i = self;
 	selectedTexture = -1;
 
-	allTextures = [[	Storage	alloc]
-				initCount:		0
-				elementSize:	sizeof(texpal_t)
-				description:	NULL];
-	
+	allTextures = [[CompatibleStorage alloc]
+		initCount: 0
+		elementSize: sizeof(texpal_t)
+		description: NULL
+	];
+
 	return self;
 }
 
@@ -211,15 +212,16 @@ id	texturePalette_i;
 	NSSize	s,imagesize;
 	int		maxwindex, i, j;
 	char		string[32];
-	
+
 	if (newTextures == nil )
-		newTextures = [	[Storage alloc ]
-						initCount: 	[allTextures  count]
-						elementSize:	sizeof (texpal_t)
-						description:	NULL ];
+		newTextures = [[CompatibleStorage alloc ]
+			initCount: [allTextures  count]
+			elementSize: sizeof(texpal_t)
+			description: NULL
+		];
 	else
-		[newTextures	empty];
-	
+		[newTextures empty];
+
 	maxwidth = 0;
 	x = y = SPACING;
 	count = [allTextures count] - 1;

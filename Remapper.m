@@ -1,4 +1,3 @@
-
 #import "Remapper.h"
 #import	"DoomProject.h"
 #import	"EditWorld.h"
@@ -30,10 +29,11 @@
 			owner: self
 			options: nil];
 
-		storage_i = [[	Storage		alloc]
-					initCount:		0
-					elementSize:	sizeof(type_t)
-					description:	NULL];
+		storage_i = [ [CompatibleStorage alloc]
+			initCount: 0
+			elementSize: sizeof(type_t)
+			description: NULL
+		];
 
 		[remapPanel_i setFrameUsingName:fname];
 		[status_i setStringValue:@" "];

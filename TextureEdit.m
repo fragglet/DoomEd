@@ -6,7 +6,7 @@
 #import	"lbmfunctions.h"
 
 id	textureEdit_i;
-id	texturePatches;
+CompatibleStorage *texturePatches;
 
 @implementation TextureEdit
 
@@ -75,12 +75,13 @@ id	texturePatches;
 		[scrollView_i		getContentSize:&s];
 		startPoint.y = dvf.size.height - s.height;
 		[textureView_i		scrollPoint:&startPoint];
-	
-		selectedTexturePatches = [[Storage	alloc]
-							initCount:		0
-							elementSize:	sizeof(int)
-							description:	NULL];
-		
+
+		selectedTexturePatches = [[CompatibleStorage alloc]
+			initCount: 0
+			elementSize: sizeof(int)
+			description: NULL
+		];
+
 		[window_i	setFrameUsingName:@"TextureEditor"];
 		[createTexture_i	setFrameUsingName:@"CTexturePanel"];
 		
@@ -178,18 +179,19 @@ id	texturePatches;
 
 	if ([copyList	count])
 		[copyList	empty];
-	
-	copyList = [[Storage	alloc]
-				initCount:		0
-				elementSize:	sizeof(texpatch_t)
-				description:	NULL];
+
+	copyList = [[CompatibleStorage alloc]
+		initCount: 0
+		elementSize: sizeof(texpatch_t)
+		description: NULL
+	];
 	[self	sortSelectedList];
 	max = [selectedTexturePatches	count];
 	for (i = 0;i < max;i++)
 		[copyList		addElement:
 			(texpatch_t *)[texturePatches elementAt:
 			*(int *)[selectedTexturePatches elementAt:i]]];
-	
+
 	[selectedTexturePatches	empty];
 	[textureView_i		display];
 	return self;
@@ -757,12 +759,14 @@ id	texturePatches;
 	//
 	if (texturePatches)
 		[texturePatches	free];
-	texturePatches = [[	Storage	alloc]
-					initCount:		0
-					elementSize:	sizeof(texpatch_t)
-					description:	NULL];
+	texturePatches = [[CompatibleStorage alloc]
+		initCount: 0
+		elementSize: sizeof(texpatch_t)
+		description: NULL
+	];
+
 	[texturePalette_i	selectTexture:currentTexture];
-	oldx = oldy = 0;			
+	oldx = oldy = 0;
 	return self;
 }
 
@@ -910,12 +914,13 @@ id	texturePatches;
 	currentTexture = which;
 	if (texturePatches)
 		[texturePatches	free];
-	
-	texturePatches = [[	Storage	alloc]
-					initCount:		0
-					elementSize:	sizeof(texpatch_t)
-					description:	NULL];
-	
+
+	texturePatches = [[CompatibleStorage alloc]
+		initCount: 0
+		elementSize: sizeof(texpatch_t)
+		description: NULL
+	];
+
 	//
 	// copy textures from textures array to texturePatches
 	//
@@ -1184,11 +1189,12 @@ id	texturePatches;
 	if (palLBM == NULL)
 		IO_Error ("Need to have 'playpal' palette in .WAD file!");
 	LBMpaletteTo16 (palLBM, shortpal);
-	patchImages = [	[Storage	alloc]
-					initCount:		0
-					elementSize:	sizeof(apatch_t)
-					description:	NULL];
-		
+	patchImages = [[CompatibleStorage alloc]
+		initCount: 0
+		elementSize: sizeof(apatch_t)
+		description: NULL
+	];
+
 	windex = 0;
 	do
 	{

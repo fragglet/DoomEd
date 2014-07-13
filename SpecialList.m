@@ -1,4 +1,3 @@
-
 #import "SpecialList.h"
 #import "DoomProject.h"
 
@@ -413,10 +412,11 @@
 	// read specials out of the file, only adding new specials to the current list
 	//
 	if (!specialList_i)
-		specialList_i = [[Storage	alloc]
-					initCount:		0
-					elementSize:	sizeof(speciallist_t)
-					description:	NULL];
+		specialList_i = [[CompatibleStorage alloc]
+			initCount: 0
+			elementSize: sizeof(speciallist_t)
+			description: NULL
+		];
 
 	if (fscanf (stream, "numspecials: %d\n", &count) == 1)
 	{

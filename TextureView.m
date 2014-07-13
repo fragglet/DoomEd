@@ -19,10 +19,11 @@
 - initWithFrame:(NSRect)frameRect
 {
 	[super initWithFrame:frameRect];
-	deltaTable = [[ Storage	alloc ]
-					initCount:0
-					elementSize:sizeof(delta_t)
-					description:NULL];
+	deltaTable = [[CompatibleStorage alloc]
+		initCount:0
+		elementSize:sizeof(delta_t)
+		description:NULL
+	];
 
 	return self;
 }

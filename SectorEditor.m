@@ -470,11 +470,12 @@ id	sectorEdit_i;
 		IO_Error ("Need to have 'playpal' palette in .WAD file!");
 	LBMpaletteTo16 (palLBM, shortpal);
 
-	flatImages = [[Storage	alloc]
-				initCount:		0
-				elementSize:	sizeof(flat_t)
-				description:	NULL];
-	
+	flatImages = [[CompatibleStorage alloc]
+		initCount: 0
+		elementSize: sizeof(flat_t)
+		description: NULL
+	];
+
 	NXSetRect(&f.r,0,0,0,0);
 	
 	windex = 0;

@@ -1,3 +1,5 @@
+#import "Storage.h"
+
 #import "idfunctions.h"
 #import <appkit/appkit.h>
 #import "EditWorld.h"
@@ -42,11 +44,11 @@
 	id	newSetButton_i;			// Create New Set button
 	id	patchSearchField_i;		// Search for patch string
 
-	id	patchImages;			// Patch Palette images
+	CompatibleStorage *patchImages;		// Patch Palette images
 	
 	int	selectedPatch;			// in the Patch Palette
-	id	selectedTexturePatches;	// in the Texture Editor View
-	id	copyList;				// list of copied patches
+	CompatibleStorage *selectedTexturePatches;	// in the Texture Editor View
+	CompatibleStorage *copyList;		// list of copied patches
 	int	currentTexture;			// being edited
 	int	oldx,oldy;				// last texture x,y
 }
@@ -101,7 +103,7 @@ typedef	struct
 
 
 
-extern	id	texturePatches;
+extern CompatibleStorage *texturePatches;
 extern	id	textureEdit_i;
 
 - (int)numSets;

@@ -1,5 +1,6 @@
 
 #import <appkit/appkit.h>
+#import "Storage.h"
 
 #ifndef	H_DIVIDERT
 #define	H_DIVIDERT
@@ -12,7 +13,7 @@ typedef struct
 
 @interface FlatsView:NSView
 {
-	id	dividers_i;
+	CompatibleStorage *dividers_i;
 }
 
 - addDividerX:(int)x Y:(int)y String:(char *)string;

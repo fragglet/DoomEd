@@ -1,3 +1,4 @@
+#import "Storage.h"
 
 #import <appkit/appkit.h>
 
@@ -27,7 +28,7 @@ typedef struct
 	id		browser_i;
 	id		matrix_i;
 	
-	id		storage_i;
+	CompatibleStorage *storage_i;
 	id		delegate_i;
 	char		frameName[32];
 }

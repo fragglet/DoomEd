@@ -1,3 +1,5 @@
+#import "Storage.h"
+
 #import	"DoomProject.h"
 #import	"idfunctions.h"
 #import <appkit/appkit.h>
@@ -39,7 +41,7 @@ extern id	sectorEdit_i;
 	int	ceiling_flat,floor_flat;
 	sectordef_t	sector;
 	
-	id	flatImages;
+	CompatibleStorage *flatImages;
 	int	currentFlat;
 	
 	id	specialPanel_i;

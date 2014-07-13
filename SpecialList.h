@@ -1,4 +1,5 @@
 
+#import "Storage.h"
 #import <appkit/appkit.h>
 
 typedef struct
@@ -13,7 +14,7 @@ typedef struct
 	id	specialBrowser_i;
 	id	specialValue_i;
 	id	specialPanel_i;
-	id	specialList_i;
+	CompatibleStorage *specialList_i;
 	
 	id	delegate;
 	char		title[32];

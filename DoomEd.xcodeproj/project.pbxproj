@@ -24,6 +24,7 @@
 		276AB6001970AEEE001718D1 /* ThingPalette.nib in Resources */ = {isa = PBXBuildFile; fileRef = 276AB5FE1970AEEE001718D1 /* ThingPalette.nib */; };
 		276AB6031970AEF7001718D1 /* ThingStripper.nib in Resources */ = {isa = PBXBuildFile; fileRef = 276AB6011970AEF7001718D1 /* ThingStripper.nib */; };
 		277B09E31973147800177745 /* ps_quartz.m in Sources */ = {isa = PBXBuildFile; fileRef = 277B09E21973147800177745 /* ps_quartz.m */; };
+		277B09E6197340EE00177745 /* Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = 277B09E5197340EE00177745 /* Storage.m */; };
 		27DA448E19706396005CB000 /* BlockWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446019706396005CB000 /* BlockWorld.m */; };
 		27DA448F19706396005CB000 /* Coordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446119706396005CB000 /* Coordinator.m */; };
 		27DA449019706396005CB000 /* DoomEd_main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446219706396005CB000 /* DoomEd_main.m */; };
@@ -107,6 +108,8 @@
 		276AB6021970AEF7001718D1 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/ThingStripper.nib; sourceTree = "<group>"; };
 		277B09E11973147800177745 /* ps_quartz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ps_quartz.h; sourceTree = "<group>"; };
 		277B09E21973147800177745 /* ps_quartz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ps_quartz.m; sourceTree = "<group>"; };
+		277B09E4197340EE00177745 /* Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
+		277B09E5197340EE00177745 /* Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Storage.m; sourceTree = "<group>"; };
 		27DA443419706385005CB000 /* BlockWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockWorld.h; sourceTree = "<group>"; };
 		27DA443519706385005CB000 /* Coordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinator.h; sourceTree = "<group>"; };
 		27DA443619706385005CB000 /* DoomProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoomProject.h; sourceTree = "<group>"; };
@@ -224,6 +227,8 @@
 		27044F61197042D7003F6DB6 = {
 			isa = PBXGroup;
 			children = (
+				277B09E4197340EE00177745 /* Storage.h */,
+				277B09E5197340EE00177745 /* Storage.m */,
 				27044F6C197042D7003F6DB6 /* Frameworks */,
 				27044F6B197042D7003F6DB6 /* Products */,
 				27DA446019706396005CB000 /* BlockWorld.m */,
@@ -513,6 +518,7 @@
 				27DA44AB19706396005CB000 /* TextureEdit.m in Sources */,
 				27DA44B419706396005CB000 /* ThingPalView.m in Sources */,
 				27DA449D19706396005CB000 /* MapView.m in Sources */,
+				277B09E6197340EE00177745 /* Storage.m in Sources */,
 				27DA44B819706396005CB000 /* ThingWindow.m in Sources */,
 				27DA44A219706396005CB000 /* PopScrollView.m in Sources */,
 				27DA449A19706396005CB000 /* lbmfunctions.m in Sources */,

@@ -1,4 +1,5 @@
 
+#import "Storage.h"
 #import <appkit/appkit.h>
 
 typedef struct
@@ -9,7 +10,7 @@ typedef struct
 
 @interface TextureView:NSView
 {
-	id	deltaTable;
+	CompatibleStorage *deltaTable;
 }
 
 

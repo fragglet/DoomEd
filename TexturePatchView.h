@@ -1,3 +1,4 @@
+#import "Storage.h"
 
 #import <appkit/appkit.h>
 
@@ -12,7 +13,7 @@ typedef struct
 
 @interface TexturePatchView:NSView
 {
-	id	dividers_i;
+	CompatibleStorage *dividers_i;
 }
 
 - addDividerX:(int)x Y:(int)y String:(char *)string;

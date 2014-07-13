@@ -1,4 +1,5 @@
 #import <appkit/appkit.h>
+#import "Storage.h"
 #import "DoomProject.h"
 
 #define	WORLDNAME	@"EditWorld"
@@ -53,7 +54,7 @@ typedef struct
 typedef struct
 {
 	sectordef_t	s;
-	id	lines;			// storage object of line numbers
+	CompatibleStorage *lines;	// storage object of line numbers
 } worldsector_t;
 
 typedef struct
@@ -87,8 +88,8 @@ extern	worldthing_t	*things;
 	NSRect	dirtyrect;	
 	id		windowlist_i;			// all windows that display this world
 	
-	id		copyThings_i;			// cut/copy/paste info
-	id		copyLines_i;
+	CompatibleStorage *copyThings_i;			// cut/copy/paste info
+	CompatibleStorage *copyLines_i;
 	NSPoint	copyCoord;
 	int		copyLoaded;
 	id		saveSound;				// Sound instance

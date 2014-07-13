@@ -1,3 +1,4 @@
+
 #import "EditWorld.h"
 #import "idfunctions.h"
 #import "MapWindow.h"
@@ -186,17 +187,19 @@ int LineByPoint (NSPoint *ptin, int *side)
 	lines = malloc (linessize*sizeof(worldline_t));
 	things = malloc (thingssize*sizeof(worldthing_t));
 
-	copyThings_i	= [[Storage	alloc]
-					initCount:		0
-					elementSize:	sizeof(worldthing_t)
-					description:	NULL];
-	copyLines_i	= [[Storage	alloc]
-					initCount:		0
-					elementSize:	sizeof(copyline_t)
-					description:	NULL];
+	copyThings_i = [[CompatibleStorage alloc]
+		initCount: 0
+		elementSize: sizeof(worldthing_t)
+		description: NULL
+	];
+	copyLines_i = [[CompatibleStorage alloc]
+		initCount: 0
+		elementSize: sizeof(copyline_t)
+		description: NULL
+	];
 
 	saveSound = [[Sound alloc] initFromSection:"DESave"];
-	
+
 	return self;
 }
 

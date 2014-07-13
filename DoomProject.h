@@ -1,4 +1,5 @@
 #import <appkit/appkit.h>
+#import "Storage.h"
 
 //============================================================================
 #define	DOOMNAME		@"DoomEd"

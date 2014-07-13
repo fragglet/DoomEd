@@ -1,4 +1,3 @@
-
 #import "ThingPalette.h"
 #import	"DoomProject.h"
 #import	"TextureEdit.h"
@@ -266,11 +265,12 @@ id	thingPalette_i;
 		IO_Error ("Need to have 'playpal' palette in .WAD file!");
 	LBMpaletteTo16 (palLBM, shortpal);
 
-	thingImages = [[Storage	alloc]
-				initCount:		0
-				elementSize:	sizeof(icon_t)
-				description:	NULL];
-		
+	thingImages = [[CompatibleStorage alloc]
+		initCount: 0
+		elementSize: sizeof(icon_t)
+		description: NULL
+	];
+
 	//
 	// get inclusive lump #'s for patches
 	//

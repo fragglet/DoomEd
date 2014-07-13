@@ -1,3 +1,4 @@
+#import "Storage.h"
 
 #import <appkit/appkit.h>
 
@@ -14,7 +15,7 @@ typedef struct
 	id	thingBrowser_i;		// nib outlets
 	id	thingStripPanel_i;
 
-	id	thingList_i;
+	CompatibleStorage *thingList_i;
 }
 
 - displayPanel:sender;

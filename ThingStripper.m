@@ -23,10 +23,11 @@
 		[thingStripPanel_i	setFrameUsingName:THINGSTRIPNAME];
 		[thingStripPanel_i	setDelegate:self];
 
-		thingList_i = [[Storage	alloc]
-				initCount:		0
-				elementSize:	sizeof(thingstrip_t)
-				description:	NULL];
+		thingList_i = [[CompatibleStorage alloc]
+			initCount: 0
+			elementSize: sizeof(thingstrip_t)
+			description: NULL
+		];
 	}
 	[thingBrowser_i	reloadColumn:0];
 	[thingStripPanel_i	makeKeyAndOrderFront:NULL];

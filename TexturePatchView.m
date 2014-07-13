@@ -15,10 +15,11 @@
 //==============================================================
 - initWithFrame:(NSRect)frameRect
 {
-	dividers_i = [	[ Storage alloc ]
-				initCount:		0
-				elementSize:	sizeof (divider_t )
-				description:	NULL ];
+	dividers_i = [[CompatibleStorage alloc]
+		initCount: 0
+		elementSize: sizeof (divider_t )
+		description: NULL
+	];
 
 	[super initWithFrame:frameRect];
 	return self;

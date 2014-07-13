@@ -1,3 +1,4 @@
+#import "Storage.h"
 
 #import <appkit/appkit.h>
 #import 	"DoomProject.h"
@@ -30,7 +31,7 @@ typedef struct
 	id	thingBrowser_i;
 	id	thingColor_i;
 	id	thingAngle_i;
-	id	masterList_i;
+	CompatibleStorage *masterList_i;
 	id	iconField_i;
 	id	ambush_i;		// switch
 	id	network_i;		// switch

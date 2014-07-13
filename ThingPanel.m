@@ -22,13 +22,14 @@ id	thingpanel_i;
 {
 	thingpanel_i = self;
 	window_i = NULL;		// until nib is loaded
-	masterList_i = [[Storage	alloc]
-			initCount:		0
-			elementSize:	sizeof(thinglist_t)
-			description:	NULL];
-			
+	masterList_i = [[CompatibleStorage alloc]
+		initCount: 0
+		elementSize: sizeof(thinglist_t)
+		description: NULL
+	];
+
 	diffDisplay = DIFF_ALL;
-	
+
 	return self;
 }
 

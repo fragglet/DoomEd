@@ -1,7 +1,9 @@
+#import "Storage.h"
+
 #import "EditWorld.h"
 #import "idfunctions.h"
 
-extern	id	sectors;
+extern	ComapatibleStorage *sectors;
 extern	id	blockworld_i;
 extern	BOOL	fillerror;
 

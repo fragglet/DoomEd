@@ -1,3 +1,5 @@
+#import "Storage.h"
+
 #import	"TextureEdit.h"
 #import <appkit/appkit.h>
 
@@ -27,8 +29,8 @@ typedef struct
 	id	heightSearch_i;
 	
 	id	texturePatches;
-	id	allTextures;
-	id	newTextures;
+	CompatibleStorage *allTextures;
+	CompatibleStorage *newTextures;
 	int	selectedTexture;
 	id	lsTextField_i;
 	id	lsPanel_i;
