@@ -1,3 +1,5 @@
+#import "ps_quartz.h"
+
 //
 // docview of Patch Palette in TextureEdit
 //

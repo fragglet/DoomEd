@@ -1,3 +1,5 @@
+#import "ps_quartz.h"
+
 #import "MapViewDraw.h"
 #import "idfunctions.h"
 #import "EditWorld.h"

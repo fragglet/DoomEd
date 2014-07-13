@@ -1,3 +1,5 @@
+#import "ps_quartz.h"
+
 //
 // This belongs to TextureEdit (docView of TextureEdit's ScrollView)
 //

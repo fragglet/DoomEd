@@ -1,3 +1,4 @@
+#import "ps_quartz.h"
 
 #import "ThermoView.h"
 

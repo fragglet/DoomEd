@@ -23,6 +23,7 @@
 		276AB5FD1970AEE0001718D1 /* TextureRemapper.nib in Resources */ = {isa = PBXBuildFile; fileRef = 276AB5F91970AEE0001718D1 /* TextureRemapper.nib */; };
 		276AB6001970AEEE001718D1 /* ThingPalette.nib in Resources */ = {isa = PBXBuildFile; fileRef = 276AB5FE1970AEEE001718D1 /* ThingPalette.nib */; };
 		276AB6031970AEF7001718D1 /* ThingStripper.nib in Resources */ = {isa = PBXBuildFile; fileRef = 276AB6011970AEF7001718D1 /* ThingStripper.nib */; };
+		277B09E31973147800177745 /* ps_quartz.m in Sources */ = {isa = PBXBuildFile; fileRef = 277B09E21973147800177745 /* ps_quartz.m */; };
 		27DA448E19706396005CB000 /* BlockWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446019706396005CB000 /* BlockWorld.m */; };
 		27DA448F19706396005CB000 /* Coordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446119706396005CB000 /* Coordinator.m */; };
 		27DA449019706396005CB000 /* DoomEd_main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA446219706396005CB000 /* DoomEd_main.m */; };
@@ -104,6 +105,8 @@
 		276AB5FA1970AEE0001718D1 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/TextureRemapper.nib; sourceTree = "<group>"; };
 		276AB5FF1970AEEE001718D1 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/ThingPalette.nib; sourceTree = "<group>"; };
 		276AB6021970AEF7001718D1 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/ThingStripper.nib; sourceTree = "<group>"; };
+		277B09E11973147800177745 /* ps_quartz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ps_quartz.h; sourceTree = "<group>"; };
+		277B09E21973147800177745 /* ps_quartz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ps_quartz.m; sourceTree = "<group>"; };
 		27DA443419706385005CB000 /* BlockWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockWorld.h; sourceTree = "<group>"; };
 		27DA443519706385005CB000 /* Coordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinator.h; sourceTree = "<group>"; };
 		27DA443619706385005CB000 /* DoomProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoomProject.h; sourceTree = "<group>"; };
@@ -269,6 +272,8 @@
 				27DA444419706385005CB000 /* pathops.h */,
 				27DA447419706396005CB000 /* PopScrollView.m */,
 				27DA444519706385005CB000 /* PopScrollView.h */,
+				277B09E21973147800177745 /* ps_quartz.m */,
+				277B09E11973147800177745 /* ps_quartz.h */,
 				27DA447519706396005CB000 /* PreferencePanel.m */,
 				27DA444619706385005CB000 /* PreferencePanel.h */,
 				27DA444719706385005CB000 /* R_mapdef.h */,
@@ -511,6 +516,7 @@
 				27DA44B819706396005CB000 /* ThingWindow.m in Sources */,
 				27DA44A219706396005CB000 /* PopScrollView.m in Sources */,
 				27DA449A19706396005CB000 /* lbmfunctions.m in Sources */,
+				277B09E31973147800177745 /* ps_quartz.m in Sources */,
 				27DA449019706396005CB000 /* DoomEd_main.m in Sources */,
 				27DA44B119706396005CB000 /* TextureWindow.m in Sources */,
 			);

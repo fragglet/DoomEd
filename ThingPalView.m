@@ -1,4 +1,6 @@
 
+#import "ps_quartz.h"
+
 #import "ThingPalView.h"
 #import	"ThingPalette.h"
 #import	"DoomProject.h"

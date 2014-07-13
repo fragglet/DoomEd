@@ -1,3 +1,5 @@
+#import "ps_quartz.h"
+
 /* Timing.m */
 
 #import "Timing.h"

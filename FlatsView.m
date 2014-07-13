@@ -1,3 +1,5 @@
+#import "ps_quartz.h"
+
 #import	"DoomProject.h"
 #import	"SectorEditor.h"
 #import "FlatsView.h"

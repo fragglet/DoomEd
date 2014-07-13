@@ -1,3 +1,5 @@
+#import "ps_quartz.h"
+
 #import	"TexturePalette.h"
 #import	"TextureEdit.h"
 #import "TexturePalView.h"
