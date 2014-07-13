@@ -127,7 +127,7 @@ extern	worldthing_t	*things;
 // dealing with map windows
 //
 - windowWillClose: sender;
-- updateWindows;
+- (void) updateWindows;
 - addToDirtyRect: (int)p1 : (int)p2;
 - updateLineNormal:(int) num;
 - redrawWindows;

@@ -619,7 +619,7 @@ FIXME: Map window is its own delegate now, this needs to be done with a message
 }
 
 
-- updateWindows
+- (void) updateWindows
 {
 	int	count;
 	
