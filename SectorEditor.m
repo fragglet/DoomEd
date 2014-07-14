@@ -508,7 +508,7 @@ id	sectorEdit_i;
 		{
 			[doomproject_i	updateThermo:i-flatStart max:flatEnd-flatStart];
 			//
-			// load raw 64*64 flat and convert to an NXImage
+			// load raw 64*64 flat and convert to an NSImage
 			//
 			flat = [wadfile_i	loadLump:i];
 			f.WADindex = windex;
@@ -807,46 +807,63 @@ id	sectorEdit_i;
 
 //=================================================================
 //
-//	Convert a raw 64x64 to an NXImage without an alpha channel
+//	Convert a raw 64x64 to an NSImage without an alpha channel
 //
 //=================================================================
-id	flatToImage(byte *rawData, unsigned short *shortpal) //byte const *lbmpalette)
+id flatToImage(byte *rawData, unsigned short *shortpal) //byte const *lbmpalette)
 {
-	short		*dest_p;
-	NXImageRep *image_i;
-	id			fastImage_i;
-	unsigned		i;
+	NSBitmapImageRep *image_i;
+	NSImage *fastImage_i;
+	NSSize size;
+	unsigned int x, y;
 
 	//
 	// make an NXimage to hold the data
 	//
-	image_i = [[NXBitmapImageRep alloc]
-		initData:			NULL 
-		pixelsWide:		64 
-		pixelsHigh:		64
-		bitsPerSample:	4
-		samplesPerPixel:	3 
-		hasAlpha:		NO
-		isPlanar:			NO 
-		colorSpace:		NX_RGBColorSpace 
-		bytesPerRow:		128
-		bitsPerPixel: 		16
+	image_i = [[NSBitmapImageRep alloc]
+		initWithBitmapDataPlanes: NULL
+		pixelsWide: 64
+		pixelsHigh: 64
+		bitsPerSample: 4
+		samplesPerPixel: 3
+		hasAlpha: NO
+		isPlanar: NO
+		colorSpaceName: NSDeviceRGBColorSpace
+		bitmapFormat: 0   // TODO: Is this correct?
+		bytesPerRow: 128
+		bitsPerPixel: 16
 	];
 
 	if (!image_i)
 		return nil;
-				
+
 	//
 	// translate the picture
 	//
-	 (unsigned char *)dest_p =[(NXBitmapImageRep *)image_i data];
-	memset(dest_p,0,64 * 64 * sizeof(short));
-	
-	for (i = 0;i < 64*64; i++)
-		*(dest_p++) = shortpal[*(rawData++)];
 
-	fastImage_i = [[NXImage	alloc]
-							init];
-	[fastImage_i	useRepresentation:(NXImageRep *)image_i];	
+	for (y = 0; y < 64; ++y)
+	{
+		for (x = 0; x < 64; ++x)
+		{
+			unsigned int r, g, b;
+
+			r = (shortpal[*rawData] >> 12) & 0xf;
+			g = (shortpal[*rawData] >> 8) & 0xf;
+			b = (shortpal[*rawData] >> 4) & 0xf;
+			++rawData;
+
+			NSColor *color = [NSColor colorWithCalibratedRed: r
+			                          green: g
+			                          blue: b
+			                          alpha: 1.0];
+			[image_i setColor: color atX: x atY: y];
+		}
+	}
+
+	size.width = 64;
+	size.height = 64;
+
+	fastImage_i = [[NSImage	alloc] initWithSize: size];
+	[fastImage_i addRepresentation: image_i];
 	return fastImage_i;
 }
