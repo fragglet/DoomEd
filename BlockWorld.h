@@ -3,7 +3,7 @@
 #import "EditWorld.h"
 #import "idfunctions.h"
 
-extern	ComapatibleStorage *sectors;
+extern	CompatibleStorage *sectors;
 extern	id	blockworld_i;
 extern	BOOL	fillerror;
 

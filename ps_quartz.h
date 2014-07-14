@@ -1,7 +1,7 @@
 
 #define NX_WHITE 1.0
 #define NX_LTGRAY (2.0/3.0)
-#define MX_DKGRAY (1.0/3.0)
+#define NX_DKGRAY (1.0/3.0)
 #define NX_BLACK 0.0
 
 typedef int PS_userobject;
