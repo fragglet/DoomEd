@@ -22,7 +22,7 @@
 	return self;
 }
 
-- getSpecialList
+- (CompatibleStorage *) getSpecialList
 {
 	return specialList_i;
 }

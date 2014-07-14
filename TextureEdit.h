@@ -101,11 +101,6 @@ typedef	struct
 	apatch_t		*patch;
 } texpatch_t;
 
-
-
-extern CompatibleStorage *texturePatches;
-extern	id	textureEdit_i;
-
 - (int)numSets;
 - findPatch:sender;
 - searchForPatch:sender;
@@ -118,7 +113,7 @@ extern	id	textureEdit_i;
 - sortDown:sender;
 
 - updateTexPatchInfo;
-- getSTP;
+- (CompatibleStorage *) getSTP;
 - changeSelectedTexturePatch:(int)which	to:(int)val;
 - addSelectedTexturePatch:(int)val;
 - (BOOL) selTextureEditPatchExists:(int)val;
@@ -164,6 +159,9 @@ extern	id	textureEdit_i;
 - locatePatchInTextures:sender;
 
 @end
+
+extern CompatibleStorage *texturePatches;
+extern TextureEdit *textureEdit_i;
 
 id	patchToImage(patch_t *patchData, unsigned short *shortpal,
 	NSSize *size,char *name);

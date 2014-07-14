@@ -23,7 +23,7 @@
 	int		max;
 	int		i;
 	speciallist_t	*s;
-	id		specialList_i;
+	CompatibleStorage *specialList_i;
 	int		found;
 	int		size;
 	int		tries;

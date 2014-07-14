@@ -21,7 +21,7 @@ typedef struct
 	char		frameString[32];
 }
 
-- getSpecialList;
+- (CompatibleStorage *) getSpecialList;
 - scrollToItem:(int)i;
 - setSpecialTitle:(char *)string;
 - setFrameName:(char *)string;

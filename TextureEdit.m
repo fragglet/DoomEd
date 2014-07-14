@@ -5,7 +5,7 @@
 #import	<ctype.h>
 #import	"lbmfunctions.h"
 
-id	textureEdit_i;
+TextureEdit *textureEdit_i;
 CompatibleStorage *texturePatches;
 
 @implementation TextureEdit
@@ -578,9 +578,9 @@ CompatibleStorage *texturePatches;
 	return self;
 }
 
-- getSTP
+- (CompatibleStorage *) getSTP
 {
-	return	selectedTexturePatches;
+	return selectedTexturePatches;
 }
 
 - changeSelectedTexturePatch:(int)which	to:(int)val
