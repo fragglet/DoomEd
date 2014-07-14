@@ -97,20 +97,21 @@ BOOL	debugflag = NO;
 		[sectorEdit_i	activateSpecialList:NULL];
 	if ([prefpanel_i	openUponLaunch:textureEditor] == TRUE)
 		[textureEdit_i	menuTarget:NULL];
-	
-	startupSound_i = [[Sound alloc] initFromSection:"D_Dbite"];
+
+	startupSound_i = [NSSound soundNamed: @"D_Dbite"];
 	[startupSound_i	play];
-	[startupSound_i	release];
-	
+
 	return self;
 }
 
 - appWillTerminate: sender
 {
+	[startupSound_i release];
+
 	[doomproject_i	quit];
 	[prefpanel_i appWillTerminate: self];
 	[editworld_i appWillTerminate: self];
-	
+
 	[sectorEdit_i	saveFrame];
 	[textureEdit_i	saveFrame];
 	[linepanel_i	saveFrame];

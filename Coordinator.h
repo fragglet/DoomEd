@@ -11,7 +11,7 @@ extern	BOOL	debugflag;
 {
 	id	toolPanel_i;
 	id	infoPanel_i;
-	id	startupSound_i;
+	NSSound *startupSound_i;
 }
 
 - toggleDebug: sender;

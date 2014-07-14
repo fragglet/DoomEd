@@ -77,11 +77,11 @@ typedef struct
 	NSRect	dirtyrect;	
 	id		windowlist_i;			// all windows that display this world
 	
-	CompatibleStorage *copyThings_i;			// cut/copy/paste info
+	CompatibleStorage *copyThings_i;		// cut/copy/paste info
 	CompatibleStorage *copyLines_i;
 	NSPoint	copyCoord;
 	int		copyLoaded;
-	id		saveSound;				// Sound instance
+	NSSound *saveSound;				// Sound instance
 }
 
 - appWillTerminate: sender;

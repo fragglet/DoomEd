@@ -6,7 +6,7 @@
 	id	window_i;
 	id	status_i;
 	id	numfield_i;
-	id	delSound;
+	NSSound *delSound;
 	id	fromBSP_i;
 }
 

@@ -198,7 +198,7 @@ int LineByPoint (NSPoint *ptin, int *side)
 		description: NULL
 	];
 
-	saveSound = [[Sound alloc] initFromSection:"DESave"];
+	saveSound = [NSSound soundNamed: @"DESave"];
 
 	return self;
 }

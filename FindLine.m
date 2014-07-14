@@ -11,7 +11,8 @@
 - init
 {
 	window_i = NULL;
-	delSound = [[Sound alloc] initFromSection:"D_EPain"];	return self;
+	delSound = [NSSound soundNamed: @"D_EPain"];
+	return self;
 }
 
 //=============================================================
