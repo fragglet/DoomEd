@@ -42,7 +42,7 @@ typedef struct
 	handle = open (pathname, O_RDWR, 0666);
 	if (handle== -1)
 	{
-		[self free];
+		[self release];
 		return nil;
 	}
 //
@@ -52,7 +52,7 @@ typedef struct
 	if (strncmp(wad.identification,"IWAD",4))
 	{
 		close (handle);
-		[self free];
+		[self release];
 		return nil;
 	}
 	wad.numlumps = LongSwap (wad.numlumps);
@@ -115,12 +115,15 @@ typedef struct
 	return self;
 }
 
--free
+- (void) dealloc
 {
-	close (handle);
-	[info free];
-	free (pathname);
-	return [super free];
+	close(handle);
+	if (info != nil)
+	{
+		[info release];
+	}
+	free(pathname);
+	[super dealloc];
 }
 
 //=============================================================================

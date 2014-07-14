@@ -421,7 +421,7 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 	
 	NXPing();
 
-	free (planes[0]);
+	free(planes[0]);
 	return self;
 }
 
@@ -536,7 +536,7 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 		else
 			if (bcmp (&new.s, &side->ends, sizeof(sectordef_t)))
 			{
-				[new.lines free];
+				[new.lines release];
 				[self sectorError: @"Line sectordefs differ" : i : frontline];
 				return NO;
 			}
@@ -544,7 +544,7 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 		frontline = i;
 		if (side->sector != -1)
 		{
-			[new.lines free];
+			[new.lines release];
 			[self sectorError:@"Line side grouped into multiple sectors" : i : -1];
 			return NO;
 		}
@@ -554,7 +554,7 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 	
 	if (backline >-1 && frontline > -1)
 	{
-		[new.lines free];
+		[new.lines release];
 		[self sectorError:@"Inside and outside lines grouped together" : backline : frontline];
 		return NO;
 	}
@@ -564,7 +564,7 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 		numsectors++;
 	}
 	else
-		[new.lines free];
+		[new.lines release];
 
 	
 	return YES;
@@ -593,7 +593,7 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 	for (i=0 ; i<count ; i++)
 	{
 		sector = [sectors elementAt: i];
-		[sector->lines free];
+		[sector->lines release];
 	}
 	[sectors empty];
 	for (i=0 ; i<numlines ; i++)

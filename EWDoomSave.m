@@ -456,7 +456,7 @@ int		linecrunch[8192];
 	[self writeThings];
 
 	[mapwad_i writeDirectory];
-	[mapwad_i free];
+	[mapwad_i release];
 	
 	free (buffer);
 	printf ("Save completed (%i bytes)\n", worldsize);

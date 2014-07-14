@@ -758,7 +758,7 @@ CompatibleStorage *texturePatches;
 	// load in all the texture patches
 	//
 	if (texturePatches)
-		[texturePatches	free];
+		[texturePatches	release];
 	texturePatches = [[CompatibleStorage alloc]
 		initCount: 0
 		elementSize: sizeof(texpatch_t)
@@ -910,10 +910,10 @@ CompatibleStorage *texturePatches;
 
 	if (which < 0)
 		return self;
-		
+
 	currentTexture = which;
 	if (texturePatches)
-		[texturePatches	free];
+		[texturePatches	release];
 
 	texturePatches = [[CompatibleStorage alloc]
 		initCount: 0
@@ -1150,18 +1150,18 @@ CompatibleStorage *texturePatches;
 	for (i = 0; i < max; i++)
 	{
 		p = [patchImages	elementAt: i ];
-		[ p->image	free ];
+		[p->image release];
 		if (p->image_x2 )
-			[p->image_x2  free ];
+			[p->image_x2 release];
 	}
-	
+
 	[ patchImages	empty ];
 	if (window_i)
 	{
-		[ window_i		free ];
+		[window_i release];
 		window_i = NULL;
 	}
-	
+
 	[panel	orderOut:NULL];
 	NSReleaseAlertPanel(panel);
 	return self;

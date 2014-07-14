@@ -182,16 +182,16 @@ id	texturePalette_i;
 	else
 	{
 		t = [allTextures	elementAt:which];
-		[t->image	free];
+		[t->image release];
 	}
-	
+
 	tex = [self	createTextureImage:which];
 	[allTextures	replaceElementAt:which with:&tex];
 
 	[self	computePalViewSize];
 	[self	selectTexture:which];
 	[doomproject_i	setDirtyProject:TRUE];
-	
+
 	return self;
 }
 

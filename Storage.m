@@ -50,10 +50,11 @@
 	elements = 0;
 }
 
-- (void) free
+- (void) dealloc
 {
 	free(data);
 	data = NULL;
+	[super dealloc];
 }
 
 - (CompatibleStorage *) initCount:(unsigned int)count

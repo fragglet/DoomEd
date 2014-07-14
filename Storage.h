@@ -15,7 +15,7 @@
 - (const char *)description;
 - (void *)elementAt:(unsigned int)index;
 - (void) empty;
-- (void) free;
+- (void) dealloc;
 - (CompatibleStorage *) initCount:(unsigned int)count
                         elementSize: (unsigned int) sizeInBytes
                         description: (const char *) string;

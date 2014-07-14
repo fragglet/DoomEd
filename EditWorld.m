@@ -208,7 +208,7 @@ int LineByPoint (NSPoint *ptin, int *side)
 // FIXME: prompt to save map if dirty
 	if ([windowlist_i	count] > 0)
 		[[windowlist_i	objectAt:0]	saveFrameUsingName:WORLDNAME];
-	[self free];
+	//[self free];
 	return self;
 }
 
@@ -313,8 +313,8 @@ int LineByPoint (NSPoint *ptin, int *side)
 	}
 
 	[[windowlist_i	objectAt:0] saveFrameUsingName:WORLDNAME];
-	[windowlist_i makeObjectsPerform: @selector(free)];
-	[windowlist_i free];
+	//[windowlist_i makeObjectsPerform: @selector(free)];
+	//[windowlist_i release];
 	windowlist_i = [[List alloc] init];
 		
 	numpoints = numlines = numthings = 0;

@@ -14,7 +14,7 @@
 - initFromFile: (char const *)path;
 - initNew: (char const *)path;
 - close;
-- free;
+- (void) dealloc;
 
 - (int)numLumps;
 - (int)lumpsize: (int)lump;

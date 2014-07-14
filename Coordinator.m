@@ -100,7 +100,7 @@ BOOL	debugflag = NO;
 	
 	startupSound_i = [[Sound alloc] initFromSection:"D_Dbite"];
 	[startupSound_i	play];
-	[startupSound_i	free];
+	[startupSound_i	release];
 	
 	return self;
 }

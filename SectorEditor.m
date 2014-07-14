@@ -426,13 +426,13 @@ id	sectorEdit_i;
 	for (i = 0; i < max; i++)
 	{
 		p = [ flatImages	elementAt: i ];
-		[ p->image	free ];
+		[ p->image release ];
 	}
-	
+
 	[ flatImages	empty ];
 	[panel	orderOut:NULL];
 	NSReleaseAlertPanel(panel);
-	
+
 	return self;
 }
 
