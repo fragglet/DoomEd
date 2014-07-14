@@ -64,17 +64,6 @@ typedef struct
 } copyline_t;
 
 //===========================================================================
-// GLOBAL variables
-
-extern	id			editworld_i;
-
-extern	int			numpoints, numlines, numthings;
-
-extern	worldpoint_t	*points;
-extern	worldline_t	*lines;
-extern	worldthing_t	*things;
-
-//===========================================================================
 
 @interface EditWorld : NSObject
 {
@@ -199,4 +188,16 @@ extern	worldthing_t	*things;
 
 @end
 
+//===========================================================================
+// GLOBAL variables
+
+extern EditWorld *editworld_i;
+
+extern int numpoints, numlines, numthings;
+
+extern worldpoint_t *points;
+extern worldline_t  *lines;
+extern worldthing_t *things;
+
 int LineByPoint (NSPoint *pt, int *side);
+

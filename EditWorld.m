@@ -11,7 +11,7 @@
 
 //=============================================================================
 
-id			editworld_i;
+EditWorld_i *editworld_i;
 int			numpoints, numlines, numthings;
 
 worldpoint_t	*points;
@@ -175,7 +175,7 @@ int LineByPoint (NSPoint *ptin, int *side)
 - init
 {
 	editworld_i = self;
-	
+
 //
 // set up local structures
 //
