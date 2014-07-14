@@ -11,7 +11,7 @@
 
 //=============================================================================
 
-EditWorld_i *editworld_i;
+EditWorld *editworld_i;
 int			numpoints, numlines, numthings;
 
 worldpoint_t	*points;
