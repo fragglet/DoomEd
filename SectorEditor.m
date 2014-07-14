@@ -17,10 +17,10 @@ id	sectorEdit_i;
 	window_i = NULL;
 	sectorEdit_i = self;
 	currentFlat = -1;
-	specialPanel_i = [[[[SpecialList	alloc]
-					setSpecialTitle:"Sector Editor - Specials"]
-					setFrameName:"SectorSpecialPanel"]
-					setDelegate:self];
+	specialPanel_i = [SpecialList alloc];
+	[specialPanel_i setSpecialTitle:"Sector Editor - Specials"];
+	[specialPanel_i setFrameName:"SectorSpecialPanel"];
+	[specialPanel_i setDelegate:self];
 	return self;
 }
 
@@ -607,7 +607,7 @@ id	sectorEdit_i;
 		x += FLATSIZE + SPACING;
 	}
 	
-	[flatPalView_i	scrollPoint:&p ];
+	[flatPalView_i	scrollPoint:p ];
 	[flatScrPalView_i	display];
 
 	return self;
