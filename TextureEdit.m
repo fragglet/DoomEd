@@ -1466,74 +1466,83 @@ CompatibleStorage *texturePatches;
 //
 // convert a compressed patch to an NXImage with an alpha channel
 //
-id	patchToImage(patch_t *patchData, unsigned short *shortpal,NSSize *size,char *name)
+NSImage *patchToImage(patch_t *patchData, unsigned short *shortpal,
+                      NSSize *size, char *name)
 {
-	byte			*dest_p;
-	NXImageRep *image_i;
-	id			fastImage_i;
-	int			width,height,count,topdelta;
-	byte const	*data;
-	int			i,index;
+	NSBitmapImageRep *image_i;
+	NSImage *fastImage_i;
+	int width,height,count,topdelta;
+	byte const *data;
+	int x, y, index;
 
 	width = ShortSwap(patchData->width);
 	height = ShortSwap(patchData->height);
 	size->width = width;
 	size->height = height;
-	
-	if (!width || !height)
+
+	if (width <= 0 || height <= 0)
 	{
-		printf("Can't create NXBitmapImage of %s!  "
+		printf("Can't create NSBitmapImageRep of %s!  "
 			"Width or height = 0.\n",name);
 		return NULL;
 	}
 	//
 	// make an NXimage to hold the data
 	//
-	image_i = [[NXBitmapImageRep alloc]
-		initData:			NULL 
-		pixelsWide:		width 
-		pixelsHigh:		height
-		bitsPerSample:	4
-		samplesPerPixel:	4 
-		hasAlpha:		YES
-		isPlanar:			NO 
-		colorSpace:		NX_RGBColorSpace 
-		bytesPerRow:		width*2
-		bitsPerPixel: 		16
+	image_i = [[NSBitmapImageRep alloc]
+		initWithBitmapDataPlanes: NULL
+		pixelsWide: width
+		pixelsHigh: height
+		bitsPerSample: 4
+		samplesPerPixel: 4
+		hasAlpha: YES
+		isPlanar: NO
+		colorSpaceName: NSDeviceRGBColorSpace
+		bytesPerRow: width*2
+		bitsPerPixel: 16
 	];
 
 	if (!image_i)
 		return nil;
-				
+
 	//
 	// translate the picture
 	//
-	dest_p = [(NXBitmapImageRep *)image_i data];
-	memset(dest_p,0,width * height * 2);
-	
-	for (i = 0;i < width; i++)
+	for (x = 0; x < width; ++x)
 	{
-		data = (byte *)patchData + LongSwap(patchData->collumnofs[i]);
-		while (1)
+		data = (byte *)patchData + LongSwap(patchData->collumnofs[x]);
+
+		// Read each post from the column.
+		while (*data != 0xff)
 		{
 			topdelta = *data++;
-			if (topdelta == (byte)-1)
-				break;
 			count = *data++;
-			index = (topdelta*width+i)*2;
 			data++;		// skip top double
+
+			y = topdelta;
 			while (count--)
 			{
-				*((unsigned short *)(dest_p + index)) = shortpal[*data++];
-				index += width * 2;
+				unsigned int r, g, b;
+
+				r = (shortpal[*data] >> 12) & 0xf;
+				g = (shortpal[*data] >> 8) & 0xf;
+				b = (shortpal[*data] >> 4) & 0xf;
+				++data;
+
+				NSColor *color =
+				    [NSColor colorWithCalibratedRed: r
+				             green: g
+				             blue: b
+				             alpha: 1.0];
+				[image_i setColor: color atX: x y: y];
+				++y;
 			}
 			data++;		// skip bottom double
 		}
 	}
 
-	fastImage_i = [[NXImage	alloc]
-							init];
-	[fastImage_i	useRepresentation:(NXImageRep *)image_i];	
+	fastImage_i = [[NSImage alloc] initWithSize: *size];
+	[fastImage_i addRepresentation: image_i];
 	return fastImage_i;
 }
 

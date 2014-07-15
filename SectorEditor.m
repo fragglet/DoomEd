@@ -856,7 +856,7 @@ id flatToImage(byte *rawData, unsigned short *shortpal) //byte const *lbmpalette
 			                          green: g
 			                          blue: b
 			                          alpha: 1.0];
-			[image_i setColor: color atX: x atY: y];
+			[image_i setColor: color atX: x y: y];
 		}
 	}
 
