@@ -127,7 +127,8 @@
 	texpatch_t	*patch;
 	NSEvent	*event;
 
-	oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
+	// TODO: Needed?
+	//oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
 	loc = [theEvent locationInWindow];
 	[self convertPoint:loc	fromView:NULL];
 	ct = [textureEdit_i	getCurrentTexture];
@@ -186,10 +187,16 @@
 		d.yoff = loc.y - d.p->r.origin.y;
 		[deltaTable	addElement:&d];
 	}
-	
+
 	do
 	{
-		event = [NSApp getNextEvent:	NX_MOUSEUPMASK |									NX_MOUSEDRAGGEDMASK];
+		event = [[self window]
+			nextEventMatchingMask:
+			    NSLeftMouseUp | NSLeftMouseDraggedMask
+		];
+		if (event == nil)
+			continue;
+
 		newloc = [event locationInWindow];
 		[self convertPoint:newloc  fromView:NULL];
 		warn = 0;

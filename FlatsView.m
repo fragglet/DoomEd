@@ -95,10 +95,11 @@
 	int	i,max,oldwindowmask;
 	flat_t	*f;
 
-	oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
+	// TODO: Needed?
+	//oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
 	loc = [theEvent locationInWindow];
 	[self convertPoint:loc	fromView:NULL];
-	
+
 	max = [sectorEdit_i	getNumFlats];
 	for (i = 0;i < max; i++)
 	{
@@ -109,12 +110,13 @@
 				[sectorEdit_i	selectFlat:i];
 			else
 				[sectorEdit_i	setCurrentFlat:i];
-				
+
 			break;
 		}
 	}
-	
-	[[self window] setEventMask:oldwindowmask];
+
+	// TODO: Needed?
+	//[[self window] setEventMask:oldwindowmask];
 }
 
 @end

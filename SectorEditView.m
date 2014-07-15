@@ -63,11 +63,12 @@
 //	NSEvent	*event;
 //	NSRect	r;
 
-	oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
+	// TODO: Needed?
+	//oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
 	loc = [theEvent locationInWindow];
 	[self convertPoint:loc	fromView:NULL];
-	
-#if 0	
+
+#if 0
 	s = [sectorEdit_i		getSector];
 	r.origin.x = 32;
 	r.size.height = r.size.width = 64;
@@ -131,8 +132,8 @@
 		}
 	}
 #endif
-	
-	[[self window] setEventMask:oldwindowmask];
+
+	//[[self window] setEventMask:oldwindowmask];
 }
 
 @end

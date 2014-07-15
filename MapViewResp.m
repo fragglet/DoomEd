@@ -82,20 +82,29 @@
 			
 	oldpt = [event locationInWindow];
 	[self convertPoint: oldpt fromView: NULL];
-	
-	oldMask = [[self window] addToEventMask:NX_MOUSEDRAGGEDMASK | NX_RMOUSEDRAGGEDMASK];
-	
-	do 
+
+	// TODO: Needed?
+	//oldMask = [[self window] addToEventMask:NX_MOUSEDRAGGEDMASK | NX_RMOUSEDRAGGEDMASK];
+
+	do
 	{
-		event = [NSApp getNextEvent: NX_MOUSEUPMASK | NX_RMOUSEUPMASK | NX_MOUSEDRAGGEDMASK | NX_RMOUSEDRAGGEDMASK];
-		if ([event type] == NSLeftMouseUp || [event type] == NSRightMouseUp)
+		event = [[self window]
+			nextEventMatchingMask: NSLeftMouseUpMask
+			    | NSRightMouseUpMask | NSLeftMouseDraggedMask
+			    | NSRightMouseDraggedMask
+		];
+		if (event == nil)
+			continue;
+
+		if ([event type] == NSLeftMouseUp
+		 || [event type] == NSRightMouseUp)
 			break;
-			
+
 		pt = [event locationInWindow];
 		[self convertPoint: pt fromView: NULL];
 		dx = oldpt.x - pt.x;
 		dy= oldpt.y - pt.y;
-		
+
 		if (dx != 0 || dy != 0)
 		{
 			origin = [self getCurrentOrigin];
@@ -110,9 +119,9 @@
 			[doomproject_i	setDirtyMap:TRUE];
 		}
 	} while (1);
-	
-	[[self window] setEventMask:oldMask];
-	
+
+	//[[self window] setEventMask:oldMask];
+
 	return self;
 }
 
@@ -227,34 +236,38 @@
 {
 	int 		oldMask;
 	NSPoint	fixedpoint, dragpoint;	// endpoints of the line
-		
-	oldMask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
-	
+
+	// TODO: Needed?
+	//oldMask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
+
 	[self lockFocus];
 	PSsetinstance (YES);
 	PSsetlinewidth (0.15);
 	NXSetColor ([prefpanel_i colorFor: [settingspanel_i segmentType]]);
 
 	fixedpoint = [self getGridPointFrom: event];		// handle grid and such
-	
-	do 
+
+	do
 	{
 		dragpoint = [self getGridPointFrom: event];  // handle grid and such
-		
+
 		PSnewinstance ();
-		
+
 		PSmoveto (fixedpoint.x, fixedpoint.y);
 		PSlineto (dragpoint.x, dragpoint.y);
 		PSstroke ();
 		NXPing ();
-		
-		event = [NSApp getNextEvent: NX_LMOUSEUPMASK | NX_LMOUSEDRAGGEDMASK];
-	} while ([event type] != NSLeftMouseUp);
-	
+
+		event = [[self window]
+			nextEventMatchingMask:
+		            NSLeftMouseUp | NSLeftMouseDraggedMask
+		];
+	} while (event == nil || [event type] != NSLeftMouseUp);
+
 //
 // add to the world
 //
-	[[self window] setEventMask:oldMask];
+	//[[self window] setEventMask:oldMask];
 
 	PSnewinstance ();
 	PSsetinstance (NO);
@@ -298,8 +311,8 @@
 //
 	do
 	{
-		event = [NSApp getNextEvent: NX_LMOUSEUPMASK];
-	} while ([event type] != NSLeftMouseUp);
+		event = [[self window] nextEventMatchingMask: NSLeftMouseUp];
+	} while (event == nil || [event type] != NSLeftMouseUp);
 
 //
 // drag lines until a click on same point
@@ -307,28 +320,37 @@
 	do
 	{
 		fixedpoint = [self getGridPointFrom: event];	// handle grid and such
-		oldMask = [[self window] addToEventMask:NX_MOUSEMOVEDMASK];
+
+		// TODO: Needed?
+		//oldMask = [[self window] addToEventMask:NX_MOUSEMOVEDMASK];
 		PSsetinstance (YES);
-	
-		do 
+
+		do
 		{
-			event = [NSApp getNextEvent: NX_LMOUSEDOWNMASK | NX_LMOUSEUPMASK | NX_MOUSEMOVEDMASK | NX_LMOUSEDRAGGEDMASK];
+			event = [[self window]
+				nextEventMatchingMask: NSLeftMouseUpMask
+				    | NSRightMouseUpMask | NSLeftMouseDraggedMask
+				    | NSRightMouseDraggedMask
+			];
+			if (event == nil)
+				continue;
+
 			dragpoint = [self getGridPointFrom: event];  // handle grid and such
 			if ([event type] == NSLeftMouseUp)
 				break;
-				
+
 			PSnewinstance ();
 			PSmoveto (fixedpoint.x, fixedpoint.y);
 			PSlineto (dragpoint.x, dragpoint.y);
 			PSstroke ();
-			NXPing ();			
+			NXPing ();
 		} while (1);
-	
+
 //
 // add to the world
 //
-		[[self window] setEventMask:oldMask];
-	
+		//[[self window] setEventMask:oldMask];
+
 		PSnewinstance ();
 		PSsetinstance (NO);
 
@@ -453,12 +475,19 @@
 //
 // modal dragging loop
 //
-	oldMask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
+
+	// TODO: Needed?
+	//oldMask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
 	moved = totalmoved = cursor;
-	
-	do 
-	{		
-		event = [NSApp getNextEvent: NX_LMOUSEUPMASK | NX_LMOUSEDRAGGEDMASK];
+
+	do
+	{
+		event = [[self window]
+			nextEventMatchingMask:
+			    NSLeftMouseUp | NSLeftMouseDraggedMask
+		];
+		if (event == nil)
+			continue;
 		if ( [event type] == NSLeftMouseUp)
 			break;
 		//
@@ -525,7 +554,7 @@
 		
 	} while (1);
 
-	[[self window] setEventMask:oldMask];
+	//[[self window] setEventMask:oldMask];
 
 	//
 	// tell the world about the changes
@@ -579,9 +608,10 @@
 		
 //
 // move drag
-//	
-	oldMask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
-	
+//
+	// TODO: Needed?
+	//oldMask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
+
 	[self lockFocus];
 	PSsetinstance (YES);
 	PSsetgray (SELECTIONGRAY);
@@ -594,19 +624,22 @@
 		dragcorner = [event locationInWindow];
 		[self convertPoint:dragcorner  fromView:NULL];
 		IDRectFromPoints (&newframe, &fixedcorner, &dragcorner);
-				
+
 		//
 		// redraw new frame
 		//
 		PSnewinstance ();
 		NXFrameRectWithWidth(&newframe, FRAMEWIDTH);
 		NXPing ();
-		
-		event = [NSApp getNextEvent: NX_LMOUSEUPMASK | NX_LMOUSEDRAGGEDMASK];
-		
-	} while ([event type] != NSLeftMouseUp);
 
-	[[self window] setEventMask:oldMask];
+		event = [[self window]
+			nextEventMatchingMask:
+			    NSLeftMouseUp | NSLeftMouseDraggedMask
+		];
+
+	} while (event == nil || [event type] != NSLeftMouseUp);
+
+	//[[self window] setEventMask:oldMask];
 	PSnewinstance ();
 	PSsetinstance (NO);
 	[self unlockFocus];

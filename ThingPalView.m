@@ -81,10 +81,11 @@
 	int		oldwindowmask;
 	icon_t	*icon;
 
-	oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
+	// TODO: Needed?
+	//oldwindowmask = [[self window] addToEventMask:NX_LMOUSEDRAGGEDMASK];
 	loc = [theEvent locationInWindow];
 	[self convertPoint:loc	fromView:NULL];
-	
+
 	max = [thingPalette_i	getNumIcons];
 	for (i = 0;i < max; i++)
 	{
@@ -96,8 +97,8 @@
 			break;
 		}
 	}
-	
-	[[self window] setEventMask:oldwindowmask];
+
+	//[[self window] setEventMask:oldwindowmask];
 }
 
 @end
