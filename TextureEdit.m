@@ -64,7 +64,7 @@ CompatibleStorage *texturePatches;
 		[texturePatchScrollView_i	getContentSize:&s];
 		startPoint.x = 0;
 		startPoint.y = dvf.size.height - s.height;
-		[texturePatchView_i		scrollPoint:&startPoint];
+		[texturePatchView_i		scrollPoint:startPoint];
 		#endif
 		[self	setSelectedPatch:0];
 
@@ -74,7 +74,7 @@ CompatibleStorage *texturePatches;
 		[textureView_i		getFrame:&dvf];
 		[scrollView_i		getContentSize:&s];
 		startPoint.y = dvf.size.height - s.height;
-		[textureView_i		scrollPoint:&startPoint];
+		[textureView_i		scrollPoint:startPoint];
 
 		selectedTexturePatches = [[CompatibleStorage alloc]
 			initCount: 0
@@ -721,20 +721,22 @@ CompatibleStorage *texturePatches;
 //
 - makeNewTexture:sender
 {
-	int	textureNum,rcode;
+	NSModalResponse rcode;
+	int	textureNum;
 	worldtexture_t		tex;
 	id	cell;
-	
+
 	if (![doomproject_i loaded])
 		return self;
-		
+
 	//
 	// create a default new texture
 	//
-	
-	rcode = [NSApp	runModalFor:createTexture_i];
+	rcode = [[NSApplication sharedApplication]
+		runModalForWindow: createTexture_i
+	];
 	[createTexture_i	close];
-	if (rcode == NX_RUNABORTED)
+	if (rcode == NSModalResponseAbort)
 		return self;
 
 	tex.width = [createWidth_i	intValue];
@@ -1252,16 +1254,16 @@ CompatibleStorage *texturePatches;
 //
 - createPatchX2:(apatch_t *)p
 {
-	NSSize	theSize;
-	
+	NSSize theSize;
+
 	p->image_x2 = [p->image	copyFromZone:NXDefaultMallocZone()];
 	theSize = p->size;
 	theSize.width *= 2;
 	theSize.height *= 2;
-	[p->image_x2	setScalable:YES];
-	[p->image_x2	setSize:&theSize];
+	[p->image_x2 setScalable:YES];
+	[p->image_x2 setSize:theSize];
 	return self;
-}		
+}
 
 //
 //	Return # of patches
