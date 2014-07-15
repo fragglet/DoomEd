@@ -3,7 +3,7 @@
 #import "MapWindow.h"
 #import "DoomProject.h"
 
-id	prefpanel_i;
+PreferencePanel *prefpanel_i;
 
 char		*ucolornames[NUMCOLORS] =
 {

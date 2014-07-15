@@ -3,8 +3,6 @@
 #import	"TextureEdit.h"
 #import <appkit/appkit.h>
 
-extern id	texturePalette_i;
-
 typedef struct
 {
 	id	image;
@@ -69,6 +67,8 @@ typedef struct
 
 @end
 
+extern TexturePalette *texturePalette_i;
+
 //
 //	Converting a texture to an LBM
 //
@@ -78,3 +78,4 @@ void moveVgaPatch(byte *raw, byte *dest, int x, int y,
 	int clipwidth, int clipheight);
 void createVgaTexture(char *dest, int which,int width, int height);
 void createAndSaveLBM(char *name, int cs, FILE *fp);
+

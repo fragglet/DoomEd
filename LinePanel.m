@@ -5,8 +5,8 @@
 #import "R_mapdef.h"
 #import	"DoomProject.h"
 
-id	linepanel_i;
-id	lineSpecialPanel_i;
+LinePanel *linepanel_i;
+SpecialList *lineSpecialPanel_i;
 
 @implementation LinePanel
 
@@ -33,13 +33,13 @@ id	lineSpecialPanel_i;
 	baseline.side[0].ends.ceilingheight = 80;
 	strcpy (baseline.side[0].ends.floorflat, "FLAT1");
 	strcpy (baseline.side[0].ends.ceilingflat, "FLAT2");
-	
+
 	memcpy (&baseline.side[1], &baseline.side[0], sizeof(baseline.side[0]));
-	
-	lineSpecialPanel_i = [[[[SpecialList	alloc]
-					setSpecialTitle:"Line Inspector - Specials"]
-					setFrameName:"LineSpecialPanel"]
-					setDelegate:self];
+
+	lineSpecialPanel_i = [[SpecialList alloc] init];
+	[lineSpecialPanel_i setSpecialTitle:"Line Inspector - Specials"];
+	[lineSpecialPanel_i setFrameName:"LineSpecialPanel"];
+	[lineSpecialPanel_i setDelegate:self];
 	return self;
 }
 

@@ -10,7 +10,7 @@
 
 @implementation SectorEditor
 
-id	sectorEdit_i;
+SectorEditor *sectorEdit_i;
 
 - init
 {

@@ -4,7 +4,7 @@
 #import	"Wadfile.h"
 #import	"lbmfunctions.h"
 
-id	thingPalette_i;
+ThingPalette *thingPalette_i;
 
 @implementation ThingPalette
 

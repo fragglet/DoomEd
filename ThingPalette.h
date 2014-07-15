@@ -13,8 +13,6 @@ typedef struct
 #define	SPACING		10
 #define	ICONSIZE	48
 
-extern id	thingPalette_i;
-
 @interface ThingPalette:NSObject
 {
 	id		window_i;			// outlet
@@ -38,3 +36,7 @@ extern id	thingPalette_i;
 
 
 @end
+
+extern ThingPalette *thingPalette_i;
+
+

@@ -15,8 +15,6 @@ typedef struct
 #define	SPACING		10
 #define	FLATSIZE	64
 
-extern id	sectorEdit_i;
-
 @interface SectorEditor:NSObject
 {
 	id	window_i;
@@ -93,4 +91,7 @@ extern id	sectorEdit_i;
 - updateSectorSpecialsDSP:(FILE *)stream;
 @end
 
+extern SectorEditor *sectorEdit_i;
+
 id	flatToImage(byte *rawData, unsigned short *shortpal);
+

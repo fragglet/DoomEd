@@ -1,8 +1,6 @@
 
 #import <appkit/appkit.h>
 
-extern	id	settingspanel_i;
-
 @interface SettingsPanel:NSObject
 {
 	int	segmenttype;
@@ -12,3 +10,6 @@ extern	id	settingspanel_i;
 - (int) segmentType;
 
 @end
+
+extern SettingsPanel *settingspanel_i;
+

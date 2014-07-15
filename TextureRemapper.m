@@ -2,7 +2,7 @@
 #import	"TexturePalette.h"
 #import	"TextureRemapper.h"
 
-id	textureRemapper_i;
+TextureRemapper *textureRemapper_i;
 
 @implementation TextureRemapper
 

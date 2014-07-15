@@ -1,9 +1,7 @@
 
 #import <appkit/appkit.h>
 #import "EditWorld.h"
-
-extern	id	linepanel_i;
-extern	id	lineSpecialPanel_i;
+#import "SpecialList.h"
 
 @interface LinePanel:NSObject
 {
@@ -68,3 +66,7 @@ extern	id	lineSpecialPanel_i;
 - activateSpecialList:sender;
 - updateLineSpecialsDSP:(FILE *)stream;
 @end
+
+extern	LinePanel *linepanel_i;
+extern	SpecialList *lineSpecialPanel_i;
+

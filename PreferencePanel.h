@@ -1,8 +1,6 @@
 
 #import <appkit/appkit.h>
 
-extern	id	prefpanel_i;
-
 #define	APPDEFAULTS	"ID_doomed"
 //	#define NUMCOLORS	9
 #define	PREFNAME		@"PrefPanel"
@@ -77,3 +75,6 @@ typedef enum
 - (BOOL)openUponLaunch:(openup_e)type;
 
 @end
+
+extern PreferencePanel *prefpanel_i;
+

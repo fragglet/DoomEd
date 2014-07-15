@@ -2,7 +2,7 @@
 #import "SettingsPanel.h"
 #import "PreferencePanel.h"
 
-id	settingspanel_i;
+SettingsPanel *settingspanel_i;
 
 @implementation SettingsPanel
 
