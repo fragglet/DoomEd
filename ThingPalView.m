@@ -33,7 +33,7 @@
 	for (i = 0; i < max; i++)
 	{
 		icon = [thingPalette_i	getIcon:i];
-		if (NXIntersectsRect(&rects[0],&icon->r) == YES)
+		if (NSIntersectsRect(rects[0], icon->r))
 		{
 			p = icon->r.origin;
 			p.x += (ICONSIZE - icon->imagesize.width)/2;

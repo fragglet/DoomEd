@@ -80,7 +80,7 @@
 	for (i = 0;i < patchCount; i++)
 	{
 		tpatch = [texturePatches	elementAt:i];
-//		if (NXIntersectsRect(&tpatch->r,&rects[0]) == YES)
+//		if (NSIntersectsRect(tpatch->r, rects[0]))
 			[tpatch->patch->image_x2	composite:NSCompositeSourceOver toPoint:&tpatch->r.origin];
 	}
 
@@ -91,7 +91,7 @@
 		for (i = patchCount - 1;i >= 0;i--)
 		{
 			tpatch = [texturePatches	elementAt:i];
-//			if (NXIntersectsRect(&tpatch->r,&rects[0]) == YES)
+//			if (NSIntersectsRect(tpatch->r, rects[0]))
 				NXFrameRectWithWidth(&tpatch->r,5);
 		}
 

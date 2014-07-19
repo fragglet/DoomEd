@@ -58,7 +58,7 @@
 	for (i = 0; i < max; i++)
 	{
 		f = [sectorEdit_i	getFlat:i];
-		if (NXIntersectsRect(&rects[0],&f->r))
+		if (NSIntersectsRect(rects[0], f->r))
 			[f->image	composite:NSCompositeCopy	toPoint:&f->r.origin];
 	}
 

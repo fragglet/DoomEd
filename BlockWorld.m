@@ -374,8 +374,8 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 	unsigned char		*planes[5];
 	int		i,size;
 	short	*src, *dest;
-	
-	NXSetRect (&aRect, 100, 100, brow/WLSIZE, bheight);
+
+	aRect = NSMakeRect(100, 100, brow / WLSIZE, bheight);
 	window = [[NSWindow alloc] initWithContentRect: aRect
 	                           styleMask: NSTitledWindowMask
 				   backing: NSBackingStoreRetained

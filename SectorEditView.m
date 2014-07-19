@@ -12,19 +12,19 @@
 	flat_t	*f;
 	NSPoint	p;
 	NSRect	r;
-	
+
 	s = [sectorEdit_i		getSector];
-		
+
 	PSsetgray(NX_LTGRAY);
-	NXSetRect(&r,0,0,128,200);
+	r = NSMakeRect(0, 0, 128, 200);
 	NSRectFill(r);
-	
+
 	//
 	// Draw ceiling
 	//
 	if (!s->ceilingflat[0])
 	{
-		NXSetRect(&r,32,105,64,64);
+		r = NSMakeRect(32, 105, 64, 64);
 		NSRectFill(r);
 	}
 	else
@@ -40,7 +40,7 @@
 	//
 	if (!s->floorflat[0])
 	{
-		NXSetRect(&r,32,31,64,64);
+		r = NSMakeRect(32, 31, 64, 64);
 		NSRectFill(r);
 	}
 	else

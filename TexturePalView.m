@@ -74,7 +74,7 @@
 	//
 	count = 0;
 	while ((t = [texturePalette_i	getNewTexture:count++]) != NULL)
-		if (NXIntersectsRect(&rects[0],&t->r) == YES)
+		if (NSIntersectsRect(rects[0], t->r))
 			[t->image	composite:NSCompositeCopy	toPoint:&t->r.origin];
 	
 	//

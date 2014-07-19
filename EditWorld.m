@@ -586,7 +586,7 @@ int LineByPoint (NSPoint *ptin, int *side)
 		new.size.height = pt1->y - pt2->y+1;
 	}
 
-	NXUnionRect (&new, &dirtyrect);
+	dirtyrect = NSUnionRect(new, dirtyrect);
 #endif
 	return self;
 }
@@ -1381,9 +1381,9 @@ Updates dirty rect based on old and new positions
 - changeThing: (int)num to: (worldthing_t *)data
 {
 	NSRect	drect;
-	
+
 	boundsdirty = YES;
-//printf ("changeThing: %i\n",num);
+	//printf ("changeThing: %i\n",num);
 	if (num >= numthings)
 	{
 		NSRunAlertPanel(@"Error",
@@ -1392,25 +1392,29 @@ Updates dirty rect based on old and new positions
 		[NSApp terminate:self];
 	}
 
-// mark the old position as dirty
+	// mark the old position as dirty
 	if (things[num].selected != -1)
 	{
-		NXSetRect (&drect, data->origin.x - THINGDRAWSIZE/2
-		, data->origin.y - THINGDRAWSIZE/2,THINGDRAWSIZE, THINGDRAWSIZE);
-		NXUnionRect (&drect, &dirtyrect);
+		drect = NSMakeRect(data->origin.x - THINGDRAWSIZE / 2,
+		                   data->origin.y - THINGDRAWSIZE / 2,
+		                   THINGDRAWSIZE,
+		                   THINGDRAWSIZE);
+		dirtyrect = NSUnionRect(drect, dirtyrect);
 	}
 
-// change the thing	
+	// change the thing
 	things[num] = *data;
 
 // mark the new position as dirty
 	if (things[num].selected != -1)
 	{
-		NXSetRect (&drect, data->origin.x - THINGDRAWSIZE/2
-		, data->origin.y - THINGDRAWSIZE/2,THINGDRAWSIZE, THINGDRAWSIZE);
-		NXUnionRect (&drect, &dirtyrect);
+		drect = NSMakeRect(data->origin.x - THINGDRAWSIZE / 2,
+		                   data->origin.y - THINGDRAWSIZE / 2,
+		                   THINGDRAWSIZE,
+		                   THINGDRAWSIZE);
+		dirtyrect = NSUnionRect(drect, dirtyrect);
 	}
-	
+
 	return nil;
 }
 

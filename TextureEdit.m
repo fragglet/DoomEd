@@ -685,14 +685,18 @@ CompatibleStorage *texturePatches;
 	if (	[textureWidthField_i	intValue] < textures[currentTexture].width ||
 		[textureHeightField_i	intValue] < textures[currentTexture].height)
 	{
-		NXSetRect(&tr,0,0,
-				[textureWidthField_i  intValue] * 2,[textureHeightField_i  intValue] * 2);
+		tr = NSMakeRect(0, 0,
+		                [textureWidthField_i intValue] * 2,
+		                [textureHeightField_i intValue] * 2);
 		count = 0;
 		deltay = (textures[currentTexture].height - [textureHeightField_i  intValue]) * 2;
 		while((p = [texturePatches	elementAt:count++]) != NULL)
 		{
-			NXSetRect(&nr,p->r.origin.x,p->r.origin.y - deltay,p->r.size.width,p->r.size.height);
-			if (NXIntersectsRect(&nr,&tr) == NO)
+			nr = NSMakeRect(p->r.origin.x,
+			                p->r.origin.y - deltay,
+			                p->r.size.width,
+			                p->r.size.height);
+			if (!NSIntersectsRect(nr, tr))
 			{
 				NSBeep();
 				NSRunAlertPanel(@"Oops!",
@@ -1220,8 +1224,8 @@ CompatibleStorage *texturePatches;
 			windex = -1;
 			continue;
 		}
-		
-		NXSetRect(&p.r,0,0,0,0);
+
+		p.r = NSMakeRect(0, 0, 0, 0);
 		for (i = patchStart; i < patchEnd; i++)
 		{
 			[doomproject_i	updateThermo:i-patchStart max:patchEnd-patchStart];
@@ -1402,8 +1406,8 @@ CompatibleStorage *texturePatches;
 			x += patch->r.size.width + SPACING;
 	}
 	y += maxheight + SPACING;
-	NXSetRect(theframe,0,0,curWindowRect.size.width + SPACING,y);
-	
+	*theframe = NSMakeRect(0, 0, curWindowRect.size.width + SPACING, y);
+
 	//
 	// now go through all the patches and reassign the coords so they
 	// stack from top to bottom...

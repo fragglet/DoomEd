@@ -55,14 +55,15 @@ BOOL	linecross[9][9];
 			nil, nil, nil);
 		return NULL;
 	}
-	
+
 	gridsize = 8;		// these are changed by the pop up menus
 	scale = 1;
-	
-	NXSetRect (&aRect, 0,0, 100,100);	// call -setOrigin after installing in clip view
-	[super initWithFrame: aRect];			// to set the proper rectangle
+
+	// call -setOrigin after installing in clip view
+	aRect = NSMakeRect(0, 0, 100, 100);
+	[super initWithFrame: aRect];	// to set the proper rectangle
 	[self setOpaque: YES];
-		
+
 	return self;
 }
 
@@ -287,9 +288,9 @@ printf ("Done\n");
 	rect.origin.y = dirty->origin.y - adjust;
 	rect.size.width = dirty->size.width + adjust*2;
 	rect.size.height = dirty->size.height + adjust*2;
-	
-	NXIntegralRect (&rect);
-	
+
+	rect = NSIntegralRect(rect);
+
 	return [self display: &rect : 1];
 }
 
@@ -381,7 +382,7 @@ printf ("Done\n");
 
 	map = [editworld_i getBounds];
 
-	NXUnionRect (&map, &newbounds);
+	newbounds = NSUnionRect(map, newbounds);
 
 	viewbounds = [self bounds];
 

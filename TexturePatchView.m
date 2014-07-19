@@ -68,7 +68,7 @@
 	selectedPatch = [textureEdit_i	getCurrentPatch];
 	patchnum = 0;
 	while ((patch = [textureEdit_i	getPatch:patchnum++]) != NULL)
-		if (NXIntersectsRect(&patch->r,&rects[0]))
+		if (NSIntersectsRect(patch->r, rects[0]))
 			[patch->image		composite:NSCompositeSourceOver toPoint:&patch->r.origin];
 	
 	clipview = [self frame];

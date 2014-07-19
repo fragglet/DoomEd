@@ -476,8 +476,8 @@ SectorEditor *sectorEdit_i;
 		description: NULL
 	];
 
-	NXSetRect(&f.r,0,0,0,0);
-	
+	f.r = NSMakeRect(0, 0, 0, 0);
+
 	windex = 0;
 	do
 	{

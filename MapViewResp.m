@@ -539,7 +539,7 @@
 		//
 		for (l = 0 ; l < linecount ; l++)
 			[editworld_i updateLineNormal: linelist[l]];
-		
+
 		//
 		// redraw new frame
 		//
@@ -547,11 +547,11 @@
 		currentdragrect.origin.x += cursor.x;
 		currentdragrect.origin.y += cursor.y;
 		updaterect = currentdragrect;
-		NXUnionRect (&olddragrect, &updaterect);
-		NXUnionRect (&fixedrect, &updaterect);
+		updaterect = NSUnionRect(olddragrect, updaterect);
+		updaterect = NSUnionRect(fixedrect, updaterect);
 		olddragrect = currentdragrect;
 		[self displayDirty: &updaterect];
-		
+
 	} while (1);
 
 	//[[self window] setEventMask:oldMask];
