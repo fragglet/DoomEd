@@ -136,23 +136,23 @@ printf ("Done\n");
 
 - scaleMenuTarget: sender
 {
-	char	const	*item;
-	float			nscale;
-	NSRect		visrect;
-	
-	item = [[sender selectedCell] title];
-	sscanf (item,"%f",&nscale);
+	NSString *item;
+	float nscale;
+	NSRect visrect;
+
+	item = [sender titleOfSelectedItem];
+	sscanf([item UTF8String], "%f", &nscale);
 	nscale /= 100;
-	
+
 	if (nscale == scale)
 		return NULL;
-		
-// try to keep the center of the view constant
+
+	// try to keep the center of the view constant
 	visrect = [[self superview] visibleRect];
 	visrect = [self convertRect: visrect fromView: [self superview]];
 	visrect.origin.x += visrect.size.width/2;
 	visrect.origin.y += visrect.size.height/2;
-	
+
 	[self zoomFrom: visrect.origin toScale: nscale];
 
 	return self;
@@ -171,15 +171,15 @@ printf ("Done\n");
 
 - gridMenuTarget: sender
 {
-	char	const	*item;
-	int			grid;
-	
-	item = [[sender selectedCell] title];
-	sscanf (item,"grid %d",&grid);
+	NSString *item;
+	int grid;
+
+	item = [sender titleOfSelectedItem];
+	sscanf([item UTF8String], "grid %d", &grid);
 
 	if (grid == gridsize)
 		return NULL;
-		
+
 	gridsize = grid;
 	[self display];
 

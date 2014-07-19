@@ -53,45 +53,46 @@ static	int	cornerx = 128, cornery = 64;
 
 // initialize the pop up menus
 //
-	scalemenu_i = [[PopUpList alloc] init];
-	[scalemenu_i setTarget: mapview_i];
-	[scalemenu_i setAction: @selector(scaleMenuTarget:)];
+	scalebutton_i = [[NSPopUpButton alloc]
+		initWithFrame: CGRectZero
+		pullsDown: NO
+	];
+	[scalebutton_i setTarget: mapview_i];
+	[scalebutton_i setAction: @selector(scaleMenuTarget:)];
 
-	[scalemenu_i addItem: "3.125%"];
-	[scalemenu_i addItem: "6.25%"];
-	[scalemenu_i addItem: "12.5%"];
-	[scalemenu_i addItem: "25%"];
-	[scalemenu_i addItem: "50%"];
-	[scalemenu_i addItem: "100%"];
-	[scalemenu_i addItem: "200%"];
-	[scalemenu_i addItem: "400%"];
-	[[scalemenu_i itemList] selectCellAtRow: 5 column: 0];
-	
-	scalebutton_i = NXCreatePopUpListButton(scalemenu_i);
+	[scalebutton_i addItemWithTitle: @"3.125%"];
+	[scalebutton_i addItemWithTitle: @"6.25%"];
+	[scalebutton_i addItemWithTitle: @"12.5%"];
+	[scalebutton_i addItemWithTitle: @"25%"];
+	[scalebutton_i addItemWithTitle: @"50%"];
+	[scalebutton_i addItemWithTitle: @"100%"];
+	[scalebutton_i addItemWithTitle: @"200%"];
+	[scalebutton_i addItemWithTitle: @"400%"];
+	[scalebutton_i selectItemAtIndex: 5];
 
+	gridbutton_i = [[NSPopUpButton alloc]
+		initWithFrame: CGRectZero
+		pullsDown: NO
+	];
+	[gridbutton_i setTarget: mapview_i];
+	[gridbutton_i setAction: @selector(gridMenuTarget:)];
 
-	gridmenu_i = [[PopUpList alloc] init];
-	[gridmenu_i setTarget: mapview_i];
-	[gridmenu_i setAction: @selector(gridMenuTarget:)];
+	[gridbutton_i addItemWithTitle: @"grid 1"];
+	[gridbutton_i addItemWithTitle: @"grid 2"];
+	[gridbutton_i addItemWithTitle: @"grid 4"];
+	[gridbutton_i addItemWithTitle: @"grid 8"];
+	[gridbutton_i addItemWithTitle: @"grid 16"];
+	[gridbutton_i addItemWithTitle: @"grid 32"];
+	[gridbutton_i addItemWithTitle: @"grid 64"];
 
-	[gridmenu_i addItem: "grid 1"];
-	[gridmenu_i addItem: "grid 2"];
-	[gridmenu_i addItem: "grid 4"];
-	[gridmenu_i addItem: "grid 8"];
-	[gridmenu_i addItem: "grid 16"];
-	[gridmenu_i addItem: "grid 32"];
-	[gridmenu_i addItem: "grid 64"];
-	
-	[[gridmenu_i itemList] selectCellAtRow: 3 column: 0];
-	
-	gridbutton_i = NXCreatePopUpListButton(gridmenu_i);
+	[gridbutton_i selectItemAtIndex: 3];
 
 // initialize the scroll view
 	wframe.origin.x = wframe.origin.y = 0;
-	scrollview_i = [[PopScrollView alloc] 
-		initWithFrame: 	wframe 
-		button1: 		scalebutton_i
-		button2:		gridbutton_i
+	scrollview_i = [[PopScrollView alloc]
+		initWithFrame: 	wframe
+		button1: scalebutton_i
+		button2: gridbutton_i
 	];
 	[scrollview_i setAutoresizingMask:
 		NSViewWidthSizable | NSViewHeightSizable];
