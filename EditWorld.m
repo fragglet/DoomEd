@@ -179,7 +179,7 @@ int LineByPoint (NSPoint *ptin, int *side)
 //
 // set up local structures
 //
-	windowlist_i = [[List alloc] init];
+	windowlist_i = [[NSMutableArray alloc] init];
 	numpoints = numlines = numthings = 0;
 	pointssize = linessize = thingssize = texturessize = BASELISTSIZE;
 
@@ -205,9 +205,11 @@ int LineByPoint (NSPoint *ptin, int *side)
 
 - appWillTerminate: sender
 {
-// FIXME: prompt to save map if dirty
-	if ([windowlist_i	count] > 0)
-		[[windowlist_i	objectAt:0]	saveFrameUsingName:WORLDNAME];
+	// FIXME: prompt to save map if dirty
+	if ([windowlist_i count] > 0)
+		[[windowlist_i objectAtIndex:0]
+			saveFrameUsingName:WORLDNAME
+		];
 	//[self free];
 	return self;
 }
@@ -312,11 +314,13 @@ int LineByPoint (NSPoint *ptin, int *side)
 		[doomproject_i	setDirtyMap:FALSE];
 	}
 
-	[[windowlist_i	objectAt:0] saveFrameUsingName:WORLDNAME];
-	//[windowlist_i makeObjectsPerform: @selector(free)];
+	[[windowlist_i objectAtIndex:0]
+		saveFrameUsingName:WORLDNAME
+	];
+	//[windowlist_i makeObjectsPerformSelector: @selector(free)];
 	//[windowlist_i release];
-	windowlist_i = [[List alloc] init];
-		
+	windowlist_i = [[NSMutableArray alloc] init];
+
 	numpoints = numlines = numthings = 0;
 	loaded = NO;
 	return self;
@@ -352,7 +356,7 @@ int LineByPoint (NSPoint *ptin, int *side)
 	win = [[MapWindow alloc] initFromEditWorld];
 	if (!win)
 		return NULL;
-		
+
 	[windowlist_i addObject: win];
 	[win setDelegate: self];
 	[win setTitleAsFilename: pathname];
@@ -613,8 +617,10 @@ FIXME: Map window is its own delegate now, this needs to be done with a message
 		if (val == NSAlertDefaultReturn)
 			[self	saveWorld:NULL];
 	}
-	
-	[[windowlist_i	objectAt:0] saveFrameUsingName:WORLDNAME];
+
+	[[windowlist_i objectAtIndex: 0]
+		saveFrameUsingName:WORLDNAME
+	];
 	[windowlist_i removeObject: sender];
 
 //	[self	closeWorld];
@@ -625,23 +631,22 @@ FIXME: Map window is its own delegate now, this needs to be done with a message
 - (void) updateWindows
 {
 	int	count;
-	
+
 	if (!dirtyrect.size.width)
-		return self;		// nothing to update
+		return;		// nothing to update
 
 	count = [windowlist_i count];
 	while (--count > -1)
-		[[windowlist_i objectAt: count] reDisplay: &dirtyrect];
-		
+		[[windowlist_i objectAtIndex: count] reDisplay: &dirtyrect];
+
 	dirtyrect.size.width = dirtyrect.size.height = 0;
 	[linepanel_i updateLineInspector];
 	[thingpanel_i updateThingInspector];
-	return self;
 }
 
 - redrawWindows
 {
-	[windowlist_i makeObjectsPerform: @selector(display)];
+	[windowlist_i makeObjectsPerformSelector: @selector(display)];
 
 	dirtyrect.size.width = dirtyrect.size.height = 0;
 	[linepanel_i updateLineInspector];
@@ -651,7 +656,7 @@ FIXME: Map window is its own delegate now, this needs to be done with a message
 
 - getMainWindow
 {
-	return [windowlist_i	objectAt:0];
+	return [windowlist_i objectAtIndex: 0];
 }
 
 /*

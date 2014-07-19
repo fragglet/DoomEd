@@ -1788,22 +1788,22 @@ typedef struct
 //=========================================================
 - alphabetizeTextures:(int)sets
 {
-	int		x;
-	int		y;
-	int		found;
+	int x;
+	int y;
+	int found;
 	CompatibleStorage *store;
-	worldtexture_t	*t;
-	worldtexture_t	*t2;
-	worldtexture_t	m;
-	worldtexture_t	m2;
-	int		max;
-	int		windex;
-	id		list;
-	
+	worldtexture_t *t;
+	worldtexture_t *t2;
+	worldtexture_t m;
+	worldtexture_t m2;
+	int max;
+	int windex;
+	NSMutableArray *list;
+
 	printf("Alphabetize textures.\n");
 	printf("numtextures = %d\n",numtextures);
-	list = [List alloc];
-	
+	list = [[NSMutableArray alloc] init];
+
 	for (windex = 0; windex <= sets; windex++)
 	{
 		store = [[CompatibleStorage alloc]
@@ -1837,10 +1837,10 @@ typedef struct
 				}
 			
 		} while(found);
-		
-		[list	addObject:store];
 
-#if 0		
+		[list addObject:store];
+
+#if 0
 		max = [store count];
 		printf("\n%d textures in set %d:\n",max,windex);
 		for (x = 0;x < max;x++)
@@ -1852,7 +1852,7 @@ typedef struct
 	windex = 0;
 	for (x = 0;x <= sets;x++)
 	{
-		store = [list	objectAt:x];
+		store = [list objectAtIndex:x];
 		max = [store count];
 		for (y = 0;y < max;y++, windex++)
 		{
@@ -1861,9 +1861,9 @@ typedef struct
 		}
 		[store empty];
 	}
-	
-	[list empty];
-	
+
+	[list removeAllObjects];
+
 	return self;
 }
 

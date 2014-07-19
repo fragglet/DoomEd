@@ -74,9 +74,9 @@ typedef struct
 	NSRect	bounds;
 	BOOL	boundsdirty;
 	char		pathname[1024];
-	NSRect	dirtyrect;	
-	id		windowlist_i;			// all windows that display this world
-	
+	NSRect	dirtyrect;
+	NSMutableArray *windowlist_i;	// all windows that display this world
+
 	CompatibleStorage *copyThings_i;		// cut/copy/paste info
 	CompatibleStorage *copyLines_i;
 	NSPoint	copyCoord;
