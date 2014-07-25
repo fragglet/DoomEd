@@ -85,19 +85,18 @@ int			openupValues[NUMOPENUP];
 	return self;
 }
 
-- getString: (char *)string fromColor: (NSColor *)clr
+- (NSString *) getStringFromColor: (NSColor *)clr
 {
-	char		temp[40];
-	float	r,g,b;
-	
-	r = NXRedComponent(*clr);
-	g = NXGreenComponent(*clr);
-	b = NXBlueComponent(*clr);
-	
-	sprintf (temp,"%1.2f:%1.2f:%1.2f",r,g,b);
-	strcpy (string, temp);
-	
-	return self;
+	char temp[40];
+	CGFloat r,g,b;
+
+	r = [clr redComponent];
+	g = [clr greenComponent];
+	b = [clr blueComponent];
+
+	sprintf(temp, "%1.2f:%1.2f:%1.2f", r, g, b);
+
+	return [NSString stringWithUTF8String: temp];
 }
 
 - getLaunchThingTypeFrom:(const char *)string
@@ -163,31 +162,32 @@ int			openupValues[NUMOPENUP];
 
 - appWillTerminate:sender
 {
-	int		i;
-	char	string[40];
-	
+	int i;
+	NSString *string;
+	char buf[40];
+
 	for (i=0 ; i<NUMCOLORS ; i++)
 	{
-		[self getString: string  fromColor:&color[i]];
+		string = [self getStringFromColor:color[i]];
 		NXWriteDefault(APPDEFAULTS, ucolornames[i], string);
 	}
-	
-	sprintf(string,"%d",launchThingType);
-	NXWriteDefault(APPDEFAULTS,launchTypeName,string);
-	
-	NXWriteDefault(APPDEFAULTS,projectPathName,projectPath);
-	
+
+	sprintf(buf, "%d", launchThingType);
+	NXWriteDefault(APPDEFAULTS, launchTypeName, buf);
+
+	NXWriteDefault(APPDEFAULTS, projectPathName, projectPath);
+
 	for (i = 0;i < NUMOPENUP;i++)
 	{
-//		sprintf(string,"%d",(int)
+//		sprintf(buf, "%d", (int)
 //			[[openupDefaults_i findCellWithTag:i] intValue]);
-		sprintf(string,"%d",openupValues[i]);
-		NXWriteDefault(APPDEFAULTS,openupNames[i],string);
+		sprintf(buf, "%d", openupValues[i]);
+		NXWriteDefault(APPDEFAULTS, openupNames[i], buf);
 	}
-	
+
 	if (window_i)
-		[window_i	saveFrameUsingName:PREFNAME];
-	return self;	
+		[window_i saveFrameUsingName:PREFNAME];
+	return self;
 }
 
 
