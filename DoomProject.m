@@ -239,35 +239,35 @@ char	bsphost[32];		// bsp host machine
 
 - openProject: sender
 {
-	id			openpanel;
-	static char	*suffixlist[] = {"dpr", 0};
-	char		const	*filename;
+	NSOpenPanel *openpanel;
+	NSString *filename;
 
-	[self	checkDirtyProject];
-	
-	openpanel = [OpenPanel new];
-	if (![openpanel runModalForTypes:suffixlist] )
+	[self checkDirtyProject];
+
+	openpanel = [NSOpenPanel openPanel];
+	[openpanel setAllowedFileTypes: @[@"dpr"]];
+	if ([openpanel runModal] != NSFileHandlingPanelOKButton)
 		return NULL;
 
 	printf("Purging existing texture patches.\n");
-	[ textureEdit_i	dumpAllPatches ];	
-	
+	[ textureEdit_i	dumpAllPatches ];
+
 	printf("Purging existing flats.\n");
 	[ sectorEdit_i	dumpAllFlats ];
-	
+
 	filename = [openpanel filename];
-	
-	if (![self loadProject: filename])
+
+	if (![self loadProject: [filename UTF8String]])
 	{
 		NSRunAlertPanel(@"Uh oh!", @"Couldn't load your project!",
-			@"OK", nil, nil);
+		                @"OK", nil, nil);
 
-		[ wadfile_i	initFromFile: wadfile ];
-		[ textureEdit_i		initPatches ];
-		[ sectorEdit_i		loadFlats ];
-		[ thingPalette_i	initIcons];
-		[ wadfile_i	close ];
-		
+		[ wadfile_i initFromFile: wadfile ];
+		[ textureEdit_i initPatches ];
+		[ sectorEdit_i loadFlats ];
+		[ thingPalette_i initIcons];
+		[ wadfile_i close ];
+
 		return nil;
 	}
 
@@ -284,59 +284,61 @@ char	bsphost[32];		// bsp host machine
 
 - newProject: sender
 {
-	FILE		*stream;
-	id			panel;
-	char		const *filename;
-	static char *fileTypes[] = { "wad",NULL};
-	char		projpath[1024];
-	char		texturepath[1024];
+	FILE *stream;
+	NSOpenPanel *panel;
+	NSString *filename;
+	char projpath[1024];
+	char texturepath[1024];
 
 
-	[self	checkDirtyProject];
+	[self checkDirtyProject];
 	//
 	// get directory for project & files
-	//	
-	panel = [OpenPanel new];
-	[panel setTitle: "Project directory"];
-	[panel chooseDirectories:YES];
-	if (! [panel runModal] )
+	//
+	panel = [NSOpenPanel openPanel];
+	[panel setTitle: @"Project directory"];
+	[panel setCanChooseDirectories:YES];
+	[panel setCanChooseFiles:NO];
+	if ([panel runModal] != NSFileHandlingPanelOKButton)
 		return self;
-		
+
 	filename = [panel filename];
-	if (!filename || !*filename)
+	if (filename == nil || [filename length] == 0)
 	{
 		NSRunAlertPanel(@"Nope.",
 			@"I need a directory for projects to create one.",
 			@"OK", nil, nil);
 		return self;
 	}
-		
-	strcpy (projectdirectory, filename);
-	
+
+	strcpy (projectdirectory, [filename UTF8String]);
+
 	//
 	// get wadfile
 	//
-	[panel setTitle: "Wadfile"];
-	[panel chooseDirectories:NO];
-	if (! [panel runModalForTypes: fileTypes] )
+	[panel setTitle: @"Wadfile"];
+	[panel setCanChooseDirectories:NO];
+	[panel setCanChooseFiles:YES];
+	[panel setAllowedFileTypes: @[@"wad"]];
+	if ([panel runModal] != NSFileHandlingPanelOKButton)
 		return self;
-		
+
 	filename = [panel filename];
-	if (!filename || !*filename)
+	if (filename == nil || [filename length] == 0)
 	{
 		NSRunAlertPanel(@"Nope.", @"I need a WADfile for this project.",
 			@"OK", nil, nil);
 		return self;
 	}
-		
-	strcpy (wadfile, filename);
-		
+
+	strcpy(wadfile, [filename UTF8String]);
+
 	//
 	// create default data: project file
 	//
 	nummaps = 0;
 	numtextures = 0;
-	
+
 	strcpy (projpath, projectdirectory);
 	strcat (projpath, "/project.dpr");
 
