@@ -146,7 +146,7 @@
 			//
 			// shift-click adds the patch to the select list
 			//
-			if (theEvent->flags & NX_SHIFTMASK)
+			if (([theEvent modifierFlags] & NSShiftKeyMask) != 0)
 			{
 				if ([textureEdit_i	selTextureEditPatchExists:i] == NO)
 					[textureEdit_i	addSelectedTexturePatch:i];

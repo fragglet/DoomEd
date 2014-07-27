@@ -747,7 +747,7 @@
 	{	// the click was on a point
 		if (point_p->selected)
 		{
-			if  ( event->flags & NX_SHIFTMASK )
+			if (([event modifierFlags] & NSShiftKeyMask) != 0)
 			{	// shift click a selected point deselects it
 				[editworld_i deselectPoint: i];
 				return self;
@@ -756,7 +756,7 @@
 		else
 		{
 // if not clicking on a selection and not shift clicking, deselect all selected points
-			if ( !(event->flags & NX_SHIFTMASK) )
+			if (([event modifierFlags] & NSShiftKeyMask) == 0)
 				[editworld_i deselectAll];
 			[editworld_i selectPoint: i];
 		}
@@ -793,15 +793,17 @@
 		// hit a line
 			[self unlockFocus];
 			// deselect any other points if shift not down
-			if ( !(event->flags & NX_SHIFTMASK) && lines[i].selected != 1)
+			if (([event modifierFlags] & NSShiftKeyMask) == 0
+			 && lines[i].selected != 1)
 				[editworld_i deselectAll];
-				
-			if (event->flags & NX_SHIFTMASK && lines[i].selected == 1)
+
+			if (([event modifierFlags] & NSShiftKeyMask) != 0
+			 && lines[i].selected == 1)
 			{
 				[editworld_i deselectLine: i];
 				return self;
 			}
-			
+
 			[editworld_i selectLine: i];
 			
 			// select points at ends
@@ -840,7 +842,8 @@
 		// if not clicking on a selection and
 		// ...not shift clicking, deselect all selected points
 		// deselect any other points if shift not down
-		if ( !(event->flags & NX_SHIFTMASK) && things[i].selected != 1)
+		if (([event modifierFlags] & NSShiftKeyMask) == 0
+		 && things[i].selected != 1)
 			[editworld_i deselectAll];
 		[editworld_i selectThing: i];
 		[self dragSelectedPoints: event];	// drag all points around
@@ -851,15 +854,15 @@
 //
 // the click was not on a point, so rubber band a selection box
 //
-	if (! (event->flags & NX_SHIFTMASK) )
+	if (([event modifierFlags] & NSShiftKeyMask) == 0)
 	{
-	// if not shift clicking, deselect all selected points
+		// if not shift clicking, deselect all selected points
 		[editworld_i deselectAll];
 		[editworld_i updateWindows];
 	}
 
 	[self dragSelectionBox: event];
-	
+
 	return self;
 }
 
