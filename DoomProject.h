@@ -1,5 +1,7 @@
 #import <appkit/appkit.h>
 #import "Storage.h"
+#import "TextLog.h"
+#import "Wadfile.h"
 
 //============================================================================
 #define	DOOMNAME		@"DoomEd"
@@ -34,19 +36,6 @@ typedef struct
 	int	lightlevel;
 	int	special, tag;	
 } sectordef_t;
-
-//============================================================================
-
-extern	id	doomproject_i;
-extern	id	wadfile_i;
-extern	id	log_i;
-
-extern	int	numtextures;
-extern	worldtexture_t		*textures;
-
-extern	char	mapwads[1024];		// map WAD path
-extern	char	bspprogram[1024];	// bsp program path
-extern	char	bsphost[32];		// bsp host machine
 
 //============================================================================
 
@@ -150,3 +139,17 @@ extern	char	bsphost[32];		// bsp host machine
 
 void IO_Error (char *error, ...);
 void DE_DrawOutline(NSRect *r);
+
+//============================================================================
+
+extern DoomProject *doomproject_i;
+extern Wadfile *wadfile_i;
+extern TextLog *log_i;
+
+extern int numtextures;
+extern worldtexture_t *textures;
+
+extern char mapwads[1024];		// map WAD path
+extern char bspprogram[1024];	// bsp program path
+extern char bsphost[32];		// bsp host machine
+
