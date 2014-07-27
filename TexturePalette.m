@@ -41,27 +41,27 @@ TexturePalette *texturePalette_i;
 
 - finishInit
 {
-		NSPoint	p;
-		NSRect	dvr;
-	
-		[self	computePalViewSize];
-		//
-		// start textures at top
-		//
-		[texturePalView_i		getFrame:&dvr];
-		p.x = 0;
-		p.y = dvr.size.height;
-		[texturePalView_i		scrollPoint:&p];
-		return self;
+	NSPoint	p;
+	NSRect	dvr;
+
+	[self	computePalViewSize];
+	//
+	// start textures at top
+	//
+	dvr = [texturePalView_i frame];
+	p.x = 0;
+	p.y = dvr.size.height;
+	[texturePalView_i scrollPoint:p];
+	return self;
 }
 
 - setupPalette
 {
-		[self	finishInit];
-		if ([allTextures	count])
-			[self	selectTexture:0];
-		[window_i	setFrameUsingName:@"TexturePalette"];
-		return self;
+	[self	finishInit];
+	if ([allTextures	count])
+		[self	selectTexture:0];
+	[window_i	setFrameUsingName:@"TexturePalette"];
+	return self;
 }
 
 - menuTarget:sender
@@ -207,11 +207,11 @@ TexturePalette *texturePalette_i;
 
 - computePalViewSize
 {
-	texpal_t	*t, *t2;
-	int		count,maxwidth,x,y;
-	NSSize	s,imagesize;
-	int		maxwindex, i, j;
-	char		string[32];
+	texpal_t *t, *t2;
+	int count,maxwidth,x,y;
+	NSSize s,imagesize;
+	int maxwindex, i, j;
+	char string[32];
 
 	if (newTextures == nil )
 		newTextures = [[CompatibleStorage alloc ]
@@ -255,7 +255,7 @@ TexturePalette *texturePalette_i;
 	//
 	//	Compute Texture Palette size
 	//
-	[texturePalView_i	dumpDividers ];
+	[texturePalView_i dumpDividers];
 	while (count >= 0)
 	{
 		t = [newTextures	elementAt:count];
@@ -265,12 +265,12 @@ TexturePalette *texturePalette_i;
 			maxwindex = t->WADindex;
 			sprintf (string, "Texture Set #%d", maxwindex+2 );
 			y += SPACING;
-			[texturePalView_i	addDividerX: x
-					Y: y
-					String: string ];
+			[texturePalView_i addDividerX: x
+			                  Y: y
+			                  String: string ];
 			y += SPACING*2;
 		}
-		
+
 		t->r.origin.x = x;
 		t->r.origin.y = y;
 		[t->image	getSize:&imagesize];
@@ -285,10 +285,12 @@ TexturePalette *texturePalette_i;
 
 		count--;
 	}
-	
+
 	s.width = maxwidth + SPACING*2;
 	s.height = y;
-	[texturePalView_i	sizeTo:s.width :s.height];
+	// TODO: Check this is the right replacement method:
+	//[texturePalView_i sizeTo:s.width :s.height];
+	[texturePalView_i setFrameSize:s];
 
 	return self;
 }
