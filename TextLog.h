@@ -7,6 +7,7 @@
 	id	window_i;
 }
 
+- initTitle:(char *)title;
 - msg:(char *)string;
 - display:sender;
 - clear:sender;

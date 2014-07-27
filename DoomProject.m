@@ -1,3 +1,6 @@
+#include <sys/types.h>
+#include <sys/stat.h>
+
 #import "ps_quartz.h"
 
 #import "DoomProject.h"
@@ -15,9 +18,9 @@
 #import "ThingPalette.h"
 #import	"ThermoView.h"
 
-id	doomproject_i;
-id	wadfile_i;
-id	log_i;
+DoomProject *doomproject_i;
+Wadfile *wadfile_i;
+TextLog *log_i;
 
 int	pp_panel;
 int	pp_monsters;
@@ -1020,7 +1023,7 @@ typedef struct
 	int		tset;
 	int		*textureCount, indx;
 	FILE		*stream;
-	char		filename[]="/tmp/tempstats.txt\0";
+	NSString *filename = @"/tmp/tempstats.txt";
 	texpal_t	*t;
 	id		openMatrix;
 	int		selRow;
@@ -1250,7 +1253,7 @@ typedef struct
 	openMatrix = [maps_i matrixInColumn:0];
 	selRow = [openMatrix	selectedRow];
 
-	stream = fopen (filename,"w");
+	stream = fopen([filename UTF8String], "w");
 	fprintf(stream,"DoomEd Map Statistics for %s\n\n",
 		[[openMatrix cellAt:selRow :0] stringValue]);
 	fprintf(stream,"Texture count:\n");
@@ -1277,16 +1280,16 @@ typedef struct
 				thingCount[i].type,
 				thingCount[i].count,
 				thingCount[i].name);
-	
+
 	fclose(stream);
-	
+
 	//
 	// launch Edit with file!
 	//
-	[[Application	workspace]	openTempFile:filename];
-	
+	[[NSWorkspace sharedWorkspace] openFile:filename];
+
 	free(textureCount);
-	
+
 	return self;
 }
 
@@ -1313,7 +1316,7 @@ typedef struct
 	int		errors;
 	int		*textureCount, indx, *flatCount;
 	FILE	*stream;
-	char	filename[]="/tmp/tempstats.txt\0";
+	NSString *filename = @"/tmp/tempstats.txt";
 	char	string[80];
 	texpal_t	*t;
 	int		numth;
@@ -1579,7 +1582,7 @@ typedef struct
 	//
 	// 	Create Stats file
 	//
-	stream = fopen (filename,"w");
+	stream = fopen([filename UTF8String], "w");
 	fprintf(stream,"DoomEd Map Statistics\n\n");
 
 	fprintf(stream,"Number of textures in project:%d\n",nt);
@@ -1639,21 +1642,21 @@ typedef struct
 	//
 	fclose(stream);
 	[log_i	msg:"\nFinished!\n\n" ];
-	
+
 	//
 	// launch Edit with file!
 	//
-	[[Application	workspace]	openTempFile:filename];
-	
+	[[NSWorkspace sharedWorkspace] openFile:filename];
+
 	free(textureCount);
 	free(flatCount);
-	
+
 	if (selRow >=0)
 	{
 		[openMatrix	selectCellAtRow:selRow column:0];
 		[self	openMap:openMatrix];
 	}
-	
+
 	return self;
 }
 
@@ -2498,7 +2501,7 @@ void IO_Error (char *error, ...)
 	vsprintf (string,error,argptr);
 	va_end (argptr);
 
-	objcString = [NSString initWithUTF8String: string];
+	objcString = [NSString stringWithUTF8String: string];
 
 	NSRunAlertPanel(@"Error", objcString, nil, nil, nil);
 	[NSApp terminate: NULL];
