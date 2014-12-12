@@ -36,8 +36,8 @@
 
 - windowDidMiniaturize:sender
 {
-	[sender	setMiniwindowIcon:"DoomEd"];
-	[sender	setMiniwindowTitle:"ThingStrip"];
+	//[sender	setMiniwindowIcon:"DoomEd"];
+	[sender	setMiniwindowTitle:@"ThingStrip"];
 	return self;
 }
 

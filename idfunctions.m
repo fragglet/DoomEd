@@ -1,3 +1,5 @@
+#include <sys/stat.h>
+
 #import "idfunctions.h"
 
 /*
