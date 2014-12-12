@@ -57,7 +57,7 @@ char	bsphost[32];		// bsp host machine
 	numtextures = 0;
 	texturessize = BASELISTSIZE;
 	textures = malloc (texturessize*sizeof(worldtexture_t));
-	log_i = [[TextLog	alloc] initTitle:"DoomEd Error Log" ];
+	log_i = [[TextLog alloc] initTitle: @"DoomEd Error Log"];
 	projectdirty = mapdirty = FALSE;
 	
 	return self;
@@ -1319,7 +1319,7 @@ typedef struct
 	NSString *filename = @"/tmp/tempstats.txt";
 	char	string[80];
 	texpal_t	*t;
-	int		numth;
+	int	numth;
 	tc_t	*thingCount;
 	id		thingList_i;
 	
@@ -1363,7 +1363,7 @@ typedef struct
 	for (i = 0;i < nummaps; i++)
 	{
 		sprintf(string,"Loading map %s.\n",
-			[[openMatrix selectedCell] stringValue] );
+			[[[openMatrix selectedCell] stringValue] UTF8String]);
 		[log_i	msg:string ];
 		[openMatrix	selectCellAtRow:i column:0];
 		[self	openMap:openMatrix];
@@ -2504,7 +2504,7 @@ void IO_Error (char *error, ...)
 	objcString = [NSString stringWithUTF8String: string];
 
 	NSRunAlertPanel(@"Error", objcString, nil, nil, nil);
-	[NSApp terminate: NULL];
+	[[NSApplication sharedApplication] terminate: nil];
 }
 
 //=======================================================

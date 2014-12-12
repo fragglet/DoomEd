@@ -31,17 +31,18 @@ BOOL	debugflag = NO;
 
 - redraw: sender
 {
-	int	i;
-	id	list, win;
-	
+	int i;
+	NSWindow *win;
+	NSArray *winList;
+
 // update all windows
-	list = [NSApp windowList];
-	i = [list count];
+	winList = [[NSApplication sharedApplication] windows];
+	i = [winList count];
 	while (--i >= 0)
 	{
-		win = [list objectAt: i];
+		win = [winList objectAtIndex: i];
 		if ([win class] == [MapWindow class])
-			[[win mapView] display];
+			[[(MapWindow *) win mapView] display];
 	}
 	
 	return self;

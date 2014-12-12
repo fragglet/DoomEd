@@ -155,7 +155,7 @@ TexturePalette *texturePalette_i;
 				"the '%s' patch!",
 				@"OK", nil, nil,
 				i, p.patchInfo.patchname);
-			[NSApp	terminate:NULL];
+			[[NSApplication sharedApplication] terminate: nil];
 		}
 		p.r.origin.x = p.patchInfo.originx;
 		p.r.origin.y = (textures[which].height) - 

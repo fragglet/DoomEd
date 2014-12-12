@@ -11,14 +11,13 @@
 //
 //======================================================
 
-- initTitle:(char *)title
+- initTitle: (NSString *) title
 {
-	window_i =	[NSApp 
-				loadNibSection:	"TextLog.nib"
-				owner:			self
-				withNames:		NO
-				];
-	[window_i	setTitle:title ];
+	window_i = [[NSBundle mainBundle] loadNibNamed: @"TextLog.nib"
+		owner: self
+		options: nil
+	];
+	[window_i setTitle: title];
 	return self;
 }
 

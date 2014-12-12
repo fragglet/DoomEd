@@ -478,8 +478,11 @@ int LineByPoint (NSPoint *ptin, int *side)
 
 - print: sender
 {
-	[[[NSApp mainWindow] mapView] printPSCode: sender];
-	
+	MapWindow *win;
+
+	win = (MapWindow *) [[NSApplication sharedApplication] mainWindow];
+	//[[win mapView] printPSCode: sender];
+
 	return self;
 }
 
@@ -1032,11 +1035,14 @@ FIXME: make these scan for deleted entries
 //
 - storeCopies
 {
+
 	int	i;
 	NSRect	r;
 	copyline_t	cl;
-	
-	r = [[[NSApp mainWindow] contentView] documentVisibleRect];
+	NSWindow *mainWin;
+
+	mainWin = [[NSApplication sharedApplication] mainWindow];
+	r = [[mainWin contentView] documentVisibleRect];
 	copyCoord = r.origin;
 	[copyThings_i		empty];
 	[copyLines_i		empty];
@@ -1169,14 +1175,16 @@ FIXME: make these scan for deleted entries
 
 - paste: sender
 {
-	int		xadd,yadd,i,max, index;
+	NSWindow *mainWin;
+	int xadd,yadd,i,max, index;
 	NSRect	r;
 	worldthing_t	*t, t1;
 	copyline_t	*L;
 	NSPoint	p1,p2;
 
 	[self	copyDeselect];
-	r = [[[NSApp mainWindow] contentView] documentVisibleRect];
+	mainWin = [[NSApplication sharedApplication] mainWindow];
+	r = [[mainWin contentView] documentVisibleRect];
 	if (copyLoaded)
 	{
 		copyCoord = [self	findCopyCenter];
@@ -1307,7 +1315,7 @@ Updates dirty rect based on old and new positions
 		NSRunAlertPanel(@"Error",
 			@"Sent point %i with numpoints %i!",
 			nil, nil, nil, num, numpoints);
-		[NSApp terminate:self];
+		[[NSApplication sharedApplication] terminate:self];
 	}
 	
 	points[num] = *data;
@@ -1347,7 +1355,7 @@ Updates dirty rect based on old and new positions
 		NSRunAlertPanel(@"Error",
 			@"Sent line %i with numlines %i!",
 			nil, nil, nil, num, numlines);
-		[NSApp terminate:self];
+		[[NSApplication sharedApplication] terminate: self];
 	}
 
 // mark the old position of the line as dirty
@@ -1394,7 +1402,7 @@ Updates dirty rect based on old and new positions
 		NSRunAlertPanel(@"Error",
 			@"Sent thing %i with numthings %i!",
 			nil, nil, nil, num, numthings);
-		[NSApp terminate:self];
+		[[NSApplication sharedApplication] terminate: self];
 	}
 
 	// mark the old position as dirty

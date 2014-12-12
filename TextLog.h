@@ -4,10 +4,10 @@
 @interface TextLog:NSObject
 {
 	id	text_i;
-	id	window_i;
+	NSWindow *window_i;
 }
 
-- initTitle:(char *)title;
+- initTitle: (NSString *) title;
 - msg:(char *)string;
 - display:sender;
 - clear:sender;

@@ -248,22 +248,23 @@ int			openupValues[NUMOPENUP];
 
 - colorChanged:sender
 {
-	int	i;
-	id	list, win;
-	
+	int i;
+	NSWindow *win;
+	NSArray *winList;
+
 // get current colors
 
 	for (i=0 ; i<NUMCOLORS ; i++)
 		color[i] = [colorwell[i] color];
 
 // update all windows
-	list = [NSApp windowList];
-	i = [list count];
+	winList = [[NSApplication sharedApplication] windows];
+	i = [winList count];
 	while (--i >= 0)
 	{
-		win = [list objectAt: i];
+		win = [winList objectAtIndex: i];
 		if ([win class] == [MapWindow class])
-			[[win mapView] display];
+			[[(MapWindow *) win mapView] display];
 	}
 	
 	return self;
