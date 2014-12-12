@@ -131,8 +131,8 @@ CompatibleStorage *texturePatches;
 
 - windowDidMiniaturize:sender
 {
-	[sender	setMiniwindowIcon:"DoomEd"];
-	[sender	setMiniwindowTitle:"TextureEdit"];
+	//[sender	setMiniwindowIcon:"DoomEd"];
+	[sender	setMiniwindowTitle:@"TextureEdit"];
 	return self;
 }
 
@@ -403,6 +403,7 @@ CompatibleStorage *texturePatches;
 //===============================================================
 - searchForPatch:sender
 {
+	NSString *strval;
 	char		string[9];
 	apatch_t	*p;
 	int			max;
@@ -410,7 +411,8 @@ CompatibleStorage *texturePatches;
 	int			j;
 	int			slen;
 	
-	strcpy(string,[patchSearchField_i	stringValue]);
+	strval = [patchSearchField_i stringValue];
+	strlcpy(string, [strval UTF8String], 9);
 	slen = strlen(string);
 	
 	max = [patchImages	count];
@@ -538,6 +540,7 @@ CompatibleStorage *texturePatches;
 
 - updateTexPatchInfo
 {
+	NSString *patchname;
 	texpatch_t	*t;
 	int	c = [selectedTexturePatches	count];
 
@@ -557,10 +560,13 @@ CompatibleStorage *texturePatches;
 		[texturePatchYField_i	setIntValue:t->r.origin.y / 2];
 		[lockedPatch_i	setEnabled:YES];
 		[lockedPatch_i	setIntValue:t->patchLocked];
-		[texturePatchWidthField_i	setIntValue:t->r.size.width / 2];
-		[texturePatchHeightField_i	setIntValue:t->r.size.height / 2];
-		[texturePatchNameField_i	setStringValue:t->patchInfo.patchname];
-	}		
+		[texturePatchWidthField_i setIntValue:t->r.size.width / 2];
+		[texturePatchHeightField_i setIntValue:t->r.size.height / 2];
+
+		patchname =
+			[NSString stringWithUTF8String: t->patchInfo.patchname];
+		[texturePatchNameField_i setStringValue: patchname];
+	}
 	return self;
 }
 
@@ -747,8 +753,8 @@ CompatibleStorage *texturePatches;
 	tex.height = [createHeight_i	intValue];
 	tex.patchcount = 0;
 
-	memset(tex.name,0,9);
-	strncpy(tex.name,[createName_i	stringValue],8);
+	strlcat(tex.name, [[createName_i stringValue] UTF8String],
+	        sizeof(tex.name));
 
 	cell = [setMatrix_i	selectedCell ];
 	tex.WADindex = [cell	tag];
@@ -781,13 +787,11 @@ CompatibleStorage *texturePatches;
 //
 - createTextureDone:sender
 {
-	char name[9];
+	NSString *name;
 	
 	// clip texture name to 8 characters
-	bzero(name,9);
-	strncpy(name,[createName_i	stringValue],8);
-	strupr(name);
-	[createName_i	setStringValue:name];
+	name = [[createName_i stringValue] substringToIndex: 8];
+	[createName_i setStringValue: [name uppercaseString]];
 
 	if (	[doomproject_i	textureNamed:name] >= -1)
 	{
@@ -797,10 +801,10 @@ CompatibleStorage *texturePatches;
 			@"OK", nil, nil, nil);
 		return self;
 	}
-	
-	if (	[createWidth_i	intValue] &&
-		[createHeight_i	intValue] &&
-		strlen([createName_i	stringValue]))
+
+	if ([createWidth_i	intValue]
+	 && [createHeight_i	intValue]
+	 && [[createName_i stringValue] length] > 0)
 		[NSApp	stopModal];
 	else
 		NSBeep();
@@ -813,13 +817,11 @@ CompatibleStorage *texturePatches;
 //
 - createTextureName:sender
 {
-	char name[9];
+	NSString *name;
 	
 	// clip texture name to 8 characters
-	bzero(name,9);
-	strncpy(name,[createName_i	stringValue],8);
-	strupr(name);
-	[createName_i	setStringValue:name];
+	name = [[createName_i stringValue] substringToIndex: 8];
+	[createName_i setStringValue: [name uppercaseString]];
 
 	if (	[doomproject_i	textureNamed:name] >= -1)
 	{
@@ -844,9 +846,10 @@ CompatibleStorage *texturePatches;
 //======================================================
 - createNewSet:sender
 {
-	int		nr, nc;
-	id		cell;
-	char		string[3];
+	NSString *string;
+	int nr, nc;
+	id cell;
+
 	
 	[setMatrix_i	getNumRows:&nr numCols:&nc ];
 	if (nr == 5)
@@ -859,7 +862,8 @@ CompatibleStorage *texturePatches;
 	[setMatrix_i	addRow ];
 	nr++;
 	cell = [setMatrix_i	cellAt:nr-1 :0 ];
-	sprintf (string, "%d",nr );
+
+	string = [NSString stringWithFormat: @"%d", nr];
 	[cell		setTitle:string ];
 	[cell		setTag: nr-1 ];
 	[setMatrix_i	sizeToCells ];
@@ -955,7 +959,8 @@ CompatibleStorage *texturePatches;
 
 	[textureWidthField_i	setIntValue:textures[currentTexture].width];
 	[textureHeightField_i	setIntValue:textures[currentTexture].height];
-	[textureNameField_i	setStringValue:textures[currentTexture].name];
+	[textureNameField_i setStringValue:
+		[NSString stringWithUTF8String: textures[currentTexture].name]];
 	[textureSetField_i	setIntValue:textures[currentTexture].WADindex + 1 ];
 
 	return self;
@@ -1123,7 +1128,8 @@ CompatibleStorage *texturePatches;
 	t = [patchImages	elementAt:which];
 	[patchWidthField_i	setIntValue:t->r.size.width];
 	[patchHeightField_i	setIntValue:t->r.size.height];
-	[patchNameField_i	setStringValue: t->name ];
+	[patchNameField_i setStringValue:
+		[NSString stringWithUTF8String: t->name]];
 
 	r = t->r;
 	r.origin.x -= SPACING;
@@ -1186,11 +1192,10 @@ CompatibleStorage *texturePatches;
 	unsigned short	shortpal[256];
 	apatch_t	p;
 	NSSize	s;
-	char	string[80];
-	
+	NSString *string;
 	int		windex;
 	char	start[10], end[10];
-	
+
 	palLBM = [wadfile_i	loadLumpNamed:"playpal"];
 	if (palLBM == NULL)
 		IO_Error ("Need to have 'playpal' palette in .WAD file!");
@@ -1204,8 +1209,11 @@ CompatibleStorage *texturePatches;
 	windex = 0;
 	do
 	{
-		sprintf(string,"Loading patch set #%d for Texture Editor.",windex+1);
-		[doomproject_i	initThermo:@"One moment..." message:string];
+		string = [NSString stringWithFormat:
+			@"Loading patch set #%d for Texture Editor.",
+			windex + 1
+		];
+		[doomproject_i initThermo:@"One moment..." message:string];
 		//
 		// get inclusive lump #'s for patches
 		//
@@ -1550,21 +1558,5 @@ NSImage *patchToImage(patch_t *patchData, unsigned short *shortpal,
 	fastImage_i = [[NSImage alloc] initWithSize: *size];
 	[fastImage_i addRepresentation: image_i];
 	return fastImage_i;
-}
-
-char *strupr(char *string)
-{
-	char *s = string;
-	while (*string)
-		*string++ = toupper(*string);
-	return s;
-}
-
-char *strlwr(char *string)
-{
-	char *s = string;
-	while (*string)
-		*string++ = tolower(*string);
-	return s;
 }
 
