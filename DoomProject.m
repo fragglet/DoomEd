@@ -161,10 +161,16 @@ char	bsphost[32];		// bsp host machine
 	
 	if (fscanf(stream,"nummaps: %d\n", &nummaps) != 1)
 		return NO;
-		
+
 	for (i=0 ; i<nummaps ; i++)
-		if (fscanf(stream,"%s\n", mapnames[i]) != 1)
+	{
+		char tmpbuf[9];
+
+		if (fscanf(stream,"%9s\n", tmpbuf) != 1)
 			return NO;
+
+		mapnames[i] = [NSString stringWithUTF8String: tmpbuf];
+	}
 
 	return YES;
 }
@@ -188,7 +194,7 @@ char	bsphost[32];		// bsp host machine
 	fprintf (stream,"nummaps: %d\n", nummaps);
 		
 	for (i=0 ; i<nummaps ; i++)
-		fprintf (stream,"%s\n", mapnames[i]);
+		fprintf(stream,"%s\n", [mapnames[i] UTF8String]);
 
 	return self;
 }
@@ -499,12 +505,17 @@ char	bsphost[32];		// bsp host machine
 
 - updatePanel
 {
-	[projectpath_i setStringValue: projectdirectory];
-	[wadpath_i setStringValue: wadfile];
-	[BSPprogram_i	setStringValue: bspprogram];
-	[BSPhost_i		setStringValue: bsphost];
-	[mapwaddir_i	setStringValue: mapwads];
-	[maps_i reloadColumn: 0];	
+	[projectpath_i setStringValue:
+		[NSString stringWithUTF8String: projectdirectory]];
+	[wadpath_i setStringValue:
+		[NSString stringWithUTF8String: wadfile]];
+	[BSPprogram_i setStringValue:
+		[NSString stringWithUTF8String: bspprogram]];
+	[BSPhost_i setStringValue:
+		[NSString stringWithUTF8String: bsphost]];
+	[mapwaddir_i setStringValue:
+		[NSString stringWithUTF8String: mapwads]];
+	[maps_i reloadColumn: 0];
 	return self;
 }
 
@@ -648,25 +659,29 @@ char	bsphost[32];		// bsp host machine
 //============================================================
 - sortMaps
 {
-	int		i;
-	int		j;
-	int		flag;
-	char	name[16];
-	
+	int i;
+	int j;
+	int flag;
+	NSString *tmp;
+
 	flag = 1;
 	while(flag)
 	{
 		flag = 0;
 		for(i=0;i<nummaps;i++)
+		{
 			for(j=i+1;j<nummaps;j++)
-				if (strcmp(mapnames[j],mapnames[i])<0)
+			{
+				if ([mapnames[j] compare: mapnames[i]] < 0)
 				{
-					strcpy(name,mapnames[i]);
-					strcpy(mapnames[i],mapnames[j]);
-					strcpy(mapnames[j],name);
+					tmp = mapnames[i];
+					mapnames[i] = mapnames[j];
+					mapnames[j] = tmp;
 					flag = 1;
 					break;
 				}
+			}
+		}
 	}
 	return self;
 }
@@ -714,16 +729,16 @@ char	bsphost[32];		// bsp host machine
 
 - newMap: sender
 {
-	FILE		*stream;
-	char		pathname[1024];
-	char		const	*title;
-	int		len, i;
+	FILE *stream;
+	char pathname[1024];
+	NSString *title;
+	int  len, i;
 
 	//
 	// get filename for map
 	//	
 	title = [mapNameField_i stringValue];
-	len = strlen (title);
+	len = [title length];
 	if (len < 1 || len > 8)
 	{
 		NSRunAlertPanel(@"Error",
@@ -731,22 +746,22 @@ char	bsphost[32];		// bsp host machine
 			nil, nil, nil);
 		return nil;
 	}
-	
+
 	for (i=0 ; i<nummaps ; i++)
-		if (!strcmp(title, mapnames[i]))
+		if ([title compare: mapnames[i]] == 0)
 		{
 			NSRunAlertPanel(@"Error", @"Map name in use",
 				nil, nil, nil);
 			return nil;
 		}
-		
+
 	//
 	// write an empty file
 	//
 	strcpy (pathname, projectdirectory);
 	strcat (pathname, "/");
-	strcat (pathname,title);
-	strcat (pathname,".dwd");
+	strcat (pathname, [title UTF8String]);
+	strcat (pathname, ".dwd");
 	stream = fopen (pathname,"w");
 	if (!stream)
 	{
@@ -760,9 +775,9 @@ char	bsphost[32];		// bsp host machine
 //
 // add the map and update the browser
 //
-	strcpy (mapnames[nummaps], title);
+	mapnames[nummaps] = title;
 	nummaps++;
-	
+
 	[self updatePanel];
 	[self saveProject: self];
 	
@@ -781,10 +796,10 @@ char	bsphost[32];		// bsp host machine
 
 - openMap:sender
 {
-	id			cell;
-	const char	*title;
-	char			fullpath[1024];
-	char			string[80];
+	id cell;
+	NSString *title;
+	char fullpath[1024];
+	char string[80];
 
 	if ([editworld_i loaded])
 		[editworld_i closeWorld];
@@ -792,12 +807,12 @@ char	bsphost[32];		// bsp host machine
 	cell = [sender selectedCell];
 	title = [cell stringValue];
 	
-	strcpy (fullpath, projectdirectory);
-	strcat (fullpath,"/");
-	strcat (fullpath,title);
-	strcat (fullpath,".dwd");
+	strcpy(fullpath, projectdirectory);
+	strcat(fullpath, "/");
+	strcat(fullpath, [title UTF8String]);
+	strcat(fullpath, ".dwd");
 	
-	sprintf( string, "\nLoading map %s\n",title );
+	sprintf(string, "\nLoading map %s\n", [title UTF8String]);
 	[ log_i	msg:string ];
 	[editworld_i loadWorldFile: fullpath];
 	
@@ -950,10 +965,10 @@ id	openMatrix;
 		items,
 		monsters,
 		projectdirectory,
-		[cell stringValue]);
+		[[cell stringValue] UTF8String]);
 
 	panel = NSGetAlertPanel(@"Wait...",
-		@"Printing %s.",
+		@"Printing %@.",
 		nil, nil, nil,
 		[cell stringValue]);
 

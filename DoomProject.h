@@ -45,8 +45,8 @@ typedef struct
 	char	projectdirectory[1024];
 	char	wadfile[1024];		// WADfile path
 	int		nummaps;
-	char	mapnames[100][9];
-	
+	NSString *mapnames[100];
+
 	int		texturessize;
 	
 	id		window_i;
