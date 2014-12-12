@@ -67,7 +67,7 @@ typedef struct
 - CorFheightChanged:sender;
 - locateFlat:sender;
 - (int) getNumFlats;
-- (char *)flatName:(int) flat;
+- (NSString *) flatName: (int) flat;
 - (flat_t *) getFlat:(int) which;
 - selectFlat:(int) which;
 - setCurrentFlat:(int)which;

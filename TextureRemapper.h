@@ -6,7 +6,7 @@
 	id	remapper_i;
 }
 
-- addToList:(char *)orgname to:(char *)newname;
+- addToList: (NSString *) orgname to: (NSString *) newname;
 
 @end
 

@@ -14,13 +14,14 @@ TextureRemapper *textureRemapper_i;
 - init
 {
 	textureRemapper_i = self;
-	
-	remapper_i = [ [ Remapper	alloc ]
-				setFrameName:"TextureRemapper"
-				setPanelTitle:"Texture Remapper"
-				setBrowserTitle:"List of textures to be remapped"
-				setRemapString:"Texture"
-				setDelegate:self ];
+
+	remapper_i = [[Remapper alloc]
+		setFrameName: @"TextureRemapper"
+		setPanelTitle: @"Texture Remapper"
+		setBrowserTitle: @"List of textures to be remapped"
+		setRemapString: @"Texture"
+		setDelegate: self
+	];
 	return self;
 }
 
@@ -35,9 +36,9 @@ TextureRemapper *textureRemapper_i;
 	return self;
 }
 
-- addToList:(char *)orgname to:(char *)newname;
+- addToList: (NSString *) orgname to: (NSString *) newname;
 {
-	[remapper_i	addToList:orgname to:newname];
+	[remapper_i addToList:orgname to:newname];
 	return self;
 }
 
@@ -46,22 +47,27 @@ TextureRemapper *textureRemapper_i;
 //	Delegate methods
 //
 //===================================================================
-- (char *)getOriginalName
+- (NSString *) getOriginalName
 {
-	return [texturePalette_i	getSelTextureName];
+	return [NSString stringWithUTF8String:
+		[texturePalette_i getSelTextureName]];
 }
 
-- (char *)getNewName
+- (NSString *) getNewName
 {
-	return [texturePalette_i	getSelTextureName];
+	return [self getOriginalName];
 }
 
-- (int)doRemap:(char *)oldname to:(char *)newname
+- (int)doRemap: (NSString *) oldn to: (NSString *) newn
 {
-	int		i;
-	int		linenum;
-	int		flag;
-	
+	const char *oldname, *newname;
+	int i;
+	int linenum;
+	int flag;
+
+	oldname = [oldn UTF8String];
+	newname = [newn UTF8String];
+
 	linenum = 0;
 	for (i = 0;i < numlines; i++)
 	{
@@ -99,14 +105,14 @@ TextureRemapper *textureRemapper_i;
 			strcpy(lines[i].side[1].toptexture, newname );
 			flag++;
 		}
-		
+
 		if (flag)
 		{
 			printf("Remapped texture %s to %s.\n",oldname,newname);
 			linenum++;
 		}
 	}
-	
+
 	return linenum;
 }
 

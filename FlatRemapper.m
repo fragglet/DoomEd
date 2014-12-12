@@ -13,13 +13,14 @@ id	flatRemapper_i;
 - init
 {
 	flatRemapper_i = self;
-	
-	remapper_i = [ [ Remapper	alloc ]
-				setFrameName:"FlatRemapper"
-				setPanelTitle:"Flat Remapper"
-				setBrowserTitle:"List of flats to be remapped"
-				setRemapString:"Flat"
-				setDelegate:self ];
+
+	remapper_i = [[Remapper alloc]
+		setFrameName: @"FlatRemapper"
+		setPanelTitle: @"Flat Remapper"
+		setBrowserTitle: @"List of flats to be remapped"
+		setRemapString: @"Flat"
+		setDelegate: self
+	];
 	return self;
 }
 
@@ -34,9 +35,9 @@ id	flatRemapper_i;
 	return self;
 }
 
-- addToList:(char *)orgname to:(char *)newname;
+- addToList: (NSString *)orgname to: (NSString *) newname;
 {
-	[remapper_i	addToList:orgname to:newname];
+	[remapper_i addToList:orgname to:newname];
 	return self;
 }
 
@@ -45,22 +46,26 @@ id	flatRemapper_i;
 //	Delegate methods
 //
 //===================================================================
-- (char *)getOriginalName
+- (NSString *)getOriginalName
 {
-	return [sectorEdit_i	flatName:[sectorEdit_i getCurrentFlat] ];
+	return [sectorEdit_i flatName:[sectorEdit_i getCurrentFlat] ];
 }
 
-- (char *)getNewName
+- (NSString *)getNewName
 {
-	return [sectorEdit_i	flatName:[sectorEdit_i getCurrentFlat] ];
+	return [sectorEdit_i flatName:[sectorEdit_i getCurrentFlat] ];
 }
 
-- (int)doRemap:(char *)oldname to:(char *)newname
+- (int)doRemap: (NSString *) oldn to: (NSString *) newn
 {
-	int		i;
-	int		linenum;
-	int		flag;
-	
+	const char *oldname, *newname;
+	int i;
+	int linenum;
+	int flag;
+
+	oldname = [oldn UTF8String];
+	newname = [newn UTF8String];
+
 	linenum = 0;
 	for (i = 0;i < numlines; i++)
 	{

@@ -613,13 +613,13 @@ SectorEditor *sectorEdit_i;
 	return self;
 }
 
-- (char *)flatName:(int) flat
+- (NSString *) flatName: (int) flat
 {
 	flat_t	*f;
 	f = [flatImages	elementAt:flat];
 	if (f == NULL)
-		return NULL;
-	return	f->name;
+		return nil;
+	return [NSString stringWithUTF8String: f->name];
 }
 
 - (int) findFlat:(const char *)name

@@ -14,13 +14,14 @@ id	lineSpecialRemapper_i;
 - init
 {
 	lineSpecialRemapper_i = self;
-	
-	remapper_i = [ [ Remapper	alloc ]
-				setFrameName:"LineSpecialRemapper"
-				setPanelTitle:"Line Special Remapper"
-				setBrowserTitle:"List of line specials to be remapped"
-				setRemapString:"Special"
-				setDelegate:self ];
+
+	remapper_i = [[Remapper alloc]
+		setFrameName: @"LineSpecialRemapper"
+		setPanelTitle: @"Line Special Remapper"
+		setBrowserTitle: @"List of line specials to be remapped"
+		setRemapString: @"Special"
+		setDelegate: self
+	];
 	return self;
 }
 
@@ -35,9 +36,9 @@ id	lineSpecialRemapper_i;
 	return self;
 }
 
-- addToList:(char *)orgname to:(char *)newname;
+- addToList: (NSString *) orgname to: (NSString *) newname
 {
-	[remapper_i	addToList:orgname to:newname];
+	[remapper_i addToList:orgname to:newname];
 	return self;
 }
 
@@ -46,51 +47,51 @@ id	lineSpecialRemapper_i;
 //	Delegate methods
 //
 //===================================================================
-- (char *)getOriginalName
+- (NSString *) getOriginalName
 {
-	char	string[80];
 	speciallist_t	special;
 
 	[lineSpecialPanel_i fillSpecialData:&special];
-	sprintf(string,"%d:%s",special.value,special.desc);
-	return string;
+	return [NSString stringWithFormat: @"%d:%s",
+	                                   special.value,special.desc];
 }
 
-- (char *)getNewName
+- (NSString *) getNewName
 {
 	return [self getOriginalName];
 }
 
-- (int)doRemap:(char *)oldname to:(char *)newname
+- (int)doRemap: (NSString *) oldname to: (NSString *) newname
 {
-	int		i;
-	int		linenum;
-	int		flag;
-	char	string[80];
-	int		oldval;
-	int		newval;
-	
-	sscanf(oldname,"%d:%s",&oldval,string);
-	sscanf(newname,"%d:%s",&newval,string);
-	
+	int i;
+	int linenum;
+	int flag;
+	char string[80];
+	int oldval;
+	int newval;
+
+	sscanf([oldname UTF8String], "%d:%s", &oldval, string);
+	sscanf([newname UTF8String], "%d:%s", &newval, string);
+
 	linenum = 0;
-	for (i = 0;i < numlines; i++)
+	for (i = 0; i < numlines; i++)
 	{
 		flag = 0;
-		
+
 		if (lines[i].special == oldval)
 		{
 			lines[i].special = newval;
 			flag++;
 		}
-		
+
 		if (flag)
 		{
-			printf("Remapped Line Special %s to %s.\n",oldname,newname);
+			printf("Remapped Line Special %s to %s.\n",
+			       [oldname UTF8String], [newname UTF8String]);
 			linenum++;
 		}
 	}
-	
+
 	return linenum;
 }
 

@@ -13,13 +13,14 @@ id	thingRemapper_i;
 - init
 {
 	thingRemapper_i = self;
-	
-	remapper_i = [ [ Remapper	alloc ]
-				setFrameName:"ThingRemapper"
-				setPanelTitle:"Thing Remapper"
-				setBrowserTitle:"List of things to be remapped"
-				setRemapString:"Thing"
-				setDelegate:self ];
+
+	remapper_i = [[Remapper alloc]
+		setFrameName: @"ThingRemapper"
+		setPanelTitle: @"Thing Remapper"
+		setBrowserTitle: @"List of things to be remapped"
+		setRemapString: @"Thing"
+		setDelegate: self
+	];
 	return self;
 }
 
@@ -34,9 +35,9 @@ id	thingRemapper_i;
 	return self;
 }
 
-- addToList:(char *)orgname to:(char *)newname;
+- addToList: (NSString *) orgname to: (NSString *) newname;
 {
-	[remapper_i	addToList:orgname to:newname];
+	[remapper_i addToList:orgname to:newname];
 	return self;
 }
 
@@ -45,34 +46,33 @@ id	thingRemapper_i;
 //	Delegate methods
 //
 //===================================================================
-- (char *)getOriginalName
+- (NSString *)getOriginalName
 {
-	thinglist_t	*t;
-	
-	t = [thingpanel_i	getCurrentThingData];
+	thinglist_t *t;
+
+	t = [thingpanel_i getCurrentThingData];
 	if (t == NULL)
 		return NULL;
-	return t->name;
+	return [NSString stringWithUTF8String: t->name];
 }
 
-- (char *)getNewName
+- (NSString *)getNewName
 {
-	thinglist_t	*t;
-	
-	t = [thingpanel_i	getCurrentThingData];
-	if (t == NULL)
-		return NULL;
-	return t->name;
+	return [self getOriginalName];
 }
 
-- (int)doRemap:(char *)oldname to:(char *)newname
+- (int)doRemap: (NSString *) oldn to: (NSString *) newn
 {
+	const char *oldname, *newname;
 	int	i, thingnum,oldnum,newnum;
 	thinglist_t	*t;
-	
-	t = [thingpanel_i	getThingData:[thingpanel_i	findThing:oldname]];
+
+	oldname = [oldn UTF8String];
+	newname = [newn UTF8String];
+
+	t = [thingpanel_i getThingData:[thingpanel_i findThing:oldname]];
 	oldnum = t->value;
-	t = [thingpanel_i	getThingData:[thingpanel_i	findThing:newname]];
+	t = [thingpanel_i getThingData:[thingpanel_i findThing:newname]];
 	newnum = t->value;
 	thingnum = 0;
 	

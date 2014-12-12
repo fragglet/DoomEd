@@ -621,7 +621,7 @@ id	thingpanel_i;
 //
 // return index of thing in masterList. "string" is used for search thru list.
 //
-- (int)findThing:(char *)string
+- (int)findThing:(const char *)string
 {
 	int	max, i;
 	thinglist_t		*t;

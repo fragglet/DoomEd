@@ -1437,14 +1437,16 @@ typedef struct
 				NSRunAlertPanel(@"Programming Error?",
 					@"Returned a bad texture index: %d",
 					@"Continue", nil, nil, indx);
-			
+
 			if (indx >= 0)
-				textureCount[indx]++;
-			else
-			if (indx == -2)
 			{
-				[textureRemapper_i
-					addToList:lines[k].side[0].bottomtexture to:"???"];
+				textureCount[indx]++;
+			}
+			else if (indx == -2)
+			{
+				NSString *orgname = [NSString stringWithUTF8String:
+					lines[k].side[0].bottomtexture];
+				[textureRemapper_i addToList: orgname to: @"???"];
 				errors++;
 			}
 
@@ -1455,12 +1457,15 @@ typedef struct
 					@"Returned a bad texture index: %d",
 					@"Continue", nil, nil, indx);
 			if (indx >= 0)
-				textureCount[indx]++;
-			else
-			if (indx == -2)
 			{
-				[textureRemapper_i
-					addToList:lines[k].side[0].midtexture to:"???"];
+				textureCount[indx]++;
+			}
+			else if (indx == -2)
+			{
+				NSString *orgname = [NSString stringWithUTF8String:
+					lines[k].side[0].midtexture];
+
+				[textureRemapper_i addToList: orgname to: @"???"];
 				errors++;
 			}
 
@@ -1471,25 +1476,31 @@ typedef struct
 					@"Returned a bad texture index: %d",
 					@"Continue", nil, nil, indx);
 			if (indx >= 0)
-				textureCount[indx]++;
-			else
-			if (indx == -2)
 			{
-				[textureRemapper_i
-					addToList:lines[k].side[0].toptexture to:"???"];
+				textureCount[indx]++;
+			}
+			else if (indx == -2)
+			{
+				NSString *orgname = [NSString stringWithUTF8String:
+					lines[k].side[0].toptexture];
+
+				[textureRemapper_i addToList: orgname to: @"???"];
 				errors++;
 			}
-			
+
 			if (lines[k].side[0].ends.floorflat[0])
 			{
 				flat = [ sectorEdit_i
 					findFlat:lines[k].side[0].ends.floorflat ];
 				if (flat >= 0)
+				{
 					flatCount[flat]++;
+				}
 				else
 				{
-					[flatRemapper_i
-						addToList:lines[k].side[0].ends.floorflat  to:"???"];
+					NSString *orgname = [NSString stringWithUTF8String:
+						lines[k].side[0].ends.floorflat];
+					[flatRemapper_i addToList: orgname to: @"???"];
 					errors++;
 				}
 			}
@@ -1498,11 +1509,15 @@ typedef struct
 				flat = [ sectorEdit_i
 					findFlat:lines[k].side[0].ends.ceilingflat ];
 				if (flat >= 0)
+				{
 					flatCount[flat]++;
+				}
 				else
 				{
-					[flatRemapper_i
-						addToList:lines[k].side[0].ends.ceilingflat  to:"???"];
+					NSString *orgname = [NSString stringWithUTF8String:
+						lines[k].side[0].ends.ceilingflat];
+
+					[flatRemapper_i addToList: orgname to: @"???"];
 					errors++;
 				}
 			}
@@ -1514,14 +1529,17 @@ typedef struct
 				NSRunAlertPanel(@"Programming Error?",
 					@"Returned a bad texture index: %d",
 					@"Continue", nil, nil, indx);
-			
+
 			if (indx >= 0)
-				textureCount[indx]++;
-			else
-			if (indx == -2)
 			{
-				[textureRemapper_i
-					addToList:lines[k].side[1].bottomtexture to:"???"];
+				textureCount[indx]++;
+			}
+			else if (indx == -2)
+			{
+				NSString *orgname = [NSString stringWithUTF8String:
+					lines[k].side[1].bottomtexture];
+
+				[textureRemapper_i addToList: orgname to: @"???"];
 				errors++;
 			}
 
@@ -1532,12 +1550,15 @@ typedef struct
 					@"Returned a bad texture index: %d",
 					@"Continue", nil, nil, indx);
 			if (indx >= 0)
-				textureCount[indx]++;
-			else
-			if (indx == -2)
 			{
-				[textureRemapper_i
-					addToList:lines[k].side[1].midtexture to:"???"];
+				textureCount[indx]++;
+			}
+			else if (indx == -2)
+			{
+				NSString *orgname = [NSString stringWithUTF8String:
+					lines[k].side[1].midtexture];
+
+				[textureRemapper_i addToList: orgname to: @"???"];
 				errors++;
 			}
 
@@ -1548,12 +1569,15 @@ typedef struct
 					@"Returned a bad texture index: %d",
 					@"Continue", nil, nil, indx);
 			if (indx >= 0)
-				textureCount[indx]++;
-			else
-			if (indx == -2)
 			{
-				[textureRemapper_i
-					addToList:lines[k].side[1].toptexture to:"???"];
+				textureCount[indx]++;
+			}
+			else if (indx == -2)
+			{
+				NSString *orgname = [NSString stringWithUTF8String:
+					lines[k].side[1].toptexture];
+
+				[textureRemapper_i addToList: orgname to: @"???"];
 				errors++;
 			}
 
@@ -1562,11 +1586,15 @@ typedef struct
 				flat = [ sectorEdit_i
 					findFlat:lines[k].side[1].ends.floorflat ];
 				if (flat >= 0)
+				{
 					flatCount[flat]++;
+				}
 				else
 				{
-					[flatRemapper_i
-						addToList:lines[k].side[1].ends.floorflat  to:"???"];
+					NSString *orgname = [NSString stringWithUTF8String:
+						lines[k].side[1].ends.floorflat];
+
+					[flatRemapper_i addToList: orgname  to: @"???"];
 					errors++;
 				}
 			}
@@ -1576,11 +1604,14 @@ typedef struct
 				flat = [ sectorEdit_i
 						findFlat:lines[k].side[1].ends.ceilingflat ];
 				if (flat >= 0)
+				{
 					flatCount[flat]++;
+				}
 				else
 				{
-					[flatRemapper_i
-						addToList:lines[k].side[1].ends.ceilingflat  to:"???"];
+					NSString *orgname = [NSString stringWithUTF8String:
+						lines[k].side[1].ends.ceilingflat];
+					[flatRemapper_i addToList: orgname  to: @"???"];
 					errors++;
 				}
 			}
@@ -1615,7 +1646,7 @@ typedef struct
 	fprintf( stream, "Flat count:\n" );
 	for (i = 0; i < nf; i++)
 		fprintf( stream, "Flat\x9\x9%d\x9\x9\x9%s\n",flatCount[i],
-			[sectorEdit_i flatName:i] );
+			[[sectorEdit_i flatName:i] UTF8String]);
 	
 	//
 	//	Print thing report

@@ -4,16 +4,16 @@
 
 typedef struct
 {
-	char		orgname[40],newname[40];
+	NSString *orgname, *newname;
 } type_t;
 
 //
 //	Methods to be implemented by the delegate
 //
 @protocol Remapper
-- (char *)getOriginalName;
-- (char *)getNewName;
-- (int)doRemap:(char *)oldname to:(char *)newname;
+- (NSString *) getOriginalName;
+- (NSString *) getNewName;
+- (int)doRemap: (NSString *) oldname to: (NSString *) newname;
 - finishUp;
 @end
 
@@ -30,21 +30,21 @@ typedef struct
 	
 	CompatibleStorage *storage_i;
 	id		delegate_i;
-	char		frameName[32];
+	NSString *frameName;
 }
 
 //	EXTERNAL USE
-- setFrameName:(char *)fname
-  setPanelTitle:(char *)ptitle
-  setBrowserTitle:(char *)btitle
-  setRemapString:(char *)rstring
+- setFrameName:(NSString *)fname
+  setPanelTitle:(NSString *)ptitle
+  setBrowserTitle:(NSString *)btitle
+  setRemapString:(NSString *)rstring
   setDelegate:(id)delegate;
 
 //extern - (int)doRemap:(char *)oldname to:(char *)newname;
 
 - showPanel;
   
-- addToList:(char *)orgname to:(char *)newname;
+- addToList: (NSString *) orgname to: (NSString *) newname;
 
 //	INTERNAL USE
 - remapGetButtons:sender;

@@ -8,7 +8,7 @@ extern	id	lineSpecialRemapper_i;
 	id	remapper_i;
 }
 
-- addToList:(char *)orgname to:(char *)newname;
+- addToList: (NSString *) orgname to: (NSString *) newname;
 - menuTarget:sender;
 
 @end

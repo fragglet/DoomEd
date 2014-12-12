@@ -15,14 +15,14 @@
 //	- (int)doRemap:(char *)oldname to:(char *)newname;
 //
 //===================================================================
-- setFrameName:(char *)fname
-  setPanelTitle:(char *)ptitle
-  setBrowserTitle:(char *)btitle
-  setRemapString:(char *)rstring
-  setDelegate:(id)delegate
+- setFrameName: (NSString *)fname
+  setPanelTitle: (NSString *)ptitle
+  setBrowserTitle: (NSString *)btitle
+  setRemapString: (NSString *)rstring
+  setDelegate: (id)delegate
 {
-	strcpy(frameName,fname);
-	
+	frameName = fname;
+
 	if (! remapPanel_i )
 	{
 		[[NSBundle mainBundle] loadNibNamed: @"Remapper.nib"
@@ -82,14 +82,14 @@
 //	Add old & new texture names to list
 //
 //===================================================================
-- addToList:(char *)orgname to:(char *)newname
+- addToList: (NSString *) orgname to: (NSString *) newname
 {
 	if (!storage_i)
 		return self;
 
-	[original_i	setStringValue:orgname];
-	[new_i		setStringValue:newname];
-	[self			addToList:NULL];
+	[original_i setStringValue:orgname];
+	[new_i setStringValue:newname];
+	[self addToList:NULL];
 
 	return self;
 }
@@ -98,29 +98,26 @@
 {
 	type_t	r,	*r2;
 	int		i, max;
-		
-	strcpy ( r.orgname, [original_i	stringValue] );
-	strcpy ( r.newname, [new_i		stringValue] );
-	
-	strupr( r.orgname );
-	strupr( r.newname );
-	
-	[original_i	setStringValue:r.orgname];
-	[new_i		setStringValue:r.newname];
-	
+
+	r.orgname = [[original_i stringValue] uppercaseString];
+	r.newname = [[new_i stringValue] uppercaseString];
+
+	[original_i setStringValue: r.orgname];
+	[new_i setStringValue: r.newname];
+
 	//
 	//	Check for duplicates
 	//
-	max = [storage_i	count];
+	max = [storage_i count];
 	for (i = 0;i < max; i++)
 	{
-		r2 = [storage_i		elementAt:i];
-		if (	(!strcmp(r2->orgname,r.orgname)) &&
-			(!strcmp(r2->newname,r.newname))  )
-			{
-				NSBeep ();
-				return self;
-			}
+		r2 = [storage_i elementAt:i];
+		if ([r2->orgname compare: r.orgname] == 0
+		 && [r2->newname compare: r.newname] == 0)
+		{
+			NSBeep ();
+			return self;
+		}
 	}
 	
 	[storage_i	addElement:&r];
@@ -183,7 +180,8 @@
 	type_t	*r;
 	int		index, max;
 	unsigned int		linenum;
-	char		*oldname, *newname, string[64];
+	NSString *oldname, *newname;
+	NSString *string;
 	
 	max = [storage_i	count];
 	if (!max)
@@ -201,12 +199,13 @@
 		
 		linenum += [delegate_i	doRemap:oldname to:newname];
 	}
-		
-	sprintf ( string, "%u total remappings performed.", linenum );
-	[ status_i	setStringValue: string ];
-	[ delegate_i	finishUp ];
+
+	string = [NSString stringWithFormat: @"%u total remappings performed.",
+	                                     linenum];
+	[ status_i setStringValue: string ];
+	[ delegate_i finishUp ];
 	[ doomproject_i	setDirtyMap:TRUE];
-	
+
 	return self;
 }
 
@@ -220,8 +219,9 @@
 	type_t	*r;
 	int		index, max;
 	unsigned int		linenum, total;
-	char		*oldname, *newname, string[64];
-	
+	NSString *oldname, *newname;
+	NSString *string;
+
 	[editworld_i	closeWorld];
 	[doomproject_i	beginOpenAllMaps];
 	max = [storage_i	count];
@@ -240,23 +240,25 @@
 			r = [storage_i	elementAt:index];
 			oldname = r->orgname;
 			newname = r->newname;
-			
+
 			linenum += [delegate_i	doRemap:oldname to:newname];
 		}
-			
-		sprintf ( string, "%u remappings.", linenum );
+
+		string = [NSString stringWithFormat: @"%u remappings.",
+		                                     linenum];
 		total += linenum;
-		[ status_i	setStringValue:string ];
-		[ remapPanel_i	makeKeyAndOrderFront:NULL];
+		[status_i setStringValue:string];
+		[remapPanel_i makeKeyAndOrderFront:NULL];
 		NXPing ();
 		if (linenum)
 			[ editworld_i	saveDoomEdMapBSP:NULL ];
 	}
-	
-	sprintf ( string, "%u total remappings performed.", total );
-	[ status_i	setStringValue: string ];
-	[ delegate_i	finishUp ];
-	
+
+	string = [NSString stringWithFormat: @"%u total remappings performed.",
+	                                     total];
+	[status_i setStringValue: string];
+	[delegate_i finishUp];
+
 	return self;
 }
 
@@ -267,9 +269,9 @@
 //===================================================================
 - windowDidMiniaturize:sender
 {
-	[sender	setMiniwindowIcon:"DoomEd"];
+	//[sender	setMiniwindowIcon:"DoomEd"];
 	[sender	setMiniwindowTitle:frameName];
-	
+
 	return self;
 }
 
@@ -283,7 +285,7 @@
 {
 	int	max, i;
 	id	cell;
-	char		string[128];
+	NSString *string;
 	type_t	*r;
 	
 	max = [storage_i	count];
@@ -292,12 +294,11 @@
 		r = [storage_i	elementAt:i];
 		[matrix	addRow];
 		cell = [matrix	cellAt:i	:0];
-		
-		strcpy ( string, r->orgname );
-		strcat ( string, " remaps to " );
-		strcat ( string, r->newname );
-		
-		[cell	setStringValue:string];
+
+		string = [NSString stringWithFormat: @"%@ remaps to %@",
+		                                     r->orgname, r->newname];
+
+		[cell setStringValue:string];
 		[cell setLeaf: YES];
 		[cell setLoaded: YES];
 		[cell setEnabled: YES];

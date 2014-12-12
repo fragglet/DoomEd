@@ -61,7 +61,7 @@ typedef struct
 - fillDataFromThing:(thinglist_t *)thing;
 - fillAllDataFromThing:(thinglist_t *)thing;
 - addThing:sender;
-- (int)findThing:(char *)string;
+- (int)findThing:(const char *)string;
 - (thinglist_t *)getThingData:(int)index;
 - chooseThing:sender;
 - confirmCorrectNameEntry:sender;
