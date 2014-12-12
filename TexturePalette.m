@@ -91,8 +91,8 @@ TexturePalette *texturePalette_i;
 
 - windowDidMiniaturize:sender
 {
-	[sender	setMiniwindowIcon:"DoomEd"];
-	[sender	setMiniwindowTitle:"TxPalette"];
+	// TODO [sender setMiniwindowIcon:"DoomEd"];
+	[sender setMiniwindowTitle:@"TxPalette"];
 	return self;
 }
 
@@ -134,20 +134,20 @@ TexturePalette *texturePalette_i;
 	t.WADindex = textures[which].WADindex;
 	strcpy(t.name,textures[which].name);
 	t.patchamount = textures[which].patchcount;
-	t.image = [[NXImage alloc]
-			initSize:	&s];
-	[t.image	 useCacheWithDepth:NX_TwelveBitRGBDepth];
-	[t.image	lockFocusOn:[t.image lastRepresentation]];
-	
-	NXSetColor(NXConvertRGBAToColor(1,0,0,1));
-	NSRectFill(t.r);
+	t.image = [[NSImage alloc] initWithSize: s];
+	[t.image lockFocus];
+	//[t.image	 useCacheWithDepth:NX_TwelveBitRGBDepth];
+	//[t.image	lockFocusOn:[t.image lastRepresentation]];
+
+	//NXSetColor(NXConvertRGBAToColor(1,0,0,1));
+	//NSRectFill(t.r);
 
 	for (i = 0; i < textures[which].patchcount; i++)
 	{
 		texpatch_t	p;
-		
+
 		p.patchInfo = textures[which].patches[i];
-		p.patch = [textureEdit_i	getPatchImage:p.patchInfo.patchname];
+		p.patch = [textureEdit_i getPatchImage:p.patchInfo.patchname];
 		if (!p.patch)
 		{
 			NSRunAlertPanel(@"Shit!",
@@ -163,9 +163,10 @@ TexturePalette *texturePalette_i;
 					(p.patchInfo.originy);
 		p.r.size.width = p.patch->r.size.width;
 		p.r.size.height = p.patch->r.size.height;
-		[p.patch->image	composite:NSCompositeSourceOver toPoint:&p.r.origin];
+		[p.patch->image	drawAtPoint:p.r.origin fromRect:NSZeroRect
+		                operation:NSCompositeSourceOver];
 	}
-	[t.image	unlockFocus];
+	[t.image unlockFocus];
 	return t;
 }
 
