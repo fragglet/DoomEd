@@ -71,7 +71,6 @@
 		27DA44B919706396005CB000 /* Timing.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA448B19706396005CB000 /* Timing.m */; };
 		27DA44BA19706396005CB000 /* ToolPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA448C19706396005CB000 /* ToolPanel.m */; };
 		27DA44BB19706396005CB000 /* Wadfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DA448D19706396005CB000 /* Wadfile.m */; };
-		27DA44BD19706492005CB000 /* DoomEd-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27DA44BC19706492005CB000 /* DoomEd-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -414,7 +413,7 @@
 		27044F62197042D7003F6DB6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0610;
 				TargetAttributes = {
 					27044F8A197042D7003F6DB6 = {
 						TestTargetID = 27044F69197042D7003F6DB6;
@@ -447,7 +446,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				276AB5F01970AECA001718D1 /* Project.nib in Resources */,
-				27DA44BD19706492005CB000 /* DoomEd-Info.plist in Resources */,
 				276AB5E31970AE9D001718D1 /* DoomEd.nib in Resources */,
 				276AB5F41970AECA001718D1 /* SpecialList.nib in Resources */,
 				276AB6001970AEEE001718D1 /* ThingPalette.nib in Resources */,
