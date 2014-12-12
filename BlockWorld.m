@@ -128,19 +128,19 @@ NXEraseRect (&r);
 }
 #endif
 
-		if (line = *(dest+WL_EAST))
+		if ((line = *(dest+WL_EAST)) != 0)
 		{
 			selectline (line);
 			break;
 		}
 		else if (x<bwidth-1)
 		{
-			if (line = *(dest+WLSIZE+WL_NWSE))
+			if ((line = *(dest+WLSIZE+WL_NWSE)) != 0)
 			{
 				selectline(line);
 				break;
 			}
-			else if (line = *(dest+WLSIZE+WL_NESW))
+			else if ((line = *(dest+WLSIZE+WL_NESW)) != 0)
 			{
 				selectline(line^SIDEBIT);
 				break;
@@ -167,19 +167,19 @@ NXEraseRect (&r);
 }
 #endif
 
-		if (line = *(dest+WL_WEST))
+		if ((line = *(dest+WL_WEST)) != 0)
 		{
 			selectline (line);
 			break;
 		}
 		else if (x>0)
 		{
-			if (line = *(dest-WLSIZE+WL_NWSE))
+			if ((line = *(dest-WLSIZE+WL_NWSE)) != 0)
 			{
 				selectline(line^SIDEBIT);
 				break;
 			}
-			else if (line = *(dest-WLSIZE+WL_NESW))
+			else if ((line = *(dest-WLSIZE+WL_NESW)) != 0)
 			{
 				selectline(line);
 				break;
@@ -200,27 +200,33 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 	for (x=firstx ; x<=lastx ; x++)
 	{
 		dest = bmap + y*brow + x*WLSIZE;
-	
-		if (line = *(dest+WL_SOUTH))
+
+		if ((line = *(dest+WL_SOUTH)) != 0)
+		{
 			selectline (line);
+		}
 		else if ( y<bheight-1 && !*(dest+brow+WL_MARK))
 		{
-			if (line = *(dest+brow+WL_NWSE))
+			if ((line = *(dest+brow+WL_NWSE)) != 0)
 				selectline(line^SIDEBIT);
-			else if (line = *(dest+brow+WL_NESW))
+			else if ((line = *(dest+brow+WL_NESW)) != 0)
 				selectline(line^SIDEBIT);
-			else floodline (x,y+1);
+			else
+				floodline (x,y+1);
 		}
-			
-		if (line = *(dest+WL_NORTH))
+
+		if ((line = *(dest+WL_NORTH)) != 0)
+		{
 			selectline (line);
+		}
 		else if (y>0  && !*(dest-brow+WL_MARK))
 		{
-			if (line = *(dest-brow+WL_NWSE))
+			if ((line = *(dest-brow+WL_NWSE)) != 0)
 				selectline(line);
-			else if (line = *(dest-brow+WL_NESW))
+			else if ((line = *(dest-brow+WL_NESW)) != 0)
 				selectline(line);
-			else floodline (x,y-1);
+			else
+				floodline (x,y-1);
 		}
 	}
 	
@@ -241,7 +247,7 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 	int			x1, y1, x2, y2;
 	NSPoint		*pt;
 	int			left, right, top, bottom;
-	short		*dest;
+	unsigned short	*dest;
 	int			temp, offset;
 	int			dx, dy,ilength;
 	float			length, x, y, xstep, ystep;
@@ -373,7 +379,7 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 	id		window;
 	unsigned char		*planes[5];
 	int		i,size;
-	short	*src, *dest;
+	unsigned short	*src, *dest;
 
 	aRect = NSMakeRect(100, 100, brow / WLSIZE, bheight);
 	window = [[NSWindow alloc] initWithContentRect: aRect
@@ -387,23 +393,25 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 
 	blockview = [window contentView];
 	size = brow/WLSIZE*bheight;
-	dest = (short *)planes[0] = malloc (size*2);
+	planes[0] = malloc(size * 2);
+	dest = (unsigned short *) planes[0];
 	src = bmap;
-	for (i=0 ; i<size; i++)
+	for (i = 0 ; i < size; i++)
 	{
 		if (src[WL_MARK])
 			*dest = 0xff;
 		else if (src[0] || src[1] || src[2] || src[3] || src[WL_NWSE] || src[WL_NESW])
-			*dest = 0xffffffff;
+			*dest = 0xffff;
 		else
 			*dest = 0;
 		src += WLSIZE;
 		dest++;
 	}
-	
+
 	aRect.origin.x = aRect.origin.y = 0;
-	
+
 	[blockview lockFocus]; 
+	/* TODO
 	NXDrawBitmap(
 		&aRect,  
 		bwidth, 
@@ -417,6 +425,7 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 		NX_RGBColorSpace,
 		planes
 	);
+	*/
 	[blockview unlockFocus]; 
 	
 	NXPing();
@@ -582,7 +591,7 @@ if (firstx<0 || lastx>=bwidth || firstx>lastx)
 {
 	int		i,x,y;
 	worldline_t	*line;
-	short	*test;
+	unsigned short	*test;
 	int		count;
 	worldsector_t	*sector;
 
