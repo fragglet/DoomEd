@@ -108,8 +108,8 @@ BOOL	debugflag = NO;
 	[startupSound_i release];
 
 	[doomproject_i	quit];
-	[prefpanel_i applicationWillTerminate: self];
-	[editworld_i applicationWillTerminate: self];
+	[prefpanel_i applicationWillTerminate: notification];
+	[editworld_i applicationWillTerminate: notification];
 
 	[sectorEdit_i	saveFrame];
 	[textureEdit_i	saveFrame];

@@ -16,7 +16,7 @@ BOOL	linecross[9][9];
 
 @implementation MapView
 
-+ (void) initialize
++ initialize
 {
 	int	x1,y1,x2,y2;
 	
