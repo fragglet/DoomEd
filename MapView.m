@@ -72,15 +72,16 @@ BOOL	linecross[9][9];
 
 - testSpeed: sender
 {
+#if 0
         id 		t4;
 	NXStream	*stream;
 	int		i;
-	
+
         t4 = [Timing newWithTag:4];
-		
+
 	stream = NXOpenMemory (NULL, 0, NX_WRITEONLY);
-	
-printf ("Display\n");	
+
+printf ("Display\n");
 	[t4 reset];
 	for (i=0 ; i<10 ; i++)
 	{
@@ -89,7 +90,7 @@ printf ("Display\n");
 		[t4 leave];
 	}
 	[t4 summary: stream];
-printf ("No flush\n");	
+printf ("No flush\n");
 	[t4 reset];
 	[[self window] disableFlushWindow];
 	for (i=0 ; i<10 ; i++)
@@ -100,11 +101,12 @@ printf ("No flush\n");
 	}
 	[[self window] reenableFlushWindow];
 	[t4 summary: stream];
-	
+
 	NXSaveToFile (stream, "/aardwolf/Users/johnc/timing.txt");
 	NXClose (stream);
-printf ("Done\n");	
-	
+printf ("Done\n");
+#endif
+
 	return self;
 }
 

@@ -1,19 +1,18 @@
-#import "ps_quartz.h"
+#if 0 // Timing code is currently disabled.
 
 /* Timing.m */
 
 #import "Timing.h"
+#import "ps_quartz.h"
+
 #import <stdio.h>
-#import <streams/streams.h>
-#import <dpsclient/wraps.h>
-#import <appkit/graphics.h>
 
 @implementation Timing
 
 +newWithTag:(int) aTag
 {
     self = [super new];
-    tag = aTag;
+    // TODO tag = aTag;
     [self reset];
     return self;
 }
@@ -140,17 +139,24 @@
     return -1.0;
 }
 
--summary:(NXStream *)c
+-summary:(NSOutputStream *)c
 {
     if(wallTime) {
-    NXPrintf(c,"Timer %d : entered %d trials TotalWall Time  %lf \n",
-    tag,cumTimesEntered, cumWallTime);
+	NSString *msg = [NSString stringWithFormat:
+	    @"Timer %d : entered %d trials TotalWall Time  %lf \n",
+            tag, cumTimesEntered, cumWallTime];
+	[c write:[msg UTF8String] maxLength:[msg length]];
+	[msg release];
     }
     else {
-    NXPrintf(c,"Timer %d : %d trials App: %lf  Server: %lf  Percent Server: %lf Total: %lf\n\00", 
-                tag,cumTimesEntered,cumAppTime,cumPSTime,
-                cumPSTime/(cumAppTime+cumPSTime),
-                cumAppTime+cumPSTime);
+        NSString *msg = [NSString stringWithFormat:
+	    @"Timer %d : %d trials App: %lf  Server: %lf  "
+	    @"Percent Server: %lf Total: %lf\n\00",
+            tag,cumTimesEntered,cumAppTime,cumPSTime,
+            cumPSTime/(cumAppTime+cumPSTime),
+            cumAppTime+cumPSTime];
+	[c write:[msg UTF8String] maxLength:[msg length]];
+	[msg release];
     }
     NXFlush(c);
     return self;
@@ -159,3 +165,4 @@
 @end
 
 
+#endif

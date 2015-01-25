@@ -1,17 +1,33 @@
-/* 
+/*
 Timing.h
 
-This class implements a simple interval timer to aid in measuring drawing performance.  It'll measure either wall or CPU time spent within an interval delineated by a pair of messages to the Timing object.  It's most useful in situations where you need to measure not only the time spent within the process, but also the time spent in other processes, most notably the Window Server.  CPU time includes process time, system time on behalf of the process, and Window Server time on behalf of the process.  The results are most accurate if averaged over a number of passes through the interval, and the Timing object will keep track of:  number of times entered, cumulative elapsed time, and average elapsed time.
+This class implements a simple interval timer to aid in measuring
+drawing performance.  It'll measure either wall or CPU time spent
+within an interval delineated by a pair of messages to the Timing
+object.  It's most useful in situations where you need to measure not
+only the time spent within the process, but also the time spent in
+other processes, most notably the Window Server.  CPU time includes
+process time, system time on behalf of the process, and Window Server
+time on behalf of the process.  The results are most accurate if
+averaged over a number of passes through the interval, and the Timing
+object will keep track of:  number of times entered, cumulative
+elapsed time, and average elapsed time.
 
 Use the +newWithTag: method to create a Timing object.
 
-Use the -reset message to reset the Timing object before entering the timing interval for the first time.
+Use the -reset message to reset the Timing object before entering the
+timing interval for the first time.
 
-A timing interval is delineated by an -enter: message and a -leave message.  enter: takes a single argument that specifies either WALLTIME or PSTIME.
+A timing interval is delineated by an -enter: message and a -leave
+message.  enter: takes a single argument that specifies either
+WALLTIME or PSTIME.
 
-Use the -summary: method to have the Timing object print out a summary to the stream that is passed in as the argument to summary:.  Alternatively, the Timing object provides methods for querying it for the appropriate values.
+Use the -summary: method to have the Timing object print out a summary
+to the stream that is passed in as the argument to summary:.
+Alternatively, the Timing object provides methods for querying it for
+the appropriate values.
 
-Here's an example of its use.  
+Here's an example of its use.
 
     - action4:sender
     {
@@ -33,7 +49,7 @@ Here's an example of its use.
 
 */
 
-#import <objc/Object.h>
+#if 0
 #include <sys/time.h>
 #import <sys/resource.h>
 #define PSTIME 0
@@ -103,7 +119,7 @@ Here's an example of its use.
 -avgElapsedTime;
     /* Calculates averages.  Called automatically by summary:. */
 
--summary:(NXStream *)c;
+-summary:(NSOutputStream *)c;
     /* Writes out a summary to the stream pointed to by c.  Depending on 
        the current value of wallTime will write out a summary for either 
        wall time or ps time. */
@@ -124,3 +140,4 @@ Here's an example of its use.
 
 @end
 
+#endif
