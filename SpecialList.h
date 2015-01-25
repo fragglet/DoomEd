@@ -8,6 +8,10 @@ typedef struct
 	char		desc[32];
 } speciallist_t;
 
+@protocol SpecialListDelegate <NSObject>
+- specialChosen: (int)value;
+@end
+
 @interface SpecialList:NSObject
 {
 	id	specialDesc_i;
@@ -15,8 +19,8 @@ typedef struct
 	id	specialValue_i;
 	id	specialPanel_i;
 	CompatibleStorage *specialList_i;
-	
-	id	delegate;
+
+	id<SpecialListDelegate> delegate;
 	char		title[32];
 	char		frameString[32];
 }
@@ -35,5 +39,8 @@ typedef struct
 - validateSpecialString:sender;
 - setSpecial:(int)which;
 - fillSpecialData:(speciallist_t *)special;
+- setDelegate: (id<SpecialListDelegate>)dg;
+- empty;
 
 @end
+

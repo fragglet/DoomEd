@@ -1,6 +1,7 @@
 #import "Storage.h"
 
 #import	"DoomProject.h"
+#import "SpecialList.h"
 #import	"idfunctions.h"
 #import <appkit/appkit.h>
 
@@ -15,7 +16,7 @@ typedef struct
 #define	SPACING		10
 #define	FLATSIZE	64
 
-@interface SectorEditor:NSObject
+@interface SectorEditor:NSObject<SpecialListDelegate>
 {
 	id	window_i;
 	id	sectorEditView_i;
@@ -42,7 +43,7 @@ typedef struct
 	CompatibleStorage *flatImages;
 	int	currentFlat;
 	
-	id	specialPanel_i;
+	SpecialList *specialPanel_i;
 }
 
 - setKey:sender;

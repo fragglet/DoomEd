@@ -1,13 +1,6 @@
 #import "SpecialList.h"
 #import "DoomProject.h"
 
-//
-//	Methods to be implemented by the delegate
-//
-@protocol SpecialList
-- specialChosen:(int)value;
-@end
-
 @implementation SpecialList
 
 //=====================================================================
@@ -52,7 +45,7 @@
 	return self;
 }
 
-- setDelegate:(id)dg
+- setDelegate: (id<SpecialListDelegate>)dg
 {
 	delegate = dg;
 	return self;
@@ -255,7 +248,7 @@
 
 	t = [specialList_i	elementAt:which];
 	[self	fillDataFromSpecial:t];
-	[delegate		specialChosen:t->value];
+	[delegate specialChosen:t->value];
 	return self;
 }
 

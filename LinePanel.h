@@ -3,7 +3,7 @@
 #import "EditWorld.h"
 #import "SpecialList.h"
 
-@interface LinePanel:NSObject
+@interface LinePanel:NSObject<SpecialListDelegate>
 {
 	id	p1_i;
 	id	p2_i;
@@ -65,6 +65,7 @@
 - updateLineSpecial;
 - activateSpecialList:sender;
 - updateLineSpecialsDSP:(FILE *)stream;
+- saveFrame;
 @end
 
 extern	LinePanel *linepanel_i;
