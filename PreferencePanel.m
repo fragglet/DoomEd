@@ -155,12 +155,12 @@ int			openupValues[NUMOPENUP];
 /*
 =====================
 =
-= appWillTerminate:
+= applicationWillTerminate:
 =
 =====================
 */
 
-- appWillTerminate:sender
+- applicationWillTerminate: (NSNotification *)notification
 {
 	int i;
 	NSString *string;

@@ -89,10 +89,11 @@ TexturePalette *texturePalette_i;
 	return self;
 }
 
-- windowDidMiniaturize:sender
+- windowDidMiniaturize:(NSNotification *)notification
 {
-	// TODO [sender setMiniwindowIcon:"DoomEd"];
-	[sender setMiniwindowTitle:@"TxPalette"];
+	NSWindow *window = [notification object];
+	// TODO [window setMiniwindowIcon:"DoomEd"];
+	[window setMiniwindowTitle:@"TxPalette"];
 	return self;
 }
 

@@ -267,17 +267,18 @@
 //	Delegate methods
 //
 //===================================================================
-- windowDidMiniaturize:sender
+- windowDidMiniaturize:(NSNotification *)notification
 {
-	//[sender	setMiniwindowIcon:"DoomEd"];
-	[sender	setMiniwindowTitle:frameName];
+	NSWindow *window = [notification object];
+	//[window setMiniwindowIcon:"DoomEd"];
+	[window setMiniwindowTitle:frameName];
 
 	return self;
 }
 
-- appWillTerminate:sender
+- applicationWillTerminate: (NSNotification *)notification
 {
-	[self	windowWillClose:NULL];
+	[self windowWillClose:NULL];
 	return self;
 }
 

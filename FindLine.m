@@ -157,7 +157,7 @@
 	}
 }
 
-- appWillTerminate:sender
+- applicationWillTerminate: (NSNotification *)notification
 {
 	if (window_i)
 		[window_i	saveFrameUsingName:PREFNAME];

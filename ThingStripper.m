@@ -34,17 +34,18 @@
 	return self;
 }
 
-- windowDidMiniaturize:sender
+- windowDidMiniaturize:(NSNotification *)notification
 {
-	//[sender	setMiniwindowIcon:"DoomEd"];
-	[sender	setMiniwindowTitle:@"ThingStrip"];
+	NSWindow *window = [notification object];
+	//[window setMiniwindowIcon:"DoomEd"];
+	[window setMiniwindowTitle:@"ThingStrip"];
 	return self;
 }
 
 //
 //	Empty list if window gets closed!
 //
-- windowWillClose:sender
+- windowWillClose:(NSNotification *)notification
 {
 	[thingStripPanel_i	saveFrameUsingName:THINGSTRIPNAME];
 	[thingList_i	empty];

@@ -67,10 +67,11 @@ id	thingpanel_i;
 	return self;
 }
 
-- windowDidMiniaturize:sender
+- windowDidMiniaturize:(NSNotification *)notification
 {
-	[sender	setMiniwindowIcon:"DoomEd"];
-	[sender	setMiniwindowTitle:"Things"];
+	NSWindow *window = [notification object];
+	//[window setMiniwindowIcon:"DoomEd"];
+	[window setMiniwindowTitle:@"Things"];
 	return self;
 }
 
@@ -847,10 +848,10 @@ id	thingpanel_i;
 ===================
 */
 
-- windowDidUpdate:sender
+- windowDidUpdate:(NSNotification *)notification
 {
 	[self updateInspector: YES];
-		
+
 	return self;
 }
 

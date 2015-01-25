@@ -203,7 +203,7 @@ int LineByPoint (NSPoint *ptin, int *side)
 	return self;
 }
 
-- appWillTerminate: sender
+- applicationWillTerminate: (NSNotification *)notification
 {
 	// FIXME: prompt to save map if dirty
 	if ([windowlist_i count] > 0)

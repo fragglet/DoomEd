@@ -84,7 +84,7 @@ typedef struct
 	NSSound *saveSound;				// Sound instance
 }
 
-- appWillTerminate: sender;
+- applicationWillTerminate: (NSNotification *)notification;
 - loadWorldFile: (char const *)path;
 - saveDoomEdMapBSP:sender;
 
@@ -116,7 +116,7 @@ typedef struct
 //
 // dealing with map windows
 //
-- windowWillClose: sender;
+- windowWillClose:(NSNotification *)notification;
 - (void) updateWindows;
 - addToDirtyRect: (int)p1 : (int)p2;
 - updateLineNormal:(int) num;

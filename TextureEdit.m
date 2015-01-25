@@ -129,10 +129,12 @@ CompatibleStorage *texturePatches;
 	return max;
 }
 
-- windowDidMiniaturize:sender
+- windowDidMiniaturize:(NSNotification *)notification
 {
-	//[sender	setMiniwindowIcon:"DoomEd"];
-	[sender	setMiniwindowTitle:@"TextureEdit"];
+	NSWindow *window = [notification object];
+
+	//[sender setMiniwindowIcon:"DoomEd"];
+	[window setMiniwindowTitle:@"TextureEdit"];
 	return self;
 }
 
@@ -1358,7 +1360,7 @@ CompatibleStorage *texturePatches;
 // user resized the Texture Edit window.
 // change the size of the patch palette.
 //
-- windowDidResize:sender
+- windowDidResize:(NSNotification *)notification
 {
 	NSRect	r;
 	

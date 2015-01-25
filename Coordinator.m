@@ -75,13 +75,13 @@ BOOL	debugflag = NO;
 }
 
 
-- appDidInit: sender
+- (void) applicationDidFinishLaunching: (NSNotification *) notification
 {
 	if (![doomproject_i loaded])
 		[doomproject_i loadProject: [prefpanel_i  getProjectPath] ];
 	[doomproject_i	setDirtyProject:FALSE];
 	[toolPanel_i	setFrameUsingName:TOOLNAME];
-	
+
 	if ([prefpanel_i	openUponLaunch:texturePalette] == TRUE)
 		[texturePalette_i	menuTarget:NULL];
 	if ([prefpanel_i	openUponLaunch:lineInspector] == TRUE)
@@ -101,17 +101,15 @@ BOOL	debugflag = NO;
 
 	startupSound_i = [NSSound soundNamed: @"D_Dbite"];
 	[startupSound_i	play];
-
-	return self;
 }
 
-- appWillTerminate: sender
+- applicationWillTerminate: (NSNotification *)notification
 {
 	[startupSound_i release];
 
 	[doomproject_i	quit];
-	[prefpanel_i appWillTerminate: self];
-	[editworld_i appWillTerminate: self];
+	[prefpanel_i applicationWillTerminate: self];
+	[editworld_i applicationWillTerminate: self];
 
 	[sectorEdit_i	saveFrame];
 	[textureEdit_i	saveFrame];

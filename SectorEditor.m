@@ -110,10 +110,11 @@ SectorEditor *sectorEdit_i;
 	return self;
 }
 
-- windowDidMiniaturize:sender
+- windowDidMiniaturize:(NSNotification *)notification
 {
-	[sender	setMiniwindowIcon:"DoomEd"];
-	[sender	setMiniwindowTitle:"SectorEdit"];
+	NSWindow *window = [notification object];
+	//[window setMiniwindowIcon:"DoomEd"];
+	[window setMiniwindowTitle:@"SectorEdit"];
 	return self;
 }
 
@@ -778,7 +779,7 @@ SectorEditor *sectorEdit_i;
 // user resized the Sector Editor window.
 // change the size of the flats/sector palettes.
 //
-- windowDidResize:sender
+- windowDidResize:(NSNotification *)notification
 {
 	[self		computeFlatDocView];
 	[window_i	display];

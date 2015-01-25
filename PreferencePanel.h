@@ -64,7 +64,7 @@ typedef enum
 - projectPathChanged:sender;
 - openupChanged:sender;
 
-- appWillTerminate: sender;
+- applicationWillTerminate: (NSNotification *)notification;
 
 //
 //	DoomEd accessor methods
