@@ -16,14 +16,17 @@ BOOL	linecross[9][9];
 
 @implementation MapView
 
-+ initialize
++ (void) initialize
 {
-	int	x1,y1,x2,y2;
-	
-	for (x1=0 ; x1<3 ; x1++)
-		for (y1=0 ; y1<3 ; y1++)
-			for (x2=0 ; x2<3 ; x2++)
-				for (y2=0 ; y2<3 ; y2++)
+	int x1, y1, x2, y2;
+
+	for (x1 = 0; x1 < 3 ; x1++)
+	{
+		for (y1 = 0; y1 < 3 ; y1++)
+		{
+			for (x2 = 0; x2 < 3 ; x2++)
+			{
+				for (y2 = 0; y2 < 3 ; y2++)
 				{
 					if  ( ( (x1<=1 && x2>=1) || (x1>=1 && x2<=1) ) 
 					&& ( (y1<=1 && y2>=1) || (y1>=1 && y2<=1) ) )
@@ -31,8 +34,9 @@ BOOL	linecross[9][9];
 					else
 						linecross[y1*3+x1][y2*3+x2] = NO;
 				}
-		
-	return self;
+			}
+		}
+	}
 }
 
 
@@ -197,22 +201,22 @@ printf ("Done\n");
 ===============================================================================
 */
 
-- cut: sender
+- (void) cut: sender
 {
 	[editworld_i cut:sender];
 }
 
-- copy: sender
+- (void) copy: sender
 {
 	[editworld_i copy:sender];
 }
 
-- paste: sender
+- (void) paste: sender
 {
 	[editworld_i paste:sender];
 }
 
-- delete: sender
+- (void) delete: sender
 {
 	[editworld_i delete:sender];
 }

@@ -36,7 +36,7 @@ int			openupValues[NUMOPENUP];
 	
 @implementation PreferencePanel
 
-+ initialize
++ (void) initialize
 {
 	static NXDefaultsVector defaults = 
 	{
@@ -72,8 +72,6 @@ int			openupValues[NUMOPENUP];
 	};
 
 	NXRegisterDefaults(APPDEFAULTS, defaults);
-
-	return self;
 }
 
 - (NSColor *) getColorFromString: (char const *)string
