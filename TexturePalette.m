@@ -140,7 +140,7 @@ TexturePalette *texturePalette_i;
 	//[t.image	 useCacheWithDepth:NX_TwelveBitRGBDepth];
 	//[t.image	lockFocusOn:[t.image lastRepresentation]];
 
-	//NXSetColor(NXConvertRGBAToColor(1,0,0,1));
+	//NXSetColor([NSColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]);
 	//NSRectFill(t.r);
 
 	for (i = 0; i < textures[which].patchcount; i++)

@@ -76,13 +76,12 @@ int			openupValues[NUMOPENUP];
 	return self;
 }
 
-- getColor: (NSColor *)clr fromString: (char const *)string
+- (NSColor *) getColorFromString: (char const *)string
 {
-	float	r,g,b;
-	
-	sscanf (string,"%f:%f:%f",&r,&g,&b);
-	*clr = NXConvertRGBToColor(r,g,b);
-	return self;
+	float r, g, b;
+
+	sscanf(string, "%f:%f:%f", &r, &g, &b);
+	return [NSColor colorWithRed:r green:g blue:b alpha:1.0];
 }
 
 - (NSString *) getStringFromColor: (NSColor *)clr
@@ -124,14 +123,14 @@ int			openupValues[NUMOPENUP];
 {
 	int		i;
 	int		val;
-	
+
 	prefpanel_i = self;
 	window_i = NULL;		// until nib is loaded
-	
+
 	for (i=0 ; i<NUMCOLORS ; i++)
-		[self getColor: &color[i]
-			fromString: NXGetDefaultValue(APPDEFAULTS, ucolornames[i])];
-		
+		color[i] = [self getColorFromString:
+		    NXGetDefaultValue(APPDEFAULTS, ucolornames[i])];
+
 	[self		getLaunchThingTypeFrom:
 				NXGetDefaultValue(APPDEFAULTS,launchTypeName)];
 

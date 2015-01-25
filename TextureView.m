@@ -66,10 +66,10 @@
 	ct = [textureEdit_i	getCurrentTexture];
 	if (ct < 0)
 		return self;
-		
-	NXSetColor(NXConvertRGBToColor(1,0,0));
+
+	NXSetColor([NSColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]);
 	NSRectFill(rects[0]);
-	
+
 	outlineflag = [textureEdit_i	getOutlineFlag];
 	PSsetgray(NX_DKGRAY);
 

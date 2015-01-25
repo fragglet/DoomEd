@@ -681,7 +681,7 @@ id	thingpanel_i;
 			thing->name,&thing->angle,&thing->value,&thing->option,
 			&r,&g,&b,thing->iconname) != 8)
 		return NO;
-	thing->color = NXConvertRGBToColor(r,g,b);
+	thing->color = [NSColor colorWithRed:r green:g blue:b alpha:1.0];
 	return YES;
 }
 
