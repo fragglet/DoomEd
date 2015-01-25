@@ -18,49 +18,42 @@
 //===================================================================
 - (void) keyDown:(NSEvent *)event
 {
-	char	key[2];
-	char	string2[32];
-	int		max;
-	int		i;
-	speciallist_t	*s;
+	NSString *string2;
+	speciallist_t *s;
 	CompatibleStorage *specialList_i;
-	int		found;
-	int		size;
-	int		tries;
-	
-	key[0] = [event keyCode];
-	strcat(string,key);
-	strupr(string);
-	size = strlen(string);
-		
+	int found;
+	int tries;
+	int i;
+
+	string = [string stringByAppendingString: [event characters]];
+
 	specialList_i = [parent_i  getSpecialList];
-	max = [specialList_i	count];
 	tries = 2;
-	while(tries)
+	while (tries > 0)
 	{
 		found = 0;
-		
-		for (i = 0;i < max; i++)
+
+		for (i = 0; i < [specialList_i count]; i++)
 		{
-			s = [specialList_i	elementAt:i];
-			strcpy(string2,s->desc);
-			strupr(string2);
-				
-			if (!strncmp(string,string2,size))
+			NSRange range = NSMakeRange(0, [string length]);
+
+			s = [specialList_i elementAt:i];
+			string2 = [NSString stringWithUTF8String: s->desc];
+
+			if ([string compare:string2
+			            options:NSCaseInsensitiveSearch
+			            range:range] == 0)
 			{
-				[parent_i	scrollToItem:i];
+				[parent_i scrollToItem:i];
 				found = 1;
 				tries = 0;
 				break;
 			}
 		}
-		
+
 		if (!found)
 		{
-			string[0] = key[0];
-			string[1] = 0;
-			strupr(string);
-			size = 1;
+			string = [event characters];
 			tries--;
 		}
 	}

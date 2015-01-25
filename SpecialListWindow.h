@@ -3,8 +3,8 @@
 
 @interface SpecialListWindow:NSWindow
 {
-	id	parent_i;
-	char	string[32];
+	id parent_i;
+	NSString *string;
 }
 
 - setParent:(id)p;
