@@ -65,7 +65,7 @@ typedef struct
 
 //===========================================================================
 
-@interface EditWorld : NSObject
+@interface EditWorld : NSObject<NSWindowDelegate>
 {
 	BOOL	loaded;
 	
@@ -73,7 +73,7 @@ typedef struct
 	BOOL	dirty, dirtypoints;		// set whenever the map is changed FIXME
 	NSRect	bounds;
 	BOOL	boundsdirty;
-	char		pathname[1024];
+	NSString *pathname;
 	NSRect	dirtyrect;
 	NSMutableArray *windowlist_i;	// all windows that display this world
 
@@ -85,7 +85,7 @@ typedef struct
 }
 
 - applicationWillTerminate: (NSNotification *)notification;
-- loadWorldFile: (char const *)path;
+- loadWorldFile: (NSString *)path;
 - saveDoomEdMapBSP:sender;
 
 - (BOOL)loaded;

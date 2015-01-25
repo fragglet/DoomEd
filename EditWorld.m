@@ -223,13 +223,13 @@ int LineByPoint (NSPoint *ptin, int *side)
 ==================
 */
 
-- loadWorldFile: (char const *)path
+- loadWorldFile: (NSString *)path
 {
 	FILE		*stream;
 	id		ret;
 	int		version;
 
-	strcpy (pathname,path);
+	pathname = path;
 	dirtyrect.size.width = dirtyrect.size.height = 0;
 	boundsdirty = YES;
 	
@@ -240,13 +240,12 @@ int LineByPoint (NSPoint *ptin, int *side)
 
 //
 // identify which map version the file is
-//		
-	stream = fopen (pathname,"r");
+//
+	stream = fopen([pathname UTF8String], "r");
 	if (!stream)
 	{
-		NSRunAlertPanel(@"Error",
-			@"Couldn't open %s",
-			nil, nil, nil, pathname);
+		NSRunAlertPanel(@"Error", @"Couldn't open %@",
+		                nil, nil, nil, pathname);
 		return nil;
 	}
 	version = -1;
@@ -261,18 +260,16 @@ int LineByPoint (NSPoint *ptin, int *side)
 	else
 	{
 		fclose (stream);
-		NSRunAlertPanel(@"Error",
-			@"Unknown file version for %s",
-			nil, nil, nil, pathname);
+		NSRunAlertPanel(@"Error", @"Unknown file version for %@",
+		                nil, nil, nil, pathname);
 		return nil;
 	}
 
 	if (!ret)
 	{
 		fclose (stream);
-		NSRunAlertPanel(@"Error",
-			@"Couldn't parse file %s",
-			nil, nil, nil, pathname);
+		NSRunAlertPanel(@"Error", @"Couldn't parse file %@",
+		                nil, nil, nil, pathname);
 		return nil;
 	}
 	
@@ -345,7 +342,7 @@ int LineByPoint (NSPoint *ptin, int *side)
 
 - newWindow:sender
 {
-	id	win;
+	MapWindow *win;
 
 	if (!loaded)
 	{
@@ -359,11 +356,11 @@ int LineByPoint (NSPoint *ptin, int *side)
 
 	[windowlist_i addObject: win];
 	[win setDelegate: self];
-	[win setTitleAsFilename: pathname];
-	[win	setFrameUsingName:WORLDNAME];
+	[win setTitleWithRepresentedFilename: pathname];
+	[win setFrameUsingName:WORLDNAME];
 	[win display];
 	[win makeKeyAndOrderFront:self];
-		
+
 	return self;
 }
 
@@ -374,12 +371,11 @@ int LineByPoint (NSPoint *ptin, int *side)
 //===============================================================
 - saveDoomEdMapBSP:sender
 {
-	char		string[1024];
-	char		toPath[128];
-	char		fromPath[128];
-	int			err;
-	FILE		*stream;
-	id			panel;
+	NSString *fromPath;
+	char string[1024];
+	int err;
+	FILE *stream;
+	id panel;
 
 	if (!loaded)
 	{
@@ -388,25 +384,25 @@ int LineByPoint (NSPoint *ptin, int *side)
 	}
 
 	printf ("Saving DoomEd map\n");
-	BackupFile (pathname); 
-	stream = fopen (pathname,"w");
+	BackupFile([pathname UTF8String]);
+	stream = fopen([pathname UTF8String], "w");
 	[self saveFile: stream];
 	fclose (stream);
-	
-	printf("Running DoomBSP on %s\n",pathname);
-	strcpy( fromPath, pathname);
-	strcpy( toPath, mapwads);
+
+	printf("Running DoomBSP on %s\n", [pathname UTF8String]);
+	fromPath = pathname;
 
 	panel = NSGetAlertPanel(@"Wait...",
 		@"Please wait while I BSP process this map.\n\n"
-		"Map: %s\nMapWADdir: %s\nBSPprogram:%s\nHost: %s",
+		"Map: %@\nMapWADdir: %s\nBSPprogram:%s\nHost: %s",
 		nil, nil, nil,
-		fromPath, toPath, bspprogram, bsphost);
+		fromPath, mapwads, bspprogram, bsphost);
 
 	[panel	orderFront:NULL];
 	NXPing();
 
-	sprintf( string, "rsh %s %s %s %s",bsphost,bspprogram,fromPath,toPath);
+	sprintf(string, "rsh %s %s %s %s", bsphost, bspprogram,
+	        [fromPath UTF8String], mapwads);
 	err = system(string);
 	if (err)
 	{
@@ -454,10 +450,10 @@ int LineByPoint (NSPoint *ptin, int *side)
 	NXPing ();
 
 	printf ("Saving DoomEd map\n");
-	BackupFile (pathname); 
-	stream = fopen (pathname,"w");
+	BackupFile([pathname UTF8String]); 
+	stream = fopen([pathname UTF8String], "w");
 	[self saveFile: stream];
-	fclose (stream);
+	fclose(stream);
 //	dirty = NO;
 	[doomproject_i	setDirtyMap:FALSE];
 
